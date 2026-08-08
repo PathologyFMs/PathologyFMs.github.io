@@ -23,7 +23,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **GPFM** | 2025 | 190M tiles, 96K WSIs | Unified knowledge distillation | [Paper](https://arxiv.org/abs/2407.18449) • [Code](https://github.com/birkhoffkiki/GPFM/) |
 | **Midnight** | 2025 | 12K / 92K WSIs | Data-efficient DINOv2 optimization | [Paper](https://arxiv.org/abs/2504.05186) • [Code](https://github.com/kaiko-ai/midnight) |
 | **H-optimus-0** | 2025 | 500K WSIs | SSL Pretraining, FM Distillation | [Paper](https://arxiv.org/abs/2501.16239v1) • [Code](https://github.com/bioptimus/releases/tree/main/models/h-optimus/v0) • [Model](https://huggingface.co/bioptimus/H-optimus-0) |
-| **PathOrchestra** | 2025 | 27K WSIs, 100 tasks | Evaluated on 112 clinical tasks | [Paper](https://doi.org/10.1038/s41591-024-03200-4) • [Model](https://huggingface.co/AI4Pathology/PathOrchestra) |
+| **PathOrchestra** | 2025 | 27K WSIs, 100 tasks | Evaluated on 112 clinical tasks | [Paper](https://arxiv.org/abs/2503.24345) • [Model](https://huggingface.co/AI4Pathology/PathOrchestra) |
 | **GenBio-PathFM** | 2026 | 177K WSIs | JEDI (JEPA+DINO) dual-stage learning | [Paper](https://www.biorxiv.org/content/10.64898/2026.03.17.712534v1) • [Code](https://github.com/genbio-ai/genbio-pathfm) |
 | **Phaet** | 2026 | --- | Robustness-tuned Phikon-v2 | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/phaet) |
 | **Mascaret** | 2026 | --- | Robustness-tuned Midnight-12k | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/mascaret) |
