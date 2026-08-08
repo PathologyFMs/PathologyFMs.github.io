@@ -72,7 +72,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 |---|---|---|---|---|
 | **MuPD** | 2026 | 100M patches | Multimodal Pathology Diffusion Model | [Paper](https://arxiv.org/abs/2604.03635) • [Code](https://github.com/lilab-stanford/MUPAD) • [Model](https://huggingface.co/collections/xiangjx/mupad-multimodal-pathology-diffusion-model) |
 
-## ⚗️ Foundation Model Distillation
+## ⚗️ Foundation Model Distillation/Fusion/Ensemble
 
 | Model | Year | Pretraining Data | Key Idea | Resources |
 |---|---|---|---|---|

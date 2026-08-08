@@ -64,7 +64,7 @@ const modelData = [
     ]
   },
   {
-    category: "Foundation Model Distillation",
+    category: "Foundation Model Distillation/Fusion/Ensemble",
     models: [
       { name: "ALICE", year: 2026, data: "24.9M tiles + 155K high-res images", idea: "Agglomerative distillation from 8 teachers", github: "https://github.com/WonderLandxD/ALICE", hf: "", paper: "https://arxiv.org/pdf/2607.09526" }
     ]
