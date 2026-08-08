@@ -71,7 +71,8 @@ const modelData = [
       { name: "ALICE", year: 2026, data: "24.9M tiles + 155K high-res images", idea: "Agglomerative distillation from 8 teachers", github: "https://github.com/WonderLandxD/ALICE", hf: "", paper: "https://arxiv.org/pdf/2607.09526" },
       { name: "Shazam", year: 2026, data: "Fuses 5 models (UNI 2, Virchow2, H-optimus-1, Prov-Gigapath, Phikon-v2)", idea: "Online integration and distillation of multiple PFMs via adaptive expert weighting", github: "", hf: "", paper: "https://arxiv.org/abs/2503.00736" },
       { name: "ELF", year: 2025, data: "53K WSIs (20 anatomical sites)", idea: "Ensemble learning of 5 foundation models to generate unified slide-level representations", github: "https://github.com/lilab-stanford/ELF", hf: "", paper: "https://arxiv.org/abs/2508.16085" },
-      { name: "ASTRA", year: 2026, data: "10.3K WSIs (CHTN cohort)", idea: "Integrates heterogeneous foundation-model representations via sparse mixture-of-experts and contrastive alignment", github: "", hf: "", paper: "https://arxiv.org/abs/2604.22846" }
+      { name: "ASTRA", year: 2026, data: "10.3K WSIs (CHTN cohort)", idea: "Integrates heterogeneous foundation-model representations via sparse mixture-of-experts and contrastive alignment", github: "", hf: "", paper: "https://arxiv.org/abs/2604.22846" },
+      { name: "COBRA", year: 2025, data: "3048 WSIs", idea: "Self-supervised slide representation learning by integrating tile embeddings from multiple FMs using Mamba2", github: "https://github.com/KatherLab/COBRA", hf: "", paper: "https://arxiv.org/abs/2411.13623" }
     ]
   },
   {
