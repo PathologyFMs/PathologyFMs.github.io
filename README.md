@@ -49,6 +49,8 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **PRISM2** | 2026 | 2.3M WSIs | Clinical Dialogue Multimodal Pretraining | [Paper](https://arxiv.org/abs/2506.13063) • [Model](https://huggingface.co/paige-ai/Prism2) |
 | **EXAONE Path 2.0** | 2025 | 37K WSIs | End-to-end hierarchical learning with direct slide-level supervision | [Paper](https://arxiv.org/pdf/2507.06639) |
 | **MOOZY** | 2026 | 77K WSIs | Patient-first case-level aggregator via explicit inter-slide modeling | [Paper](https://arxiv.org/abs/2603.27048) • [Code](https://github.com/AtlasAnalyticsLab/MOOZY) |
+| **GigaPath-Flash** | 2026 | Real-world Providence cohort | Efficient 43M ViT-S+LongNet whole-slide foundation model | [Paper](https://arxiv.org/abs/2607.18218) |
+| **GigaTIME-Flash** | 2026 | Real-world Providence cohort | Efficient spatial proteomics prediction from H&E | [Paper](https://arxiv.org/abs/2607.18218) |
 
 ---
 
