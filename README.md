@@ -36,11 +36,9 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 
 | Model | Year | Pretraining Data | Key Idea | Resources |
 |---|---|---|---|---|
-| **Tangle** | 2024 | 8.6K paired | Transcriptomics-aligned slide representation | [Paper](https://arxiv.org/abs/2405.11618) • [Code](https://github.com/mahmoodlab/Tangle) |
 | **PRISM** | 2024 | Virchow tiles + reports | Generative model via Virchow tiles | [Paper](https://arxiv.org/abs/2405.10254) • [Model](https://huggingface.co/paige-ai/Prism) |
 | **CHIEF** | 2024 | 60K WSIs, 19 sites | Weakly supervised slide pattern recognition | [Paper](https://www.nature.com/articles/s41586-024-07894-z) • [Code](https://github.com/hms-dbmi/CHIEF) |
 | **TITAN** | 2025 | 335K WSIs + reports | Whole-slide alignment with reports | [Paper](https://www.nature.com/articles/s41591-025-03982-3) • [Code](https://github.com/mahmoodlab/TITAN) • [Model](https://huggingface.co/MahmoodLab/TITAN) |
-| **mSTAR** | 2025 | 26K paired triplets | Slide, report, and RNA-seq integration | [Paper](https://www.nature.com/articles/s41467-025-66220-x) • [Code](https://github.com/Innse/mSTAR) • [Model](https://huggingface.co/Wangyh/mSTAR) |
 | **CPath-Omni** | 2025 | 700k image-caption + WSI report | Unified Patch–Slide Multimodal Model | [Paper](https://arxiv.org/pdf/2412.12077) • [Code](https://github.com/PathFoundation/CPath-Omni) |
 | **Feather** | 2025 | 3,499 WSIs | Transferable Pretrained MIL Models | [Paper](https://arxiv.org/abs/2506.09022) • [Code](https://github.com/mahmoodlab/MIL-Lab) • [Model](https://huggingface.co/collections/MahmoodLab/feather) |
 | **Madeleine** | 2025 | 4,211 WSIs | Multistain Cross-Stain Slide Pretraining | [Paper](https://arxiv.org/pdf/2408.02859) • [Code](https://github.com/mahmoodlab/MADELEINE) • [Model](https://huggingface.co/MahmoodLab/madeleine) |
@@ -60,6 +58,8 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **KRONOS** | 2025 | 47M patches | Foundation model built for spatial proteomics via segmentation-free patch-level processing | [Paper](https://arxiv.org/abs/2506.03373) • [Code](https://github.com/mahmoodlab/KRONOS) • [Model](https://huggingface.co/MahmoodLab/KRONOS) |
 | **Threads** | 2025 | 47K paired | Multi-omics driven representation | [Paper](https://arxiv.org/html/2501.16652v1) |
 | **CARE** | 2026 | 34K WSIs | Molecular-Guided Adaptive Region Modeling | [Paper](https://arxiv.org/abs/2602.21637) • [Code](https://github.com/zdipath/CARE) • [Model](https://huggingface.co/Zipper-1/CARE) |
+| **Tangle** | 2024 | 8.6K paired | Transcriptomics-aligned slide representation | [Paper](https://arxiv.org/abs/2405.11618) • [Code](https://github.com/mahmoodlab/Tangle) |
+| **mSTAR** | 2025 | 26K paired triplets | Slide, report, and RNA-seq integration | [Paper](https://www.nature.com/articles/s41467-025-66220-x) • [Code](https://github.com/Innse/mSTAR) • [Model](https://huggingface.co/Wangyh/mSTAR) |
 
 ---
 

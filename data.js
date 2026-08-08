@@ -30,11 +30,9 @@ const modelData = [
   {
     category: "Slide-level / Multimodal Foundation Models",
     models: [
-      { name: "Tangle", year: 2024, data: "8.6K paired (slide + RNA-seq)", idea: "Transcriptomics-aligned slide representation", github: "https://github.com/mahmoodlab/Tangle", hf: "", paper: "https://arxiv.org/abs/2405.11618" },
       { name: "PRISM", year: 2024, data: "Virchow tiles + reports", idea: "Generative model via Virchow tiles", github: "", hf: "https://huggingface.co/paige-ai/Prism", paper: "https://arxiv.org/abs/2405.10254" },
       { name: "CHIEF", year: 2024, data: "60K WSIs, 19 sites", idea: "Weakly supervised slide pattern recognition", github: "https://github.com/hms-dbmi/CHIEF", hf: "", paper: "https://www.nature.com/articles/s41586-024-07894-z" },
       { name: "TITAN", year: 2025, data: "335K WSIs + reports", idea: "Whole-slide alignment with reports", github: "https://github.com/mahmoodlab/TITAN", hf: "https://huggingface.co/MahmoodLab/TITAN", paper: "https://www.nature.com/articles/s41591-025-03982-3" },
-      { name: "mSTAR", year: 2025, data: "26K paired triplets", idea: "Slide, report, and RNA-seq integration", github: "https://github.com/Innse/mSTAR", hf: "https://huggingface.co/Wangyh/mSTAR", paper: "https://www.nature.com/articles/s41467-025-66220-x" },
       { name: "CPath-Omni", year: 2025, data: "700k image-caption + WSI report", idea: "Unified Patch–Slide Multimodal Model", github: "https://github.com/PathFoundation/CPath-Omni", hf: "", paper: "https://arxiv.org/pdf/2412.12077" },
       { name: "Feather", year: 2025, data: "3,499 WSIs", idea: "Transferable Pretrained MIL Models", github: "https://github.com/mahmoodlab/MIL-Lab", hf: "https://huggingface.co/collections/MahmoodLab/feather", paper: "https://arxiv.org/abs/2506.09022" },
       { name: "Madeleine", year: 2025, data: "4,211 WSIs (Paired Multi-Stain)", idea: "Multistain Cross-Stain Slide Pretraining", github: "https://github.com/mahmoodlab/MADELEINE", hf: "https://huggingface.co/MahmoodLab/madeleine", paper: "https://arxiv.org/pdf/2408.02859" },
@@ -51,7 +49,9 @@ const modelData = [
     models: [
       { name: "KRONOS", year: 2025, data: "47M patches", idea: "Foundation model built for spatial proteomics via segmentation-free patch-level processing", github: "https://github.com/mahmoodlab/KRONOS", hf: "https://huggingface.co/MahmoodLab/KRONOS", paper: "https://arxiv.org/abs/2506.03373" },
       { name: "Threads", year: 2025, data: "47K paired (H&E + multi-omics)", idea: "Multi-omics driven representation", github: "", hf: "", paper: "https://arxiv.org/html/2501.16652v1" },
-      { name: "CARE", year: 2026, data: "34K WSIs", idea: "Molecular-Guided Adaptive Region Modeling", github: "https://github.com/zdipath/CARE", hf: "https://huggingface.co/Zipper-1/CARE", paper: "https://arxiv.org/abs/2602.21637" }
+      { name: "CARE", year: 2026, data: "34K WSIs", idea: "Molecular-Guided Adaptive Region Modeling", github: "https://github.com/zdipath/CARE", hf: "https://huggingface.co/Zipper-1/CARE", paper: "https://arxiv.org/abs/2602.21637" },
+      { name: "Tangle", year: 2024, data: "8.6K paired (slide + RNA-seq)", idea: "Transcriptomics-aligned slide representation", github: "https://github.com/mahmoodlab/Tangle", hf: "", paper: "https://arxiv.org/abs/2405.11618" },
+      { name: "mSTAR", year: 2025, data: "26K paired triplets", idea: "Slide, report, and RNA-seq integration", github: "https://github.com/Innse/mSTAR", hf: "https://huggingface.co/Wangyh/mSTAR", paper: "https://www.nature.com/articles/s41467-025-66220-x" }
     ]
   },
   {
