@@ -405,6 +405,15 @@ body.light-mode .tag-gray { color: #4b5563; }
     color: #b45309;
 }
 
+.link-website {
+    background: #e1bee7;
+    color: #6a1b9a;
+}
+
+.link-website:hover {
+    background: #ce93d8;
+}
+
 footer {
     text-align: center;
     padding: 3rem 0;

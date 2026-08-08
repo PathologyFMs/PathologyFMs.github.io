@@ -60,6 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (model.hf) {
                     linksHTML += `<a href="${model.hf}" target="_blank" class="link-btn link-hf"><i class="ph ph-cube"></i> Model</a>`;
                 }
+                if (model.website) {
+                    linksHTML += `<a href="${model.website}" target="_blank" class="link-btn link-website"><i class="ph ph-globe"></i> Website</a>`;
+                }
 
                 card.innerHTML = `
                     <div class="card-header">
