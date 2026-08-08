@@ -82,7 +82,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Shazam** | 2026 | Fuses 5 models (UNI 2, Virchow2, H-optimus-1, Prov-Gigapath, Phikon-v2) | Online integration and distillation of multiple PFMs via adaptive expert weighting | [Paper](https://arxiv.org/abs/2503.00736) |
 | **ELF** | 2025 | 53K WSIs (20 anatomical sites) | Ensemble learning of 5 foundation models to generate unified slide-level representations | [Paper](https://arxiv.org/abs/2508.16085) • [Code](https://github.com/lilab-stanford/ELF) |
 | **ASTRA** | 2026 | 10.3K WSIs (CHTN cohort) | Integrates heterogeneous foundation-model representations via sparse mixture-of-experts and contrastive alignment | [Paper](https://arxiv.org/abs/2604.22846) |
-| **COBRA** | 2025 | 3048 WSIs | Self-supervised slide representation learning by integrating tile embeddings from multiple FMs using Mamba2 | [Paper](https://arxiv.org/abs/2411.13623) • [Code](https://github.com/KatherLab/COBRA) |
+| **COBRA** | 2025 | 3048 WSIs | Self-supervised slide representation learning by integrating tile embeddings from multiple FMs using Mamba2 | [Paper](https://arxiv.org/abs/2411.13623) • [Code](https://github.com/KatherLab/COBRA) • [Model](https://huggingface.co/KatherLab/COBRA) |
 
 
 ## 📊 Foundation Model Benchmarking
