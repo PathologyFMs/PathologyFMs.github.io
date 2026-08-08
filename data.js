@@ -66,7 +66,8 @@ const modelData = [
   {
     category: "Foundation Model Distillation/Fusion/Ensemble",
     models: [
-      { name: "ALICE", year: 2026, data: "24.9M tiles + 155K high-res images", idea: "Agglomerative distillation from 8 teachers", github: "https://github.com/WonderLandxD/ALICE", hf: "", paper: "https://arxiv.org/pdf/2607.09526" }
+      { name: "ALICE", year: 2026, data: "24.9M tiles + 155K high-res images", idea: "Agglomerative distillation from 8 teachers", github: "https://github.com/WonderLandxD/ALICE", hf: "", paper: "https://arxiv.org/pdf/2607.09526" },
+      { name: "Shazam", year: 2026, data: "Fuses 5 models (UNI 2, Virchow2, H-optimus-1, Prov-Gigapath, Phikon-v2)", idea: "Online integration and distillation of multiple PFMs via adaptive expert weighting", github: "", hf: "", paper: "https://arxiv.org/abs/2503.00736" }
     ]
   },
   {
