@@ -46,6 +46,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Madeleine** | 2025 | 4,211 WSIs | Multistain Cross-Stain Slide Pretraining | [Paper](https://arxiv.org/pdf/2408.02859) • [Code](https://github.com/mahmoodlab/MADELEINE) • [Model](https://huggingface.co/MahmoodLab/madeleine) |
 | **CARE** | 2026 | 34K WSIs | Molecular-Guided Adaptive Region Modeling | [Paper](https://arxiv.org/abs/2602.21637) • [Code](https://github.com/zdipath/CARE) • [Model](https://huggingface.co/Zipper-1/CARE) |
 | **PRISM2** | 2026 | 2.3M WSIs | Clinical Dialogue Multimodal Pretraining | [Paper](https://arxiv.org/abs/2506.13063) • [Model](https://huggingface.co/paige-ai/Prism2) |
+| **EXAONE Path 2.0** | 2025 | 37K WSIs | End-to-end hierarchical learning with direct slide-level supervision | [Paper](https://arxiv.org/pdf/2507.06639) |
 
 ---
 
