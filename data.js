@@ -40,8 +40,7 @@ const modelData = [
       { name: "EXAONE Path 2.0", year: 2025, data: "37K WSIs", idea: "End-to-end hierarchical learning with direct slide-level supervision", github: "", hf: "", paper: "https://arxiv.org/pdf/2507.06639" },
       { name: "EXAONE Path 2.5", year: 2025, data: "37K WSIs", idea: "End-to-end hierarchical learning with direct slide-level supervision", github: "", hf: "https://huggingface.co/LGAI-EXAONE/EXAONE-Path-2.5", paper: "https://arxiv.org/abs/2512.14019" },
       { name: "MOOZY", year: 2026, data: "77K WSIs", idea: "Patient-first case-level aggregator via explicit inter-slide modeling", github: "https://github.com/AtlasAnalyticsLab/MOOZY", hf: "", paper: "https://arxiv.org/abs/2603.27048" },
-      { name: "GigaPath-Flash", year: 2026, data: "Real-world Providence cohort", idea: "Efficient 43M ViT-S+LongNet whole-slide foundation model", github: "", hf: "https://huggingface.co/prov-gigapath/prov-gigapath-flash", paper: "https://arxiv.org/abs/2607.18218" },
-      { name: "GigaTIME-Flash", year: 2026, data: "Real-world Providence cohort", idea: "Efficient spatial proteomics prediction from H&E", github: "", hf: "https://huggingface.co/prov-gigatime/gigatime-flash", paper: "https://arxiv.org/abs/2607.18218" }
+      { name: "GigaPath-Flash", year: 2026, data: "Real-world Providence cohort", idea: "Efficient 43M ViT-S+LongNet whole-slide foundation model", github: "", hf: "https://huggingface.co/prov-gigapath/prov-gigapath-flash", paper: "https://arxiv.org/abs/2607.18218" }
     ]
   },
   {
@@ -51,7 +50,8 @@ const modelData = [
       { name: "Threads", year: 2025, data: "47K paired (H&E + multi-omics)", idea: "Multi-omics driven representation", github: "", hf: "", paper: "https://arxiv.org/html/2501.16652v1" },
       { name: "CARE", year: 2026, data: "34K WSIs", idea: "Molecular-Guided Adaptive Region Modeling", github: "https://github.com/zdipath/CARE", hf: "https://huggingface.co/Zipper-1/CARE", paper: "https://arxiv.org/abs/2602.21637" },
       { name: "Tangle", year: 2024, data: "8.6K paired (slide + RNA-seq)", idea: "Transcriptomics-aligned slide representation", github: "https://github.com/mahmoodlab/Tangle", hf: "", paper: "https://arxiv.org/abs/2405.11618" },
-      { name: "mSTAR", year: 2025, data: "26K paired triplets", idea: "Slide, report, and RNA-seq integration", github: "https://github.com/Innse/mSTAR", hf: "https://huggingface.co/Wangyh/mSTAR", paper: "https://www.nature.com/articles/s41467-025-66220-x" }
+      { name: "mSTAR", year: 2025, data: "26K paired triplets", idea: "Slide, report, and RNA-seq integration", github: "https://github.com/Innse/mSTAR", hf: "https://huggingface.co/Wangyh/mSTAR", paper: "https://www.nature.com/articles/s41467-025-66220-x" },
+      { name: "GigaTIME-Flash", year: 2026, data: "Real-world Providence cohort", idea: "Efficient spatial proteomics prediction from H&E", github: "", hf: "https://huggingface.co/prov-gigatime/gigatime-flash", paper: "https://arxiv.org/abs/2607.18218" }
     ]
   },
   {
