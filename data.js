@@ -30,9 +30,11 @@ const modelData = [
   {
     category: "Slide-level / Multimodal Foundation Models",
     models: [
+      { name: "Tangle", year: 2024, data: "8.6K paired (slide + RNA-seq)", idea: "Transcriptomics-aligned slide representation", github: "https://github.com/mahmoodlab/Tangle", hf: "", paper: "https://arxiv.org/abs/2405.11618" },
       { name: "PRISM", year: 2024, data: "Virchow tiles + reports", idea: "Generative model via Virchow tiles", github: "", hf: "https://huggingface.co/paige-ai/Prism", paper: "https://arxiv.org/abs/2405.10254" },
       { name: "CHIEF", year: 2024, data: "60K WSIs, 19 sites", idea: "Weakly supervised slide pattern recognition", github: "https://github.com/hms-dbmi/CHIEF", hf: "", paper: "https://www.nature.com/articles/s41586-024-07894-z" },
       { name: "TITAN", year: 2025, data: "335K WSIs + reports", idea: "Whole-slide alignment with reports", github: "https://github.com/mahmoodlab/TITAN", hf: "https://huggingface.co/MahmoodLab/TITAN", paper: "https://www.nature.com/articles/s41591-025-03982-3" },
+      { name: "mSTAR", year: 2025, data: "26K paired triplets", idea: "Slide, report, and RNA-seq integration", github: "https://github.com/Innse/mSTAR", hf: "https://huggingface.co/Wangyh/mSTAR", paper: "https://www.nature.com/articles/s41467-025-66220-x" },
       { name: "CPath-Omni", year: 2025, data: "700k image-caption + WSI report", idea: "Unified Patch–Slide Multimodal Model", github: "https://github.com/PathFoundation/CPath-Omni", hf: "", paper: "https://arxiv.org/pdf/2412.12077" },
       { name: "Feather", year: 2025, data: "3,499 WSIs", idea: "Transferable Pretrained MIL Models", github: "https://github.com/mahmoodlab/MIL-Lab", hf: "https://huggingface.co/collections/MahmoodLab/feather", paper: "https://arxiv.org/abs/2506.09022" },
       { name: "Madeleine", year: 2025, data: "4,211 WSIs (Paired Multi-Stain)", idea: "Multistain Cross-Stain Slide Pretraining", github: "https://github.com/mahmoodlab/MADELEINE", hf: "https://huggingface.co/MahmoodLab/madeleine", paper: "https://arxiv.org/pdf/2408.02859" },
@@ -40,7 +42,8 @@ const modelData = [
       { name: "EXAONE Path 2.0", year: 2025, data: "37K WSIs", idea: "End-to-end hierarchical learning with direct slide-level supervision", github: "", hf: "", paper: "https://arxiv.org/pdf/2507.06639" },
       { name: "EXAONE Path 2.5", year: 2025, data: "37K WSIs", idea: "End-to-end hierarchical learning with direct slide-level supervision", github: "", hf: "https://huggingface.co/LGAI-EXAONE/EXAONE-Path-2.5", paper: "https://arxiv.org/abs/2512.14019" },
       { name: "MOOZY", year: 2026, data: "77K WSIs", idea: "Patient-first case-level aggregator via explicit inter-slide modeling", github: "https://github.com/AtlasAnalyticsLab/MOOZY", hf: "", paper: "https://arxiv.org/abs/2603.27048" },
-      { name: "GigaPath-Flash", year: 2026, data: "Real-world Providence cohort", idea: "Efficient 43M ViT-S+LongNet whole-slide foundation model", github: "", hf: "https://huggingface.co/prov-gigapath/prov-gigapath-flash", paper: "https://arxiv.org/abs/2607.18218" }
+      { name: "GigaPath-Flash", year: 2026, data: "Real-world Providence cohort", idea: "Efficient 43M ViT-S+LongNet whole-slide foundation model", github: "", hf: "https://huggingface.co/prov-gigapath/prov-gigapath-flash", paper: "https://arxiv.org/abs/2607.18218" },
+      { name: "GigaTIME-Flash", year: 2026, data: "Real-world Providence cohort", idea: "Efficient spatial proteomics prediction from H&E", github: "", hf: "https://huggingface.co/prov-gigatime/gigatime-flash", paper: "https://arxiv.org/abs/2607.18218" }
     ]
   },
   {
@@ -48,10 +51,7 @@ const modelData = [
     models: [
       { name: "KRONOS", year: 2025, data: "47M patches", idea: "Foundation model built for spatial proteomics via segmentation-free patch-level processing", github: "https://github.com/mahmoodlab/KRONOS", hf: "https://huggingface.co/MahmoodLab/KRONOS", paper: "https://arxiv.org/abs/2506.03373" },
       { name: "Threads", year: 2025, data: "47K paired (H&E + multi-omics)", idea: "Multi-omics driven representation", github: "", hf: "", paper: "https://arxiv.org/html/2501.16652v1" },
-      { name: "CARE", year: 2026, data: "34K WSIs", idea: "Molecular-Guided Adaptive Region Modeling", github: "https://github.com/zdipath/CARE", hf: "https://huggingface.co/Zipper-1/CARE", paper: "https://arxiv.org/abs/2602.21637" },
-      { name: "Tangle", year: 2024, data: "8.6K paired (slide + RNA-seq)", idea: "Transcriptomics-aligned slide representation", github: "https://github.com/mahmoodlab/Tangle", hf: "", paper: "https://arxiv.org/abs/2405.11618" },
-      { name: "mSTAR", year: 2025, data: "26K paired triplets", idea: "Slide, report, and RNA-seq integration", github: "https://github.com/Innse/mSTAR", hf: "https://huggingface.co/Wangyh/mSTAR", paper: "https://www.nature.com/articles/s41467-025-66220-x" },
-      { name: "GigaTIME-Flash", year: 2026, data: "Real-world Providence cohort", idea: "Efficient spatial proteomics prediction from H&E", github: "", hf: "https://huggingface.co/prov-gigatime/gigatime-flash", paper: "https://arxiv.org/abs/2607.18218" }
+      { name: "CARE", year: 2026, data: "34K WSIs", idea: "Molecular-Guided Adaptive Region Modeling", github: "https://github.com/zdipath/CARE", hf: "https://huggingface.co/Zipper-1/CARE", paper: "https://arxiv.org/abs/2602.21637" }
     ]
   },
   {
@@ -60,7 +60,12 @@ const modelData = [
       { name: "PLIP", year: 2023, data: "208K image-text pairs", idea: "Pretrained on medical Twitter", github: "https://github.com/pathologyfoundation/plip", hf: "https://huggingface.co/vinid/plip", paper: "https://doi.org/10.1038/s41591-023-02504-3" },
       { name: "CONCH", year: 2024, data: "1.17M image-text pairs", idea: "CoCa-based task-agnostic pretraining", github: "https://github.com/mahmoodlab/CONCH", hf: "https://huggingface.co/MahmoodLab/CONCH", paper: "https://doi.org/10.1038/s41591-024-02856-4" },
       { name: "MUSK", year: 2025, data: "50M images + 1B text tokens", idea: "Unified masked modeling", github: "https://github.com/lilab-stanford/MUSK", hf: "", paper: "https://www.nature.com/articles/s41586-024-08378-w" },
-      { name: "KEEP", year: 2026, data: "143K knowledge-grouped pairs", idea: "Disease knowledge graph integration", github: "https://github.com/MAGIC-AI4Med/KEEP", hf: "https://huggingface.co/Astaxanthin/KEEP", paper: "https://arxiv.org/abs/2412.13126" },
+      { name: "KEEP", year: 2026, data: "143K knowledge-grouped pairs", idea: "Disease knowledge graph integration", github: "https://github.com/MAGIC-AI4Med/KEEP", hf: "https://huggingface.co/Astaxanthin/KEEP", paper: "https://arxiv.org/abs/2412.13126" }
+    ]
+  },
+  {
+    category: "Segmentation & Interactive Foundation Models",
+    models: [
       { name: "VISTA-PATH", year: 2026, data: "1.65M triplets (Image + Mask + Text)", idea: "Interactive Class-Aware Segmentation", github: "https://github.com/zhihuanglab/VISTA-PATH", hf: "", paper: "https://arxiv.org/abs/2601.16451" }
     ]
   },

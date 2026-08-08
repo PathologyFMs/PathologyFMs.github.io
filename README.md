@@ -71,6 +71,13 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **CONCH** | 2024 | 1.17M image-text pairs | CoCa-based task-agnostic pretraining | [Paper](https://doi.org/10.1038/s41591-024-02856-4) • [Code](https://github.com/mahmoodlab/CONCH) • [Model](https://huggingface.co/MahmoodLab/CONCH) |
 | **MUSK** | 2025 | 50M images + 1B text tokens | Unified masked modeling | [Paper](https://www.nature.com/articles/s41586-024-08378-w) • [Code](https://github.com/lilab-stanford/MUSK) |
 | **KEEP** | 2026 | 143K knowledge-grouped pairs | Disease knowledge graph integration | [Paper](https://arxiv.org/abs/2412.13126) • [Code](https://github.com/MAGIC-AI4Med/KEEP) • [Model](https://huggingface.co/Astaxanthin/KEEP) |
+
+---
+
+## 🎯 Segmentation & Interactive Foundation Models
+
+| Model | Year | Pretraining Data | Key Idea | Resources |
+|---|---|---|---|---|
 | **VISTA-PATH** | 2026 | 1.65M triplets | Interactive Class-Aware Segmentation | [Paper](https://arxiv.org/abs/2601.16451) • [Code](https://github.com/zhihuanglab/VISTA-PATH) |
 
 ---

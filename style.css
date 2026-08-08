@@ -322,6 +322,12 @@ body.light-mode .tag-pink { color: #db2777; }
 }
 body.light-mode .tag-gray { color: #4b5563; }
 
+.tag-yellow {
+    background-color: rgba(234, 179, 8, 0.15);
+    color: #eab308;
+}
+body.light-mode .tag-yellow { color: #ca8a04; }
+
 .tag-orange {
     background-color: rgba(249, 115, 22, 0.15);
     color: #fb923c;
