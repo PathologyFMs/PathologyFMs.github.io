@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (category.includes('Generative')) return { text: 'generative', color: 'pink' };
         if (category.includes('Distillation')) return { text: 'distillation', color: 'gray' };
         if (category.includes('Benchmarking')) return { text: 'benchmarking', color: 'orange' };
+        if (category.includes('Molecular')) return { text: 'molecular', color: 'green' };
         return { text: 'control', color: 'gray' };
     }
 
