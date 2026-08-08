@@ -29,7 +29,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Rudolfv2** | 2026 | 300K+ WSIs | Robust Multi-Scale SSL Pretraining | [Paper](https://cdn.prod.website-files.com/67adb01f31489469b513304a/6a74e2f9f1d4aef06489a3f1_RudolfV_2_260806.pdf) • [Model](https://huggingface.co/Aignostics/RudolfV-2) |
 | **Atlas 2** | 2026 | 5.5M WSIs | 2B params, robust evaluation on 80 benchmarks | [Paper](https://arxiv.org/pdf/2601.05148) |
 | **GRACE** | 2026 | 48K WSIs | Gastric-specific foundation model for Real-world Assessment and Clinical dEcision support | [Paper](https://arxiv.org/abs/2606.04792) |
-| **KRONOS** | 2025 | 47M patches | Foundation model built for spatial proteomics via segmentation-free patch-level processing | [Paper](https://arxiv.org/abs/2506.03373) • [Code](https://github.com/mahmoodlab/KRONOS) |
+| **KRONOS** | 2025 | 47M patches | Foundation model built for spatial proteomics via segmentation-free patch-level processing | [Paper](https://arxiv.org/abs/2506.03373) • [Code](https://github.com/mahmoodlab/KRONOS) • [Model](https://huggingface.co/MahmoodLab/KRONOS) |
 
 ---
 
