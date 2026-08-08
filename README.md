@@ -87,3 +87,20 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Clinical Benchmark** | 2025 | Slide | Clinical benchmark with MSHS and MSKCC datasets covering disease detection and biomarker prediction | [Paper](https://www.nature.com/articles/s41467-025-58796-1.pdf) • [Code](https://github.com/sinai-computational-pathology/SSL_tile_benchmarks#automated-external-benchmarking) |
 | **PathBench** | 2025 | Slide & Patch | Leakage-free multi-center clinical benchmark spanning multiple tasks, with a live public leaderboard | [Paper](https://arxiv.org/abs/2505.20202) • [Code](https://github.com/birkhoffkiki/PathBench) |
 | **Standford PathBench** | 2026 | Slide & Patch | Comprehensive benchmark of 32 PFMs across 41 tasks with a public leaderboard | [Paper](https://www.nature.com/articles/s41467-026-76004-6) |
+
+---
+
+## 📝 Citation
+
+If you find this repository useful in your research, please consider citing it using the following BibTeX:
+
+```bibtex
+@misc{pfms2026,
+  author = {Chanda, Dibaloke},
+  title = {Pathology Foundation Models (PFMs)},
+  year = {2026},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\url{https://github.com/dibalokechanda/PFMs}}
+}
+```
