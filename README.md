@@ -27,7 +27,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **GenBio-PathFM** | 2026 | 177K WSIs | JEDI (JEPA+DINO) dual-stage learning | [Paper](https://www.biorxiv.org/content/10.64898/2026.03.17.712534v1) • [Code](https://github.com/genbio-ai/genbio-pathfm) |
 | **Phaet** | 2026 | --- | Robustness-tuned Phikon-v2 | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/phaet) |
 | **Mascaret** | 2026 | --- | Robustness-tuned Midnight-12k | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/mascaret) |
-| **Rudolfv2** | 2026 | 300K+ WSIs | Robust Multi-Scale SSL Pretraining | [Paper](https://cdn.prod.website-files.com/67adb01f31489469b513304a/6a74e2f9f1d4aef06489a3f1_RudolfV_2_260806.pdf) • [Model](https://huggingface.co/collections/Aignostics/rudolfv-2a) |
+| **Rudolfv2** | 2026 | 300K+ WSIs | Robust Multi-Scale SSL Pretraining | [Paper](https://cdn.prod.website-files.com/67adb01f31489469b513304a/6a74e2f9f1d4aef06489a3f1_RudolfV_2_260806.pdf) • [Model](https://huggingface.co/Aignostics/RudolfV-2) |
 | **Atlas 2** | 2026 | 5.5M WSIs | 2B params, robust evaluation on 80 benchmarks | [Paper](https://arxiv.org/pdf/2601.05148) |
 
 ---

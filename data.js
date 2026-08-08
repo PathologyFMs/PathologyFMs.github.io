@@ -23,7 +23,7 @@ const modelData = [
       { name: "GenBio-PathFM", year: 2026, data: "177K WSIs", idea: "JEDI (JEPA+DINO) dual-stage learning", github: "https://github.com/genbio-ai/genbio-pathfm", hf: "", paper: "https://www.biorxiv.org/content/10.64898/2026.03.17.712534v1" },
       { name: "Phaet", year: 2026, data: "---", idea: "Robustness-tuned Phikon-v2", github: "", hf: "https://huggingface.co/wearewaiv/phaet", paper: "https://arxiv.org/abs/2607.22861" },
       { name: "Mascaret", year: 2026, data: "---", idea: "Robustness-tuned Midnight-12k", github: "", hf: "https://huggingface.co/wearewaiv/mascaret", paper: "https://arxiv.org/abs/2607.22861" },
-      { name: "Rudolfv2", year: 2026, data: "300K+ WSIs", idea: "Robust Multi-Scale SSL Pretraining", github: "", hf: "https://huggingface.co/collections/Aignostics/rudolfv-2a", paper: "https://cdn.prod.website-files.com/67adb01f31489469b513304a/6a74e2f9f1d4aef06489a3f1_RudolfV_2_260806.pdf" },
+      { name: "Rudolfv2", year: 2026, data: "300K+ WSIs", idea: "Robust Multi-Scale SSL Pretraining", github: "", hf: "https://huggingface.co/Aignostics/RudolfV-2", paper: "https://cdn.prod.website-files.com/67adb01f31489469b513304a/6a74e2f9f1d4aef06489a3f1_RudolfV_2_260806.pdf" },
       { name: "Atlas 2", year: 2026, data: "5.5M WSIs", idea: "2B params, robust evaluation on 80 benchmarks", github: "", hf: "", paper: "https://arxiv.org/pdf/2601.05148" }
     ]
   },
