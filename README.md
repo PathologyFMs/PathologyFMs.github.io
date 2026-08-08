@@ -29,7 +29,6 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Rudolfv2** | 2026 | 300K+ WSIs | Robust Multi-Scale SSL Pretraining | [Paper](https://cdn.prod.website-files.com/67adb01f31489469b513304a/6a74e2f9f1d4aef06489a3f1_RudolfV_2_260806.pdf) • [Model](https://huggingface.co/Aignostics/RudolfV-2) |
 | **Atlas 2** | 2026 | 5.5M WSIs | 2B params, robust evaluation on 80 benchmarks | [Paper](https://arxiv.org/pdf/2601.05148) |
 | **GRACE** | 2026 | 48K WSIs | Gastric-specific foundation model for Real-world Assessment and Clinical dEcision support | [Paper](https://arxiv.org/abs/2606.04792) |
-| **KRONOS** | 2025 | 47M patches | Foundation model built for spatial proteomics via segmentation-free patch-level processing | [Paper](https://arxiv.org/abs/2506.03373) • [Code](https://github.com/mahmoodlab/KRONOS) • [Model](https://huggingface.co/MahmoodLab/KRONOS) |
 
 ---
 
@@ -41,17 +40,25 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **PRISM** | 2024 | Virchow tiles + reports | Generative model via Virchow tiles | [Paper](https://arxiv.org/abs/2405.10254) • [Model](https://huggingface.co/paige-ai/Prism) |
 | **CHIEF** | 2024 | 60K WSIs, 19 sites | Weakly supervised slide pattern recognition | [Paper](https://www.nature.com/articles/s41586-024-07894-z) • [Code](https://github.com/hms-dbmi/CHIEF) |
 | **TITAN** | 2025 | 335K WSIs + reports | Whole-slide alignment with reports | [Paper](https://www.nature.com/articles/s41591-025-03982-3) • [Code](https://github.com/mahmoodlab/TITAN) • [Model](https://huggingface.co/MahmoodLab/TITAN) |
-| **Threads** | 2025 | 47K paired | Multi-omics driven representation | [Paper](https://arxiv.org/html/2501.16652v1) |
 | **mSTAR** | 2025 | 26K paired triplets | Slide, report, and RNA-seq integration | [Paper](https://www.nature.com/articles/s41467-025-66220-x) • [Code](https://github.com/Innse/mSTAR) • [Model](https://huggingface.co/Wangyh/mSTAR) |
 | **CPath-Omni** | 2025 | 700k image-caption + WSI report | Unified Patch–Slide Multimodal Model | [Paper](https://arxiv.org/pdf/2412.12077) • [Code](https://github.com/PathFoundation/CPath-Omni) |
 | **Feather** | 2025 | 3,499 WSIs | Transferable Pretrained MIL Models | [Paper](https://arxiv.org/abs/2506.09022) • [Code](https://github.com/mahmoodlab/MIL-Lab) • [Model](https://huggingface.co/collections/MahmoodLab/feather) |
 | **Madeleine** | 2025 | 4,211 WSIs | Multistain Cross-Stain Slide Pretraining | [Paper](https://arxiv.org/pdf/2408.02859) • [Code](https://github.com/mahmoodlab/MADELEINE) • [Model](https://huggingface.co/MahmoodLab/madeleine) |
-| **CARE** | 2026 | 34K WSIs | Molecular-Guided Adaptive Region Modeling | [Paper](https://arxiv.org/abs/2602.21637) • [Code](https://github.com/zdipath/CARE) • [Model](https://huggingface.co/Zipper-1/CARE) |
 | **PRISM2** | 2026 | 2.3M WSIs | Clinical Dialogue Multimodal Pretraining | [Paper](https://arxiv.org/abs/2506.13063) • [Model](https://huggingface.co/paige-ai/Prism2) |
 | **EXAONE Path 2.0** | 2025 | 37K WSIs | End-to-end hierarchical learning with direct slide-level supervision | [Paper](https://arxiv.org/pdf/2507.06639) |
 | **MOOZY** | 2026 | 77K WSIs | Patient-first case-level aggregator via explicit inter-slide modeling | [Paper](https://arxiv.org/abs/2603.27048) • [Code](https://github.com/AtlasAnalyticsLab/MOOZY) |
 | **GigaPath-Flash** | 2026 | Real-world Providence cohort | Efficient 43M ViT-S+LongNet whole-slide foundation model | [Paper](https://arxiv.org/abs/2607.18218) • [Model](https://huggingface.co/prov-gigapath/prov-gigapath-flash) |
 | **GigaTIME-Flash** | 2026 | Real-world Providence cohort | Efficient spatial proteomics prediction from H&E | [Paper](https://arxiv.org/abs/2607.18218) • [Model](https://huggingface.co/prov-gigatime/gigatime-flash) |
+
+---
+
+## 🔬 Multimodal & Molecular FMs
+
+| Model | Year | Pretraining Data | Key Idea | Resources |
+|---|---|---|---|---|
+| **KRONOS** | 2025 | 47M patches | Foundation model built for spatial proteomics via segmentation-free patch-level processing | [Paper](https://arxiv.org/abs/2506.03373) • [Code](https://github.com/mahmoodlab/KRONOS) • [Model](https://huggingface.co/MahmoodLab/KRONOS) |
+| **Threads** | 2025 | 47K paired | Multi-omics driven representation | [Paper](https://arxiv.org/html/2501.16652v1) |
+| **CARE** | 2026 | 34K WSIs | Molecular-Guided Adaptive Region Modeling | [Paper](https://arxiv.org/abs/2602.21637) • [Code](https://github.com/zdipath/CARE) • [Model](https://huggingface.co/Zipper-1/CARE) |
 
 ---
 

@@ -24,8 +24,7 @@ const modelData = [
       { name: "Mascaret", year: 2026, data: "---", idea: "Robustness-tuned Midnight-12k", github: "", hf: "https://huggingface.co/wearewaiv/mascaret", paper: "https://arxiv.org/abs/2607.22861" },
       { name: "Rudolfv2", year: 2026, data: "300K+ WSIs", idea: "Robust Multi-Scale SSL Pretraining", github: "", hf: "https://huggingface.co/Aignostics/RudolfV-2", paper: "https://cdn.prod.website-files.com/67adb01f31489469b513304a/6a74e2f9f1d4aef06489a3f1_RudolfV_2_260806.pdf" },
       { name: "Atlas 2", year: 2026, data: "5.5M WSIs", idea: "2B params, robust evaluation on 80 benchmarks", github: "", hf: "", paper: "https://arxiv.org/pdf/2601.05148" },
-      { name: "GRACE", year: 2026, data: "48K WSIs", idea: "Gastric-specific foundation model for Real-world Assessment and Clinical dEcision support", github: "", hf: "", paper: "https://arxiv.org/abs/2606.04792" },
-      { name: "KRONOS", year: 2025, data: "47M patches", idea: "Foundation model built for spatial proteomics via segmentation-free patch-level processing", github: "https://github.com/mahmoodlab/KRONOS", hf: "https://huggingface.co/MahmoodLab/KRONOS", paper: "https://arxiv.org/abs/2506.03373" }
+      { name: "GRACE", year: 2026, data: "48K WSIs", idea: "Gastric-specific foundation model for Real-world Assessment and Clinical dEcision support", github: "", hf: "", paper: "https://arxiv.org/abs/2606.04792" }
     ]
   },
   {
@@ -35,17 +34,23 @@ const modelData = [
       { name: "PRISM", year: 2024, data: "Virchow tiles + reports", idea: "Generative model via Virchow tiles", github: "", hf: "https://huggingface.co/paige-ai/Prism", paper: "https://arxiv.org/abs/2405.10254" },
       { name: "CHIEF", year: 2024, data: "60K WSIs, 19 sites", idea: "Weakly supervised slide pattern recognition", github: "https://github.com/hms-dbmi/CHIEF", hf: "", paper: "https://www.nature.com/articles/s41586-024-07894-z" },
       { name: "TITAN", year: 2025, data: "335K WSIs + reports", idea: "Whole-slide alignment with reports", github: "https://github.com/mahmoodlab/TITAN", hf: "https://huggingface.co/MahmoodLab/TITAN", paper: "https://www.nature.com/articles/s41591-025-03982-3" },
-      { name: "Threads", year: 2025, data: "47K paired (H&E + multi-omics)", idea: "Multi-omics driven representation", github: "", hf: "", paper: "https://arxiv.org/html/2501.16652v1" },
       { name: "mSTAR", year: 2025, data: "26K paired triplets", idea: "Slide, report, and RNA-seq integration", github: "https://github.com/Innse/mSTAR", hf: "https://huggingface.co/Wangyh/mSTAR", paper: "https://www.nature.com/articles/s41467-025-66220-x" },
       { name: "CPath-Omni", year: 2025, data: "700k image-caption + WSI report", idea: "Unified Patch–Slide Multimodal Model", github: "https://github.com/PathFoundation/CPath-Omni", hf: "", paper: "https://arxiv.org/pdf/2412.12077" },
       { name: "Feather", year: 2025, data: "3,499 WSIs", idea: "Transferable Pretrained MIL Models", github: "https://github.com/mahmoodlab/MIL-Lab", hf: "https://huggingface.co/collections/MahmoodLab/feather", paper: "https://arxiv.org/abs/2506.09022" },
       { name: "Madeleine", year: 2025, data: "4,211 WSIs (Paired Multi-Stain)", idea: "Multistain Cross-Stain Slide Pretraining", github: "https://github.com/mahmoodlab/MADELEINE", hf: "https://huggingface.co/MahmoodLab/madeleine", paper: "https://arxiv.org/pdf/2408.02859" },
-      { name: "CARE", year: 2026, data: "34K WSIs", idea: "Molecular-Guided Adaptive Region Modeling", github: "https://github.com/zdipath/CARE", hf: "https://huggingface.co/Zipper-1/CARE", paper: "https://arxiv.org/abs/2602.21637" },
       { name: "PRISM2", year: 2026, data: "2.3M WSIs", idea: "Clinical Dialogue Multimodal Pretraining", github: "", hf: "https://huggingface.co/paige-ai/Prism2", paper: "https://arxiv.org/abs/2506.13063" },
       { name: "EXAONE Path 2.0", year: 2025, data: "37K WSIs", idea: "End-to-end hierarchical learning with direct slide-level supervision", github: "", hf: "", paper: "https://arxiv.org/pdf/2507.06639" },
       { name: "MOOZY", year: 2026, data: "77K WSIs", idea: "Patient-first case-level aggregator via explicit inter-slide modeling", github: "https://github.com/AtlasAnalyticsLab/MOOZY", hf: "", paper: "https://arxiv.org/abs/2603.27048" },
       { name: "GigaPath-Flash", year: 2026, data: "Real-world Providence cohort", idea: "Efficient 43M ViT-S+LongNet whole-slide foundation model", github: "", hf: "https://huggingface.co/prov-gigapath/prov-gigapath-flash", paper: "https://arxiv.org/abs/2607.18218" },
       { name: "GigaTIME-Flash", year: 2026, data: "Real-world Providence cohort", idea: "Efficient spatial proteomics prediction from H&E", github: "", hf: "https://huggingface.co/prov-gigatime/gigatime-flash", paper: "https://arxiv.org/abs/2607.18218" }
+    ]
+  },
+  {
+    category: "Multimodal & Molecular FMs",
+    models: [
+      { name: "KRONOS", year: 2025, data: "47M patches", idea: "Foundation model built for spatial proteomics via segmentation-free patch-level processing", github: "https://github.com/mahmoodlab/KRONOS", hf: "https://huggingface.co/MahmoodLab/KRONOS", paper: "https://arxiv.org/abs/2506.03373" },
+      { name: "Threads", year: 2025, data: "47K paired (H&E + multi-omics)", idea: "Multi-omics driven representation", github: "", hf: "", paper: "https://arxiv.org/html/2501.16652v1" },
+      { name: "CARE", year: 2026, data: "34K WSIs", idea: "Molecular-Guided Adaptive Region Modeling", github: "https://github.com/zdipath/CARE", hf: "https://huggingface.co/Zipper-1/CARE", paper: "https://arxiv.org/abs/2602.21637" }
     ]
   },
   {
