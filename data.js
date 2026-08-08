@@ -16,7 +16,6 @@ const modelData = [
       { name: "Prov-GigaPath", year: 2024, data: "1.3B tiles, 171K WSIs", idea: "LongNet for ultra-large context", github: "https://github.com/prov-gigapath/prov-gigapath", hf: "https://huggingface.co/prov-gigapath/prov-gigapath", paper: "https://www.nature.com/articles/s41586-024-07441-w" },
       { name: "BEPH", year: 2024, data: "11M tiles", idea: "BEiT-based masked image modeling", github: "https://github.com/Zhcyoung/BEPH", hf: "", paper: "https://www.nature.com/articles/s41467-025-57587-y" },
       { name: "Atlas", year: 2025, data: "1.2M WSIs (Mayo + Charité)", idea: "Efficient RudolfV-based model", github: "", hf: "", paper: "https://arxiv.org/abs/2501.05409" },
-      { name: "GPFM", year: 2025, data: "190M tiles, 96K WSIs", idea: "Unified knowledge distillation", github: "https://github.com/birkhoffkiki/GPFM/", hf: "", paper: "https://arxiv.org/abs/2407.18449" },
       { name: "Midnight", year: 2025, data: "12K / 92K WSIs", idea: "Data-efficient DINOv2 optimization", github: "https://github.com/kaiko-ai/midnight", hf: "", paper: "https://arxiv.org/abs/2504.05186" },
       { name: "H-optimus-0, H0-mini", year: 2025, data: "500K WSIs", idea: "SSL Pretraining, FM Distillation", github: "https://github.com/bioptimus/releases/tree/main/models/h-optimus/v0", hf: "https://huggingface.co/bioptimus/H-optimus-0", paper: "https://arxiv.org/abs/2501.16239v1" },
       { name: "PathOrchestra", year: 2025, data: "27K WSIs, 100 tasks", idea: "Evaluated on 112 clinical tasks", github: "", hf: "https://huggingface.co/AI4Pathology/PathOrchestra", paper: "https://arxiv.org/abs/2503.24345" },
@@ -67,6 +66,7 @@ const modelData = [
   {
     category: "Foundation Model Distillation/Fusion/Ensemble",
     models: [
+      { name: "GPFM", year: 2025, data: "190M tiles, 96K WSIs", idea: "Unified knowledge distillation", github: "https://github.com/birkhoffkiki/GPFM/", hf: "", paper: "https://arxiv.org/abs/2407.18449" },
       { name: "ALICE", year: 2026, data: "24.9M tiles + 155K high-res images", idea: "Agglomerative distillation from 8 teachers", github: "https://github.com/WonderLandxD/ALICE", hf: "", paper: "https://arxiv.org/pdf/2607.09526" },
       { name: "Shazam", year: 2026, data: "Fuses 5 models (UNI 2, Virchow2, H-optimus-1, Prov-Gigapath, Phikon-v2)", idea: "Online integration and distillation of multiple PFMs via adaptive expert weighting", github: "", hf: "", paper: "https://arxiv.org/abs/2503.00736" },
       { name: "ELF", year: 2025, data: "53K WSIs (20 anatomical sites)", idea: "Ensemble learning of 5 foundation models to generate unified slide-level representations", github: "https://github.com/lilab-stanford/ELF", hf: "", paper: "https://arxiv.org/abs/2508.16085" },
