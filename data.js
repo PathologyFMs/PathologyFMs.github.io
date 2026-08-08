@@ -24,7 +24,8 @@ const modelData = [
       { name: "Phaet", year: 2026, data: "---", idea: "Robustness-tuned Phikon-v2", github: "", hf: "https://huggingface.co/wearewaiv/phaet", paper: "https://arxiv.org/abs/2607.22861" },
       { name: "Mascaret", year: 2026, data: "---", idea: "Robustness-tuned Midnight-12k", github: "", hf: "https://huggingface.co/wearewaiv/mascaret", paper: "https://arxiv.org/abs/2607.22861" },
       { name: "Rudolfv2", year: 2026, data: "300K+ WSIs", idea: "Robust Multi-Scale SSL Pretraining", github: "", hf: "https://huggingface.co/Aignostics/RudolfV-2", paper: "https://cdn.prod.website-files.com/67adb01f31489469b513304a/6a74e2f9f1d4aef06489a3f1_RudolfV_2_260806.pdf" },
-      { name: "Atlas 2", year: 2026, data: "5.5M WSIs", idea: "2B params, robust evaluation on 80 benchmarks", github: "", hf: "", paper: "https://arxiv.org/pdf/2601.05148" }
+      { name: "Atlas 2", year: 2026, data: "5.5M WSIs", idea: "2B params, robust evaluation on 80 benchmarks", github: "", hf: "", paper: "https://arxiv.org/pdf/2601.05148" },
+      { name: "GRACE", year: 2026, data: "48K WSIs", idea: "Gastric-specific foundation model for Real-world Assessment and Clinical dEcision support", github: "", hf: "", paper: "https://arxiv.org/abs/2606.04792" }
     ]
   },
   {

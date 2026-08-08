@@ -29,6 +29,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Mascaret** | 2026 | --- | Robustness-tuned Midnight-12k | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/mascaret) |
 | **Rudolfv2** | 2026 | 300K+ WSIs | Robust Multi-Scale SSL Pretraining | [Paper](https://cdn.prod.website-files.com/67adb01f31489469b513304a/6a74e2f9f1d4aef06489a3f1_RudolfV_2_260806.pdf) • [Model](https://huggingface.co/Aignostics/RudolfV-2) |
 | **Atlas 2** | 2026 | 5.5M WSIs | 2B params, robust evaluation on 80 benchmarks | [Paper](https://arxiv.org/pdf/2601.05148) |
+| **GRACE** | 2026 | 48K WSIs | Gastric-specific foundation model for Real-world Assessment and Clinical dEcision support | [Paper](https://arxiv.org/abs/2606.04792) |
 
 ---
 
