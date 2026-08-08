@@ -51,7 +51,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 
 ---
 
-## 🔬 Multimodal & Molecular FMs
+## 🧪 Multimodal & Molecular FMs
 
 | Model | Year | Pretraining Data | Key Idea | Resources |
 |---|---|---|---|---|
