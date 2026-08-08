@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pathology Foundation Models | Latent Space</title>
+    <meta name="description" content="A curated list of pathology foundation models, including vision encoders, multimodal models, vision-language models, and generative models.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-glow"></div>
+    <div class="bg-glow bg-glow-2"></div>
+    
+    <header>
+        <div class="container">
+            <h1 class="gradient-text">Pathology Foundation Models</h1>
+            <p class="subtitle">A comprehensive summary of state-of-the-art models mapping the latent space of pathology.</p>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="controls">
+            <div class="search-box">
+                <i class="ph ph-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search models, methods, or ideas...">
+            </div>
+            <div class="filter-box">
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <!-- Options populated via JS -->
+                </select>
+            </div>
+        </div>
+
+        <div id="modelsContainer" class="models-container">
+            <!-- Categories and Cards rendered via JS -->
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Built from the Pfm_LATENT_space taxonomy.</p>
+        </div>
+    </footer>
+
+    <!-- Data and Scripts -->
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
