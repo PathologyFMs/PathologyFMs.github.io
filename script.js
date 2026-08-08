@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (category.includes('Vision-Language')) return { text: 'vision-language', color: 'purple' };
         if (category.includes('Generative')) return { text: 'generative', color: 'pink' };
         if (category.includes('Distillation')) return { text: 'distillation', color: 'gray' };
+        if (category.includes('Benchmarking')) return { text: 'benchmarking', color: 'orange' };
         return { text: 'control', color: 'gray' };
     }
 

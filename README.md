@@ -76,3 +76,14 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 |---|---|---|---|---|
 | **ALICE** | 2026 | 24.9M tiles + 155K high-res images | Agglomerative distillation from 8 teachers | [Paper](https://arxiv.org/pdf/2607.09526) • [Code](https://github.com/WonderLandxD/ALICE) |
 
+
+## 📊 Foundation Model Benchmarking
+
+| Name | Year | Scope | Key Contribution | Resources |
+|---|---|---|---|---|
+| **EVA** | 2024 | Slide & Patch | Standardized framework for systematic evaluation and comparison of PFMs | [Paper](https://openreview.net/forum?id=FNBQOPj18N) • [Code](https://github.com/kaiko-ai/eva) |
+| **Patho-Bench** | 2025 | Slide | Open-source benchmarking toolkit with standardized datasets and reproducible evaluation pipelines | [Paper](https://arxiv.org/pdf/2502.06750) • [Code](https://github.com/mahmoodlab/Patho-Bench) |
+| **QuIIL-PathBench** | 2025 | Patch | Systematically benchmarks PFMs by evaluating patch-level representations | [Paper](https://arxiv.org/abs/2410.16038) • [Code](https://github.com/QuIIL/BenchmarkingPathologyFoundationModels) |
+| **Clinical Benchmark** | 2025 | Slide | Clinical benchmark with MSHS and MSKCC datasets covering disease detection and biomarker prediction | [Paper](https://www.nature.com/articles/s41467-025-58796-1.pdf) • [Code](https://github.com/sinai-computational-pathology/SSL_tile_benchmarks#automated-external-benchmarking) |
+| **PathBench** | 2025 | Slide & Patch | Leakage-free multi-center clinical benchmark spanning multiple tasks, with a live public leaderboard | [Paper](https://arxiv.org/abs/2505.20202) • [Code](https://github.com/birkhoffkiki/PathBench) |
+| **Standford PathBench** | 2026 | Slide & Patch | Comprehensive benchmark of 32 PFMs across 41 tasks with a public leaderboard | [Paper](https://www.nature.com/articles/s41467-026-76004-6) |

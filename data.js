@@ -66,5 +66,16 @@ const modelData = [
     models: [
       { name: "ALICE", year: 2026, data: "24.9M tiles + 155K high-res images", idea: "Agglomerative distillation from 8 teachers", github: "https://github.com/WonderLandxD/ALICE", hf: "", paper: "https://arxiv.org/pdf/2607.09526" }
     ]
+  },
+  {
+    category: "Foundation Model Benchmarking",
+    models: [
+      { name: "EVA", year: 2024, data: "Slide & Patch", idea: "Standardized framework for systematic evaluation and comparison of PFMs", github: "https://github.com/kaiko-ai/eva", hf: "", paper: "https://openreview.net/forum?id=FNBQOPj18N" },
+      { name: "Patho-Bench", year: 2025, data: "Slide", idea: "Open-source benchmarking toolkit with standardized datasets and reproducible evaluation pipelines", github: "https://github.com/mahmoodlab/Patho-Bench", hf: "", paper: "https://arxiv.org/pdf/2502.06750" },
+      { name: "QuIIL-PathBench", year: 2025, data: "Patch", idea: "Systematically benchmarks PFMs by evaluating patch-level representations", github: "https://github.com/QuIIL/BenchmarkingPathologyFoundationModels", hf: "", paper: "https://arxiv.org/abs/2410.16038" },
+      { name: "Clinical Benchmark", year: 2025, data: "Slide", idea: "Clinical benchmark with MSHS and MSKCC datasets covering disease detection and biomarker prediction", github: "https://github.com/sinai-computational-pathology/SSL_tile_benchmarks#automated-external-benchmarking", hf: "", paper: "https://www.nature.com/articles/s41467-025-58796-1.pdf" },
+      { name: "PathBench", year: 2025, data: "Slide & Patch", idea: "Leakage-free multi-center clinical benchmark spanning multiple tasks, with a live public leaderboard", github: "https://github.com/birkhoffkiki/PathBench", hf: "", paper: "https://arxiv.org/abs/2505.20202" },
+      { name: "Standford PathBench", year: 2026, data: "Slide & Patch", idea: "Comprehensive benchmark of 32 PFMs across 41 tasks with a public leaderboard", github: "", hf: "", paper: "https://www.nature.com/articles/s41467-026-76004-6" }
+    ]
   }
 ];
