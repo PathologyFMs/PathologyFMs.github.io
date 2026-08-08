@@ -12,7 +12,7 @@ const modelData = [
       { name: "UNI", year: 2024, data: "100M tiles, 100K WSIs", idea: "General-purpose DINOv2 on 100K WSIs", github: "https://github.com/mahmoodlab/UNI", hf: "", paper: "https://doi.org/10.1038/s41591-024-02857-3" },
       { name: "Virchow", year: 2024, data: "1.5M WSIs, 100K patients", idea: "Clinical-grade pan-cancer detection", github: "", hf: "https://huggingface.co/paige-ai/Virchow", paper: "https://doi.org/10.1038/s41591-024-03141-0" },
       { name: "Virchow2", year: 2024, data: "3.1M WSIs", idea: "1.9B parameters, mixed magnification", github: "", hf: "https://huggingface.co/paige-ai/Virchow2", paper: "https://arxiv.org/abs/2408.00738" },
-      { name: "Hibou", year: 2024, data: "1M WSIs", idea: "Open-source DINOv2 architecture", github: "https://github.com/histai/hibou", hf: "", paper: "https://arxiv.org/abs/2406.05074" },
+      { name: "Hibou", year: 2024, data: "1M WSIs", idea: "Open-source DINOv2 architecture", github: "https://github.com/histai/hibou", hf: "https://huggingface.co/histai/hibou-L", paper: "https://arxiv.org/abs/2406.05074" },
       { name: "Prov-GigaPath", year: 2024, data: "1.3B tiles, 171K WSIs", idea: "LongNet for ultra-large context", github: "https://github.com/prov-gigapath/prov-gigapath", hf: "", paper: "https://doi.org/10.1038/s630-024-0181-8" },
       { name: "BEPH", year: 2024, data: "11M tiles", idea: "BEiT-based masked image modeling", github: "https://github.com/Zhcyoung/BEPH", hf: "", paper: "https://www.nature.com/articles/s41467-025-57587-y" },
       { name: "Atlas", year: 2025, data: "1.2M WSIs (Mayo + Charité)", idea: "Efficient RudolfV-based model", github: "", hf: "", paper: "https://arxiv.org/abs/2501.05409" },

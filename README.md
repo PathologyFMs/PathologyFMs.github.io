@@ -16,7 +16,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **UNI** | 2024 | 100M tiles, 100K WSIs | General-purpose DINOv2 on 100K WSIs | [Paper](https://doi.org/10.1038/s41591-024-02857-3) • [Code](https://github.com/mahmoodlab/UNI) |
 | **Virchow** | 2024 | 1.5M WSIs, 100K patients | Clinical-grade pan-cancer detection | [Paper](https://doi.org/10.1038/s41591-024-03141-0) • [Model](https://huggingface.co/paige-ai/Virchow) |
 | **Virchow2** | 2024 | 3.1M WSIs | 1.9B parameters, mixed magnification | [Paper](https://arxiv.org/abs/2408.00738) • [Model](https://huggingface.co/paige-ai/Virchow2) |
-| **Hibou** | 2024 | 1M WSIs | Open-source DINOv2 architecture | [Paper](https://arxiv.org/abs/2406.05074) • [Code](https://github.com/histai/hibou) |
+| **Hibou** | 2024 | 1M WSIs | Open-source DINOv2 architecture | [Paper](https://arxiv.org/abs/2406.05074) • [Code](https://github.com/histai/hibou) • [Model](https://huggingface.co/histai/hibou-L) |
 | **Prov-GigaPath** | 2024 | 1.3B tiles, 171K WSIs | LongNet for ultra-large context | [Paper](https://doi.org/10.1038/s630-024-0181-8) • [Code](https://github.com/prov-gigapath/prov-gigapath) |
 | **BEPH** | 2024 | 11M tiles | BEiT-based masked image modeling | [Paper](https://www.nature.com/articles/s41467-025-57587-y) • [Code](https://github.com/Zhcyoung/BEPH) |
 | **Atlas** | 2025 | 1.2M WSIs | Efficient RudolfV-based model | [Paper](https://arxiv.org/abs/2501.05409) |
