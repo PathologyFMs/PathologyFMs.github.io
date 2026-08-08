@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (category.includes('Slide-level')) return { text: 'multimodal', color: 'teal' };
         if (category.includes('Vision-Language')) return { text: 'vision-language', color: 'purple' };
         if (category.includes('Generative')) return { text: 'generative', color: 'pink' };
+        if (category.includes('Distillation')) return { text: 'distillation', color: 'gray' };
         return { text: 'control', color: 'gray' };
     }
 

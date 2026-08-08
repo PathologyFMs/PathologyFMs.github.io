@@ -57,5 +57,11 @@ const modelData = [
     models: [
       { name: "MuPD", year: 2026, data: "100M patches", idea: "Multimodal Pathology Diffusion Model", github: "https://github.com/lilab-stanford/MUPAD", hf: "https://huggingface.co/collections/xiangjx/mupad-multimodal-pathology-diffusion-model", paper: "https://arxiv.org/abs/2604.03635" }
     ]
+  },
+  {
+    category: "Foundation Model Distillation",
+    models: [
+      { name: "ALICE", year: 2026, data: "24.9M tiles + 155K high-res images", idea: "Agglomerative distillation from 8 teachers", github: "https://github.com/WonderLandxD/ALICE", hf: "", paper: "https://arxiv.org/pdf/2607.09526" }
+    ]
   }
 ];

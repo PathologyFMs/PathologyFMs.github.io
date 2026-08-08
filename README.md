@@ -66,3 +66,10 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | Model | Year | Pretraining Data | Key Idea | Resources |
 |---|---|---|---|---|
 | **MuPD** | 2026 | 100M patches | Multimodal Pathology Diffusion Model | [Paper](https://arxiv.org/abs/2604.03635) • [Code](https://github.com/lilab-stanford/MUPAD) • [Model](https://huggingface.co/collections/xiangjx/mupad-multimodal-pathology-diffusion-model) |
+
+## ⚗️ Foundation Model Distillation
+
+| Model | Year | Pretraining Data | Key Idea | Resources |
+|---|---|---|---|---|
+| **ALICE** | 2026 | 24.9M tiles + 155K high-res images | Agglomerative distillation from 8 teachers | [Paper](https://arxiv.org/pdf/2607.09526) • [Code](https://github.com/WonderLandxD/ALICE) |
+
