@@ -717,3 +717,152 @@ body.light-mode .tag-green { color: #16a34a; }
     background: rgba(255, 255, 255, 0.05);
     color: var(--text-primary);
 }
+
+/* ==========================================================================
+   Expandable Audit Metadata Styles
+   ========================================================================== */
+
+/* Table View Expander */
+th.expand-col, td.expand-col {
+    width: 40px;
+    text-align: center;
+}
+
+.expand-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.expand-btn:hover {
+    background: var(--border-color);
+}
+
+.main-row.expanded .expand-btn i {
+    transform: rotate(180deg);
+}
+
+.details-row {
+    display: none;
+}
+
+.details-row.expanded {
+    display: table-row;
+}
+
+.details-cell {
+    padding: 0 !important;
+    background-color: var(--bg-alt);
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.light-mode .details-cell {
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.02);
+}
+
+.details-content {
+    padding: 1.5rem 2rem;
+    animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Common Audit Table */
+.audit-details {
+    background: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+.audit-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+.audit-table th {
+    width: 25%;
+    text-align: right;
+    padding: 0.8rem 1rem 0.8rem 0;
+    color: var(--text-muted);
+    font-weight: 500;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: top;
+}
+
+.audit-table td {
+    padding: 0.8rem 0 0.8rem 1rem;
+    color: var(--text-color);
+    border-bottom: 1px solid var(--border-color);
+    line-height: 1.5;
+}
+
+.audit-table tr:last-child th,
+.audit-table tr:last-child td {
+    border-bottom: none;
+}
+
+/* Grid View Expander */
+.card-expand-btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.8rem 1rem;
+    margin-top: 1.5rem;
+    background: var(--bg-alt);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-color);
+    font-family: inherit;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.card-expand-btn:hover {
+    background: var(--border-color);
+}
+
+.card.expanded .card-expand-btn i {
+    transform: rotate(180deg);
+}
+
+.card-details-content {
+    display: none;
+    margin-top: 1rem;
+    animation: fadeInDown 0.3s ease;
+}
+
+.card.expanded .card-details-content {
+    display: block;
+}
+
+.card-details-content .audit-details {
+    padding: 0.5rem;
+    background: transparent;
+    border: none;
+}
+
+.card-details-content .audit-table th {
+    width: 40%;
+    text-align: left;
+    padding-right: 0.5rem;
+}
+
+.card-details-content .audit-table td {
+    padding-left: 0;
+}

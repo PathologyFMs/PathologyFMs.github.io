@@ -46,6 +46,26 @@ document.addEventListener('DOMContentLoaded', () => {
         return { text: 'control', color: 'gray' };
     }
 
+    function generateAuditHTML(model) {
+        return `
+            <div class="audit-details">
+                <table class="audit-table">
+                    <tbody>
+                        <tr><th>Pretraining WSIs</th><td>${model.audit_wsis || 'Not found'}</td></tr>
+                        <tr><th>Patches / tiles</th><td>${model.audit_patches || 'Not found'}</td></tr>
+                        <tr><th>Image-text pairs</th><td>${model.audit_image_text || 'Not found'}</td></tr>
+                        <tr><th>WSI-report pairs</th><td>${model.audit_wsi_report || 'Not found'}</td></tr>
+                        <tr><th>Image-omics pairs</th><td>${model.audit_image_omics || 'Not found'}</td></tr>
+                        <tr><th>Organs / tissues</th><td>${model.audit_organs || 'Not found'}</td></tr>
+                        <tr><th>Downstream evaluation</th><td>${model.audit_downstream || 'Not found'}</td></tr>
+                        <tr><th>Cohorts / institutions</th><td>${model.audit_cohorts || 'Not found'}</td></tr>
+                        <tr><th>Dataset notes</th><td>${model.audit_notes || 'Not found'}</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        `;
+    }
+
     // Render Data
     function render(data) {
         container.innerHTML = '';
@@ -75,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 table.innerHTML = `
                     <thead>
                         <tr>
+                            <th class="expand-col"></th>
                             <th>Model</th>
                             <th>Year</th>
                             <th>Pretraining Data</th>
@@ -89,6 +110,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 categoryGroup.models.forEach(model => {
                     const tr = document.createElement('tr');
+                    tr.className = 'main-row';
+                    
                     let linksHTML = '';
                     if (model.paper) linksHTML += `<a href="${model.paper}" target="_blank" class="icon-link paper" title="Paper"><i class="ph ph-file-text"></i></a>`;
                     if (model.github) linksHTML += `<a href="${model.github}" target="_blank" class="icon-link github" title="Code"><i class="ph ph-github-logo"></i></a>`;
@@ -96,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (model.website) linksHTML += `<a href="${model.website}" target="_blank" class="icon-link website" title="Website"><i class="ph ph-globe"></i></a>`;
 
                     tr.innerHTML = `
+                        <td class="expand-col"><button class="expand-btn"><i class="ph ph-caret-down"></i></button></td>
                         <td>
                             <div class="model-info-col">
                                 <div class="model-name">${model.name}</div>
@@ -107,7 +131,31 @@ document.addEventListener('DOMContentLoaded', () => {
                         <td class="idea-col">${model.idea}</td>
                         <td><div class="links-col">${linksHTML}</div></td>
                     `;
+                    
+                    const detailsTr = document.createElement('tr');
+                    detailsTr.className = 'details-row';
+                    detailsTr.innerHTML = `
+                        <td colspan="6" class="details-cell">
+                            <div class="details-content">
+                                ${generateAuditHTML(model)}
+                            </div>
+                        </td>
+                    `;
+
+                    // Toggle logic
+                    tr.querySelector('.expand-btn').addEventListener('click', function() {
+                        const isExpanded = tr.classList.contains('expanded');
+                        if (isExpanded) {
+                            tr.classList.remove('expanded');
+                            detailsTr.classList.remove('expanded');
+                        } else {
+                            tr.classList.add('expanded');
+                            detailsTr.classList.add('expanded');
+                        }
+                    });
+
                     tbody.appendChild(tr);
+                    tbody.appendChild(detailsTr);
                 });
                 tableWrapper.appendChild(table);
                 section.appendChild(tableWrapper);
@@ -141,7 +189,24 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="card-links">
                             ${linksHTML}
                         </div>
+                        <button class="card-expand-btn">
+                            Detailed Metadata <i class="ph ph-caret-down"></i>
+                        </button>
+                        <div class="card-details-content">
+                            ${generateAuditHTML(model)}
+                        </div>
                     `;
+
+                    // Toggle logic
+                    card.querySelector('.card-expand-btn').addEventListener('click', function() {
+                        const isExpanded = card.classList.contains('expanded');
+                        if (isExpanded) {
+                            card.classList.remove('expanded');
+                        } else {
+                            card.classList.add('expanded');
+                        }
+                    });
+
                     grid.appendChild(card);
                 });
                 section.appendChild(grid);
