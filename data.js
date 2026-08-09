@@ -792,24 +792,6 @@ const modelData = [
         "audit_notes": "The 34K-WSI seed value was not independently verified in the accessible primary material, so it remains Not found."
       },
       {
-        "name": "SEAL",
-        "year": 2026,
-        "data": "---",
-        "idea": "---",
-        "github": "",
-        "hf": "",
-        "paper": "",
-        "audit_wsis": "N/A \u2014 parameter-efficient vision\u2013omics adaptation",
-        "audit_patches": "Not found",
-        "audit_image_text": "Not found",
-        "audit_wsi_report": "Not found",
-        "audit_image_omics": "**>700K paired spatial-transcriptomics gene-expression spot\u2013tissue-region examples**",
-        "audit_organs": "**14 organs**",
-        "audit_downstream": "**53 tasks = 38 slide-level + 15 patch-level**; molecular status, pathways, treatment response, gene-expression prediction, gene\u2192image retrieval",
-        "audit_cohorts": "Exact institution/cohort count Not found",
-        "audit_notes": "ST-guided fine-tuning of existing PFMs rather than a wholly new from-scratch visual encoder."
-      },
-      {
         "name": "KRONOS2",
         "year": 2026,
         "data": "---",
@@ -1117,6 +1099,29 @@ const modelData = [
         "audit_downstream": "**32 foundation models** evaluated across slide- and patch-level task categories; exact task count Not found in the primary abstract I could verify",
         "audit_cohorts": "TCGA, CPTAC and external/OOD datasets; exact cohort count Not found",
         "audit_notes": "Published July 24, 2026; decision-level ensembling also evaluated. The seed-list \u201c41 tasks\u201d figure is not asserted here because I did not independently recover it from the accessible primary source."
+      }
+    ]
+  },
+  {
+    "category": "Foundation Model Adaptation",
+    "models": [
+      {
+        "name": "SEAL",
+        "year": 2026,
+        "data": "---",
+        "idea": "---",
+        "github": "",
+        "hf": "",
+        "paper": "",
+        "audit_wsis": "N/A \u2014 parameter-efficient vision\u2013omics adaptation",
+        "audit_patches": "Not found",
+        "audit_image_text": "Not found",
+        "audit_wsi_report": "Not found",
+        "audit_image_omics": "**>700K paired spatial-transcriptomics gene-expression spot\u2013tissue-region examples**",
+        "audit_organs": "**14 organs**",
+        "audit_downstream": "**53 tasks = 38 slide-level + 15 patch-level**; molecular status, pathways, treatment response, gene-expression prediction, gene\u2192image retrieval",
+        "audit_cohorts": "Exact institution/cohort count Not found",
+        "audit_notes": "ST-guided fine-tuning of existing PFMs rather than a wholly new from-scratch visual encoder."
       }
     ]
   }

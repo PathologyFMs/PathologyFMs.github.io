@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (catLower.includes('benchmarking')) return { text: 'benchmarking', color: 'orange' };
         if (catLower.includes('molecular')) return { text: 'molecular', color: 'green' };
         if (catLower.includes('segmentation')) return { text: 'segmentation', color: 'yellow' };
+        if (catLower.includes('adaptation')) return { text: 'adaptation', color: 'blue' };
         return { text: 'control', color: 'gray' };
     }
 
