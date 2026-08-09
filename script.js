@@ -3,6 +3,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('searchInput');
     const categoryFilter = document.getElementById('categoryFilter');
     
+    // Modal Elements
+    const modal = document.getElementById('metadataModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const closeModal = document.getElementById('closeModal');
+
+    // Close Modal Logic
+    if (closeModal) {
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        }
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
     // View state
     let currentView = 'table';
     const gridBtn = document.getElementById('gridBtn');
@@ -46,24 +64,43 @@ document.addEventListener('DOMContentLoaded', () => {
         return { text: 'control', color: 'gray' };
     }
 
-    function generateAuditHTML(model) {
-        return `
-            <div class="audit-details">
-                <table class="audit-table">
+    // Show Modal Function
+    function openModal(model) {
+        modalTitle.textContent = model.name;
+        
+        let rowsHtml = '';
+        
+        const fields = [
+            { label: 'Pretraining WSIs', value: model.audit_wsis },
+            { label: 'Patches / tiles', value: model.audit_patches },
+            { label: 'Image-text pairs', value: model.audit_image_text },
+            { label: 'WSI-report pairs', value: model.audit_wsi_report },
+            { label: 'Image-omics pairs', value: model.audit_image_omics },
+            { label: 'Organs / tissues', value: model.audit_organs },
+            { label: 'Downstream evaluation', value: model.audit_downstream },
+            { label: 'Cohorts / institutions', value: model.audit_cohorts },
+            { label: 'Dataset notes', value: model.audit_notes }
+        ];
+
+        fields.forEach(field => {
+            if (field.value && field.value !== 'Not found') {
+                rowsHtml += `<tr><th>${field.label}</th><td>${field.value}</td></tr>`;
+            }
+        });
+
+        if (rowsHtml === '') {
+            modalBody.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 2rem;">No detailed metadata found for this model.</p>';
+        } else {
+            modalBody.innerHTML = `
+                <table class="modal-table">
                     <tbody>
-                        <tr><th>Pretraining WSIs</th><td>${model.audit_wsis || 'Not found'}</td></tr>
-                        <tr><th>Patches / tiles</th><td>${model.audit_patches || 'Not found'}</td></tr>
-                        <tr><th>Image-text pairs</th><td>${model.audit_image_text || 'Not found'}</td></tr>
-                        <tr><th>WSI-report pairs</th><td>${model.audit_wsi_report || 'Not found'}</td></tr>
-                        <tr><th>Image-omics pairs</th><td>${model.audit_image_omics || 'Not found'}</td></tr>
-                        <tr><th>Organs / tissues</th><td>${model.audit_organs || 'Not found'}</td></tr>
-                        <tr><th>Downstream evaluation</th><td>${model.audit_downstream || 'Not found'}</td></tr>
-                        <tr><th>Cohorts / institutions</th><td>${model.audit_cohorts || 'Not found'}</td></tr>
-                        <tr><th>Dataset notes</th><td>${model.audit_notes || 'Not found'}</td></tr>
+                        ${rowsHtml}
                     </tbody>
                 </table>
-            </div>
-        `;
+            `;
+        }
+        
+        modal.style.display = "block";
     }
 
     // Render Data
@@ -119,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (model.website) linksHTML += `<a href="${model.website}" target="_blank" class="icon-link website" title="Website"><i class="ph ph-globe"></i></a>`;
 
                     tr.innerHTML = `
-                        <td class="expand-col"><button class="expand-btn"><i class="ph ph-caret-down"></i></button></td>
+                        <td class="expand-col"><button class="expand-btn" title="View Detailed Metadata"><i class="ph ph-arrows-out-simple"></i></button></td>
                         <td>
                             <div class="model-info-col">
                                 <div class="model-name">${model.name}</div>
@@ -132,30 +169,12 @@ document.addEventListener('DOMContentLoaded', () => {
                         <td><div class="links-col">${linksHTML}</div></td>
                     `;
                     
-                    const detailsTr = document.createElement('tr');
-                    detailsTr.className = 'details-row';
-                    detailsTr.innerHTML = `
-                        <td colspan="6" class="details-cell">
-                            <div class="details-content">
-                                ${generateAuditHTML(model)}
-                            </div>
-                        </td>
-                    `;
-
-                    // Toggle logic
+                    // Modal logic
                     tr.querySelector('.expand-btn').addEventListener('click', function() {
-                        const isExpanded = tr.classList.contains('expanded');
-                        if (isExpanded) {
-                            tr.classList.remove('expanded');
-                            detailsTr.classList.remove('expanded');
-                        } else {
-                            tr.classList.add('expanded');
-                            detailsTr.classList.add('expanded');
-                        }
+                        openModal(model);
                     });
 
                     tbody.appendChild(tr);
-                    tbody.appendChild(detailsTr);
                 });
                 tableWrapper.appendChild(table);
                 section.appendChild(tableWrapper);
@@ -190,21 +209,13 @@ document.addEventListener('DOMContentLoaded', () => {
                             ${linksHTML}
                         </div>
                         <button class="card-expand-btn">
-                            Detailed Metadata <i class="ph ph-caret-down"></i>
+                            Detailed Metadata <i class="ph ph-arrows-out-simple"></i>
                         </button>
-                        <div class="card-details-content">
-                            ${generateAuditHTML(model)}
-                        </div>
                     `;
 
-                    // Toggle logic
+                    // Modal logic
                     card.querySelector('.card-expand-btn').addEventListener('click', function() {
-                        const isExpanded = card.classList.contains('expanded');
-                        if (isExpanded) {
-                            card.classList.remove('expanded');
-                        } else {
-                            card.classList.add('expanded');
-                        }
+                        openModal(model);
                     });
 
                     grid.appendChild(card);
