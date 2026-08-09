@@ -1,4 +1,8 @@
-document.addEventListener('DOMContentLoaded', () => {
+import sys
+import re
+
+# 1. Update script.js
+new_script_content = """document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('modelsContainer');
     const searchInput = document.getElementById('searchInput');
     const categoryFilter = document.getElementById('categoryFilter');
@@ -202,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const bibtexBtn = document.getElementById('bibtexBtn');
     if (bibtexBtn) {
         bibtexBtn.addEventListener('click', () => {
-            const bibtex = `@misc{pfms2026,\n  author = {Chanda, Dibaloke},\n  title = {Pathology Foundation Models (PFMs)},\n  year = {2026},\n  publisher = {GitHub},\n  journal = {GitHub repository},\n  howpublished = {\\url{https://github.com/dibalokechanda/PFMs}}\n}`;
+            const bibtex = `@misc{pfms2026,\\n  author = {Chanda, Dibaloke},\\n  title = {Pathology Foundation Models (PFMs)},\\n  year = {2026},\\n  publisher = {GitHub},\\n  journal = {GitHub repository},\\n  howpublished = {\\\\url{https://github.com/dibalokechanda/PFMs}}\\n}`;
             navigator.clipboard.writeText(bibtex).then(() => {
                 const originalText = bibtexBtn.innerHTML;
                 bibtexBtn.innerHTML = '<i class="ph ph-check"></i> Copied!';
@@ -213,3 +217,59 @@ document.addEventListener('DOMContentLoaded', () => {
 
     render(modelData);
 });
+"""
+
+with open('/users/home/dchanda/pfm_website/script.js', 'w') as f:
+    f.write(new_script_content)
+
+# 2. Update style.css
+css_addition = """
+.view-toggle {
+    display: flex;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+}
+
+.view-btn {
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    padding: 0.8rem 1.2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.view-btn.active {
+    background: rgba(99, 102, 241, 0.2);
+    color: var(--accent-1);
+}
+
+.view-btn:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+"""
+with open('/users/home/dchanda/pfm_website/style.css', 'a') as f:
+    f.write(css_addition)
+
+# 3. Update index.html
+html_insert = """            <div class="view-toggle">
+                <button id="gridBtn" class="view-btn" aria-label="Grid View"><i class="ph ph-squares-four"></i></button>
+                <button id="tableBtn" class="view-btn active" aria-label="Table View"><i class="ph ph-list-dashes"></i></button>
+            </div>
+"""
+
+with open('/users/home/dchanda/pfm_website/index.html', 'r') as f:
+    html_content = f.read()
+
+# Insert the toggle right after the filter-box
+html_content = html_content.replace('</select>\\n            </div>', '</select>\\n            </div>\\n' + html_insert)
+
+with open('/users/home/dchanda/pfm_website/index.html', 'w') as f:
+    f.write(html_content)
+
+print("Update complete")
