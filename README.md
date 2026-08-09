@@ -2,7 +2,7 @@
 
 A comprehensive, curated summary of state-of-the-art foundation models mapping the latent space of pathology. This repository contains the source code for an interactive web viewer of this taxonomy.
 
-## 🔬 Tile-level Vision Encoders (Self-supervised)
+## 🔬 Tile-Level Vision Foundation Models
 
 | Model | Year | Pretraining Data | Key Idea | Resources |
 |---|---|---|---|---|
@@ -17,49 +17,30 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Virchow** | 2024 | 1.5M WSIs, 100K patients | Clinical-grade pan-cancer detection | [Paper](https://doi.org/10.1038/s41591-024-03141-0) • [Model](https://huggingface.co/paige-ai/Virchow) |
 | **Virchow2** | 2024 | 3.1M WSIs | 1.9B parameters, mixed magnification | [Paper](https://arxiv.org/abs/2408.00738) • [Model](https://huggingface.co/paige-ai/Virchow2) |
 | **Hibou** | 2024 | 1M WSIs | Open-source DINOv2 architecture | [Paper](https://arxiv.org/abs/2406.05074) • [Code](https://github.com/histai/hibou) • [Model](https://huggingface.co/histai/hibou-L) |
-| **Prov-GigaPath** | 2024 | 1.3B tiles, 171K WSIs | LongNet for ultra-large context | [Paper](https://www.nature.com/articles/s41586-024-07441-w) • [Code](https://github.com/prov-gigapath/prov-gigapath) • [Model](https://huggingface.co/prov-gigapath/prov-gigapath) |
 | **BEPH** | 2024 | 11M tiles | BEiT-based masked image modeling | [Paper](https://www.nature.com/articles/s41467-025-57587-y) • [Code](https://github.com/Zhcyoung/BEPH) |
-| **Atlas** | 2025 | 1.2M WSIs | Efficient RudolfV-based model | [Paper](https://arxiv.org/abs/2501.05409) |
+| **Atlas** | 2025 | 1.2M WSIs (Mayo + Charité) | Efficient RudolfV-based model | [Paper](https://arxiv.org/abs/2501.05409) |
 | **Midnight** | 2025 | 12K / 92K WSIs | Data-efficient DINOv2 optimization | [Paper](https://arxiv.org/abs/2504.05186) • [Code](https://github.com/kaiko-ai/midnight) |
 | **H-optimus-0** | 2025 | 500K WSIs | SSL Pretraining, FM Distillation | [Paper](https://arxiv.org/abs/2501.16239v1) • [Code](https://github.com/bioptimus/releases/tree/main/models/h-optimus/v0) • [Model](https://huggingface.co/bioptimus/H-optimus-0) |
 | **PathOrchestra** | 2025 | 27K WSIs, 100 tasks | Evaluated on 112 clinical tasks | [Paper](https://arxiv.org/abs/2503.24345) • [Model](https://huggingface.co/AI4Pathology/PathOrchestra) |
 | **GenBio-PathFM** | 2026 | 177K WSIs | JEDI (JEPA+DINO) dual-stage learning | [Paper](https://www.biorxiv.org/content/10.64898/2026.03.17.712534v1) • [Code](https://github.com/genbio-ai/genbio-pathfm) |
 | **Phaet** | 2026 | --- | Robustness-tuned Phikon-v2 | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/phaet) |
 | **Mascaret** | 2026 | --- | Robustness-tuned Midnight-12k | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/mascaret) |
-| **Rudolfv2** | 2026 | 300K+ WSIs | Robust Multi-Scale SSL Pretraining | [Paper](https://cdn.prod.website-files.com/67adb01f31489469b513304a/6a74e2f9f1d4aef06489a3f1_RudolfV_2_260806.pdf) • [Model](https://huggingface.co/Aignostics/RudolfV-2) |
+| **RudolfV2** | 2026 | 300K+ WSIs | Robust Multi-Scale SSL Pretraining | [Paper](https://cdn.prod.website-files.com/67adb01f31489469b513304a/6a74e2f9f1d4aef06489a3f1_RudolfV_2_260806.pdf) • [Model](https://huggingface.co/Aignostics/RudolfV-2) |
 | **Atlas 2** | 2026 | 5.5M WSIs | 2B params, robust evaluation on 80 benchmarks | [Paper](https://arxiv.org/pdf/2601.05148) |
 | **GRACE** | 2026 | 48K WSIs | Gastric-specific foundation model for Real-world Assessment and Clinical dEcision support | [Paper](https://arxiv.org/abs/2606.04792) |
 
 ---
 
-## 🧬 Slide-level / Multimodal Foundation Models
+## 🧬 Slide-Level & Patient-Level Foundation Models
 
 | Model | Year | Pretraining Data | Key Idea | Resources |
 |---|---|---|---|---|
-| **PRISM** | 2024 | Virchow tiles + reports | Generative model via Virchow tiles | [Paper](https://arxiv.org/abs/2405.10254) • [Model](https://huggingface.co/paige-ai/Prism) |
+| **Prov-GigaPath** | 2024 | 1.3B tiles, 171K WSIs | LongNet for ultra-large context | [Paper](https://www.nature.com/articles/s41586-024-07441-w) • [Code](https://github.com/prov-gigapath/prov-gigapath) • [Model](https://huggingface.co/prov-gigapath/prov-gigapath) |
 | **CHIEF** | 2024 | 60K WSIs, 19 sites | Weakly supervised slide pattern recognition | [Paper](https://www.nature.com/articles/s41586-024-07894-z) • [Code](https://github.com/hms-dbmi/CHIEF) |
-| **TITAN** | 2025 | 335K WSIs + reports | Whole-slide alignment with reports | [Paper](https://www.nature.com/articles/s41591-025-03982-3) • [Code](https://github.com/mahmoodlab/TITAN) • [Model](https://huggingface.co/MahmoodLab/TITAN) |
-| **CPath-Omni** | 2025 | 700k image-caption + WSI report | Unified Patch–Slide Multimodal Model | [Paper](https://arxiv.org/pdf/2412.12077) • [Code](https://github.com/PathFoundation/CPath-Omni) |
 | **Feather** | 2025 | 3,499 WSIs | Transferable Pretrained MIL Models | [Paper](https://arxiv.org/abs/2506.09022) • [Code](https://github.com/mahmoodlab/MIL-Lab) • [Model](https://huggingface.co/collections/MahmoodLab/feather) |
-| **Madeleine** | 2025 | 4,211 WSIs | Multistain Cross-Stain Slide Pretraining | [Paper](https://arxiv.org/pdf/2408.02859) • [Code](https://github.com/mahmoodlab/MADELEINE) • [Model](https://huggingface.co/MahmoodLab/madeleine) |
-| **PRISM2** | 2026 | 2.3M WSIs | Clinical Dialogue Multimodal Pretraining | [Paper](https://arxiv.org/abs/2506.13063) • [Model](https://huggingface.co/paige-ai/Prism2) |
 | **EXAONE Path 2.0** | 2025 | 37K WSIs | End-to-end hierarchical learning with direct slide-level supervision | [Paper](https://arxiv.org/pdf/2507.06639) |
-| **EXAONE Path 2.5** | 2025 | 37K WSIs | End-to-end hierarchical learning with direct slide-level supervision | [Paper](https://arxiv.org/abs/2512.14019) • [Model](https://huggingface.co/LGAI-EXAONE/EXAONE-Path-2.5) |
 | **MOOZY** | 2026 | 77K WSIs | Patient-first case-level aggregator via explicit inter-slide modeling | [Paper](https://arxiv.org/abs/2603.27048) • [Code](https://github.com/AtlasAnalyticsLab/MOOZY) |
 | **GigaPath-Flash** | 2026 | Real-world Providence cohort | Efficient 43M ViT-S+LongNet whole-slide foundation model | [Paper](https://arxiv.org/abs/2607.18218) • [Model](https://huggingface.co/prov-gigapath/prov-gigapath-flash) |
-
----
-
-## 🧪 Multimodal & Molecular FMs
-
-| Model | Year | Pretraining Data | Key Idea | Resources |
-|---|---|---|---|---|
-| **KRONOS** | 2025 | 47M patches | Foundation model built for spatial proteomics via segmentation-free patch-level processing | [Paper](https://arxiv.org/abs/2506.03373) • [Code](https://github.com/mahmoodlab/KRONOS) • [Model](https://huggingface.co/MahmoodLab/KRONOS) |
-| **Threads** | 2025 | 47K paired | Multi-omics driven representation | [Paper](https://arxiv.org/html/2501.16652v1) |
-| **CARE** | 2026 | 34K WSIs | Molecular-Guided Adaptive Region Modeling | [Paper](https://arxiv.org/abs/2602.21637) • [Code](https://github.com/zdipath/CARE) • [Model](https://huggingface.co/Zipper-1/CARE) |
-| **Tangle** | 2024 | 8.6K paired | Transcriptomics-aligned slide representation | [Paper](https://arxiv.org/abs/2405.11618) • [Code](https://github.com/mahmoodlab/Tangle) |
-| **mSTAR** | 2025 | 26K paired triplets | Slide, report, and RNA-seq integration | [Paper](https://www.nature.com/articles/s41467-025-66220-x) • [Code](https://github.com/Innse/mSTAR) • [Model](https://huggingface.co/Wangyh/mSTAR) |
-| **GigaTIME-Flash** | 2026 | Real-world Providence cohort | Efficient spatial proteomics prediction from H&E | [Paper](https://arxiv.org/abs/2607.18218) • [Model](https://huggingface.co/prov-gigatime/gigatime-flash) |
 
 ---
 
@@ -69,8 +50,42 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 |---|---|---|---|---|
 | **PLIP** | 2023 | 208K image-text pairs | Pretrained on medical Twitter | [Paper](https://doi.org/10.1038/s41591-023-02504-3) • [Code](https://github.com/pathologyfoundation/plip) • [Model](https://huggingface.co/vinid/plip) |
 | **CONCH** | 2024 | 1.17M image-text pairs | CoCa-based task-agnostic pretraining | [Paper](https://doi.org/10.1038/s41591-024-02856-4) • [Code](https://github.com/mahmoodlab/CONCH) • [Model](https://huggingface.co/MahmoodLab/CONCH) |
+| **PRISM** | 2024 | Virchow tiles + reports | Generative model via Virchow tiles | [Paper](https://arxiv.org/abs/2405.10254) • [Model](https://huggingface.co/paige-ai/Prism) |
 | **MUSK** | 2025 | 50M images + 1B text tokens | Unified masked modeling | [Paper](https://www.nature.com/articles/s41586-024-08378-w) • [Code](https://github.com/lilab-stanford/MUSK) |
+| **TITAN** | 2025 | 335K WSIs + reports | Whole-slide alignment with reports | [Paper](https://www.nature.com/articles/s41591-025-03982-3) • [Code](https://github.com/mahmoodlab/TITAN) • [Model](https://huggingface.co/MahmoodLab/TITAN) |
+| **CPath-Omni** | 2025 | 700k image-caption + WSI report | Unified Patch–Slide Multimodal Model | [Paper](https://arxiv.org/pdf/2412.12077) • [Code](https://github.com/PathFoundation/CPath-Omni) |
 | **KEEP** | 2026 | 143K knowledge-grouped pairs | Disease knowledge graph integration | [Paper](https://arxiv.org/abs/2412.13126) • [Code](https://github.com/MAGIC-AI4Med/KEEP) • [Model](https://huggingface.co/Astaxanthin/KEEP) |
+| **PRISM2** | 2026 | 2.3M WSIs | Clinical Dialogue Multimodal Pretraining | [Paper](https://arxiv.org/abs/2506.13063) • [Model](https://huggingface.co/paige-ai/Prism2) |
+
+---
+
+## 🧪 Multimodal & Molecular Foundation Models
+
+| Model | Year | Pretraining Data | Key Idea | Resources |
+|---|---|---|---|---|
+| **Tangle** | 2024 | 8.6K paired (slide + RNA-seq) | Transcriptomics-aligned slide representation | [Paper](https://arxiv.org/abs/2405.11618) • [Code](https://github.com/mahmoodlab/Tangle) |
+| **Madeleine** | 2025 | 4,211 WSIs (Paired Multi-Stain) | Multistain Cross-Stain Slide Pretraining | [Paper](https://arxiv.org/pdf/2408.02859) • [Code](https://github.com/mahmoodlab/MADELEINE) • [Model](https://huggingface.co/MahmoodLab/madeleine) |
+| **Threads** | 2025 | 47K paired (H&E + multi-omics) | Multi-omics driven representation | [Paper](https://arxiv.org/html/2501.16652v1) |
+| **mSTAR** | 2025 | 26K paired triplets | Slide, report, and RNA-seq integration | [Paper](https://www.nature.com/articles/s41467-025-66220-x) • [Code](https://github.com/Innse/mSTAR) • [Model](https://huggingface.co/Wangyh/mSTAR) |
+| **KRONOS** | 2025 | 47M patches | Foundation model built for spatial proteomics via segmentation-free patch-level processing | [Paper](https://arxiv.org/abs/2506.03373) • [Code](https://github.com/mahmoodlab/KRONOS) • [Model](https://huggingface.co/MahmoodLab/KRONOS) |
+| **EXAONE Path 2.5** | 2025 | 37K WSIs | End-to-end hierarchical learning with direct slide-level supervision | [Paper](https://arxiv.org/abs/2512.14019) • [Model](https://huggingface.co/LGAI-EXAONE/EXAONE-Path-2.5) |
+| **CARE** | 2026 | 34K WSIs | Molecular-Guided Adaptive Region Modeling | [Paper](https://arxiv.org/abs/2602.21637) • [Code](https://github.com/zdipath/CARE) • [Model](https://huggingface.co/Zipper-1/CARE) |
+| **SEAL** | 2026 | --- | --- |  |
+| **KRONOS2** | 2026 | --- | --- |  |
+| **GigaTIME-Flash** | 2026 | Real-world Providence cohort | Efficient spatial proteomics prediction from H&E | [Paper](https://arxiv.org/abs/2607.18218) • [Model](https://huggingface.co/prov-gigatime/gigatime-flash) |
+
+---
+
+## ⚗️ Multi-FM Integration & Distillation
+
+| Model | Year | Pretraining Data | Key Idea | Resources |
+|---|---|---|---|---|
+| **GPFM** | 2025 | 190M tiles, 96K WSIs | Multi-teacher distillation | [Paper](https://arxiv.org/abs/2407.18449) • [Code](https://github.com/birkhoffkiki/GPFM/) |
+| **COBRA** | 2025 | 3048 WSIs | Multi-FM representation integration | [Paper](https://arxiv.org/abs/2411.13623) • [Code](https://github.com/KatherLab/COBRA) • [Model](https://huggingface.co/KatherLab/COBRA) |
+| **ELF** | 2025 | 53K WSIs (20 anatomical sites) | Ensemble learning | [Paper](https://arxiv.org/abs/2508.16085) • [Code](https://github.com/lilab-stanford/ELF) |
+| **Shazam** | 2026 | Fuses 5 models (UNI 2, Virchow2, H-optimus-1, Prov-Gigapath, Phikon-v2) | Adaptive integration/distillation | [Paper](https://arxiv.org/abs/2503.00736) |
+| **ALICE** | 2026 | 24.9M tiles + 155K high-res images | Agglomerative distillation | [Paper](https://arxiv.org/pdf/2607.09526) • [Code](https://github.com/WonderLandxD/ALICE) |
+| **ASTRA** | 2026 | 10.3K WSIs (CHTN cohort) | MoE fusion/alignment | [Paper](https://arxiv.org/abs/2604.22846) |
 
 ---
 
@@ -78,7 +93,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 
 | Model | Year | Pretraining Data | Key Idea | Resources |
 |---|---|---|---|---|
-| **VISTA-PATH** | 2026 | 1.65M triplets | Interactive Class-Aware Segmentation | [Paper](https://arxiv.org/abs/2601.16451) • [Code](https://github.com/zhihuanglab/VISTA-PATH) |
+| **VISTA-PATH** | 2026 | 1.65M triplets (Image + Mask + Text) | Interactive Class-Aware Segmentation | [Paper](https://arxiv.org/abs/2601.16451) • [Code](https://github.com/zhihuanglab/VISTA-PATH) |
 
 ---
 
@@ -88,28 +103,18 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 |---|---|---|---|---|
 | **MuPD** | 2026 | 100M patches | Multimodal Pathology Diffusion Model | [Paper](https://arxiv.org/abs/2604.03635) • [Code](https://github.com/lilab-stanford/MUPAD) • [Model](https://huggingface.co/collections/xiangjx/mupad-multimodal-pathology-diffusion-model) |
 
-## ⚗️ Foundation Model Distillation/Fusion/Ensemble
-
-| Model | Year | Pretraining Data | Key Idea | Resources |
-|---|---|---|---|---|
-| **GPFM** | 2025 | 190M tiles, 96K WSIs | Multi-teacher distillation | [Paper](https://arxiv.org/abs/2407.18449) • [Code](https://github.com/birkhoffkiki/GPFM/) |
-| **ALICE** | 2026 | 24.9M tiles + 155K high-res images | Agglomerative distillation | [Paper](https://arxiv.org/pdf/2607.09526) • [Code](https://github.com/WonderLandxD/ALICE) |
-| **Shazam** | 2026 | Fuses 5 models (UNI 2, Virchow2, H-optimus-1, Prov-Gigapath, Phikon-v2) | Adaptive integration/distillation | [Paper](https://arxiv.org/abs/2503.00736) |
-| **ELF** | 2025 | 53K WSIs (20 anatomical sites) | Ensemble learning | [Paper](https://arxiv.org/abs/2508.16085) • [Code](https://github.com/lilab-stanford/ELF) |
-| **ASTRA** | 2026 | 10.3K WSIs (CHTN cohort) | MoE fusion/alignment | [Paper](https://arxiv.org/abs/2604.22846) |
-| **COBRA** | 2025 | 3048 WSIs | Multi-FM representation integration | [Paper](https://arxiv.org/abs/2411.13623) • [Code](https://github.com/KatherLab/COBRA) • [Model](https://huggingface.co/KatherLab/COBRA) |
-
+---
 
 ## 📊 Foundation Model Benchmarking
 
 | Name | Year | Scope | Key Contribution | Resources |
 |---|---|---|---|---|
 | **EVA** | 2024 | Slide & Patch | Standardized framework for systematic evaluation and comparison of PFMs | [Paper](https://openreview.net/forum?id=FNBQOPj18N) • [Code](https://github.com/kaiko-ai/eva) |
-| **Patho-Bench** | 2025 | Slide | Open-source benchmarking toolkit with standardized datasets and reproducible evaluation pipelines | [Paper](https://arxiv.org/pdf/2502.06750) • [Code](https://github.com/mahmoodlab/Patho-Bench) |
+| **Patho-Bench/MahmoodLab** | 2025 | Slide | Open-source benchmarking toolkit with standardized datasets and reproducible evaluation pipelines | [Paper](https://arxiv.org/pdf/2502.06750) • [Code](https://github.com/mahmoodlab/Patho-Bench) |
 | **QuIIL-PathBench** | 2025 | Patch | Systematically benchmarks PFMs by evaluating patch-level representations | [Paper](https://arxiv.org/abs/2410.16038) • [Code](https://github.com/QuIIL/BenchmarkingPathologyFoundationModels) |
 | **Clinical Benchmark** | 2025 | Slide | Clinical benchmark with MSHS and MSKCC datasets covering disease detection and biomarker prediction | [Paper](https://www.nature.com/articles/s41467-025-58796-1.pdf) • [Code](https://github.com/sinai-computational-pathology/SSL_tile_benchmarks#automated-external-benchmarking) |
 | **PathBench** | 2025 | Slide & Patch | Leakage-free multi-center clinical benchmark spanning multiple tasks, with a live public leaderboard | [Paper](https://arxiv.org/abs/2505.20202) • [Code](https://github.com/birkhoffkiki/PathBench) • [Website](https://birkhoffkiki.github.io/PathBench/) |
-| **Standford PathBench** | 2026 | Slide & Patch | Comprehensive benchmark of 32 PFMs across 41 tasks with a public leaderboard | [Paper](https://www.nature.com/articles/s41467-026-76004-6) |
+| **Stanford PathBench** | 2026 | Slide & Patch | Comprehensive benchmark of 32 PFMs across 41 tasks with a public leaderboard | [Paper](https://www.nature.com/articles/s41467-026-76004-6) |
 
 ---
 

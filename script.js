@@ -13,14 +13,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Helper to get family tag info based on category
     function getFamilyInfo(category) {
-        if (category.includes('Tile-level')) return { text: 'vision SSL', color: 'blue' };
-        if (category.includes('Slide-level')) return { text: 'multimodal', color: 'teal' };
-        if (category.includes('Vision-Language')) return { text: 'vision-language', color: 'purple' };
-        if (category.includes('Generative')) return { text: 'generative', color: 'pink' };
-        if (category.includes('Distillation')) return { text: 'distillation', color: 'gray' };
-        if (category.includes('Benchmarking')) return { text: 'benchmarking', color: 'orange' };
-        if (category.includes('Molecular')) return { text: 'molecular', color: 'green' };
-        if (category.includes('Segmentation')) return { text: 'segmentation', color: 'yellow' };
+        const catLower = category.toLowerCase();
+        if (catLower.includes('tile-level')) return { text: 'vision SSL', color: 'blue' };
+        if (catLower.includes('slide-level')) return { text: 'multimodal', color: 'teal' };
+        if (catLower.includes('vision-language')) return { text: 'vision-language', color: 'purple' };
+        if (catLower.includes('generative')) return { text: 'generative', color: 'pink' };
+        if (catLower.includes('distillation')) return { text: 'distillation', color: 'gray' };
+        if (catLower.includes('benchmarking')) return { text: 'benchmarking', color: 'orange' };
+        if (catLower.includes('molecular')) return { text: 'molecular', color: 'green' };
+        if (catLower.includes('segmentation')) return { text: 'segmentation', color: 'yellow' };
         return { text: 'control', color: 'gray' };
     }
 
