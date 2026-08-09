@@ -43,51 +43,67 @@ document.addEventListener('DOMContentLoaded', () => {
             title.textContent = categoryGroup.category;
             section.appendChild(title);
 
-            const grid = document.createElement('div');
-            grid.className = 'grid';
+            const tableWrapper = document.createElement('div');
+            tableWrapper.className = 'table-responsive';
 
+            const table = document.createElement('table');
+            table.className = 'models-table';
+
+            table.innerHTML = `
+                <thead>
+                    <tr>
+                        <th>Model</th>
+                        <th>Year</th>
+                        <th>Pretraining Data</th>
+                        <th>Key Idea</th>
+                        <th>Resources</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            `;
+            
+            const tbody = table.querySelector('tbody');
             const family = getFamilyInfo(categoryGroup.category);
 
             categoryGroup.models.forEach(model => {
-                const card = document.createElement('div');
-                card.className = 'card';
+                const tr = document.createElement('tr');
 
-                // Setup links
+                // Setup icon links
                 let linksHTML = '';
                 if (model.paper) {
-                    linksHTML += `<a href="${model.paper}" target="_blank" class="link-btn link-paper"><i class="ph ph-file-text"></i> Paper</a>`;
+                    linksHTML += `<a href="${model.paper}" target="_blank" class="icon-link paper" title="Paper"><i class="ph ph-file-text"></i></a>`;
                 }
                 if (model.github) {
-                    linksHTML += `<a href="${model.github}" target="_blank" class="link-btn link-github"><i class="ph ph-github-logo"></i> Code</a>`;
+                    linksHTML += `<a href="${model.github}" target="_blank" class="icon-link github" title="Code"><i class="ph ph-github-logo"></i></a>`;
                 }
                 if (model.hf) {
-                    linksHTML += `<a href="${model.hf}" target="_blank" class="link-btn link-hf"><i class="ph ph-cube"></i> Model</a>`;
+                    linksHTML += `<a href="${model.hf}" target="_blank" class="icon-link hf" title="Hugging Face Model"><i class="ph ph-cube"></i></a>`;
                 }
                 if (model.website) {
-                    linksHTML += `<a href="${model.website}" target="_blank" class="link-btn link-website"><i class="ph ph-globe"></i> Website</a>`;
+                    linksHTML += `<a href="${model.website}" target="_blank" class="icon-link website" title="Website"><i class="ph ph-globe"></i></a>`;
                 }
 
-                card.innerHTML = `
-                    <div class="card-header">
-                        <div class="model-info">
+                tr.innerHTML = `
+                    <td>
+                        <div class="model-info-col">
                             <div class="model-name">${model.name}</div>
                             <span class="tag tag-${family.color}">${family.text}</span>
                         </div>
-                        <div class="model-year">${model.year}</div>
-                    </div>
-                    <div class="model-idea">${model.idea}</div>
-                    <div class="model-data">
-                        <i class="ph ph-database"></i>
-                        <span>${model.data}</span>
-                    </div>
-                    <div class="card-links">
-                        ${linksHTML}
-                    </div>
+                    </td>
+                    <td><span class="year-badge">${model.year}</span></td>
+                    <td class="data-col">${model.data}</td>
+                    <td class="idea-col">${model.idea}</td>
+                    <td>
+                        <div class="links-col">
+                            ${linksHTML}
+                        </div>
+                    </td>
                 `;
-                grid.appendChild(card);
+                tbody.appendChild(tr);
             });
 
-            section.appendChild(grid);
+            tableWrapper.appendChild(table);
+            section.appendChild(tableWrapper);
             container.appendChild(section);
         });
 
