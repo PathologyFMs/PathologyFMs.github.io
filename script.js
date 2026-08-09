@@ -171,6 +171,28 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.addEventListener('input', handleFilters);
     categoryFilter.addEventListener('change', handleFilters);
 
+    // BibTeX Copy Logic
+    const bibtexBtn = document.getElementById('bibtexBtn');
+    if (bibtexBtn) {
+        bibtexBtn.addEventListener('click', () => {
+            const bibtex = `@misc{pfms2026,
+  author = {Chanda, Dibaloke},
+  title = {Pathology Foundation Models (PFMs)},
+  year = {2026},
+  publisher = {GitHub},
+  journal = {GitHub repository},
+  howpublished = {\\url{https://github.com/dibalokechanda/PFMs}}
+}`;
+            navigator.clipboard.writeText(bibtex).then(() => {
+                const originalText = bibtexBtn.innerHTML;
+                bibtexBtn.innerHTML = '<i class="ph ph-check"></i> Copied!';
+                setTimeout(() => {
+                    bibtexBtn.innerHTML = originalText;
+                }, 2000);
+            });
+        });
+    }
+
     // Initial render
     render(modelData);
 });
