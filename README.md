@@ -6,28 +6,27 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 
 | Model | Year | Pretraining Data | Key Idea | Resources |
 |---|---|---|---|---|
-| **CTransPath** | 2022 | 32K+ WSIs | SRCL with hybrid CNN-ViT | [Paper](https://www.sciencedirect.com/science/article/pii/S1361841522002043) • [Code](https://github.com/Xiyue-Wang/TransPath) |
+| **BRAVE** | 2026 | 57,271 WSIs | Breast-adaptive pathology foundation model | [Paper](https://arxiv.org/abs/2605.08207) |
+| **CTransPath** | 2022 | 32K+ WSIs | SRCL with hybrid CNN-ViT | [Paper](https://www.sciencedirect.com/science/article/pii/S1361841522002043) • [Code](https://github.com/Xiyue-Wang/TransPath) • [Model](https://drive.google.com/file/d/1DoDx_70_TLj98gTf6YTXnu4tFhsFocDX/view) |
 | **REMEDIS** | 2023 | 29K+ WSIs | BiT + SimCLR Pretraining | [Paper](https://doi.org/10.1038/s41551-023-01049-7) |
 | **Lunit** | 2023 | 36K+ WSI | Pathology-Specific SSL Pretraining | [Paper](https://arxiv.org/abs/2212.04690) • [Code](https://github.com/lunit-io/benchmark-ssl-pathology) • [Model](https://huggingface.co/1aurent/vit_small_patch8_224.lunit_dino) |
 | **Phikon** | 2023 | 6,093 WSIs | iBOT Masked Image Pretraining | [Paper](https://www.medrxiv.org/content/10.1101/2023.07.21.23292757v2) • [Code](https://github.com/owkin/HistoSSLscaling/) • [Model](https://huggingface.co/owkin/phikon) |
 | **PathoDuet** | 2024 | 11K WSIs | Cross-Scale Cross-Stain Pretraining | [Paper](https://www.sciencedirect.com/science/article/pii/S1361841524002147) • [Code](https://github.com/openmedlab/PathoDuet) |
 | **RudolfV** | 2024 | 134K WSIs, 58 tissue types | Pathologist-curated data and expertise | [Paper](https://arxiv.org/abs/2401.04079) |
 | **PLUTO** | 2024 | 195M tiles | Lightweight multi-scale representation | [Paper](https://arxiv.org/abs/2405.07905) |
-| **UNI** | 2024 | 100M tiles, 100K WSIs | General-purpose DINOv2 on 100K WSIs | [Paper](https://doi.org/10.1038/s41591-024-02857-3) • [Code](https://github.com/mahmoodlab/UNI) |
+| **UNI** | 2024 | 100M tiles, 100K WSIs | General-purpose DINOv2 on 100K WSIs | [Paper](https://doi.org/10.1038/s41591-024-02857-3) • [Code](https://github.com/mahmoodlab/UNI) • [Model](https://huggingface.co/MahmoodLab/UNI) |
 | **Virchow** | 2024 | 1.5M WSIs, 100K patients | Clinical-grade pan-cancer detection | [Paper](https://doi.org/10.1038/s41591-024-03141-0) • [Model](https://huggingface.co/paige-ai/Virchow) |
 | **Virchow2** | 2024 | 3.1M WSIs | 1.9B parameters, mixed magnification | [Paper](https://arxiv.org/abs/2408.00738) • [Model](https://huggingface.co/paige-ai/Virchow2) |
 | **Hibou** | 2024 | 1M WSIs | Open-source DINOv2 architecture | [Paper](https://arxiv.org/abs/2406.05074) • [Code](https://github.com/histai/hibou) • [Model](https://huggingface.co/histai/hibou-L) |
-| **BEPH** | 2024 | 11M tiles | BEiT-based masked image modeling | [Paper](https://www.nature.com/articles/s41467-025-57587-y) • [Code](https://github.com/Zhcyoung/BEPH) |
+| **BEPH** | 2024 | 11M tiles | BEiT-based masked image modeling | [Paper](https://www.nature.com/articles/s41467-025-57587-y) • [Code](https://github.com/Zhcyoung/BEPH) • [Model](https://drive.google.com/file/d/19Fu3dw3G4i2gPXijzrxfaQ2D_xcqNdNz/view) |
 | **Atlas** | 2025 | 1.2M WSIs (Mayo + Charité) | Efficient RudolfV-based model | [Paper](https://arxiv.org/abs/2501.05409) |
 | **Midnight** | 2025 | 12K / 92K WSIs | Data-efficient DINOv2 optimization | [Paper](https://arxiv.org/abs/2504.05186) • [Code](https://github.com/kaiko-ai/midnight) |
 | **H-optimus-0** | 2025 | 500K WSIs | SSL Pretraining, FM Distillation | [Paper](https://arxiv.org/abs/2501.16239v1) • [Code](https://github.com/bioptimus/releases/tree/main/models/h-optimus/v0) • [Model](https://huggingface.co/bioptimus/H-optimus-0) |
 | **PathOrchestra** | 2025 | 27K WSIs, 100 tasks | Evaluated on 112 clinical tasks | [Paper](https://arxiv.org/abs/2503.24345) • [Model](https://huggingface.co/AI4Pathology/PathOrchestra) |
-| **GenBio-PathFM** | 2026 | 177K WSIs | JEDI (JEPA+DINO) dual-stage learning | [Paper](https://www.biorxiv.org/content/10.64898/2026.03.17.712534v1) • [Code](https://github.com/genbio-ai/genbio-pathfm) |
-| **Phaet** | 2026 | --- | Robustness-tuned Phikon-v2 | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/phaet) |
-| **Mascaret** | 2026 | --- | Robustness-tuned Midnight-12k | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/mascaret) |
+| **GenBio-PathFM** | 2026 | 177K WSIs | JEDI (JEPA+DINO) dual-stage learning | [Paper](https://www.biorxiv.org/content/10.64898/2026.03.17.712534v1) • [Code](https://github.com/genbio-ai/genbio-pathfm) • [Model](https://huggingface.co/genbio-ai/genbio-pathfm) |
 | **RudolfV2** | 2026 | 300K+ WSIs | Robust Multi-Scale SSL Pretraining | [Paper](https://cdn.prod.website-files.com/67adb01f31489469b513304a/6a74e2f9f1d4aef06489a3f1_RudolfV_2_260806.pdf) • [Model](https://huggingface.co/Aignostics/RudolfV-2) |
 | **Atlas 2** | 2026 | 5.5M WSIs | 2B params, robust evaluation on 80 benchmarks | [Paper](https://arxiv.org/pdf/2601.05148) |
-| **GRACE** | 2026 | 48K WSIs | Gastric-specific foundation model for Real-world Assessment and Clinical dEcision support | [Paper](https://arxiv.org/abs/2606.04792) |
+| **GRACE** | 2026 | 48K WSIs | Gastric-specific foundation model | [Paper](https://arxiv.org/abs/2606.04792) |
 
 ---
 
@@ -38,8 +37,8 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Prov-GigaPath** | 2024 | 1.3B tiles, 171K WSIs | LongNet for ultra-large context | [Paper](https://www.nature.com/articles/s41586-024-07441-w) • [Code](https://github.com/prov-gigapath/prov-gigapath) • [Model](https://huggingface.co/prov-gigapath/prov-gigapath) |
 | **CHIEF** | 2024 | 60K WSIs, 19 sites | Weakly supervised slide pattern recognition | [Paper](https://www.nature.com/articles/s41586-024-07894-z) • [Code](https://github.com/hms-dbmi/CHIEF) |
 | **Feather** | 2025 | 3,499 WSIs | Transferable Pretrained MIL Models | [Paper](https://arxiv.org/abs/2506.09022) • [Code](https://github.com/mahmoodlab/MIL-Lab) • [Model](https://huggingface.co/collections/MahmoodLab/feather) |
-| **EXAONE Path 2.0** | 2025 | 37K WSIs | End-to-end hierarchical learning with direct slide-level supervision | [Paper](https://arxiv.org/pdf/2507.06639) |
-| **MOOZY** | 2026 | 77K WSIs | Patient-first case-level aggregator via explicit inter-slide modeling | [Paper](https://arxiv.org/abs/2603.27048) • [Code](https://github.com/AtlasAnalyticsLab/MOOZY) |
+| **EXAONE Path 2.0** | 2025 | 37K WSIs | End-to-end hierarchical learning | [Paper](https://arxiv.org/pdf/2507.06639) |
+| **MOOZY** | 2026 | 77K WSIs | Patient-first case-level aggregator | [Paper](https://arxiv.org/abs/2603.27048) • [Code](https://github.com/AtlasAnalyticsLab/MOOZY) |
 | **GigaPath-Flash** | 2026 | Real-world Providence cohort | Efficient 43M ViT-S+LongNet whole-slide foundation model | [Paper](https://arxiv.org/abs/2607.18218) • [Model](https://huggingface.co/prov-gigapath/prov-gigapath-flash) |
 
 ---
@@ -70,9 +69,19 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **KRONOS** | 2025 | 47M patches | Foundation model built for spatial proteomics via segmentation-free patch-level processing | [Paper](https://arxiv.org/abs/2506.03373) • [Code](https://github.com/mahmoodlab/KRONOS) • [Model](https://huggingface.co/MahmoodLab/KRONOS) |
 | **EXAONE Path 2.5** | 2025 | 37K WSIs | End-to-end hierarchical learning with direct slide-level supervision | [Paper](https://arxiv.org/abs/2512.14019) • [Model](https://huggingface.co/LGAI-EXAONE/EXAONE-Path-2.5) |
 | **CARE** | 2026 | 34K WSIs | Molecular-Guided Adaptive Region Modeling | [Paper](https://arxiv.org/abs/2602.21637) • [Code](https://github.com/zdipath/CARE) • [Model](https://huggingface.co/Zipper-1/CARE) |
-| **SEAL** | 2026 | --- | --- |  |
-| **KRONOS2** | 2026 | --- | --- |  |
+| **KRONOS2** | 2026 | SPM56M patches; 268 markers | Marker-aware DINOv2 successor to KRONOS (268 markers) | [Paper](https://arxiv.org/abs/2506.03373) • [Model](https://huggingface.co/MahmoodLab/KRONOS2) |
 | **GigaTIME-Flash** | 2026 | Real-world Providence cohort | Efficient spatial proteomics prediction from H&E | [Paper](https://arxiv.org/abs/2607.18218) • [Model](https://huggingface.co/prov-gigatime/gigatime-flash) |
+
+---
+
+## 🧩 Foundation Model Adaptation & Distillation
+
+| Model | Year | Pretraining Data | Key Idea | Resources |
+|---|---|---|---|---|
+| **H0-mini** | 2025 | 43 million tiles, 6,093 WSIs | Lightweight foundation model distilled from H-optimus-0 with DINOv2 | [Paper](https://arxiv.org/abs/2501.16239) • [Model](https://huggingface.co/bioptimus/H0-mini) |
+| **SEAL** | 2026 | --- | --- | [Paper](https://arxiv.org/abs/2602.14177) • [Code](https://github.com/mahmoodlab/SEAL/) • [Model](https://huggingface.co/MahmoodLab/SEAL) |
+| **Phaet** | 2026 | --- | Robustness-tuned Phikon-v2 | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/phaet) |
+| **Mascaret** | 2026 | --- | Robustness-tuned Midnight-12k | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/mascaret) |
 
 ---
 
@@ -110,11 +119,33 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | Name | Year | Scope | Key Contribution | Resources |
 |---|---|---|---|---|
 | **EVA** | 2024 | Slide & Patch | Standardized framework for systematic evaluation and comparison of PFMs | [Paper](https://openreview.net/forum?id=FNBQOPj18N) • [Code](https://github.com/kaiko-ai/eva) |
-| **Patho-Bench/MahmoodLab** | 2025 | Slide | Open-source benchmarking toolkit with standardized datasets and reproducible evaluation pipelines | [Paper](https://arxiv.org/pdf/2502.06750) • [Code](https://github.com/mahmoodlab/Patho-Bench) |
+| **Patho-Bench** | 2025 | Slide | Open-source benchmarking toolkit with standardized datasets and reproducible evaluation pipelines | [Paper](https://arxiv.org/pdf/2502.06750) • [Code](https://github.com/mahmoodlab/Patho-Bench) |
 | **QuIIL-PathBench** | 2025 | Patch | Systematically benchmarks PFMs by evaluating patch-level representations | [Paper](https://arxiv.org/abs/2410.16038) • [Code](https://github.com/QuIIL/BenchmarkingPathologyFoundationModels) |
 | **Clinical Benchmark** | 2025 | Slide | Clinical benchmark with MSHS and MSKCC datasets covering disease detection and biomarker prediction | [Paper](https://www.nature.com/articles/s41467-025-58796-1.pdf) • [Code](https://github.com/sinai-computational-pathology/SSL_tile_benchmarks#automated-external-benchmarking) |
 | **PathBench** | 2025 | Slide & Patch | Leakage-free multi-center clinical benchmark spanning multiple tasks, with a live public leaderboard | [Paper](https://arxiv.org/abs/2505.20202) • [Code](https://github.com/birkhoffkiki/PathBench) • [Website](https://birkhoffkiki.github.io/PathBench/) |
 | **Stanford PathBench** | 2026 | Slide & Patch | Comprehensive benchmark of 32 PFMs across 41 tasks with a public leaderboard | [Paper](https://www.nature.com/articles/s41467-026-76004-6) |
+
+---
+
+## 📚 Survey and Perspectives
+
+| Paper | Year | Focus | Resources |
+|---|---|---|---|
+| **Xiong et al.** — *A Survey of Pathology Foundation Model: Progress and Future Directions* | 2025 | Comprehensive survey of progress and future directions in pathology foundation models | [Paper](https://arxiv.org/abs/2504.04045) |
+| **Chanda et al.** — *A New Era in Computational Pathology: A Survey on Foundation and Vision-Language Models* | 2024 | Survey on Foundation and Vision-Language Models | [Paper](https://arxiv.org/abs/2408.14496) |
+| **Li et al.** — *A survey on computational pathology foundation models: datasets, adaptation strategies, and evaluation tasks* | 2025 | Survey covering datasets, adaptation strategies, and evaluation tasks | [Paper](https://link.springer.com/article/10.1007/s10115-026-02806-1) |
+| **Lin et al.** — *Revealing Ethical Risks in Pathology Foundation Models: A Quantitative Perspective* | 2025 | Quantitative perspective on ethical risks in pathology foundation models | [Paper](https://arxiv.org/abs/2502.16889) |
+| **Bilal et al.** — *Foundation Models in Computational Pathology: A Review of Challenges, Opportunities, and Impact* | 2025 | Review of challenges, opportunities, and impact of Foundation Models in CPath | [Paper](https://arxiv.org/abs/2502.08333) |
+| **Tizhoosh** — *Rethinking foundation models in pathology* | 2026 | Perspective on rethinking foundation models in pathology | [Paper](https://www.nature.com/articles/s41551-026-01696-6) |
+
+---
+
+## 🔎 Interpretability and Analysis
+
+| Paper | Year | Focus | Resources |
+|---|---|---|---|
+| **Mishra et al.** — *Comparing Computational Pathology Foundation Models using Representational Similarity Analysis* | 2025 | Comparing Computational Pathology Foundation Models using Representational Similarity Analysis | [Paper](https://arxiv.org/abs/2509.15482) |
+| **Le et al.** — *Interpretability analysis on a pathology foundation model reveals biologically relevant embeddings across modalities* | 2024 | Interpretability analysis on a pathology foundation model reveals biologically relevant embeddings across modalities | [Paper](https://arxiv.org/abs/2407.10785v1) |
 
 ---
 

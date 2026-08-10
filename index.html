@@ -41,7 +41,7 @@
         <div class="controls">
             <div class="search-box">
                 <i class="ph ph-magnifying-glass"></i>
-                <input type="text" id="searchInput" placeholder="Search models, methods, or ideas...">
+                <input type="text" id="searchInput" placeholder="Search models, methods, or ideas..." aria-label="Search models, methods, or ideas">
             </div>
             <div class="filter-box">
                 <select id="categoryFilter" aria-label="Filter by category">
@@ -71,14 +71,14 @@
     </footer>
 
     <!-- Metadata Modal -->
-    <div id="metadataModal" class="modal">
+    <div id="metadataModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-content">
             <div class="modal-header">
                 <div class="modal-title-group">
                     <h3 id="modalTitle">Model Name</h3>
                     <div id="modalSubtitle" class="modal-subtitle"></div>
                 </div>
-                <button class="close-modal" id="closeModal">&times;</button>
+                <button class="close-modal" id="closeModal" aria-label="Close">&times;</button>
             </div>
             <div class="modal-body" id="modalBody">
                 <!-- Table injected here via JS -->

@@ -11,16 +11,23 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModal = document.getElementById('closeModal');
 
     // Close Modal Logic
+    function hideModal() {
+        modal.style.display = "none";
+        modal.setAttribute('aria-hidden', 'true');
+    }
     if (closeModal) {
-        closeModal.onclick = function() {
-            modal.style.display = "none";
-        }
+        closeModal.onclick = hideModal;
     }
     window.onclick = function(event) {
         if (event.target == modal) {
-            modal.style.display = "none";
+            hideModal();
         }
     }
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && modal.style.display === 'block') {
+            hideModal();
+        }
+    });
 
     // View state
     let currentView = 'table';
@@ -74,6 +81,21 @@ document.addEventListener('DOMContentLoaded', () => {
         return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     }
 
+    // A field is "meaningful" only if it isn't blank, "Not found", or "N/A".
+    function isMeaningful(text) {
+        if (!text) return false;
+        const clean = text.replace(/\*/g, '').trim().toLowerCase();
+        return clean !== '' && clean !== 'not found' && clean !== 'n/a';
+    }
+
+    // Prefer the richer audit value when it carries real information,
+    // otherwise fall back to the concise summary field.
+    function preferAudit(auditVal, fallback) {
+        if (isMeaningful(auditVal)) return formatField(auditVal);
+        if (isMeaningful(fallback)) return formatField(fallback);
+        return '';
+    }
+
     // Show Modal Function
     function openModal(model) {
         modalTitle.textContent = model.name;
@@ -107,10 +129,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
 
         fields.forEach(field => {
-            const cleanVal = field.value ? field.value.replace(/\*/g, '').trim().toLowerCase() : '';
-            if (cleanVal && cleanVal !== 'not found' && cleanVal !== 'n/a') {
-                let displayValue = field.value.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
-                rowsHtml += `<tr><th>${field.label}</th><td>${displayValue}</td></tr>`;
+            if (isMeaningful(field.value)) {
+                rowsHtml += `<tr><th>${field.label}</th><td>${formatField(field.value)}</td></tr>`;
             }
         });
 
@@ -127,6 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         modal.style.display = "block";
+        modal.setAttribute('aria-hidden', 'false');
     }
 
     // Render Data
@@ -185,11 +206,11 @@ document.addEventListener('DOMContentLoaded', () => {
                         <td>
                             <div class="model-info-col">
                                 <div class="model-name">${model.name}</div>
-                                <span class="tag tag-${model.tag_color || family.color}">${model.tag || family.text}</span>
+                                <span class="tag tag-${model.tag_color || family.color}">${model.tag || model.type || family.text}</span>
                             </div>
                         </td>
                         <td><span class="year-badge">${model.year}</span></td>
-                        <td class="idea-col">${formatField(model.audit_notes) || model.idea}</td>
+                        <td class="idea-col">${preferAudit(model.audit_notes, model.idea)}</td>
                         <td><div class="links-col">${linksHTML}</div></td>
                     `;
                     
@@ -220,14 +241,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="card-header">
                             <div class="model-info">
                                 <div class="model-name">${model.name}</div>
-                                <span class="tag tag-${model.tag_color || family.color}">${model.tag || family.text}</span>
+                                <span class="tag tag-${model.tag_color || family.color}">${model.tag || model.type || family.text}</span>
                             </div>
                             <div class="model-year">${model.year}</div>
                         </div>
-                        <div class="model-idea">${formatField(model.audit_notes) || model.idea}</div>
+                        <div class="model-idea">${preferAudit(model.audit_notes, model.idea)}</div>
                         <div class="model-data">
                             <i class="ph ph-database"></i>
-                            <span>${formatField(model.audit_wsis) || model.data}</span>
+                            <span>${preferAudit(model.audit_wsis, model.data)}</span>
                         </div>
                         <div class="card-links">
                             ${linksHTML}
@@ -268,12 +289,13 @@ document.addEventListener('DOMContentLoaded', () => {
             if (selectedCategory !== 'all' && cat.category !== selectedCategory) {
                 return { ...cat, models: [] };
             }
-            const matchedModels = cat.models.filter(m => 
-                m.name.toLowerCase().includes(searchTerm) ||
-                m.idea.toLowerCase().includes(searchTerm) ||
-                m.data.toLowerCase().includes(searchTerm) ||
-                m.year.toString().includes(searchTerm)
-            );
+            const matchedModels = cat.models.filter(m => {
+                const haystack = [
+                    m.name, m.idea, m.data, m.year, cat.category,
+                    m.audit_notes, m.paper_title, m.paper_author, m.tag
+                ].filter(Boolean).join(' ').toLowerCase();
+                return haystack.includes(searchTerm);
+            });
             return { ...cat, models: matchedModels };
         });
         render(filtered);
