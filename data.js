@@ -1259,7 +1259,7 @@ const modelData = [
     ]
   },
   {
-    "category": "Survey",
+    "category": "Survey and Perspectives",
     "models": [
       {
         "name": "Xiong et al.",
