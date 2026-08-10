@@ -1199,7 +1199,7 @@ const modelData = [
         "data": "---",
         "idea": "---",
         "github": "https://github.com/mahmoodlab/SEAL/",
-        "hf": "",
+        "hf": "https://huggingface.co/MahmoodLab/SEAL",
         "paper": "https://arxiv.org/abs/2602.14177",
         "audit_wsis": "N/A \u2014 parameter-efficient vision\u2013omics adaptation",
         "audit_patches": "Not found",
