@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Modal Elements
     const modal = document.getElementById('metadataModal');
     const modalTitle = document.getElementById('modalTitle');
+    const modalSubtitle = document.getElementById('modalSubtitle');
     const modalBody = document.getElementById('modalBody');
     const closeModal = document.getElementById('closeModal');
 
@@ -68,6 +69,20 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show Modal Function
     function openModal(model) {
         modalTitle.textContent = model.name;
+        
+        if (model.paper_title || model.paper_author) {
+            let subtitleHtml = '';
+            if (model.paper_title) {
+                subtitleHtml += model.paper_title;
+            }
+            if (model.paper_author) {
+                subtitleHtml += (subtitleHtml ? ' — ' : '') + model.paper_author + ' et al.';
+            }
+            modalSubtitle.textContent = subtitleHtml;
+            modalSubtitle.style.display = 'block';
+        } else {
+            modalSubtitle.style.display = 'none';
+        }
         
         let rowsHtml = '';
         

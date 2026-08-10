@@ -18,7 +18,9 @@ const modelData = [
         "audit_organs": ">25 anatomic sites; 32 cancer subtypes",
         "audit_downstream": "5 task families: patch retrieval, supervised patch classification, weakly supervised WSI classification, mitosis detection, colorectal gland segmentation; 9 public datasets",
         "audit_cohorts": "Pretraining sources TCGA + PAIP; exact institution count Not found",
-        "audit_notes": "Public-source pathology corpus; SRCL hybrid CNN\u2013ViT."
+        "audit_notes": "Public-source pathology corpus; SRCL hybrid CNN\u2013ViT.",
+        "paper_title": "",
+        "paper_author": ""
       },
       {
         "name": "REMEDIS",
@@ -36,7 +38,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "Not found as a single pathology-specific total",
         "audit_cohorts": "TCGA for pathology SSL; exact institution count Not found",
-        "audit_notes": "The 29,018/50M figures are explicitly restated in the Prov-GigaPath methods comparison; REMEDIS also covers non-pathology medical imaging."
+        "audit_notes": "The 29,018/50M figures are explicitly restated in the Prov-GigaPath methods comparison; REMEDIS also covers non-pathology medical imaging.",
+        "paper_title": "Robust and data-efficient generalization of self-supervised machine learning for diagnostic imaging",
+        "paper_author": "Azizi"
       },
       {
         "name": "Lunit",
@@ -54,7 +58,9 @@ const modelData = [
         "audit_organs": "Multiple cancers; exact organ count Not found",
         "audit_downstream": "2 task types over 5 datasets: classification on BACH, CRC, MHIST, PatchCamelyon; nuclei instance segmentation/classification on CoNSeP",
         "audit_cohorts": "2 pretraining sources: TCGA 20,994 WSIs + internal TULIP 15,672",
-        "audit_notes": "19,000,069 TCGA + 13,578,488 TULIP patches; 20\u00d7/40\u00d7."
+        "audit_notes": "19,000,069 TCGA + 13,578,488 TULIP patches; 20\u00d7/40\u00d7.",
+        "paper_title": "Benchmarking Self-Supervised Learning on Diverse Pathology Datasets",
+        "paper_author": "Kang"
       },
       {
         "name": "Phikon",
@@ -72,7 +78,9 @@ const modelData = [
         "audit_organs": "16 cancer types",
         "audit_downstream": "Exact scalar task count Not found; patch- and WSI-level cancer tasks",
         "audit_cohorts": "TCGA public source",
-        "audit_notes": "iBOT pretraining; official Owkin material reports >40M images. The 6,093-slide PanCancer corpus is independently specified by the H0-mini official material."
+        "audit_notes": "iBOT pretraining; official Owkin material reports >40M images. The 6,093-slide PanCancer corpus is independently specified by the H0-mini official material.",
+        "paper_title": "",
+        "paper_author": ""
       },
       {
         "name": "PathoDuet",
@@ -90,7 +98,9 @@ const modelData = [
         "audit_organs": "Pan-cancer; exact tissue count Not found",
         "audit_downstream": "Patch classification, WSI classification, PD-L1 expression classification, cross-site IHC tumor identification",
         "audit_cohorts": "TCGA, HyReCo, BCI and downstream public datasets; institution count Not found",
-        "audit_notes": "Cross-scale/cross-stain learning; exact unique pretraining patch total not recovered."
+        "audit_notes": "Cross-scale/cross-stain learning; exact unique pretraining patch total not recovered.",
+        "paper_title": "",
+        "paper_author": ""
       },
       {
         "name": "RudolfV",
@@ -108,7 +118,9 @@ const modelData = [
         "audit_organs": "58 tissue types; 129 histochemical/IHC stain modalities",
         "audit_downstream": "Tumor-microenvironment profiling, biomarker evaluation, reference-case search; exact task count Not found",
         "audit_cohorts": ">15 laboratories across Europe/US",
-        "audit_notes": "The often-repeated seed-list slide total was not visible in the primary text I could verify, so it is deliberately not reproduced."
+        "audit_notes": "The often-repeated seed-list slide total was not visible in the primary text I could verify, so it is deliberately not reproduced.",
+        "paper_title": "RudolfV: A Foundation Model by Pathologists for Pathologists",
+        "paper_author": "Dippel"
       },
       {
         "name": "PLUTO",
@@ -126,7 +138,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "3 broad scales: instance segmentation, tile classification, slide-level prediction",
         "audit_cohorts": "Multiple sites; exact count Not found",
-        "audit_notes": "Multi-scale pathology representation learning."
+        "audit_notes": "Multi-scale pathology representation learning.",
+        "paper_title": "PLUTO: Pathology-Universal Transformer",
+        "paper_author": "Juyal"
       },
       {
         "name": "UNI",
@@ -144,7 +158,9 @@ const modelData = [
         "audit_organs": "20 major tissue types",
         "audit_downstream": "34 representative CPath tasks",
         "audit_cohorts": "Two hospitals plus GTEx are reported as principal sources",
-        "audit_notes": ">77 TB diagnostic H&E; public/private mix."
+        "audit_notes": ">77 TB diagnostic H&E; public/private mix.",
+        "paper_title": "Towards a general-purpose foundation model for computational pathology",
+        "paper_author": "Chen"
       },
       {
         "name": "Virchow",
@@ -162,7 +178,9 @@ const modelData = [
         "audit_organs": "17 high-level tissue groups",
         "audit_downstream": "Pan-cancer detection across 17 types, rare-cancer detection across 7 rare types, tile benchmarks and slide biomarker prediction; one aggregate task count Not found",
         "audit_cohorts": "Pretraining at MSKCC; external evaluation includes 7 additional clinical datasets",
-        "audit_notes": "~100K patients; **2B is sampled training instances, not unique patches**."
+        "audit_notes": "~100K patients; **2B is sampled training instances, not unique patches**.",
+        "paper_title": "A foundation model for clinical-grade computational pathology and rare cancers detection",
+        "paper_author": "Vorontsov"
       },
       {
         "name": "Virchow2",
@@ -180,7 +198,9 @@ const modelData = [
         "audit_organs": "Nearly 200 tissue types",
         "audit_downstream": "12 tile-level downstream tasks reported",
         "audit_cohorts": "225,401 patients; exact institution count Not found",
-        "audit_notes": "Mixed 5\u00d7/10\u00d7/20\u00d7/40\u00d7; H&E + IHC diversity."
+        "audit_notes": "Mixed 5\u00d7/10\u00d7/20\u00d7/40\u00d7; H&E + IHC diversity.",
+        "paper_title": "Virchow2: Scaling Self-Supervised Mixed Magnification Models in Pathology",
+        "paper_author": "Zimmermann"
       },
       {
         "name": "Hibou",
@@ -198,7 +218,9 @@ const modelData = [
         "audit_organs": "Diverse tissues; exact count Not found",
         "audit_downstream": "Patch- and slide-level benchmarks; exact task count Not found",
         "audit_cohorts": "Proprietary corpus; institution count Not found",
-        "audit_notes": "I retained only the >1M number explicitly visible in the primary description."
+        "audit_notes": "I retained only the >1M number explicitly visible in the primary description.",
+        "paper_title": "Hibou: A Family of Foundational Vision Transformers for Pathology",
+        "paper_author": "Nechaev"
       },
       {
         "name": "BEPH",
@@ -216,7 +238,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "3 task families: patch cancer diagnosis, WSI cancer classification, survival prediction",
         "audit_cohorts": "Not found",
-        "audit_notes": "BEiT-style masked-image pretraining."
+        "audit_notes": "BEiT-style masked-image pretraining.",
+        "paper_title": "A foundation model for generalizable cancer diagnosis and survival prediction from histopathological images",
+        "paper_author": "Yang"
       },
       {
         "name": "Atlas",
@@ -234,7 +258,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "21 public benchmark datasets",
         "audit_cohorts": "2 institutions: Mayo Clinic + Charit\u00e9",
-        "audit_notes": "Large private multi-institution clinical corpus."
+        "audit_notes": "Large private multi-institution clinical corpus.",
+        "paper_title": "Atlas: A Novel Pathology Foundation Model by Mayo Clinic, Charit\\'e, and Aignostics",
+        "paper_author": "Alber"
       },
       {
         "name": "Midnight",
@@ -252,7 +278,9 @@ const modelData = [
         "audit_organs": "TCGA: 32 cancer types; NKI extension: 31 organs",
         "audit_downstream": "BACH, BRACS, BreaKHis, CRC100K, Gleason TMA, MHIST, PatchCamelyon, Camelyon16, PANDA, CoNSeP, MoNuSAC, HEST; HEST contains 9 ST gene-expression tasks",
         "audit_cohorts": "TCGA + NKI; NKI includes 10,141 patients",
-        "audit_notes": "Midnight-12k is public TCGA; Midnight-92k adds 80K proprietary NKI slides; online tile extraction."
+        "audit_notes": "Midnight-12k is public TCGA; Midnight-92k adds 80K proprietary NKI slides; online tile extraction.",
+        "paper_title": "Training state-of-the-art pathology foundation models with orders of magnitude less data",
+        "paper_author": "Karasikov"
       },
       {
         "name": "H-optimus-0",
@@ -270,7 +298,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "Examples include mutation prediction, survival prediction, tissue classification; exact count Not found",
         "audit_cohorts": "Not found",
-        "audit_notes": "1.1B-parameter tile FM; private corpus."
+        "audit_notes": "1.1B-parameter tile FM; private corpus.",
+        "paper_title": "Distilling foundation models for robust and efficient models in digital pathology",
+        "paper_author": "Filiot"
       },
       {
         "name": "PathOrchestra",
@@ -288,7 +318,9 @@ const modelData = [
         "audit_organs": "21 tissues/organs/systems",
         "audit_downstream": "**112 tasks: 61 WSI + 51 ROI**; slide preprocessing 12, pan-cancer 3, lesion identification 15, cancer subtyping 36, biomarker evaluation 36, gene-expression assessment 10",
         "audit_cohorts": "**3 pretraining centers**; evaluation uses 51 public + 61 private datasets",
-        "audit_notes": "Evaluation corpus is 27,755 WSIs + 9,415,729 ROIs; >35 stains and >50 genes."
+        "audit_notes": "Evaluation corpus is 27,755 WSIs + 9,415,729 ROIs; >35 stains and >50 genes.",
+        "paper_title": "PathOrchestra: A Comprehensive Foundation Model for Computational Pathology with Over 100 Diverse Clinical-Grade Tasks",
+        "paper_author": "Yan"
       },
       {
         "name": "GenBio-PathFM",
@@ -306,7 +338,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "THUNDER, HEST, PathoROB benchmark families; exact total Not found",
         "audit_cohorts": "Public-only training; number of source cohorts/institutions Not found",
-        "audit_notes": "Official materials confirm JEDI (JEPA + DINO) and public-only data, but exact requested scale statistics remained unresolved."
+        "audit_notes": "Official materials confirm JEDI (JEPA + DINO) and public-only data, but exact requested scale statistics remained unresolved.",
+        "paper_title": "",
+        "paper_author": ""
       },
       {
         "name": "Phaet",
@@ -324,7 +358,9 @@ const modelData = [
         "audit_organs": "Fine-tuning coverage Not found",
         "audit_downstream": "PathoROB; HEST (9 cancer/ST tasks); THUNDER (6 task types over 16 datasets); 63 Patho-Bench tasks used in this study",
         "audit_cohorts": "PathoROB includes 34 medical centers; fine-tuning-site count Not found",
-        "audit_notes": "Robustness-tuned Phikon-v2, not an independently pretrained FM."
+        "audit_notes": "Robustness-tuned Phikon-v2, not an independently pretrained FM.",
+        "paper_title": "Robustifying pathology foundation models via fine-tuning",
+        "paper_author": "Filiot"
       },
       {
         "name": "Mascaret",
@@ -342,7 +378,9 @@ const modelData = [
         "audit_organs": "Fine-tuning coverage Not found",
         "audit_downstream": "Same robustness suites as Phaet: PathoROB, HEST, THUNDER, Patho-Bench subset",
         "audit_cohorts": "PathoROB includes 34 medical centers; fine-tuning-site count Not found",
-        "audit_notes": "Robustness-tuned Midnight-12k."
+        "audit_notes": "Robustness-tuned Midnight-12k.",
+        "paper_title": "Robustifying pathology foundation models via fine-tuning",
+        "paper_author": "Filiot"
       },
       {
         "name": "RudolfV2",
@@ -360,7 +398,9 @@ const modelData = [
         "audit_organs": "**Not found**",
         "audit_downstream": "**Not found**",
         "audit_cohorts": "**Not found**",
-        "audit_notes": "Official paper/model links were identified, but I did not recover the requested exact metadata from primary text in a form I could verify; seed-list values are therefore not treated as confirmed."
+        "audit_notes": "Official paper/model links were identified, but I did not recover the requested exact metadata from primary text in a form I could verify; seed-list values are therefore not treated as confirmed.",
+        "paper_title": "",
+        "paper_author": ""
       },
       {
         "name": "Atlas 2",
@@ -378,7 +418,9 @@ const modelData = [
         "audit_organs": "70+ tissue types; 100+ staining types",
         "audit_downstream": "**80 public benchmarks**",
         "audit_cohorts": "3 institutions: Charit\u00e9, LMU Munich, Mayo Clinic",
-        "audit_notes": "~490K cases and 7 scanner types reported by official project material."
+        "audit_notes": "~490K cases and 7 scanner types reported by official project material.",
+        "paper_title": "",
+        "paper_author": ""
       },
       {
         "name": "GRACE",
@@ -396,7 +438,9 @@ const modelData = [
         "audit_organs": "Stomach/gastric, 1 organ focus",
         "audit_downstream": "**28 clinically relevant tasks** spanning precancerous lesions, histopathologic assessment, molecular profiling and prognosis",
         "audit_cohorts": "Multicenter; exact institution number Not found; 37,493 patients",
-        "audit_notes": "48,364 total WSIs must not automatically be labeled \u201cpretraining WSIs.\u201d"
+        "audit_notes": "48,364 total WSIs must not automatically be labeled \u201cpretraining WSIs.\u201d",
+        "paper_title": "A Pathology Foundation Model for Gastric Cancer with Real-World Validation",
+        "paper_author": "Liang"
       }
     ]
   },
@@ -419,7 +463,9 @@ const modelData = [
         "audit_organs": "31 major tissue types",
         "audit_downstream": "**26 tasks: 9 cancer-subtyping + 17 pathomics**",
         "audit_cohorts": "Providence network: **28 cancer centers**, >30K patients",
-        "audit_notes": "Private real-world clinical corpus; DINOv2 tile encoder + LongNet/MAE slide encoder."
+        "audit_notes": "Private real-world clinical corpus; DINOv2 tile encoder + LongNet/MAE slide encoder.",
+        "paper_title": "A whole-slide foundation model for digital pathology from real-world data",
+        "paper_author": "Xu"
       },
       {
         "name": "CHIEF",
@@ -437,7 +483,9 @@ const modelData = [
         "audit_organs": "**19 anatomical sites**",
         "audit_downstream": "Cancer detection, tumor-origin identification, molecular-profile prediction and prognosis; exact scalar count Not found",
         "audit_cohorts": "Validation: **32 independent slide sets from 24 hospitals/cohorts**",
-        "audit_notes": "44-TB pretraining corpus; external validation includes 19,491 WSIs."
+        "audit_notes": "44-TB pretraining corpus; external validation includes 19,491 WSIs.",
+        "paper_title": "A pathology foundation model for cancer diagnosis and prognosis prediction",
+        "paper_author": "Wang"
       },
       {
         "name": "Feather",
@@ -455,7 +503,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "**Not found**",
         "audit_cohorts": "**Not found**",
-        "audit_notes": "Primary paper identified; the exact requested scale/evaluation totals were not recovered after the second pass, so the seed 3,499-WSI value is not promoted here."
+        "audit_notes": "Primary paper identified; the exact requested scale/evaluation totals were not recovered after the second pass, so the seed 3,499-WSI value is not promoted here.",
+        "paper_title": "Do Multiple Instance Learning Models Transfer?",
+        "paper_author": "Shao"
       },
       {
         "name": "EXAONE Path 2.0",
@@ -473,7 +523,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "**10 biomarker-prediction tasks**",
         "audit_cohorts": "Not found",
-        "audit_notes": "End-to-end hierarchical/direct slide-level supervision."
+        "audit_notes": "End-to-end hierarchical/direct slide-level supervision.",
+        "paper_title": "",
+        "paper_author": ""
       },
       {
         "name": "MOOZY",
@@ -491,7 +543,9 @@ const modelData = [
         "audit_organs": "**23 anatomical sites**",
         "audit_downstream": "**333 tasks: 205 classification + 128 survival**",
         "audit_cohorts": "**56 public datasets**; exact institution count Not found",
-        "audit_notes": "Entirely public; patient-first case-level transformer models inter-slide relationships."
+        "audit_notes": "Entirely public; patient-first case-level transformer models inter-slide relationships.",
+        "paper_title": "MOOZY: A Patient-First Foundation Model for Computational Pathology",
+        "paper_author": "Kotp"
       },
       {
         "name": "GigaPath-Flash",
@@ -509,7 +563,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "Slide-level pathology evaluation; exact task count Not found",
         "audit_cohorts": "Large real-world clinical data; exact centers Not found in accessible primary description",
-        "audit_notes": "22M ViT-S + 21M LongNet; tile encoder distilled from GigaPath; open-weight Apache-2.0."
+        "audit_notes": "22M ViT-S + 21M LongNet; tile encoder distilled from GigaPath; open-weight Apache-2.0.",
+        "paper_title": "GigaPath-Flash and GigaTIME-Flash: Efficient Pathology Foundation Models for Whole-Slide and Tumor Microenvironment Analysis",
+        "paper_author": "Usuyama"
       }
     ]
   },
@@ -532,7 +588,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "4 external zero-shot classification datasets + image/text retrieval",
         "audit_cohorts": "OpenPath / medical Twitter + LAION; institution count not applicable/reported",
-        "audit_notes": "Crowdsourced public image-description data."
+        "audit_notes": "Crowdsourced public image-description data.",
+        "paper_title": "A visual\u2013language foundation model for pathology image analysis using medical Twitter",
+        "paper_author": "Huang"
       },
       {
         "name": "CONCH",
@@ -550,7 +608,9 @@ const modelData = [
         "audit_organs": "Diverse histopathology; exact count Not found",
         "audit_downstream": "**14 benchmarks** spanning classification, segmentation, captioning, text\u2192image and image\u2192text retrieval, including slide-level few-shot evaluation",
         "audit_cohorts": "Multiple sources; exact institution count Not found",
-        "audit_notes": "CoCa-style task-agnostic pathology VLM."
+        "audit_notes": "CoCa-style task-agnostic pathology VLM.",
+        "paper_title": "A visual-language foundation model for computational pathology",
+        "paper_author": "Lu"
       },
       {
         "name": "PRISM",
@@ -568,7 +628,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "Report generation, zero-shot cancer detection/subtyping, biomarker identification, slide classification; exact total Not found",
         "audit_cohorts": "**MSKCC**",
-        "audit_notes": "Virchow tile embeddings + reports. Do not relabel \u201c195K reports\u201d as \u201c195K WSI-report pairs.\u201d"
+        "audit_notes": "Virchow tile embeddings + reports. Do not relabel \u201c195K reports\u201d as \u201c195K WSI-report pairs.\u201d",
+        "paper_title": "PRISM: A Multi-Modal Generative Foundation Model for Slide-Level Histopathology",
+        "paper_author": "Shaikovski"
       },
       {
         "name": "MUSK",
@@ -586,7 +648,9 @@ const modelData = [
         "audit_organs": "Exact organ count Not found",
         "audit_downstream": "**23 patch- and slide-level benchmarks**, including retrieval, VQA, classification and biomarker prediction",
         "audit_cohorts": "**11,577 patients**; institution count Not found",
-        "audit_notes": "First-stage language corpus also contains **1B pathology-related text tokens**; initial image/text can be unpaired."
+        "audit_notes": "First-stage language corpus also contains **1B pathology-related text tokens**; initial image/text can be unpaired.",
+        "paper_title": "A vision\u2013language foundation model for precision oncology",
+        "paper_author": "Xiang"
       },
       {
         "name": "TITAN",
@@ -604,7 +668,9 @@ const modelData = [
         "audit_organs": "**20 organs**",
         "audit_downstream": "6 broad families: linear probing, few-shot classification, zero-shot classification, rare-cancer retrieval, cross-modal retrieval, report generation",
         "audit_cohorts": "Mass General Brigham; exact contributing-site count Not found",
-        "audit_notes": "89.7% H&E, 7.9% IHC, 2.3% special stains, 0.1% other; captions generated with PathChat."
+        "audit_notes": "89.7% H&E, 7.9% IHC, 2.3% special stains, 0.1% other; captions generated with PathChat.",
+        "paper_title": "A multimodal whole-slide foundation model for pathology",
+        "paper_author": "Ding"
       },
       {
         "name": "CPath-Omni",
@@ -622,7 +688,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "**7 task types across 42 datasets**; includes classification, VQA, captioning and visual referring prompting",
         "audit_cohorts": "Not found",
-        "audit_notes": "15B unified patch/WSI multimodal model; the seed-list ~700K image-caption figure was not independently re-established, so it remains Not found."
+        "audit_notes": "15B unified patch/WSI multimodal model; the seed-list ~700K image-caption figure was not independently re-established, so it remains Not found.",
+        "paper_title": "",
+        "paper_author": ""
       },
       {
         "name": "KEEP",
@@ -640,7 +708,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "**Not found**",
         "audit_cohorts": "**Not found**",
-        "audit_notes": "Knowledge-graph-enhanced pathology VLM; the seed 143K \u201cknowledge-grouped pairs\u201d number was not independently recovered to the standard used here."
+        "audit_notes": "Knowledge-graph-enhanced pathology VLM; the seed 143K \u201cknowledge-grouped pairs\u201d number was not independently recovered to the standard used here.",
+        "paper_title": "Knowledge-enhanced Pretraining for Vision-language Pathology Foundation Model on Cancer Diagnosis",
+        "paper_author": "Zhou"
       },
       {
         "name": "PRISM2",
@@ -658,7 +728,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "Diagnostic/biomarker/report-QA and survival-oriented evaluations; exact total Not found",
         "audit_cohorts": "Nearly 700K specimens; institution count Not found",
-        "audit_notes": "One report-bearing specimen can have several slides, hence 2.3M \u2260 2.3M WSI-report pairs."
+        "audit_notes": "One report-bearing specimen can have several slides, hence 2.3M \u2260 2.3M WSI-report pairs.",
+        "paper_title": "PRISM2: Unlocking Multi-Modal General Pathology AI with Clinical Dialogue",
+        "paper_author": "Vorontsov"
       }
     ]
   },
@@ -681,7 +753,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "Not found",
         "audit_cohorts": "Not found",
-        "audit_notes": "The widely repeated ~8.6K paired number was not independently recovered in accessible primary text during this audit, so it is not asserted."
+        "audit_notes": "The widely repeated ~8.6K paired number was not independently recovered in accessible primary text during this audit, so it is not asserted.",
+        "paper_title": "Transcriptomics-guided Slide Representation Learning in Computational Pathology",
+        "paper_author": "Jaume"
       },
       {
         "name": "Madeleine",
@@ -699,7 +773,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "**Not found**",
         "audit_cohorts": "**Not found**",
-        "audit_notes": "Cross-stain slide pretraining; the seed 4,211-WSI value was not independently recovered to the strict standard here."
+        "audit_notes": "Cross-stain slide pretraining; the seed 4,211-WSI value was not independently recovered to the strict standard here.",
+        "paper_title": "",
+        "paper_author": ""
       },
       {
         "name": "Threads",
@@ -717,7 +793,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "**54 oncology tasks**, including clinical subtyping, grading, mutation, IHC status, treatment response and survival",
         "audit_cohorts": "Exact cohort/institution count Not found",
-        "audit_notes": "Primary paper says **tissue sections**; I do not automatically rewrite that as 47,171 distinct WSIs."
+        "audit_notes": "Primary paper says **tissue sections**; I do not automatically rewrite that as 47,171 distinct WSIs.",
+        "paper_title": "Molecular-driven Foundation Model for Oncologic Pathology",
+        "paper_author": ""
       },
       {
         "name": "mSTAR",
@@ -735,7 +813,9 @@ const modelData = [
         "audit_organs": "**32 cancer types**",
         "audit_downstream": "**43 subtasks across 7 task types**",
         "audit_cohorts": "Institution count Not found",
-        "audit_notes": "Crucially, the 26,169 aggregate multimodal pairs cannot be safely split into invented WSI-report and WSI-RNA counts."
+        "audit_notes": "Crucially, the 26,169 aggregate multimodal pairs cannot be safely split into invented WSI-report and WSI-RNA counts.",
+        "paper_title": "A multimodal knowledge-enhanced whole-slide pathology foundation model",
+        "paper_author": "Xu"
       },
       {
         "name": "KRONOS",
@@ -753,7 +833,9 @@ const modelData = [
         "audit_organs": "**16 tissue types**",
         "audit_downstream": "Cell phenotyping, region classification, patient stratification, treatment-response prediction, retrieval/reverse search; exact scalar count Not found",
         "audit_cohorts": "**11 independent evaluation cohorts; 8 fluorescence imaging platforms**",
-        "audit_notes": "Segmentation-free, multi-channel spatial-proteomics FM."
+        "audit_notes": "Segmentation-free, multi-channel spatial-proteomics FM.",
+        "paper_title": "A Foundation Model for Spatial Proteomics",
+        "paper_author": "Shaban"
       },
       {
         "name": "EXAONE Path 2.5",
@@ -771,7 +853,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "Patho-Bench **80 tasks** + internal real-world clinical benchmark; exact combined total Not found",
         "audit_cohorts": "Two evaluation settings; institution count Not found",
-        "audit_notes": "All-pairwise SigLIP-style multimodal alignment; pretraining sample counts not explicit in accessible abstract."
+        "audit_notes": "All-pairwise SigLIP-style multimodal alignment; pretraining sample counts not explicit in accessible abstract.",
+        "paper_title": "EXAONE Path 2.5: Pathology Foundation Model with Multi-Omics Alignment",
+        "paper_author": "Yun"
       },
       {
         "name": "CARE",
@@ -789,7 +873,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "**Not found**",
         "audit_cohorts": "**Not found**",
-        "audit_notes": "The 34K-WSI seed value was not independently verified in the accessible primary material, so it remains Not found."
+        "audit_notes": "The 34K-WSI seed value was not independently verified in the accessible primary material, so it remains Not found.",
+        "paper_title": "CARE: A Molecular-Guided Foundation Model with Adaptive Region Modeling for Whole Slide Image Analysis",
+        "paper_author": "Zhang"
       },
       {
         "name": "KRONOS2",
@@ -807,7 +893,9 @@ const modelData = [
         "audit_organs": "**Not found**",
         "audit_downstream": "**Not found**",
         "audit_cohorts": "**Not found**",
-        "audit_notes": "**A distinct KRONOS2 primary paper/model card could not be located and verified in this sweep. No KRONOS values were carried over.**"
+        "audit_notes": "**A distinct KRONOS2 primary paper/model card could not be located and verified in this sweep. No KRONOS values were carried over.**",
+        "paper_title": "",
+        "paper_author": ""
       },
       {
         "name": "GigaTIME-Flash",
@@ -825,7 +913,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "Tumor immune microenvironment/spatial-proteomics prediction; exact task count Not found",
         "audit_cohorts": "Large real-world clinical data; exact source count Not found",
-        "audit_notes": "Uses the compact GigaPath-Flash visual backbone."
+        "audit_notes": "Uses the compact GigaPath-Flash visual backbone.",
+        "paper_title": "GigaPath-Flash and GigaTIME-Flash: Efficient Pathology Foundation Models for Whole-Slide and Tumor Microenvironment Analysis",
+        "paper_author": "Usuyama"
       }
     ]
   },
@@ -848,7 +938,9 @@ const modelData = [
         "audit_organs": "**34 major tissue types**",
         "audit_downstream": "**39 specific tasks across 6 clinical task types**",
         "audit_cohorts": "Public datasets; exact source-institution count Not found",
-        "audit_notes": "Expert + self knowledge distillation. **Primary source says ~86K, not 96K WSIs.**"
+        "audit_notes": "Expert + self knowledge distillation. **Primary source says ~86K, not 96K WSIs.**",
+        "paper_title": "Towards A Generalizable Pathology Foundation Model via Unified Knowledge Distillation",
+        "paper_author": "Ma"
       },
       {
         "name": "COBRA",
@@ -866,7 +958,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "**Not found**",
         "audit_cohorts": "**Not found**",
-        "audit_notes": "The frequently cited 3,048-WSI number was not independently recovered in the primary text available during this audit, so I have not repeated it as verified."
+        "audit_notes": "The frequently cited 3,048-WSI number was not independently recovered in the primary text available during this audit, so I have not repeated it as verified.",
+        "paper_title": "Unsupervised Foundation Model-Agnostic Slide-Level Representation Learning",
+        "paper_author": "Lenz"
       },
       {
         "name": "ELF",
@@ -884,7 +978,9 @@ const modelData = [
         "audit_organs": "**Not found**",
         "audit_downstream": "**Not found**",
         "audit_cohorts": "**Not found**",
-        "audit_notes": "Likewise, the seed-list 53K-WSI/20-site values remain unverified under the strict extraction rule."
+        "audit_notes": "Likewise, the seed-list 53K-WSI/20-site values remain unverified under the strict extraction rule.",
+        "paper_title": "Ensemble learning of foundation models for precision oncology",
+        "paper_author": "Luo"
       },
       {
         "name": "Shazam",
@@ -902,7 +998,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "**4 task families:** spatial-transcriptomics prediction, survival prognosis, tile classification, VQA",
         "audit_cohorts": "Dataset-dependent; exact aggregate number Not found",
-        "audit_notes": "Adaptive online expert weighting/distillation; categorically different from offline corpus distillation."
+        "audit_notes": "Adaptive online expert weighting/distillation; categorically different from offline corpus distillation.",
+        "paper_title": "Unifying Multiple Foundation Models for Advanced Computational Pathology",
+        "paper_author": "Lei"
       },
       {
         "name": "ALICE",
@@ -920,7 +1018,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "**96 downstream tasks across 21 task scenarios**",
         "audit_cohorts": "**48 evaluation data sources**; pretraining institution count Not found",
-        "audit_notes": "Agglomerative distillation from **8** vision-only, VLM and slide-level teachers."
+        "audit_notes": "Agglomerative distillation from **8** vision-only, VLM and slide-level teachers.",
+        "paper_title": "",
+        "paper_author": ""
       },
       {
         "name": "ASTRA",
@@ -938,7 +1038,9 @@ const modelData = [
         "audit_organs": "**16 tumor types**",
         "audit_downstream": "4 main task settings: 4-category classification, 3-class solid-tumor typing, 16-class cancer typing, text-guided tumor localization",
         "audit_cohorts": "CHTN development 10,359 WSIs + external TCGA 1,686 WSIs",
-        "audit_notes": "\u201cDeveloped on\u201d is preserved rather than relabeled as \u201cpretrained on.\u201d"
+        "audit_notes": "\u201cDeveloped on\u201d is preserved rather than relabeled as \u201cpretrained on.\u201d",
+        "paper_title": "Unified Multi-Foundation-Model Slide Representation for Pan-Cancer Recognition and Text-Guided Tumor Localization",
+        "paper_author": "Wang"
       }
     ]
   },
@@ -961,7 +1063,9 @@ const modelData = [
         "audit_organs": "**9 organs; 93 tissue classes**",
         "audit_downstream": "Held-out/external semantic segmentation plus TME quantitative/survival analyses; exact scalar benchmark count Not found",
         "audit_cohorts": "Multiple external/held-out datasets; exact site count Not found",
-        "audit_notes": "Triplet-based corpus rather than WSI-count-based pretraining."
+        "audit_notes": "Triplet-based corpus rather than WSI-count-based pretraining.",
+        "paper_title": "VISTA-PATH: An interactive foundation model for pathology image segmentation and quantitative analysis in computational pathology",
+        "paper_author": "Liang"
       }
     ]
   },
@@ -984,7 +1088,9 @@ const modelData = [
         "audit_organs": "**34 human organs**",
         "audit_downstream": "Text-conditioned generation, image-to-image generation, RNA-conditioned generation, virtual staining, synthetic-data augmentation; no single explicit scalar total",
         "audit_cohorts": "Not found",
-        "audit_notes": "Multimodal pathology diffusion transformer; synthetic images are also assessed as augmentation data."
+        "audit_notes": "Multimodal pathology diffusion transformer; synthetic images are also assessed as augmentation data.",
+        "paper_title": "A Generative Foundation Model for Multimodal Histopathology",
+        "paper_author": "Xiang"
       }
     ]
   },
@@ -1007,7 +1113,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "Standardized patch-/slide-level FM evaluation framework; exact task total Not found",
         "audit_cohorts": "Not found",
-        "audit_notes": "Benchmark rather than pretrained model."
+        "audit_notes": "Benchmark rather than pretrained model.",
+        "paper_title": "Verifying your browser",
+        "paper_author": ""
       },
       {
         "name": "Patho-Bench",
@@ -1025,7 +1133,9 @@ const modelData = [
         "audit_organs": "Multi-organ oncology; exact count Not found",
         "audit_downstream": "**95 tasks across 7 categories:** morphological subtyping, TME characterization, tumor grading, molecular subtyping, mutation prediction, treatment response, survival",
         "audit_cohorts": "Multiple public datasets; exact institution count Not found",
-        "audit_notes": "Open-source standardized slide-level benchmarking framework; the 95-task scope is also explicitly referenced by the Phaet/Mascaret evaluation."
+        "audit_notes": "Open-source standardized slide-level benchmarking framework; the 95-task scope is also explicitly referenced by the Phaet/Mascaret evaluation.",
+        "paper_title": "",
+        "paper_author": ""
       },
       {
         "name": "QuIIL-PathBench",
@@ -1043,7 +1153,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "Patch-level PFM benchmarking; exact task/dataset number Not found",
         "audit_cohorts": "Not found",
-        "audit_notes": "Benchmark, not a pretraining corpus."
+        "audit_notes": "Benchmark, not a pretraining corpus.",
+        "paper_title": "Benchmarking Pathology Foundation Models: Adaptation Strategies and Scenarios",
+        "paper_author": "Lee"
       },
       {
         "name": "Clinical Benchmark",
@@ -1061,7 +1173,9 @@ const modelData = [
         "audit_organs": "**4 cancer types**",
         "audit_downstream": "**31 weakly supervised tasks: 5 morphology + 19 biomarker + 7 prognostication**",
         "audit_cohorts": "**13 cohorts; 6,818 patients**; includes TCGA/CPTAC and external cohorts such as DACHS, Bern, Kiel and IEO",
-        "audit_notes": "Evaluates **19 FMs + 14 ensembles**. Evaluation slides must not be mistaken for pretraining data."
+        "audit_notes": "Evaluates **19 FMs + 14 ensembles**. Evaluation slides must not be mistaken for pretraining data.",
+        "paper_title": "A clinical benchmark of public self-supervised pathology foundation models",
+        "paper_author": "Campanella"
       },
       {
         "name": "PathBench",
@@ -1080,7 +1194,9 @@ const modelData = [
         "audit_organs": "Not found",
         "audit_downstream": "Leakage-free slide/patch multi-center clinical benchmark; exact task count Not found",
         "audit_cohorts": "Multi-center; exact count Not found",
-        "audit_notes": "Public leaderboard; benchmark rather than model."
+        "audit_notes": "Public leaderboard; benchmark rather than model.",
+        "paper_title": "PathBench: A comprehensive comparison benchmark for pathology foundation models towards precision oncology",
+        "paper_author": "Ma"
       },
       {
         "name": "Stanford PathBench",
@@ -1098,7 +1214,9 @@ const modelData = [
         "audit_organs": "Multiple tissues; exact count Not found",
         "audit_downstream": "**32 foundation models** evaluated across slide- and patch-level task categories; exact task count Not found in the primary abstract I could verify",
         "audit_cohorts": "TCGA, CPTAC and external/OOD datasets; exact cohort count Not found",
-        "audit_notes": "Published July 24, 2026; decision-level ensembling also evaluated. The seed-list \u201c41 tasks\u201d figure is not asserted here because I did not independently recover it from the accessible primary source."
+        "audit_notes": "Published July 24, 2026; decision-level ensembling also evaluated. The seed-list \u201c41 tasks\u201d figure is not asserted here because I did not independently recover it from the accessible primary source.",
+        "paper_title": "A benchmark study of vision and pathology foundation models for computational pathology",
+        "paper_author": "Bareja"
       }
     ]
   },
@@ -1121,7 +1239,9 @@ const modelData = [
         "audit_organs": "**14 organs**",
         "audit_downstream": "**53 tasks = 38 slide-level + 15 patch-level**; molecular status, pathways, treatment response, gene-expression prediction, gene\u2192image retrieval",
         "audit_cohorts": "Exact institution/cohort count Not found",
-        "audit_notes": "ST-guided fine-tuning of existing PFMs rather than a wholly new from-scratch visual encoder."
+        "audit_notes": "ST-guided fine-tuning of existing PFMs rather than a wholly new from-scratch visual encoder.",
+        "paper_title": "",
+        "paper_author": ""
       }
     ]
   }
