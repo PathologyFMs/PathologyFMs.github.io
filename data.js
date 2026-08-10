@@ -3,6 +3,25 @@ const modelData = [
     "category": "Tile-Level Vision Foundation Models",
     "models": [
       {
+        "name": "BRAVE",
+        "year": 2026,
+        "data": "57,271 WSIs",
+        "idea": "Breast-adaptive pathology foundation model",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2605.08207",
+        "audit_wsis": "101,638 WSIs (total resource)",
+        "audit_patches": "Not found",
+        "audit_image_text": "Not found",
+        "audit_wsi_report": "Not found",
+        "audit_image_omics": "Not found",
+        "audit_organs": "Breast",
+        "audit_downstream": "34 tasks in 82 cohorts",
+        "audit_cohorts": "32 sources across Asia, Europe and North America",
+        "paper_title": "A Breast Vision Pathology Foundation Model for Real-world Clinical Utility",
+        "paper_author": "Xu"
+      },
+      {
         "name": "CTransPath",
         "year": 2022,
         "data": "32K+ WSIs",
