@@ -107,7 +107,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ];
 
         fields.forEach(field => {
-            if (field.value && field.value.replace(/\*/g, '').trim() !== 'Not found') {
+            const cleanVal = field.value ? field.value.replace(/\*/g, '').trim().toLowerCase() : '';
+            if (cleanVal && cleanVal !== 'not found' && cleanVal !== 'n/a') {
                 let displayValue = field.value.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
                 rowsHtml += `<tr><th>${field.label}</th><td>${displayValue}</td></tr>`;
             }
