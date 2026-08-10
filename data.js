@@ -1342,6 +1342,26 @@ const modelData = [
         "audit_notes": "Perspective paper on ethical risks",
         "tag": "perspective",
         "tag_color": "purple"
+      },
+      {
+        "name": "Bilal et al.",
+        "year": 2025,
+        "data": "N/A",
+        "idea": "Review of challenges, opportunities, and impact of Foundation Models in CPath",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2502.08333",
+        "paper_title": "Foundation Models in Computational Pathology: A Review of Challenges, Opportunities, and Impact",
+        "paper_author": "Bilal",
+        "audit_wsis": "N/A",
+        "audit_patches": "N/A",
+        "audit_image_text": "N/A",
+        "audit_wsi_report": "N/A",
+        "audit_image_omics": "N/A",
+        "audit_organs": "N/A",
+        "audit_downstream": "N/A",
+        "audit_cohorts": "N/A",
+        "audit_notes": "Survey paper"
       }
     ]
   }
