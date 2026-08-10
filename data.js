@@ -148,7 +148,7 @@ const modelData = [
         "data": "100M tiles, 100K WSIs",
         "idea": "General-purpose DINOv2 on 100K WSIs",
         "github": "https://github.com/mahmoodlab/UNI",
-        "hf": "",
+        "hf": "https://huggingface.co/MahmoodLab/UNI",
         "paper": "https://doi.org/10.1038/s41591-024-02857-3",
         "audit_wsis": ">100K WSIs",
         "audit_patches": ">100M images",
