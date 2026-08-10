@@ -884,7 +884,7 @@ const modelData = [
         "idea": "---",
         "github": "",
         "hf": "",
-        "paper": "",
+        "paper": "https://arxiv.org/abs/2506.03373",
         "audit_wsis": "**Not found**",
         "audit_patches": "**Not found**",
         "audit_image_text": "**Not found**",
@@ -894,8 +894,8 @@ const modelData = [
         "audit_downstream": "**Not found**",
         "audit_cohorts": "**Not found**",
         "audit_notes": "**A distinct KRONOS2 primary paper/model card could not be located and verified in this sweep. No KRONOS values were carried over.**",
-        "paper_title": "",
-        "paper_author": ""
+        "paper_title": "A foundation model for spatial proteomics",
+        "paper_author": "Shaban"
       },
       {
         "name": "GigaTIME-Flash",
