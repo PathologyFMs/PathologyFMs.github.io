@@ -1257,5 +1257,30 @@ const modelData = [
         "paper_author": "Bareja"
       }
     ]
+  },
+  {
+    "category": "Survey",
+    "models": [
+      {
+        "name": "Survey of PFMs",
+        "year": 2025,
+        "data": "N/A",
+        "idea": "Comprehensive survey of progress and future directions in pathology foundation models",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2504.04045",
+        "paper_title": "A Survey of Pathology Foundation Model: Progress and Future Directions",
+        "paper_author": "Survey Authors",
+        "audit_wsis": "N/A",
+        "audit_patches": "N/A",
+        "audit_image_text": "N/A",
+        "audit_wsi_report": "N/A",
+        "audit_image_omics": "N/A",
+        "audit_organs": "N/A",
+        "audit_downstream": "N/A",
+        "audit_cohorts": "N/A",
+        "audit_notes": "Survey paper"
+      }
+    ]
   }
 ];
