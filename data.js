@@ -228,7 +228,7 @@ const modelData = [
         "data": "11M tiles",
         "idea": "BEiT-based masked image modeling",
         "github": "https://github.com/Zhcyoung/BEPH",
-        "hf": "",
+        "hf": "https://drive.google.com/file/d/19Fu3dw3G4i2gPXijzrxfaQ2D_xcqNdNz/view",
         "paper": "https://www.nature.com/articles/s41467-025-57587-y",
         "audit_wsis": "**Not found**",
         "audit_patches": "~11M unlabeled pathology images",
