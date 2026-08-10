@@ -66,6 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return { text: 'control', color: 'gray' };
     }
 
+    function formatField(text) {
+        if (!text) return '';
+        // Replace **text** with <strong>text</strong> or just strip. Let's use strong.
+        return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    }
+
     // Show Modal Function
     function openModal(model) {
         modalTitle.textContent = model.name;
@@ -181,8 +187,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </td>
                         <td><span class="year-badge">${model.year}</span></td>
-                        <td class="data-col">${model.data}</td>
-                        <td class="idea-col">${model.idea}</td>
+                        <td class="data-col">${formatField(model.audit_wsis) || model.data}</td>
+                        <td class="idea-col">${formatField(model.audit_notes) || model.idea}</td>
                         <td><div class="links-col">${linksHTML}</div></td>
                     `;
                     
@@ -217,10 +223,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                             <div class="model-year">${model.year}</div>
                         </div>
-                        <div class="model-idea">${model.idea}</div>
+                        <div class="model-idea">${formatField(model.audit_notes) || model.idea}</div>
                         <div class="model-data">
                             <i class="ph ph-database"></i>
-                            <span>${model.data}</span>
+                            <span>${formatField(model.audit_wsis) || model.data}</span>
                         </div>
                         <div class="card-links">
                             ${linksHTML}
