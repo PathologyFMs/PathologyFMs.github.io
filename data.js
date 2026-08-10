@@ -19,8 +19,8 @@ const modelData = [
         "audit_downstream": "5 task families: patch retrieval, supervised patch classification, weakly supervised WSI classification, mitosis detection, colorectal gland segmentation; 9 public datasets",
         "audit_cohorts": "Pretraining sources TCGA + PAIP; exact institution count Not found",
         "audit_notes": "Public-source pathology corpus; SRCL hybrid CNN\u2013ViT.",
-        "paper_title": "",
-        "paper_author": ""
+        "paper_title": "TransPath: Transformer-Based Self-supervised Learning for Histopathological Image Classification",
+        "paper_author": "Wang"
       },
       {
         "name": "REMEDIS",
@@ -79,8 +79,8 @@ const modelData = [
         "audit_downstream": "Exact scalar task count Not found; patch- and WSI-level cancer tasks",
         "audit_cohorts": "TCGA public source",
         "audit_notes": "iBOT pretraining; official Owkin material reports >40M images. The 6,093-slide PanCancer corpus is independently specified by the H0-mini official material.",
-        "paper_title": "",
-        "paper_author": ""
+        "paper_title": "load an image",
+        "paper_author": "Filiot"
       },
       {
         "name": "PathoDuet",
@@ -99,8 +99,8 @@ const modelData = [
         "audit_downstream": "Patch classification, WSI classification, PD-L1 expression classification, cross-site IHC tumor identification",
         "audit_cohorts": "TCGA, HyReCo, BCI and downstream public datasets; institution count Not found",
         "audit_notes": "Cross-scale/cross-stain learning; exact unique pretraining patch total not recovered.",
-        "paper_title": "",
-        "paper_author": ""
+        "paper_title": "PathoDuet: Foundation Models for Pathological Slide Analysis of H&E and IHC Stains",
+        "paper_author": "Hua"
       },
       {
         "name": "RudolfV",
@@ -339,8 +339,8 @@ const modelData = [
         "audit_downstream": "THUNDER, HEST, PathoROB benchmark families; exact total Not found",
         "audit_cohorts": "Public-only training; number of source cohorts/institutions Not found",
         "audit_notes": "Official materials confirm JEDI (JEPA + DINO) and public-only data, but exact requested scale statistics remained unresolved.",
-        "paper_title": "",
-        "paper_author": ""
+        "paper_title": "GenBio-PathFM: A State-of-the-Art Foundation Model for Histopathology",
+        "paper_author": "Kapse"
       },
       {
         "name": "Phaet",
@@ -399,8 +399,8 @@ const modelData = [
         "audit_downstream": "**Not found**",
         "audit_cohorts": "**Not found**",
         "audit_notes": "Official paper/model links were identified, but I did not recover the requested exact metadata from primary text in a form I could verify; seed-list values are therefore not treated as confirmed.",
-        "paper_title": "",
-        "paper_author": ""
+        "paper_title": "RudolfV 2: A Family of Robust and Efficient Open-Weights Pathology Foundation Models",
+        "paper_author": "Milbich"
       },
       {
         "name": "Atlas 2",
@@ -419,8 +419,8 @@ const modelData = [
         "audit_downstream": "**80 public benchmarks**",
         "audit_cohorts": "3 institutions: Charit\u00e9, LMU Munich, Mayo Clinic",
         "audit_notes": "~490K cases and 7 scanner types reported by official project material.",
-        "paper_title": "",
-        "paper_author": ""
+        "paper_title": "Atlas 2 -- Foundation models for clinical deployment",
+        "paper_author": "Alber"
       },
       {
         "name": "GRACE",
@@ -524,8 +524,8 @@ const modelData = [
         "audit_downstream": "**10 biomarker-prediction tasks**",
         "audit_cohorts": "Not found",
         "audit_notes": "End-to-end hierarchical/direct slide-level supervision.",
-        "paper_title": "",
-        "paper_author": ""
+        "paper_title": "EXAONE Path 2.0: Pathology Foundation Model with End-to-End Supervision",
+        "paper_author": "Pyeon"
       },
       {
         "name": "MOOZY",
@@ -689,8 +689,8 @@ const modelData = [
         "audit_downstream": "**7 task types across 42 datasets**; includes classification, VQA, captioning and visual referring prompting",
         "audit_cohorts": "Not found",
         "audit_notes": "15B unified patch/WSI multimodal model; the seed-list ~700K image-caption figure was not independently re-established, so it remains Not found.",
-        "paper_title": "",
-        "paper_author": ""
+        "paper_title": "CPath-Omni: A Unified Multimodal Foundation Model for Patch and Whole Slide Image Analysis in Computational Pathology",
+        "paper_author": "Sun"
       },
       {
         "name": "KEEP",
@@ -774,8 +774,8 @@ const modelData = [
         "audit_downstream": "**Not found**",
         "audit_cohorts": "**Not found**",
         "audit_notes": "Cross-stain slide pretraining; the seed 4,211-WSI value was not independently recovered to the strict standard here.",
-        "paper_title": "",
-        "paper_author": ""
+        "paper_title": "Multistain Pretraining for Slide Representation Learning in Pathology",
+        "paper_author": "Jaume"
       },
       {
         "name": "Threads",
@@ -795,7 +795,7 @@ const modelData = [
         "audit_cohorts": "Exact cohort/institution count Not found",
         "audit_notes": "Primary paper says **tissue sections**; I do not automatically rewrite that as 47,171 distinct WSIs.",
         "paper_title": "Molecular-driven Foundation Model for Oncologic Pathology",
-        "paper_author": ""
+        "paper_author": "Vaidya"
       },
       {
         "name": "mSTAR",
@@ -1019,8 +1019,8 @@ const modelData = [
         "audit_downstream": "**96 downstream tasks across 21 task scenarios**",
         "audit_cohorts": "**48 evaluation data sources**; pretraining institution count Not found",
         "audit_notes": "Agglomerative distillation from **8** vision-only, VLM and slide-level teachers.",
-        "paper_title": "",
-        "paper_author": ""
+        "paper_title": "ALICE: Learning a General-Purpose Pathology Foundation Model from Vision, Vision-Language, and Slide-Level Experts",
+        "paper_author": "Li"
       },
       {
         "name": "ASTRA",
@@ -1114,8 +1114,8 @@ const modelData = [
         "audit_downstream": "Standardized patch-/slide-level FM evaluation framework; exact task total Not found",
         "audit_cohorts": "Not found",
         "audit_notes": "Benchmark rather than pretrained model.",
-        "paper_title": "Verifying your browser",
-        "paper_author": ""
+        "paper_title": "eva: Evaluation framework for pathology foundation models",
+        "paper_author": "kaiko.ai"
       },
       {
         "name": "Patho-Bench",
@@ -1134,8 +1134,8 @@ const modelData = [
         "audit_downstream": "**95 tasks across 7 categories:** morphological subtyping, TME characterization, tumor grading, molecular subtyping, mutation prediction, treatment response, survival",
         "audit_cohorts": "Multiple public datasets; exact institution count Not found",
         "audit_notes": "Open-source standardized slide-level benchmarking framework; the 95-task scope is also explicitly referenced by the Phaet/Mascaret evaluation.",
-        "paper_title": "",
-        "paper_author": ""
+        "paper_title": "Accelerating Data Processing and Benchmarking of AI Models for Pathology",
+        "paper_author": "Zhang"
       },
       {
         "name": "QuIIL-PathBench",
