@@ -843,7 +843,7 @@ const modelData = [
         "data": "---",
         "idea": "---",
         "github": "",
-        "hf": "",
+        "hf": "https://huggingface.co/MahmoodLab/KRONOS2",
         "paper": "https://arxiv.org/abs/2506.03373",
         "audit_wsis": "**Not found**",
         "audit_patches": "**Not found**",
