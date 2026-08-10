@@ -1228,9 +1228,9 @@ const modelData = [
         "year": 2026,
         "data": "---",
         "idea": "---",
-        "github": "",
+        "github": "https://github.com/mahmoodlab/SEAL/",
         "hf": "",
-        "paper": "",
+        "paper": "https://arxiv.org/abs/2602.14177",
         "audit_wsis": "N/A \u2014 parameter-efficient vision\u2013omics adaptation",
         "audit_patches": "Not found",
         "audit_image_text": "Not found",
@@ -1240,8 +1240,8 @@ const modelData = [
         "audit_downstream": "**53 tasks = 38 slide-level + 15 patch-level**; molecular status, pathways, treatment response, gene-expression prediction, gene\u2192image retrieval",
         "audit_cohorts": "Exact institution/cohort count Not found",
         "audit_notes": "ST-guided fine-tuning of existing PFMs rather than a wholly new from-scratch visual encoder.",
-        "paper_title": "",
-        "paper_author": ""
+        "paper_title": "Towards Spatial Transcriptomics-driven Pathology Foundation Models",
+        "paper_author": "Hemker"
       }
     ]
   }
