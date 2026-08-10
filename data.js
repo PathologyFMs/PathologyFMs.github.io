@@ -1362,6 +1362,28 @@ const modelData = [
         "audit_downstream": "N/A",
         "audit_cohorts": "N/A",
         "audit_notes": "Survey paper"
+      },
+      {
+        "name": "Tizhoosh",
+        "year": 2026,
+        "data": "N/A",
+        "idea": "Perspective on rethinking foundation models in pathology",
+        "github": "",
+        "hf": "",
+        "paper": "https://www.nature.com/articles/s41551-026-01696-6",
+        "paper_title": "Rethinking foundation models in pathology",
+        "paper_author": "Tizhoosh",
+        "audit_wsis": "N/A",
+        "audit_patches": "N/A",
+        "audit_image_text": "N/A",
+        "audit_wsi_report": "N/A",
+        "audit_image_omics": "N/A",
+        "audit_organs": "N/A",
+        "audit_downstream": "N/A",
+        "audit_cohorts": "N/A",
+        "audit_notes": "Perspective paper",
+        "tag": "perspective",
+        "tag_color": "purple"
       }
     ]
   }
