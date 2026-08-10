@@ -880,6 +880,84 @@ const modelData = [
     ]
   },
   {
+    "category": "Foundation Model Adaptation & Distillation",
+    "models": [
+      {
+        "name": "H0-mini",
+        "type": "Single-FM Distillation",
+        "year": 2024,
+        "data": "",
+        "idea": "",
+        "github": "",
+        "hf": "",
+        "paper": ""
+      },
+      {
+        "name": "SEAL",
+        "year": 2026,
+        "data": "---",
+        "idea": "---",
+        "github": "https://github.com/mahmoodlab/SEAL/",
+        "hf": "https://huggingface.co/MahmoodLab/SEAL",
+        "paper": "https://arxiv.org/abs/2602.14177",
+        "audit_wsis": "N/A \u2014 parameter-efficient vision\u2013omics adaptation",
+        "audit_patches": "Not found",
+        "audit_image_text": "Not found",
+        "audit_wsi_report": "Not found",
+        "audit_image_omics": "**>700K paired spatial-transcriptomics gene-expression spot\u2013tissue-region examples**",
+        "audit_organs": "**14 organs**",
+        "audit_downstream": "**53 tasks = 38 slide-level + 15 patch-level**; molecular status, pathways, treatment response, gene-expression prediction, gene\u2192image retrieval",
+        "audit_cohorts": "Exact institution/cohort count Not found",
+        "audit_notes": "ST-guided fine-tuning of existing PFMs rather than a wholly new from-scratch visual encoder.",
+        "paper_title": "Towards Spatial Transcriptomics-driven Pathology Foundation Models",
+        "paper_author": "Hemker",
+        "type": "Vision\u2013omics adaptation"
+      },
+      {
+        "name": "Phaet",
+        "year": 2026,
+        "data": "---",
+        "idea": "Robustness-tuned Phikon-v2",
+        "github": "",
+        "hf": "https://huggingface.co/wearewaiv/phaet",
+        "paper": "https://arxiv.org/abs/2607.22861",
+        "audit_wsis": "N/A as a new from-scratch corpus; base = Phikon-v2",
+        "audit_patches": "Fine-tuning size Not found",
+        "audit_image_text": "Not found",
+        "audit_wsi_report": "Not found",
+        "audit_image_omics": "Not found",
+        "audit_organs": "Fine-tuning coverage Not found",
+        "audit_downstream": "PathoROB; HEST (9 cancer/ST tasks); THUNDER (6 task types over 16 datasets); 63 Patho-Bench tasks used in this study",
+        "audit_cohorts": "PathoROB includes 34 medical centers; fine-tuning-site count Not found",
+        "audit_notes": "Robustness-tuned Phikon-v2, not an independently pretrained FM.",
+        "paper_title": "Robustifying pathology foundation models via fine-tuning",
+        "paper_author": "Filiot",
+        "type": "Robustness adaptation"
+      },
+      {
+        "name": "Mascaret",
+        "year": 2026,
+        "data": "---",
+        "idea": "Robustness-tuned Midnight-12k",
+        "github": "",
+        "hf": "https://huggingface.co/wearewaiv/mascaret",
+        "paper": "https://arxiv.org/abs/2607.22861",
+        "audit_wsis": "N/A as a new from-scratch corpus; base = Midnight-12k",
+        "audit_patches": "Fine-tuning size Not found",
+        "audit_image_text": "Not found",
+        "audit_wsi_report": "Not found",
+        "audit_image_omics": "Not found",
+        "audit_organs": "Fine-tuning coverage Not found",
+        "audit_downstream": "Same robustness suites as Phaet: PathoROB, HEST, THUNDER, Patho-Bench subset",
+        "audit_cohorts": "PathoROB includes 34 medical centers; fine-tuning-site count Not found",
+        "audit_notes": "Robustness-tuned Midnight-12k.",
+        "paper_title": "Robustifying pathology foundation models via fine-tuning",
+        "paper_author": "Filiot",
+        "type": "Robustness adaptation"
+      }
+    ]
+  },
+  {
     "category": "Multi-FM Integration & Distillation",
     "models": [
       {
@@ -1177,84 +1255,6 @@ const modelData = [
         "audit_notes": "Published July 24, 2026; decision-level ensembling also evaluated. The seed-list \u201c41 tasks\u201d figure is not asserted here because I did not independently recover it from the accessible primary source.",
         "paper_title": "A benchmark study of vision and pathology foundation models for computational pathology",
         "paper_author": "Bareja"
-      }
-    ]
-  },
-  {
-    "category": "Foundation Model Adaptation & Distillation",
-    "models": [
-      {
-        "name": "H0-mini",
-        "type": "Single-FM Distillation",
-        "year": 2024,
-        "data": "",
-        "idea": "",
-        "github": "",
-        "hf": "",
-        "paper": ""
-      },
-      {
-        "name": "SEAL",
-        "year": 2026,
-        "data": "---",
-        "idea": "---",
-        "github": "https://github.com/mahmoodlab/SEAL/",
-        "hf": "https://huggingface.co/MahmoodLab/SEAL",
-        "paper": "https://arxiv.org/abs/2602.14177",
-        "audit_wsis": "N/A \u2014 parameter-efficient vision\u2013omics adaptation",
-        "audit_patches": "Not found",
-        "audit_image_text": "Not found",
-        "audit_wsi_report": "Not found",
-        "audit_image_omics": "**>700K paired spatial-transcriptomics gene-expression spot\u2013tissue-region examples**",
-        "audit_organs": "**14 organs**",
-        "audit_downstream": "**53 tasks = 38 slide-level + 15 patch-level**; molecular status, pathways, treatment response, gene-expression prediction, gene\u2192image retrieval",
-        "audit_cohorts": "Exact institution/cohort count Not found",
-        "audit_notes": "ST-guided fine-tuning of existing PFMs rather than a wholly new from-scratch visual encoder.",
-        "paper_title": "Towards Spatial Transcriptomics-driven Pathology Foundation Models",
-        "paper_author": "Hemker",
-        "type": "Vision\u2013omics adaptation"
-      },
-      {
-        "name": "Phaet",
-        "year": 2026,
-        "data": "---",
-        "idea": "Robustness-tuned Phikon-v2",
-        "github": "",
-        "hf": "https://huggingface.co/wearewaiv/phaet",
-        "paper": "https://arxiv.org/abs/2607.22861",
-        "audit_wsis": "N/A as a new from-scratch corpus; base = Phikon-v2",
-        "audit_patches": "Fine-tuning size Not found",
-        "audit_image_text": "Not found",
-        "audit_wsi_report": "Not found",
-        "audit_image_omics": "Not found",
-        "audit_organs": "Fine-tuning coverage Not found",
-        "audit_downstream": "PathoROB; HEST (9 cancer/ST tasks); THUNDER (6 task types over 16 datasets); 63 Patho-Bench tasks used in this study",
-        "audit_cohorts": "PathoROB includes 34 medical centers; fine-tuning-site count Not found",
-        "audit_notes": "Robustness-tuned Phikon-v2, not an independently pretrained FM.",
-        "paper_title": "Robustifying pathology foundation models via fine-tuning",
-        "paper_author": "Filiot",
-        "type": "Robustness adaptation"
-      },
-      {
-        "name": "Mascaret",
-        "year": 2026,
-        "data": "---",
-        "idea": "Robustness-tuned Midnight-12k",
-        "github": "",
-        "hf": "https://huggingface.co/wearewaiv/mascaret",
-        "paper": "https://arxiv.org/abs/2607.22861",
-        "audit_wsis": "N/A as a new from-scratch corpus; base = Midnight-12k",
-        "audit_patches": "Fine-tuning size Not found",
-        "audit_image_text": "Not found",
-        "audit_wsi_report": "Not found",
-        "audit_image_omics": "Not found",
-        "audit_organs": "Fine-tuning coverage Not found",
-        "audit_downstream": "Same robustness suites as Phaet: PathoROB, HEST, THUNDER, Patho-Bench subset",
-        "audit_cohorts": "PathoROB includes 34 medical centers; fine-tuning-site count Not found",
-        "audit_notes": "Robustness-tuned Midnight-12k.",
-        "paper_title": "Robustifying pathology foundation models via fine-tuning",
-        "paper_author": "Filiot",
-        "type": "Robustness adaptation"
       }
     ]
   }
