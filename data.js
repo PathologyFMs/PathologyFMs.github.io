@@ -885,12 +885,23 @@ const modelData = [
       {
         "name": "H0-mini",
         "type": "Single-FM Distillation",
-        "year": 2024,
-        "data": "",
-        "idea": "",
+        "year": 2025,
+        "data": "N/A",
+        "idea": "Distilling foundation models for robust and efficient models in digital pathology",
         "github": "",
-        "hf": "",
-        "paper": ""
+        "hf": "https://huggingface.co/bioptimus/H0-mini",
+        "paper": "https://arxiv.org/abs/2501.16239",
+        "paper_title": "Distilling foundation models for robust and efficient models in digital pathology",
+        "paper_author": "Filiot",
+        "audit_wsis": "N/A",
+        "audit_patches": "N/A",
+        "audit_image_text": "N/A",
+        "audit_wsi_report": "N/A",
+        "audit_image_omics": "N/A",
+        "audit_organs": "N/A",
+        "audit_downstream": "N/A",
+        "audit_cohorts": "N/A",
+        "audit_notes": "N/A"
       },
       {
         "name": "SEAL",
