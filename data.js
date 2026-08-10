@@ -1409,6 +1409,26 @@ const modelData = [
         "audit_downstream": "N/A",
         "audit_cohorts": "N/A",
         "audit_notes": "N/A"
+      },
+      {
+        "name": "Le et al.",
+        "year": 2024,
+        "data": "N/A",
+        "idea": "Interpretability analysis on a pathology foundation model reveals biologically relevant embeddings across modalities",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2407.10785v1",
+        "paper_title": "Interpretability analysis on a pathology foundation model reveals biologically relevant embeddings across modalities",
+        "paper_author": "Le",
+        "audit_wsis": "N/A",
+        "audit_patches": "N/A",
+        "audit_image_text": "N/A",
+        "audit_wsi_report": "N/A",
+        "audit_image_omics": "N/A",
+        "audit_organs": "N/A",
+        "audit_downstream": "N/A",
+        "audit_cohorts": "N/A",
+        "audit_notes": "N/A"
       }
     ]
   }
