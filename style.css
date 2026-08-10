@@ -954,6 +954,79 @@ th.expand-col, td.expand-col {
     overflow-y: auto;
 }
 
+/* Modal Facet Buttons (stain / organ / institution) */
+.modal-facets {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.facet {
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.facet-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.85rem 1.1rem;
+    background: var(--bg-primary);
+    border: none;
+    cursor: pointer;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: inherit;
+    transition: background 0.2s, color 0.2s;
+}
+
+.facet-btn:hover {
+    background: var(--border-color);
+}
+
+.facet-btn[aria-expanded="true"] {
+    color: var(--accent-1);
+}
+
+.facet-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+}
+
+.facet-label i {
+    color: var(--accent-1);
+    font-size: 1.15rem;
+}
+
+.facet-caret {
+    color: var(--text-muted);
+    transition: transform 0.25s ease;
+}
+
+.facet-btn[aria-expanded="true"] .facet-caret {
+    transform: rotate(180deg);
+}
+
+.facet-content {
+    padding: 0.9rem 1.1rem;
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-secondary);
+    color: var(--text-color);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    animation: fadeIn 0.2s ease;
+}
+
+.facet-content[hidden] {
+    display: none;
+}
+
 /* Modal Table Styles */
 .modal-table {
     width: 100%;

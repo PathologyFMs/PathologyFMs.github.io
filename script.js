@@ -114,17 +114,36 @@ document.addEventListener('DOMContentLoaded', () => {
             modalSubtitle.style.display = 'none';
         }
         
+        // Click-to-expand facets: stain, organ/tissue, and institution (when available).
+        const facetDefs = [
+            { key: 'stains', label: 'Stain', icon: 'ph-drop' },
+            { key: 'audit_organs', label: 'Organ / Tissue site', icon: 'ph-tree' },
+            { key: 'audit_cohorts', label: 'Institution', icon: 'ph-buildings' },
+            { key: 'audit_downstream', label: 'Downstream tasks', icon: 'ph-list-checks' }
+        ];
+        let facetsHtml = '';
+        facetDefs.forEach(facet => {
+            if (isMeaningful(model[facet.key])) {
+                facetsHtml += `
+                    <div class="facet">
+                        <button class="facet-btn" type="button" aria-expanded="false">
+                            <span class="facet-label"><i class="ph ${facet.icon}"></i> ${facet.label}</span>
+                            <i class="ph ph-caret-down facet-caret"></i>
+                        </button>
+                        <div class="facet-content" hidden>${formatField(model[facet.key])}</div>
+                    </div>`;
+            }
+        });
+        const facetsBlock = facetsHtml ? `<div class="modal-facets">${facetsHtml}</div>` : '';
+
         let rowsHtml = '';
-        
+
         const fields = [
             { label: 'Pretraining WSIs', value: model.audit_wsis },
             { label: 'Patches / tiles', value: model.audit_patches },
             { label: 'Image-text pairs', value: model.audit_image_text },
             { label: 'WSI-report pairs', value: model.audit_wsi_report },
             { label: 'Image-omics pairs', value: model.audit_image_omics },
-            { label: 'Organs / tissues', value: model.audit_organs },
-            { label: 'Downstream evaluation', value: model.audit_downstream },
-            { label: 'Cohorts / institutions', value: model.audit_cohorts },
             { label: 'Dataset notes', value: model.audit_notes }
         ];
 
@@ -134,18 +153,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        if (rowsHtml === '') {
+        const tableBlock = rowsHtml ? `<table class="modal-table"><tbody>${rowsHtml}</tbody></table>` : '';
+
+        if (!facetsBlock && !tableBlock) {
             modalBody.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 2rem;">No detailed metadata found for this model.</p>';
         } else {
-            modalBody.innerHTML = `
-                <table class="modal-table">
-                    <tbody>
-                        ${rowsHtml}
-                    </tbody>
-                </table>
-            `;
+            modalBody.innerHTML = facetsBlock + tableBlock;
         }
-        
+
+        // Wire up the accordion toggles.
+        modalBody.querySelectorAll('.facet-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.nextElementSibling;
+                const isHidden = content.hasAttribute('hidden');
+                if (isHidden) {
+                    content.removeAttribute('hidden');
+                    btn.setAttribute('aria-expanded', 'true');
+                } else {
+                    content.setAttribute('hidden', '');
+                    btn.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
         modal.style.display = "block";
         modal.setAttribute('aria-hidden', 'false');
     }
