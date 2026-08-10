@@ -8,7 +8,7 @@ const modelData = [
         "data": "32K+ WSIs",
         "idea": "SRCL with hybrid CNN-ViT",
         "github": "https://github.com/Xiyue-Wang/TransPath",
-        "hf": "",
+        "hf": "https://drive.google.com/file/d/1DoDx_70_TLj98gTf6YTXnu4tFhsFocDX/view",
         "paper": "https://www.sciencedirect.com/science/article/pii/S1361841522002043",
         "audit_wsis": ">30,000",
         "audit_patches": "~15M patches",
