@@ -158,7 +158,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             <th class="expand-col"></th>
                             <th>Model</th>
                             <th>Year</th>
-                            <th>Pretraining Data</th>
                             <th>Key Idea</th>
                             <th>Resources</th>
                         </tr>
@@ -187,7 +186,6 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </td>
                         <td><span class="year-badge">${model.year}</span></td>
-                        <td class="data-col">${formatField(model.audit_wsis) || model.data}</td>
                         <td class="idea-col">${formatField(model.audit_notes) || model.idea}</td>
                         <td><div class="links-col">${linksHTML}</div></td>
                     `;
