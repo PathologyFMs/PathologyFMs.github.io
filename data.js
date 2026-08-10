@@ -1262,7 +1262,7 @@ const modelData = [
     "category": "Survey",
     "models": [
       {
-        "name": "Survey of PFMs",
+        "name": "Xiong et al.",
         "year": 2025,
         "data": "N/A",
         "idea": "Comprehensive survey of progress and future directions in pathology foundation models",
@@ -1282,7 +1282,7 @@ const modelData = [
         "audit_notes": "Survey paper"
       },
       {
-        "name": "A New Era in Computational Pathology",
+        "name": "Chanda et al.",
         "year": 2024,
         "data": "N/A",
         "idea": "Survey on Foundation and Vision-Language Models",
@@ -1302,7 +1302,7 @@ const modelData = [
         "audit_notes": "Survey paper"
       },
       {
-        "name": "Survey on CPath FMs",
+        "name": "Li et al.",
         "year": 2025,
         "data": "N/A",
         "idea": "Survey covering datasets, adaptation strategies, and evaluation tasks",
