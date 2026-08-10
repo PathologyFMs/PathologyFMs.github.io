@@ -760,7 +760,7 @@ th.expand-col, td.expand-col {
 
 .details-cell {
     padding: 0 !important;
-    background-color: var(--bg-alt);
+    background-color: var(--bg-primary);
     box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
 }
 
@@ -780,7 +780,7 @@ th.expand-col, td.expand-col {
 
 /* Common Audit Table */
 .audit-details {
-    background: var(--bg-color);
+    background: var(--bg-secondary);
     border: 1px solid var(--border-color);
     border-radius: 12px;
     padding: 1rem;
@@ -822,7 +822,7 @@ th.expand-col, td.expand-col {
     width: 100%;
     padding: 0.8rem 1rem;
     margin-top: 1.5rem;
-    background: var(--bg-alt);
+    background: var(--bg-primary);
     border: 1px solid var(--border-color);
     border-radius: 8px;
     color: var(--text-color);
@@ -891,7 +891,7 @@ th.expand-col, td.expand-col {
 }
 
 .modal-content {
-    background-color: var(--bg-color);
+    background-color: var(--bg-secondary);
     margin: 10% auto;
     padding: 0;
     border: 1px solid var(--border-color);
@@ -914,7 +914,7 @@ th.expand-col, td.expand-col {
     align-items: center;
     padding: 1.5rem 2rem;
     border-bottom: 1px solid var(--border-color);
-    background: var(--bg-alt);
+    background: var(--bg-primary);
 }
 
 .modal-header h3 {
