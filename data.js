@@ -1280,6 +1280,46 @@ const modelData = [
         "audit_downstream": "N/A",
         "audit_cohorts": "N/A",
         "audit_notes": "Survey paper"
+      },
+      {
+        "name": "A New Era in Computational Pathology",
+        "year": 2024,
+        "data": "N/A",
+        "idea": "Survey on Foundation and Vision-Language Models",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2408.14496",
+        "paper_title": "A New Era in Computational Pathology: A Survey on Foundation and Vision-Language Models",
+        "paper_author": "Survey Authors",
+        "audit_wsis": "N/A",
+        "audit_patches": "N/A",
+        "audit_image_text": "N/A",
+        "audit_wsi_report": "N/A",
+        "audit_image_omics": "N/A",
+        "audit_organs": "N/A",
+        "audit_downstream": "N/A",
+        "audit_cohorts": "N/A",
+        "audit_notes": "Survey paper"
+      },
+      {
+        "name": "Survey on CPath FMs",
+        "year": 2025,
+        "data": "N/A",
+        "idea": "Survey covering datasets, adaptation strategies, and evaluation tasks",
+        "github": "",
+        "hf": "",
+        "paper": "https://link.springer.com/article/10.1007/s10115-026-02806-1",
+        "paper_title": "A survey on computational pathology foundation models: datasets, adaptation strategies, and evaluation tasks",
+        "paper_author": "Survey Authors",
+        "audit_wsis": "N/A",
+        "audit_patches": "N/A",
+        "audit_image_text": "N/A",
+        "audit_wsi_report": "N/A",
+        "audit_image_omics": "N/A",
+        "audit_organs": "N/A",
+        "audit_downstream": "N/A",
+        "audit_cohorts": "N/A",
+        "audit_notes": "Survey paper"
       }
     ]
   }
