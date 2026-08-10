@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <thead>
                         <tr>
                             <th class="expand-col"></th>
-                            <th>${categoryGroup.category.includes('Survey') ? 'Paper' : 'Model'}</th>
+                            <th>${categoryGroup.category.includes('Survey') ? 'Paper' : categoryGroup.category.includes('Benchmarking') ? 'Framework/Benchmark' : 'Model'}</th>
                             <th>Year</th>
                             <th>Key Idea</th>
                             <th>Resources</th>
