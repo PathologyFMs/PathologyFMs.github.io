@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (catLower.includes('segmentation')) return { text: 'segmentation', color: 'yellow' };
         if (catLower.includes('adaptation')) return { text: 'adaptation', color: 'blue' };
         if (catLower.includes('survey')) return { text: 'survey', color: 'gray' };
+        if (catLower.includes('interpretability')) return { text: 'analysis', color: 'pink' };
         return { text: 'control', color: 'gray' };
     }
 

@@ -1386,5 +1386,30 @@ const modelData = [
         "tag_color": "purple"
       }
     ]
+  },
+  {
+    "category": "Interpretability and Analysis",
+    "models": [
+      {
+        "name": "Mishra et al.",
+        "year": 2025,
+        "data": "N/A",
+        "idea": "Comparing Computational Pathology Foundation Models using Representational Similarity Analysis",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2509.15482",
+        "paper_title": "Comparing Computational Pathology Foundation Models using Representational Similarity Analysis",
+        "paper_author": "Mishra",
+        "audit_wsis": "N/A",
+        "audit_patches": "N/A",
+        "audit_image_text": "N/A",
+        "audit_wsi_report": "N/A",
+        "audit_image_omics": "N/A",
+        "audit_organs": "N/A",
+        "audit_downstream": "N/A",
+        "audit_cohorts": "N/A",
+        "audit_notes": "N/A"
+      }
+    ]
   }
 ];
