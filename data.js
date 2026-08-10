@@ -1320,6 +1320,28 @@ const modelData = [
         "audit_downstream": "N/A",
         "audit_cohorts": "N/A",
         "audit_notes": "Survey paper"
+      },
+      {
+        "name": "Lin et al.",
+        "year": 2025,
+        "data": "N/A",
+        "idea": "Quantitative perspective on ethical risks in pathology foundation models",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2502.16889",
+        "paper_title": "Revealing Ethical Risks in Pathology Foundation Models: A Quantitative Perspective",
+        "paper_author": "Lin",
+        "audit_wsis": "N/A",
+        "audit_patches": "N/A",
+        "audit_image_text": "N/A",
+        "audit_wsi_report": "N/A",
+        "audit_image_omics": "N/A",
+        "audit_organs": "N/A",
+        "audit_downstream": "N/A",
+        "audit_cohorts": "N/A",
+        "audit_notes": "Perspective paper on ethical risks",
+        "tag": "perspective",
+        "tag_color": "purple"
       }
     ]
   }

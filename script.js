@@ -183,7 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <td>
                             <div class="model-info-col">
                                 <div class="model-name">${model.name}</div>
-                                <span class="tag tag-${family.color}">${family.text}</span>
+                                <span class="tag tag-${model.tag_color || family.color}">${model.tag || family.text}</span>
                             </div>
                         </td>
                         <td><span class="year-badge">${model.year}</span></td>
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="card-header">
                             <div class="model-info">
                                 <div class="model-name">${model.name}</div>
-                                <span class="tag tag-${family.color}">${family.text}</span>
+                                <span class="tag tag-${model.tag_color || family.color}">${model.tag || family.text}</span>
                             </div>
                             <div class="model-year">${model.year}</div>
                         </div>
