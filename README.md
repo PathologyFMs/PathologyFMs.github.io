@@ -122,6 +122,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Patho-Bench** | 2025 | Slide | Open-source benchmarking toolkit with standardized datasets and reproducible evaluation pipelines | [Paper](https://arxiv.org/pdf/2502.06750) • [Code](https://github.com/mahmoodlab/Patho-Bench) |
 | **QuIIL-PathBench** | 2025 | Patch | Systematically benchmarks PFMs by evaluating patch-level representations | [Paper](https://arxiv.org/abs/2410.16038) • [Code](https://github.com/QuIIL/BenchmarkingPathologyFoundationModels) |
 | **Clinical Benchmark** | 2025 | Slide | Clinical benchmark with MSHS and MSKCC datasets covering disease detection and biomarker prediction | [Paper](https://www.nature.com/articles/s41467-025-58796-1.pdf) • [Code](https://github.com/sinai-computational-pathology/SSL_tile_benchmarks#automated-external-benchmarking) |
+| **Feature-Extractor Benchmark** | 2025 | Slide | Benchmarks 19 FMs as feature extractors for weakly-supervised slide tasks; CONCH best, CONCH+Virchow2 ensemble tops 55% of tasks | [Paper](https://www.nature.com/articles/s41551-025-01516-3) • [Code](https://github.com/KatherLab/STAMP) • [Website](https://zenodo.org/records/15749283) |
 | **PathBench** | 2025 | Slide & Patch | Leakage-free multi-center clinical benchmark spanning multiple tasks, with a live public leaderboard | [Paper](https://arxiv.org/abs/2505.20202) • [Code](https://github.com/birkhoffkiki/PathBench) • [Website](https://birkhoffkiki.github.io/PathBench/) |
 | **Stanford PathBench** | 2026 | Slide & Patch | Comprehensive benchmark of 32 PFMs across 41 tasks with a public leaderboard | [Paper](https://www.nature.com/articles/s41467-026-76004-6) |
 
@@ -136,7 +137,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Li et al.** — *A survey on computational pathology foundation models: datasets, adaptation strategies, and evaluation tasks* | 2025 | Survey covering datasets, adaptation strategies, and evaluation tasks | [Paper](https://link.springer.com/article/10.1007/s10115-026-02806-1) |
 | **Lin et al.** — *Revealing Ethical Risks in Pathology Foundation Models: A Quantitative Perspective* | 2025 | Quantitative perspective on ethical risks in pathology foundation models | [Paper](https://arxiv.org/abs/2502.16889) |
 | **Bilal et al.** — *Foundation Models in Computational Pathology: A Review of Challenges, Opportunities, and Impact* | 2025 | Review of challenges, opportunities, and impact of Foundation Models in CPath | [Paper](https://arxiv.org/abs/2502.08333) |
-| **Tizhoosh** — *Rethinking foundation models in pathology* | 2026 | Perspective on rethinking foundation models in pathology | [Paper](https://www.nature.com/articles/s41551-026-01696-6) |
+| **Tizhoosh et al.** — *Rethinking foundation models in pathology* | 2026 | Perspective on rethinking foundation models in pathology | [Paper](https://www.nature.com/articles/s41551-026-01696-6) |
 
 ---
 
@@ -146,6 +147,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 |---|---|---|---|
 | **Mishra et al.** — *Comparing Computational Pathology Foundation Models using Representational Similarity Analysis* | 2025 | Comparing Computational Pathology Foundation Models using Representational Similarity Analysis | [Paper](https://arxiv.org/abs/2509.15482) |
 | **Le et al.** — *Interpretability analysis on a pathology foundation model reveals biologically relevant embeddings across modalities* | 2024 | Interpretability analysis on a pathology foundation model reveals biologically relevant embeddings across modalities | [Paper](https://arxiv.org/abs/2407.10785v1) |
+| **Kömen et al.** — *Do Histopathological Foundation Models Eliminate Batch Effects? A Comparative Study* | 2024 | Shows histopathology FM embeddings still carry hospital-specific batch signatures that bias predictions; not removed by stain normalization | [Paper](https://arxiv.org/abs/2411.05489) |
 
 ---
 

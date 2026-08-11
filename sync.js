@@ -66,3 +66,28 @@ md += "## 📝 Citation\n\n" +
 
 fs.writeFileSync(path.join(__dirname, 'README.md'), md);
 console.log("README.md updated");
+
+// --- references.bib: one entry per unique paper, deduped, keys disambiguated ---
+const seenBib = new Map(); // bibtex content -> [model names]
+modelData.forEach(cat => cat.models.forEach(m => {
+    if (!m.bibtex) return;
+    if (!seenBib.has(m.bibtex)) seenBib.set(m.bibtex, [m.name]);
+    else seenBib.get(m.bibtex).push(m.name);
+}));
+const keyOf = c => (c.match(/^@\w+\{\s*([^,]+),/) || [, 'ref'])[1].trim();
+const usedKeys = new Map();
+let bibOut = "% Pathology Foundation Models (PFMs) - reference list\n" +
+    "% Auto-generated from data.js by sync.js; one entry per unique paper.\n\n";
+for (const [content, names] of seenBib) {
+    let c = content, key = keyOf(c);
+    if (usedKeys.has(key) && usedKeys.get(key) !== c) {
+        let i = 2, nk;
+        do { nk = `${key}_${i++}`; } while (usedKeys.has(nk));
+        c = c.replace(/^(@\w+\{\s*)[^,]+,/, `$1${nk},`);
+        key = nk;
+    }
+    usedKeys.set(key, c);
+    bibOut += `% ${names.join(', ')}\n${c}\n\n`;
+}
+fs.writeFileSync(path.join(__dirname, 'references.bib'), bibOut);
+console.log("references.bib updated");

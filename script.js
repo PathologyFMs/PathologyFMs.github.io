@@ -147,7 +147,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             <i class="ph ph-caret-down facet-caret"></i>
                         </button>
                         <div class="facet-content facet-cite" hidden>
-                            <button class="copy-bibtex" type="button"><i class="ph ph-copy"></i> Copy</button>
+                            <div class="cite-toolbar">
+                                <span class="cite-label">BibTeX</span>
+                                <button class="copy-bibtex" type="button"><i class="ph ph-copy"></i> Copy</button>
+                            </div>
                             <pre class="bibtex-block">${escapeHtml(model.bibtex)}</pre>
                         </div>
                     </div>`;
@@ -381,33 +384,14 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.addEventListener('input', handleFilters);
     categoryFilter.addEventListener('change', handleFilters);
 
-    // Build the BibTeX for every paper, grouped by category (%-comment headers),
-    // de-duplicated by citation key so shared papers appear once (valid .bib).
-    function buildAllBibtex() {
-        const seen = new Set();
-        const blocks = [];
-        modelData.forEach(cat => {
-            const entries = [];
-            cat.models.forEach(m => {
-                if (!m.bibtex) return;
-                const key = (m.bibtex.match(/^@\w+\{\s*([^,]+),/) || [, ''])[1].trim();
-                if (key && seen.has(key)) return;
-                if (key) seen.add(key);
-                entries.push(m.bibtex.trim());
-            });
-            if (entries.length) {
-                blocks.push(`% ${cat.category}\n${entries.join('\n\n')}`);
-            }
-        });
-        return blocks.join('\n\n');
-    }
-
+    // Top BibTeX button: copy the citation for this website/repository itself.
     const bibtexBtn = document.getElementById('bibtexBtn');
     if (bibtexBtn) {
         bibtexBtn.addEventListener('click', () => {
-            navigator.clipboard.writeText(buildAllBibtex()).then(() => {
+            const bibtex = `@misc{pfms2026,\n  author = {Chanda, Dibaloke},\n  title = {Pathology Foundation Models (PFMs)},\n  year = {2026},\n  publisher = {GitHub},\n  journal = {GitHub repository},\n  howpublished = {\\url{https://github.com/dibalokechanda/PFMs}}\n}`;
+            navigator.clipboard.writeText(bibtex).then(() => {
                 const originalText = bibtexBtn.innerHTML;
-                bibtexBtn.innerHTML = '<i class="ph ph-check"></i> Copied all!';
+                bibtexBtn.innerHTML = '<i class="ph ph-check"></i> Copied!';
                 setTimeout(() => { bibtexBtn.innerHTML = originalText; }, 2000);
             });
         });

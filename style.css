@@ -1029,8 +1029,46 @@ th.expand-col, td.expand-col {
 
 /* Cite (BibTeX) facet */
 .facet-cite {
-    position: relative;
     padding: 0;
+}
+
+.cite-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 0.6rem 0.5rem 1.1rem;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.cite-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.copy-bibtex {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.75rem;
+    font-size: 0.78rem;
+    font-family: inherit;
+    font-weight: 600;
+    color: var(--text-color);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.copy-bibtex:hover {
+    color: var(--btn-hover-text);
+    background: var(--accent-1);
+    border-color: var(--accent-1);
 }
 
 .bibtex-block {
@@ -1045,31 +1083,6 @@ th.expand-col, td.expand-col {
     overflow-x: auto;
     max-height: 320px;
     overflow-y: auto;
-}
-
-.copy-bibtex {
-    position: absolute;
-    top: 0.55rem;
-    right: 0.55rem;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.35rem;
-    padding: 0.35rem 0.7rem;
-    font-size: 0.8rem;
-    font-family: inherit;
-    font-weight: 600;
-    color: var(--btn-hover-text);
-    background: var(--accent-1);
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    opacity: 0.9;
-    transition: opacity 0.2s;
-    z-index: 1;
-}
-
-.copy-bibtex:hover {
-    opacity: 1;
 }
 
 /* Modal Table Styles */

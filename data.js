@@ -1121,13 +1121,29 @@ const modelData = [
         "hf": "",
         "paper": "https://www.nature.com/articles/s41467-025-58796-1.pdf",
         "bibtex": "@article{Campanella_2025, title={A clinical benchmark of public self-supervised pathology foundation models}, volume={16}, ISSN={2041-1723}, url={http://dx.doi.org/10.1038/s41467-025-58796-1}, DOI={10.1038/s41467-025-58796-1}, number={1}, journal={Nature Communications}, publisher={Springer Science and Business Media LLC}, author={Campanella, Gabriele and Chen, Shengjia and Singh, Manbir and Verma, Ruchika and Muehlstedt, Silke and Zeng, Jennifer and Stock, Aryeh and Croken, Matt and Veremis, Brandon and Elmas, Abdulkadir and Shujski, Ivan and Neittaanmäki, Noora and Huang, Kuan-lin and Kwan, Ricky and Houldsworth, Jane and Schoenfeld, Adam J. and Vanderbilt, Chad}, year={2025}, month=Apr }",
-        "audit_patches": "**9,528 evaluation H&E WSIs** \u2014 not pretraining patches",
-        "audit_organs": "**4 cancer types**",
-        "audit_downstream": "**31 weakly supervised tasks: 5 morphology + 19 biomarker + 7 prognostication**",
-        "audit_cohorts": "**13 cohorts; 6,818 patients**; includes TCGA/CPTAC and external cohorts such as DACHS, Bern, Kiel and IEO",
-        "audit_notes": "Evaluates **19 FMs + 14 ensembles**. Evaluation slides must not be mistaken for pretraining data.",
+        "audit_organs": "Multiple organs and diseases",
+        "audit_downstream": "Cancer diagnoses + multiple biomarkers across organs; automated external benchmarking pipeline",
+        "audit_cohorts": "3 medical centers (incl. Mount Sinai / MSHS and MSKCC); slides from standard clinical workflows",
+        "audit_notes": "Benchmark, not a pretrained model. Public SSL FMs assessed on clinical slides from three medical centers; automated benchmarking pipeline released.",
         "paper_title": "A clinical benchmark of public self-supervised pathology foundation models",
         "paper_author": "Campanella"
+      },
+      {
+        "name": "Feature-Extractor Benchmark",
+        "year": 2025,
+        "data": "Slide",
+        "idea": "Benchmarks 19 FMs as feature extractors for weakly-supervised slide tasks; CONCH best, CONCH+Virchow2 ensemble tops 55% of tasks",
+        "github": "https://github.com/KatherLab/STAMP",
+        "website": "https://zenodo.org/records/15749283",
+        "hf": "",
+        "paper": "https://www.nature.com/articles/s41551-025-01516-3",
+        "bibtex": "@article{Neidlinger_2025, title={Benchmarking foundation models as feature extractors for weakly supervised computational pathology}, volume={10}, ISSN={2157-846X}, url={http://dx.doi.org/10.1038/s41551-025-01516-3}, DOI={10.1038/s41551-025-01516-3}, number={6}, journal={Nature Biomedical Engineering}, publisher={Springer Science and Business Media LLC}, author={Neidlinger, Peter and El Nahhas, Omar S. M. and Muti, Hannah Sophie and Lenz, Tim and Hoffmeister, Michael and Brenner, Hermann and van Treeck, Marko and Langer, Rupert and Dislich, Bastian and Behrens, Hans Michael and Röcken, Christoph and Foersch, Sebastian and Truhn, Daniel and Marra, Antonio and Saldanha, Oliver Lester and Kather, Jakob Nikolas}, year={2025}, month=Oct, pages={1113–1123} }",
+        "audit_organs": "4 cancers: lung, colorectal, gastric, breast",
+        "audit_downstream": "Weakly-supervised tasks: biomarkers, morphological properties, prognostic outcomes (19 FMs compared)",
+        "audit_cohorts": "13 cohorts; 6,818 patients; 9,528 slides; incl. DACHS, Bern, Kiel, IEO",
+        "audit_notes": "Benchmark, not a pretrained model. CONCH best overall; Virchow2 close second; CONCH+Virchow2 ensemble outperforms in 55% of tasks.",
+        "paper_title": "Benchmarking foundation models as feature extractors for weakly supervised computational pathology",
+        "paper_author": "Neidlinger"
       },
       {
         "name": "PathBench",
@@ -1235,7 +1251,7 @@ const modelData = [
         "audit_notes": "Survey paper"
       },
       {
-        "name": "Tizhoosh",
+        "name": "Tizhoosh et al.",
         "year": 2026,
         "data": "",
         "idea": "Perspective on rethinking foundation models in pathology",
@@ -1277,6 +1293,18 @@ const modelData = [
         "bibtex": "@misc{le2024learningbiologicallyrelevantfeatures,\n      title={Learning biologically relevant features in a pathology foundation model using sparse autoencoders}, \n      author={Nhat Minh Le and Ciyue Shen and Neel Patel and Chintan Shah and Darpan Sanghavi and Blake Martin and Alfred Eng and Daniel Shenker and Harshith Padigela and Raymond Biju and Syed Ashar Javed and Jennifer Hipp and John Abel and Harsha Pokkalla and Sean Grullon and Dinkar Juyal},\n      year={2024},\n      eprint={2407.10785},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2407.10785}, \n}",
         "paper_title": "Interpretability analysis on a pathology foundation model reveals biologically relevant embeddings across modalities",
         "paper_author": "Le",
+      },
+      {
+        "name": "Kömen et al.",
+        "year": 2024,
+        "data": "",
+        "idea": "Shows histopathology FM embeddings still carry hospital-specific batch signatures that bias predictions; not removed by stain normalization",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2411.05489",
+        "bibtex": "@misc{komen2024histopathologicalfoundationmodelseliminate,\n      title={Do Histopathological Foundation Models Eliminate Batch Effects? A Comparative Study}, \n      author={Jonah Kömen and Hannah Marienwald and Jonas Dippel and Julius Hense},\n      year={2024},\n      eprint={2411.05489},\n      archivePrefix={arXiv},\n      primaryClass={cs.LG},\n      url={https://arxiv.org/abs/2411.05489}, \n}",
+        "paper_title": "Do Histopathological Foundation Models Eliminate Batch Effects? A Comparative Study",
+        "paper_author": "Kömen"
       }
     ]
   }
