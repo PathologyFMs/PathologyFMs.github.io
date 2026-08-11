@@ -1534,7 +1534,7 @@ const modelData = [
         "year": 2025,
         "data": "",
         "idea": "First systematic study of adversarial vulnerability in PFMs: modifying just 0.1% of patches with imperceptible noise degrades accuracy by up to 20% (label-free attack; 3 PFMs, 5 datasets, 6 tasks)",
-        "github": "",
+        "github": "https://github.com/Jiashuai-Liu-hmos/Attack-WSI-pathology-foundation-models",
         "hf": "",
         "paper": "https://arxiv.org/abs/2505.24141",
         "bibtex": "@misc{liu2025butterflyeffectpathologyexploring,\n      title={The Butterfly Effect in Pathology: Exploring Security in Pathology Foundation Models},\n      author={Jiashuai Liu and Yingjia Shang and Yingkang Zhan and Di Zhang and Yi Niu and Dong Wei and Xian Wu and Zeyu Gao and Chen Li and Yefeng Zheng},\n      year={2025},\n      eprint={2505.24141},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2505.24141},\n}",
