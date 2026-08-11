@@ -1272,93 +1272,6 @@ const modelData = [
     ]
   },
   {
-    "category": "Survey and Perspectives",
-    "models": [
-      {
-        "name": "Xiong et al.",
-        "year": 2025,
-        "data": "",
-        "idea": "Comprehensive survey of progress and future directions in pathology foundation models",
-        "github": "",
-        "hf": "",
-        "paper": "https://arxiv.org/abs/2504.04045",
-        "bibtex": "@misc{xiong2025surveypathologyfoundationmodel,\n      title={A Survey of Pathology Foundation Model: Progress and Future Directions}, \n      author={Conghao Xiong and Hao Chen and Joseph J. Y. Sung},\n      year={2025},\n      eprint={2504.04045},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2504.04045}, \n}",
-        "paper_title": "A Survey of Pathology Foundation Model: Progress and Future Directions",
-        "paper_author": "Xiong",
-        "audit_notes": "Survey paper"
-      },
-      {
-        "name": "Chanda et al.",
-        "year": 2024,
-        "data": "",
-        "idea": "Survey on Foundation and Vision-Language Models",
-        "github": "",
-        "hf": "",
-        "paper": "https://arxiv.org/abs/2408.14496",
-        "bibtex": "@misc{chanda2024neweracomputationalpathology,\n      title={A New Era in Computational Pathology: A Survey on Foundation and Vision-Language Models}, \n      author={Dibaloke Chanda and Milan Aryal and Nasim Yahya Soltani and Masoud Ganji},\n      year={2024},\n      eprint={2408.14496},\n      archivePrefix={arXiv},\n      primaryClass={cs.LG},\n      url={https://arxiv.org/abs/2408.14496}, \n}",
-        "paper_title": "A New Era in Computational Pathology: A Survey on Foundation and Vision-Language Models",
-        "paper_author": "Chanda",
-        "audit_notes": "Survey paper"
-      },
-      {
-        "name": "Li et al.",
-        "year": 2025,
-        "data": "",
-        "idea": "Survey covering datasets, adaptation strategies, and evaluation tasks",
-        "github": "",
-        "hf": "",
-        "paper": "https://link.springer.com/article/10.1007/s10115-026-02806-1",
-        "bibtex": "@article{Li_2026, title={A survey on computational pathology foundation models: datasets, adaptation strategies, and evaluation tasks}, volume={68}, ISSN={0219-3116}, url={http://dx.doi.org/10.1007/s10115-026-02806-1}, DOI={10.1007/s10115-026-02806-1}, number={1}, journal={Knowledge and Information Systems}, publisher={Springer Science and Business Media LLC}, author={Li, Dong and Wan, Guihong and Wu, Xintao and Wu, Xinyu and He, Yi and Chen, Zhong and Nirmal, Ajit J. and Lian, Christine G. and Sorger, Peter K. and Semenov, Yevgeniy R. and Zhao, Chen}, year={2026}, month=July }",
-        "paper_title": "A survey on computational pathology foundation models: datasets, adaptation strategies, and evaluation tasks",
-        "paper_author": "Li",
-        "audit_notes": "Survey paper"
-      },
-      {
-        "name": "Lin et al.",
-        "year": 2025,
-        "data": "",
-        "idea": "Quantitative perspective on ethical risks in pathology foundation models",
-        "github": "",
-        "hf": "",
-        "paper": "https://arxiv.org/abs/2502.16889",
-        "bibtex": "@misc{lin2025diagnosticperformancerevealingquantifying,\n      title={Beyond Diagnostic Performance: Revealing and Quantifying Ethical Risks in Pathology Foundation Models}, \n      author={Weiping Lin and Shen Liu and Runchen Zhu and Yixuan Lin and Baoshun Wang and Liansheng Wang},\n      year={2025},\n      eprint={2502.16889},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2502.16889}, \n}",
-        "paper_title": "Revealing Ethical Risks in Pathology Foundation Models: A Quantitative Perspective",
-        "paper_author": "Lin",
-        "audit_notes": "Perspective paper on ethical risks",
-        "tag": "perspective",
-        "tag_color": "purple"
-      },
-      {
-        "name": "Bilal et al.",
-        "year": 2025,
-        "data": "",
-        "idea": "Review of challenges, opportunities, and impact of Foundation Models in CPath",
-        "github": "",
-        "hf": "",
-        "paper": "https://arxiv.org/abs/2502.08333",
-        "bibtex": "@misc{bilal2025foundationmodelscomputationalpathology,\n      title={Foundation Models in Computational Pathology: A Review of Challenges, Opportunities, and Impact}, \n      author={Mohsin Bilal and Aadam and Manahil Raza and Youssef Altherwy and Anas Alsuhaibani and Abdulrahman Abduljabbar and Fahdah Almarshad and Paul Golding and Nasir Rajpoot},\n      year={2025},\n      eprint={2502.08333},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2502.08333}, \n}",
-        "paper_title": "Foundation Models in Computational Pathology: A Review of Challenges, Opportunities, and Impact",
-        "paper_author": "Bilal",
-        "audit_notes": "Survey paper"
-      },
-      {
-        "name": "Tizhoosh et al.",
-        "year": 2026,
-        "data": "",
-        "idea": "Perspective on rethinking foundation models in pathology",
-        "github": "",
-        "hf": "",
-        "paper": "https://www.nature.com/articles/s41551-026-01696-6",
-        "bibtex": "@article{Tizhoosh_2026, title={Rethinking foundation models in pathology}, ISSN={2157-846X}, url={http://dx.doi.org/10.1038/s41551-026-01696-6}, DOI={10.1038/s41551-026-01696-6}, journal={Nature Biomedical Engineering}, publisher={Springer Science and Business Media LLC}, author={Tizhoosh, Hamid R.}, year={2026}, month=June }",
-        "paper_title": "Rethinking foundation models in pathology",
-        "paper_author": "Tizhoosh",
-        "audit_notes": "Perspective paper",
-        "tag": "perspective",
-        "tag_color": "purple"
-      }
-    ]
-  },
-  {
     "category": "Interpretability and Analysis",
     "models": [
       {
@@ -1570,6 +1483,87 @@ const modelData = [
         "bibtex": "@article{Wang_2026, title={Universal and transferable attacks on pathology foundation models using microscopic perturbations}, volume={15}, ISSN={2047-7538}, url={http://dx.doi.org/10.1038/s41377-026-02347-w}, DOI={10.1038/s41377-026-02347-w}, number={1}, journal={Light: Science & Applications}, publisher={Springer Science and Business Media LLC}, author={Wang, Yuntian and Yang, Xilin and Shen, Che-Yung and Dong, Shuhang and Pillar, Nir and Ozcan, Aydogan}, year={2026}, month=June }",
         "paper_title": "Universal and transferable attacks on pathology foundation models using microscopic perturbations",
         "paper_author": "Wang"
+      }
+    ]
+  },
+  {
+    "category": "Survey and Perspectives",
+    "models": [
+      {
+        "name": "Xiong et al.",
+        "year": 2025,
+        "data": "",
+        "idea": "Comprehensive survey of progress and future directions in pathology foundation models",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2504.04045",
+        "bibtex": "@misc{xiong2025surveypathologyfoundationmodel,\n      title={A Survey of Pathology Foundation Model: Progress and Future Directions}, \n      author={Conghao Xiong and Hao Chen and Joseph J. Y. Sung},\n      year={2025},\n      eprint={2504.04045},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2504.04045}, \n}",
+        "paper_title": "A Survey of Pathology Foundation Model: Progress and Future Directions",
+        "paper_author": "Xiong",
+      },
+      {
+        "name": "Chanda et al.",
+        "year": 2024,
+        "data": "",
+        "idea": "Survey on Foundation and Vision-Language Models",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2408.14496",
+        "bibtex": "@misc{chanda2024neweracomputationalpathology,\n      title={A New Era in Computational Pathology: A Survey on Foundation and Vision-Language Models}, \n      author={Dibaloke Chanda and Milan Aryal and Nasim Yahya Soltani and Masoud Ganji},\n      year={2024},\n      eprint={2408.14496},\n      archivePrefix={arXiv},\n      primaryClass={cs.LG},\n      url={https://arxiv.org/abs/2408.14496}, \n}",
+        "paper_title": "A New Era in Computational Pathology: A Survey on Foundation and Vision-Language Models",
+        "paper_author": "Chanda",
+      },
+      {
+        "name": "Li et al.",
+        "year": 2025,
+        "data": "",
+        "idea": "Survey covering datasets, adaptation strategies, and evaluation tasks",
+        "github": "",
+        "hf": "",
+        "paper": "https://link.springer.com/article/10.1007/s10115-026-02806-1",
+        "bibtex": "@article{Li_2026, title={A survey on computational pathology foundation models: datasets, adaptation strategies, and evaluation tasks}, volume={68}, ISSN={0219-3116}, url={http://dx.doi.org/10.1007/s10115-026-02806-1}, DOI={10.1007/s10115-026-02806-1}, number={1}, journal={Knowledge and Information Systems}, publisher={Springer Science and Business Media LLC}, author={Li, Dong and Wan, Guihong and Wu, Xintao and Wu, Xinyu and He, Yi and Chen, Zhong and Nirmal, Ajit J. and Lian, Christine G. and Sorger, Peter K. and Semenov, Yevgeniy R. and Zhao, Chen}, year={2026}, month=July }",
+        "paper_title": "A survey on computational pathology foundation models: datasets, adaptation strategies, and evaluation tasks",
+        "paper_author": "Li",
+      },
+      {
+        "name": "Lin et al.",
+        "year": 2025,
+        "data": "",
+        "idea": "Quantitative perspective on ethical risks in pathology foundation models",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2502.16889",
+        "bibtex": "@misc{lin2025diagnosticperformancerevealingquantifying,\n      title={Beyond Diagnostic Performance: Revealing and Quantifying Ethical Risks in Pathology Foundation Models}, \n      author={Weiping Lin and Shen Liu and Runchen Zhu and Yixuan Lin and Baoshun Wang and Liansheng Wang},\n      year={2025},\n      eprint={2502.16889},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2502.16889}, \n}",
+        "paper_title": "Revealing Ethical Risks in Pathology Foundation Models: A Quantitative Perspective",
+        "paper_author": "Lin",
+        "tag": "perspective",
+        "tag_color": "purple"
+      },
+      {
+        "name": "Bilal et al.",
+        "year": 2025,
+        "data": "",
+        "idea": "Review of challenges, opportunities, and impact of Foundation Models in CPath",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2502.08333",
+        "bibtex": "@misc{bilal2025foundationmodelscomputationalpathology,\n      title={Foundation Models in Computational Pathology: A Review of Challenges, Opportunities, and Impact}, \n      author={Mohsin Bilal and Aadam and Manahil Raza and Youssef Altherwy and Anas Alsuhaibani and Abdulrahman Abduljabbar and Fahdah Almarshad and Paul Golding and Nasir Rajpoot},\n      year={2025},\n      eprint={2502.08333},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2502.08333}, \n}",
+        "paper_title": "Foundation Models in Computational Pathology: A Review of Challenges, Opportunities, and Impact",
+        "paper_author": "Bilal",
+      },
+      {
+        "name": "Tizhoosh et al.",
+        "year": 2026,
+        "data": "",
+        "idea": "Perspective on rethinking foundation models in pathology",
+        "github": "",
+        "hf": "",
+        "paper": "https://www.nature.com/articles/s41551-026-01696-6",
+        "bibtex": "@article{Tizhoosh_2026, title={Rethinking foundation models in pathology}, ISSN={2157-846X}, url={http://dx.doi.org/10.1038/s41551-026-01696-6}, DOI={10.1038/s41551-026-01696-6}, journal={Nature Biomedical Engineering}, publisher={Springer Science and Business Media LLC}, author={Tizhoosh, Hamid R.}, year={2026}, month=June }",
+        "paper_title": "Rethinking foundation models in pathology",
+        "paper_author": "Tizhoosh",
+        "tag": "perspective",
+        "tag_color": "purple"
       }
     ]
   }

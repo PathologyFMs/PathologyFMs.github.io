@@ -134,19 +134,6 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 
 ---
 
-## 📚 Survey and Perspectives
-
-| Paper | Year | Focus | Resources |
-|---|---|---|---|
-| **Xiong et al.** — *A Survey of Pathology Foundation Model: Progress and Future Directions* | 2025 | Comprehensive survey of progress and future directions in pathology foundation models | [Paper](https://arxiv.org/abs/2504.04045) |
-| **Chanda et al.** — *A New Era in Computational Pathology: A Survey on Foundation and Vision-Language Models* | 2024 | Survey on Foundation and Vision-Language Models | [Paper](https://arxiv.org/abs/2408.14496) |
-| **Li et al.** — *A survey on computational pathology foundation models: datasets, adaptation strategies, and evaluation tasks* | 2025 | Survey covering datasets, adaptation strategies, and evaluation tasks | [Paper](https://link.springer.com/article/10.1007/s10115-026-02806-1) |
-| **Lin et al.** — *Revealing Ethical Risks in Pathology Foundation Models: A Quantitative Perspective* | 2025 | Quantitative perspective on ethical risks in pathology foundation models | [Paper](https://arxiv.org/abs/2502.16889) |
-| **Bilal et al.** — *Foundation Models in Computational Pathology: A Review of Challenges, Opportunities, and Impact* | 2025 | Review of challenges, opportunities, and impact of Foundation Models in CPath | [Paper](https://arxiv.org/abs/2502.08333) |
-| **Tizhoosh et al.** — *Rethinking foundation models in pathology* | 2026 | Perspective on rethinking foundation models in pathology | [Paper](https://www.nature.com/articles/s41551-026-01696-6) |
-
----
-
 ## 🔎 Interpretability and Analysis
 
 | Paper | Year | Focus | Resources |
@@ -175,6 +162,19 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Chai et al.** — *Impact of tissue staining and scanner variation on the performance of pathology foundation models: a study of sarcomas and their mimics* | 2026 | Investigates the sensitivity of PFM-based analysis to histologic staining and scanner variability in sarcomas and their mimics | [Paper](https://doi.org/10.1002/2056-4538.70080) |
 | **Yajnik et al.** — *The Good, the Bad, and the Brittle: Benchmarking Robustness and Generalisation of Histopathology Foundation Models* | 2026 | Tests 12 PFMs against 11 clinically realistic perturbations; larger models are not automatically more robust, and UNI2/Virchow2-sized models can match or exceed larger ones | [Paper](https://arxiv.org/abs/2607.04401) |
 | **Wang et al.** — *Universal and transferable attacks on pathology foundation models using microscopic perturbations* | 2026 | A single weak, transferable microscopic perturbation degrades multiple black-box PFMs across datasets, revealing common vulnerabilities in their feature spaces | [Paper](https://www.nature.com/articles/s41377-026-02347-w) |
+
+---
+
+## 📚 Survey and Perspectives
+
+| Paper | Year | Focus | Resources |
+|---|---|---|---|
+| **Xiong et al.** — *A Survey of Pathology Foundation Model: Progress and Future Directions* | 2025 | Comprehensive survey of progress and future directions in pathology foundation models | [Paper](https://arxiv.org/abs/2504.04045) |
+| **Chanda et al.** — *A New Era in Computational Pathology: A Survey on Foundation and Vision-Language Models* | 2024 | Survey on Foundation and Vision-Language Models | [Paper](https://arxiv.org/abs/2408.14496) |
+| **Li et al.** — *A survey on computational pathology foundation models: datasets, adaptation strategies, and evaluation tasks* | 2025 | Survey covering datasets, adaptation strategies, and evaluation tasks | [Paper](https://link.springer.com/article/10.1007/s10115-026-02806-1) |
+| **Lin et al.** — *Revealing Ethical Risks in Pathology Foundation Models: A Quantitative Perspective* | 2025 | Quantitative perspective on ethical risks in pathology foundation models | [Paper](https://arxiv.org/abs/2502.16889) |
+| **Bilal et al.** — *Foundation Models in Computational Pathology: A Review of Challenges, Opportunities, and Impact* | 2025 | Review of challenges, opportunities, and impact of Foundation Models in CPath | [Paper](https://arxiv.org/abs/2502.08333) |
+| **Tizhoosh et al.** — *Rethinking foundation models in pathology* | 2026 | Perspective on rethinking foundation models in pathology | [Paper](https://www.nature.com/articles/s41551-026-01696-6) |
 
 ---
 
