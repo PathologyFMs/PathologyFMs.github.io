@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (catLower.includes('adaptation')) return { text: 'adaptation', color: 'blue' };
         if (catLower.includes('survey')) return { text: 'survey', color: 'gray' };
         if (catLower.includes('interpretability')) return { text: 'analysis', color: 'pink' };
+        if (catLower.includes('robustness')) return { text: 'robustness', color: 'orange' };
         return { text: 'control', color: 'gray' };
     }
 
@@ -243,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <thead>
                         <tr>
                             <th class="expand-col"></th>
-                            <th>${categoryGroup.category.includes('Survey') ? 'Paper' : categoryGroup.category.includes('Benchmarking') ? 'Framework/Benchmark' : 'Model'}</th>
+                            <th>${(categoryGroup.category.includes('Survey') || categoryGroup.category.includes('Interpretability') || categoryGroup.category.includes('Robustness')) ? 'Paper' : categoryGroup.category.includes('Benchmarking') ? 'Framework/Benchmark' : 'Model'}</th>
                             <th>Year</th>
                             <th>Key Idea</th>
                             <th>Resources</th>

@@ -15,7 +15,8 @@ const emojiMap = {
     "Generative Foundation Models": "🎨",
     "Foundation Model Benchmarking": "📊",
     "Survey and Perspectives": "📚",
-    "Interpretability and Analysis": "🔎"
+    "Interpretability and Analysis": "🔎",
+    "Robustness and Generalization": "🛡️"
 };
 
 function resources(m) {
@@ -36,7 +37,7 @@ modelData.forEach(cat => {
     md += `## ${emoji} ${cat.category}\n\n`;
 
     const isBenchmark = cat.category.includes("Benchmarking");
-    const isPaperList = cat.category.includes("Survey") || cat.category.includes("Interpretability");
+    const isPaperList = cat.category.includes("Survey") || cat.category.includes("Interpretability") || cat.category.includes("Robustness");
 
     if (isBenchmark) {
         md += "| Name | Year | Scope | Key Contribution | Resources |\n|---|---|---|---|---|\n";

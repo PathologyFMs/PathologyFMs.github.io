@@ -1177,7 +1177,20 @@ const modelData = [
         "audit_notes": "Published July 24, 2026; decision-level ensembling also evaluated. The seed-list \u201c41 tasks\u201d figure is not asserted here because I did not independently recover it from the accessible primary source.",
         "paper_title": "A benchmark study of vision and pathology foundation models for computational pathology",
         "paper_author": "Bareja"
-      }
+      },
+      {
+        "name": "SpaPath-Bench",
+        "year": 2026,
+        "data": "Patch (spatial)",
+        "idea": "Tests 19 encoders on paired histology-spatial-transcriptomics to assess whether embeddings distinguish biologically meaningful tissue domains and their spatial organization",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2605.25764",
+        "bibtex": "@misc{zhao2026benchmarkingpathologyfoundationmodels,\n      title={Benchmarking Pathology Foundation Models for Spatial Domain Understanding},\n      author={Bokai Zhao and Yiyang Zhang and Yuanchi Zhu and Hanqing Chao and Long Bai and Tai Ma and Minfeng Xu and Ming Song and Tianzi Jiang},\n      year={2026},\n      eprint={2605.25764},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2605.25764},\n}",
+        "audit_downstream": "19 encoders evaluated on spatial-domain identification from paired histology + spatial transcriptomics",
+        "paper_title": "Benchmarking Pathology Foundation Models for Spatial Domain Understanding",
+        "paper_author": "Zhao"
+      },
     ]
   },
   {
@@ -1295,6 +1308,96 @@ const modelData = [
         "paper_author": "Le",
       },
       {
+        "name": "Vig et al.",
+        "year": 2026,
+        "data": "",
+        "idea": "Applies diffusion pseudotime to PFM embeddings; 5 models recover continuous cancer-progression trajectories, and trajectory fidelity predicts few-shot generalization",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2601.21334",
+        "bibtex": "@misc{vig2026pathologyfoundationmodelsencode,\n      title={Do Pathology Foundation Models Encode Disease Progression? A Pseudotime Analysis of Visual Representations},\n      author={Pritika Vig and Ren-Chin Wu and William Lotter},\n      year={2026},\n      eprint={2601.21334},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2601.21334},\n}",
+        "paper_title": "Do Pathology Foundation Models Encode Disease Progression? A Pseudotime Analysis of Visual Representations",
+        "paper_author": "Vig"
+      },
+      {
+        "name": "Kim et al.",
+        "year": 2026,
+        "data": "",
+        "idea": "Sparse representation learning decomposes PFM embeddings into interpretable histomorphological concepts, producing a pathology concept atlas (bioRxiv preprint)",
+        "github": "",
+        "hf": "",
+        "paper": "https://www.biorxiv.org/content/10.64898/2026.06.12.731496v1",
+        "bibtex": "@article{Kim2026DissectingAD,\n  author = {Chanwoo Kim and Jakub R. Kaczmarzyk and D. Savant and Zhen Zhao and Peter K. Koo and Su-In Lee},\n  title = {Dissecting and directing pathology foundation models},\n  journal = {bioRxiv},\n  year = {2026},\n  doi = {10.64898/2026.06.12.731496},\n  url = {https://www.biorxiv.org/content/10.64898/2026.06.12.731496v1}\n}",
+        "paper_title": "Dissecting and Directing Pathology Foundation Models",
+        "paper_author": "Kim"
+      },
+      {
+        "name": "Srikanthan et al.",
+        "year": 2026,
+        "data": "",
+        "idea": "Evaluates attention coherence of 5 PFMs via spatial transcriptomics in glioblastoma; attention aligns with transcriptional pathways, and models attend to different biological compartments",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2606.04764",
+        "bibtex": "@misc{srikanthan2026foundationmodelsbiologyevaluating,\n      title={Do Foundation Models See Biology? Evaluating Attention Coherence with Spatial Transcriptomics in Glioblastoma},\n      author={Dilakshan Srikanthan and Amoon Jamzad and Paul Wilson and Nooshin Maghsoodi and Robert Policelli and Gabor Fichtinger and John F. Rudan and Parvin Mousavi},\n      year={2026},\n      eprint={2606.04764},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2606.04764},\n}",
+        "paper_title": "Do Foundation Models See Biology? Evaluating Attention Coherence with Spatial Transcriptomics in Glioblastoma",
+        "paper_author": "Srikanthan"
+      },
+      {
+        "name": "Ndubuisi",
+        "year": 2026,
+        "data": "",
+        "idea": "Patient-controlled TCGA-BRCA analysis across 11 frozen backbones; some molecular signal is genuine, but much is explained by interpretable morphology",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2608.00105",
+        "bibtex": "@misc{ndubuisi2026carriessignalpathologyfoundationmodel,\n      title={What Carries the Signal in Pathology Foundation-Model Atlases? A Patient-Level Controlled Benchmark in Breast Cancer},\n      author={Chimdi Walter Ndubuisi},\n      year={2026},\n      eprint={2608.00105},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2608.00105},\n}",
+        "paper_title": "What Carries the Signal in Pathology Foundation-Model Atlases? A Patient-Level Controlled Benchmark in Breast Cancer",
+        "paper_author": "Ndubuisi"
+      },
+      {
+        "name": "Cui et al.",
+        "year": 2026,
+        "data": "",
+        "idea": "Maps PFM embeddings to cell composition and gene-expression features via spatial transcriptomics, decoding latent features into interpretable biology",
+        "github": "",
+        "hf": "",
+        "paper": "https://www.biorxiv.org/content/10.64898/2026.03.17.711896v1",
+        "bibtex": "@article{Cui2026TranslatingHF,\n  author = {Saishi Cui and Zhining Sui and Ziyi Li and Kristina A. Matkowskyj and Ming Yu and William M. Grady and Wei Sun},\n  title = {Translating Histopathology Foundation Model Embeddings into Cellular and Molecular Features for Clinical Studies},\n  journal = {bioRxiv},\n  year = {2026},\n  doi = {10.64898/2026.03.17.711896},\n  url = {https://www.biorxiv.org/content/10.64898/2026.03.17.711896v1}\n}",
+        "paper_title": "Translating Histopathology Foundation Model Embeddings into Cellular and Molecular Features for Clinical Studies",
+        "paper_author": "Cui"
+      },
+    ]
+  },
+  {
+    "category": "Robustness and Generalization",
+    "models": [
+      {
+        "name": "PathoROB",
+        "year": 2026,
+        "data": "Patch",
+        "idea": "Robustness benchmark: 20 PFMs, 99,392 patches, 28 biological classes, 34 centers; compares biological information vs technical confounding and finds substantial robustness deficits",
+        "github": "",
+        "hf": "",
+        "paper": "https://www.nature.com/articles/s41467-026-73923-2",
+        "bibtex": "@article{komen2026towardsrobust, title={Towards robust foundation models for digital pathology}, volume={17}, ISSN={2041-1723}, url={http://dx.doi.org/10.1038/s41467-026-73923-2}, DOI={10.1038/s41467-026-73923-2}, number={1}, journal={Nature Communications}, publisher={Springer Science and Business Media LLC}, author={Kömen, Jonah and de Jong, Edwin D. and Hense, Julius and Marienwald, Hannah and Dippel, Jonas and Naumann, Philip and Marcus, Eric and Ruff, Lukas and Alber, Maximilian and Teuwen, Jonas and Klauschen, Frederick and Müller, Klaus-Robert}, year={2026}, month=June }",
+        "audit_downstream": "20 PFMs evaluated on 99,392 patches, 28 biological classes, 34 medical centers; biological vs technical confounding",
+        "paper_title": "Towards robust foundation models for digital pathology",
+        "paper_author": "Kömen"
+      },
+      {
+        "name": "de Jong et al.",
+        "year": 2025,
+        "data": "",
+        "idea": "Introduces a Robustness Index; across 10 PFMs, medical-center information is often represented more strongly than tissue/cancer information, tying downstream errors to center confounding",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2501.18055",
+        "bibtex": "@misc{dejong2025currentpathologyfoundationmodels,\n      title={Current Pathology Foundation Models are unrobust to Medical Center Differences},\n      author={Edwin D. de Jong and Eric Marcus and Jonas Teuwen},\n      year={2025},\n      eprint={2501.18055},\n      archivePrefix={arXiv},\n      primaryClass={cs.LG},\n      url={https://arxiv.org/abs/2501.18055},\n}",
+        "paper_title": "Current Pathology Foundation Models are Unrobust to Medical Center Differences",
+        "paper_author": "de Jong"
+      },
+      {
         "name": "Kömen et al.",
         "year": 2024,
         "data": "",
@@ -1305,6 +1408,90 @@ const modelData = [
         "bibtex": "@misc{komen2024histopathologicalfoundationmodelseliminate,\n      title={Do Histopathological Foundation Models Eliminate Batch Effects? A Comparative Study}, \n      author={Jonah Kömen and Hannah Marienwald and Jonas Dippel and Julius Hense},\n      year={2024},\n      eprint={2411.05489},\n      archivePrefix={arXiv},\n      primaryClass={cs.LG},\n      url={https://arxiv.org/abs/2411.05489}, \n}",
         "paper_title": "Do Histopathological Foundation Models Eliminate Batch Effects? A Comparative Study",
         "paper_author": "Kömen"
+      },
+      {
+        "name": "Elphick et al.",
+        "year": 2024,
+        "data": "",
+        "idea": "Tests rotation invariance of 12 PFMs via mutual-kNN alignment; models trained with rotation augmentation are substantially more invariant",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2412.11938",
+        "bibtex": "@misc{elphick2024latentrepresentationsfoundationmodels,\n      title={Are the Latent Representations of Foundation Models for Pathology Invariant to Rotation?},\n      author={Matouš Elphick and Samra Turajlic and Guang Yang},\n      year={2024},\n      eprint={2412.11938},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2412.11938},\n}",
+        "paper_title": "Are the Latent Representations of Foundation Models for Pathology Invariant to Rotation?",
+        "paper_author": "Elphick"
+      },
+      {
+        "name": "Gustafsson et al.",
+        "year": 2026,
+        "data": "",
+        "idea": "UNI and CONCH outperform older baselines for prostate grading, but large-scale diverse pretraining does not guarantee robustness to real-world distribution shifts",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2410.06723",
+        "bibtex": "@misc{gustafsson2026evaluatingcomputationalpathologyfoundation,\n      title={Evaluating Computational Pathology Foundation Models for Prostate Cancer Grading under Distribution Shifts},\n      author={Fredrik K. Gustafsson and Mattias Rantalainen},\n      year={2026},\n      eprint={2410.06723},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2410.06723},\n}",
+        "paper_title": "Evaluating Computational Pathology Foundation Models for Prostate Cancer Grading under Distribution Shifts",
+        "paper_author": "Gustafsson"
+      },
+      {
+        "name": "Carloni et al.",
+        "year": 2025,
+        "data": "",
+        "idea": "Shows scanner bias in existing PFMs and proposes ScanGen, a contrastive loss that improves scanner robustness during downstream training",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2507.22092",
+        "bibtex": "@misc{carloni2025pathologyfoundationmodelsscanner,\n      title={Pathology Foundation Models are Scanner Sensitive: Benchmark and Mitigation with Contrastive ScanGen Loss},\n      author={Gianluca Carloni and Biagio Brattoli and Seongho Keum and Jongchan Park and Taebum Lee and Chang Ho Ahn and Sergio Pereira},\n      year={2025},\n      eprint={2507.22092},\n      archivePrefix={arXiv},\n      primaryClass={q-bio.QM},\n      url={https://arxiv.org/abs/2507.22092},\n}",
+        "paper_title": "Pathology Foundation Models are Scanner Sensitive: Benchmark and Mitigation with Contrastive ScanGen Loss",
+        "paper_author": "Carloni"
+      },
+      {
+        "name": "Thiringer et al.",
+        "year": 2026,
+        "data": "",
+        "idea": "Evaluates 14 PFMs on the same breast tissue scanned on 5 scanners; embeddings contain substantial scanner-specific structure, and AUC can stay stable while calibration becomes scanner-dependent",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2601.04163",
+        "bibtex": "@misc{thiringer2026scannerinduceddomainshiftsundermine,\n      title={Scanner-Induced Domain Shifts Undermine the Robustness of Pathology Foundation Models},\n      author={Erik Thiringer and Fredrik K. Gustafsson and Kajsa Ledesma Eriksson and Mattias Rantalainen},\n      year={2026},\n      eprint={2601.04163},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2601.04163},\n}",
+        "paper_title": "Scanner-Induced Domain Shifts Undermine the Robustness of Pathology Foundation Models",
+        "paper_author": "Thiringer"
+      },
+      {
+        "name": "Chai et al.",
+        "year": 2026,
+        "data": "",
+        "idea": "Investigates the sensitivity of PFM-based analysis to histologic staining and scanner variability in sarcomas and their mimics",
+        "github": "",
+        "hf": "",
+        "paper": "https://doi.org/10.1002/2056-4538.70080",
+        "bibtex": "@article{Chai_2026, title={Impact of tissue staining and scanner variation on the performance of pathology foundation models: a study of sarcomas and their mimics}, volume={12}, ISSN={2056-4538}, url={http://dx.doi.org/10.1002/2056-4538.70080}, DOI={10.1002/2056-4538.70080}, number={2}, journal={The Journal of Pathology: Clinical Research}, publisher={Wiley}, author={Chai, Binghao and Chen, Jianan and Cool, Paul and Oumlil, Fatine and Tollitt, Anna and Steiner, David F and Chakraborti, Tapabrata and Flanagan, Adrienne M}, year={2026}, month=Feb }",
+        "paper_title": "Impact of tissue staining and scanner variation on the performance of pathology foundation models: a study of sarcomas and their mimics",
+        "paper_author": "Chai"
+      },
+      {
+        "name": "Yajnik et al.",
+        "year": 2026,
+        "data": "",
+        "idea": "Tests 12 PFMs against 11 clinically realistic perturbations; larger models are not automatically more robust, and UNI2/Virchow2-sized models can match or exceed larger ones",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2607.04401",
+        "bibtex": "@misc{yajnik2026goodbadbrittlebenchmarking,\n      title={The Good, the Bad, and the Brittle: Benchmarking Robustness and Generalisation of Histopathology Foundation Models},\n      author={Dhyey Yajnik and Amina Asif and Fayyaz Minhas},\n      year={2026},\n      eprint={2607.04401},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2607.04401},\n}",
+        "paper_title": "The Good, the Bad, and the Brittle: Benchmarking Robustness and Generalisation of Histopathology Foundation Models",
+        "paper_author": "Yajnik"
+      },
+      {
+        "name": "Wang et al.",
+        "year": 2026,
+        "data": "",
+        "idea": "A single weak, transferable microscopic perturbation degrades multiple black-box PFMs across datasets, revealing common vulnerabilities in their feature spaces",
+        "github": "",
+        "hf": "",
+        "paper": "https://www.nature.com/articles/s41377-026-02347-w",
+        "bibtex": "@article{Wang_2026, title={Universal and transferable attacks on pathology foundation models using microscopic perturbations}, volume={15}, ISSN={2047-7538}, url={http://dx.doi.org/10.1038/s41377-026-02347-w}, DOI={10.1038/s41377-026-02347-w}, number={1}, journal={Light: Science & Applications}, publisher={Springer Science and Business Media LLC}, author={Wang, Yuntian and Yang, Xilin and Shen, Che-Yung and Dong, Shuhang and Pillar, Nir and Ozcan, Aydogan}, year={2026}, month=June }",
+        "paper_title": "Universal and transferable attacks on pathology foundation models using microscopic perturbations",
+        "paper_author": "Wang"
       }
     ]
   }

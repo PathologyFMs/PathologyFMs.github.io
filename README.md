@@ -125,6 +125,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Feature-Extractor Benchmark** | 2025 | Slide | Benchmarks 19 FMs as feature extractors for weakly-supervised slide tasks; CONCH best, CONCH+Virchow2 ensemble tops 55% of tasks | [Paper](https://www.nature.com/articles/s41551-025-01516-3) • [Code](https://github.com/KatherLab/STAMP) • [Website](https://zenodo.org/records/15749283) |
 | **PathBench** | 2025 | Slide & Patch | Leakage-free multi-center clinical benchmark spanning multiple tasks, with a live public leaderboard | [Paper](https://arxiv.org/abs/2505.20202) • [Code](https://github.com/birkhoffkiki/PathBench) • [Website](https://birkhoffkiki.github.io/PathBench/) |
 | **Stanford PathBench** | 2026 | Slide & Patch | Comprehensive benchmark of 32 PFMs across 41 tasks with a public leaderboard | [Paper](https://www.nature.com/articles/s41467-026-76004-6) |
+| **SpaPath-Bench** | 2026 | Patch (spatial) | Tests 19 encoders on paired histology-spatial-transcriptomics to assess whether embeddings distinguish biologically meaningful tissue domains and their spatial organization | [Paper](https://arxiv.org/abs/2605.25764) |
 
 ---
 
@@ -147,7 +148,28 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 |---|---|---|---|
 | **Mishra et al.** — *Comparing Computational Pathology Foundation Models using Representational Similarity Analysis* | 2025 | Comparing Computational Pathology Foundation Models using Representational Similarity Analysis | [Paper](https://arxiv.org/abs/2509.15482) |
 | **Le et al.** — *Interpretability analysis on a pathology foundation model reveals biologically relevant embeddings across modalities* | 2024 | Interpretability analysis on a pathology foundation model reveals biologically relevant embeddings across modalities | [Paper](https://arxiv.org/abs/2407.10785v1) |
+| **Vig et al.** — *Do Pathology Foundation Models Encode Disease Progression? A Pseudotime Analysis of Visual Representations* | 2026 | Applies diffusion pseudotime to PFM embeddings; 5 models recover continuous cancer-progression trajectories, and trajectory fidelity predicts few-shot generalization | [Paper](https://arxiv.org/abs/2601.21334) |
+| **Kim et al.** — *Dissecting and Directing Pathology Foundation Models* | 2026 | Sparse representation learning decomposes PFM embeddings into interpretable histomorphological concepts, producing a pathology concept atlas (bioRxiv preprint) | [Paper](https://www.biorxiv.org/content/10.64898/2026.06.12.731496v1) |
+| **Srikanthan et al.** — *Do Foundation Models See Biology? Evaluating Attention Coherence with Spatial Transcriptomics in Glioblastoma* | 2026 | Evaluates attention coherence of 5 PFMs via spatial transcriptomics in glioblastoma; attention aligns with transcriptional pathways, and models attend to different biological compartments | [Paper](https://arxiv.org/abs/2606.04764) |
+| **Ndubuisi** — *What Carries the Signal in Pathology Foundation-Model Atlases? A Patient-Level Controlled Benchmark in Breast Cancer* | 2026 | Patient-controlled TCGA-BRCA analysis across 11 frozen backbones; some molecular signal is genuine, but much is explained by interpretable morphology | [Paper](https://arxiv.org/abs/2608.00105) |
+| **Cui et al.** — *Translating Histopathology Foundation Model Embeddings into Cellular and Molecular Features for Clinical Studies* | 2026 | Maps PFM embeddings to cell composition and gene-expression features via spatial transcriptomics, decoding latent features into interpretable biology | [Paper](https://www.biorxiv.org/content/10.64898/2026.03.17.711896v1) |
+
+---
+
+## 🛡️ Robustness and Generalization
+
+| Paper | Year | Focus | Resources |
+|---|---|---|---|
+| **PathoROB** — *Towards robust foundation models for digital pathology* | 2026 | Robustness benchmark: 20 PFMs, 99,392 patches, 28 biological classes, 34 centers; compares biological information vs technical confounding and finds substantial robustness deficits | [Paper](https://www.nature.com/articles/s41467-026-73923-2) |
+| **de Jong et al.** — *Current Pathology Foundation Models are Unrobust to Medical Center Differences* | 2025 | Introduces a Robustness Index; across 10 PFMs, medical-center information is often represented more strongly than tissue/cancer information, tying downstream errors to center confounding | [Paper](https://arxiv.org/abs/2501.18055) |
 | **Kömen et al.** — *Do Histopathological Foundation Models Eliminate Batch Effects? A Comparative Study* | 2024 | Shows histopathology FM embeddings still carry hospital-specific batch signatures that bias predictions; not removed by stain normalization | [Paper](https://arxiv.org/abs/2411.05489) |
+| **Elphick et al.** — *Are the Latent Representations of Foundation Models for Pathology Invariant to Rotation?* | 2024 | Tests rotation invariance of 12 PFMs via mutual-kNN alignment; models trained with rotation augmentation are substantially more invariant | [Paper](https://arxiv.org/abs/2412.11938) |
+| **Gustafsson et al.** — *Evaluating Computational Pathology Foundation Models for Prostate Cancer Grading under Distribution Shifts* | 2026 | UNI and CONCH outperform older baselines for prostate grading, but large-scale diverse pretraining does not guarantee robustness to real-world distribution shifts | [Paper](https://arxiv.org/abs/2410.06723) |
+| **Carloni et al.** — *Pathology Foundation Models are Scanner Sensitive: Benchmark and Mitigation with Contrastive ScanGen Loss* | 2025 | Shows scanner bias in existing PFMs and proposes ScanGen, a contrastive loss that improves scanner robustness during downstream training | [Paper](https://arxiv.org/abs/2507.22092) |
+| **Thiringer et al.** — *Scanner-Induced Domain Shifts Undermine the Robustness of Pathology Foundation Models* | 2026 | Evaluates 14 PFMs on the same breast tissue scanned on 5 scanners; embeddings contain substantial scanner-specific structure, and AUC can stay stable while calibration becomes scanner-dependent | [Paper](https://arxiv.org/abs/2601.04163) |
+| **Chai et al.** — *Impact of tissue staining and scanner variation on the performance of pathology foundation models: a study of sarcomas and their mimics* | 2026 | Investigates the sensitivity of PFM-based analysis to histologic staining and scanner variability in sarcomas and their mimics | [Paper](https://doi.org/10.1002/2056-4538.70080) |
+| **Yajnik et al.** — *The Good, the Bad, and the Brittle: Benchmarking Robustness and Generalisation of Histopathology Foundation Models* | 2026 | Tests 12 PFMs against 11 clinically realistic perturbations; larger models are not automatically more robust, and UNI2/Virchow2-sized models can match or exceed larger ones | [Paper](https://arxiv.org/abs/2607.04401) |
+| **Wang et al.** — *Universal and transferable attacks on pathology foundation models using microscopic perturbations* | 2026 | A single weak, transferable microscopic perturbation degrades multiple black-box PFMs across datasets, revealing common vulnerabilities in their feature spaces | [Paper](https://www.nature.com/articles/s41377-026-02347-w) |
 
 ---
 
