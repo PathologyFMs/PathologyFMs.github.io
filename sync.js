@@ -24,6 +24,7 @@ function resources(m) {
     if (m.paper) res.push(`[Paper](${m.paper})`);
     if (m.github) res.push(`[Code](${m.github})`);
     if (m.hf) res.push(`[Model](${m.hf})`);
+    if (m.dataset) res.push(`[Dataset](${m.dataset})`);
     if (m.website) res.push(`[Website](${m.website})`);
     (m.variants || []).forEach(v => {
         const link = v.hf || v.paper;

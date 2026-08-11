@@ -444,6 +444,13 @@ body.light-mode .tag-green { color: #16a34a; }
 }
 .icon-link.website:hover { background: var(--accent-3); color: #fff; transform: translateY(-2px); }
 
+.icon-link.dataset {
+    background: rgba(16, 185, 129, 0.1);
+    color: #10b981;
+    border-color: rgba(16, 185, 129, 0.2);
+}
+.icon-link.dataset:hover { background: #10b981; color: #fff; transform: translateY(-2px); }
+
 footer {
     text-align: center;
     padding: 3rem 0;
@@ -689,6 +696,15 @@ body.light-mode .tag-green { color: #16a34a; }
 
 .link-website:hover {
     background: #ce93d8;
+}
+
+.link-dataset {
+    background: #c8f0e0;
+    color: #0f766e;
+}
+
+.link-dataset:hover {
+    background: #a7e8d0;
 }
 
 .view-toggle {

@@ -1415,6 +1415,7 @@ const modelData = [
         "idea": "Robustness benchmark: 20 PFMs, 99,392 patches, 28 biological classes, 34 centers; compares biological information vs technical confounding and finds substantial robustness deficits",
         "github": "",
         "hf": "",
+        "dataset": "https://huggingface.co/collections/bifold-pathomics/pathorob",
         "paper": "https://www.nature.com/articles/s41467-026-73923-2",
         "bibtex": "@article{komen2026towardsrobust, title={Towards robust foundation models for digital pathology}, volume={17}, ISSN={2041-1723}, url={http://dx.doi.org/10.1038/s41467-026-73923-2}, DOI={10.1038/s41467-026-73923-2}, number={1}, journal={Nature Communications}, publisher={Springer Science and Business Media LLC}, author={Kömen, Jonah and de Jong, Edwin D. and Hense, Julius and Marienwald, Hannah and Dippel, Jonas and Naumann, Philip and Marcus, Eric and Ruff, Lukas and Alber, Maximilian and Teuwen, Jonas and Klauschen, Frederick and Müller, Klaus-Robert}, year={2026}, month=June }",
         "audit_downstream": "20 PFMs evaluated on 99,392 patches, 28 biological classes, 34 medical centers; biological vs technical confounding",
