@@ -87,6 +87,16 @@ document.addEventListener('DOMContentLoaded', () => {
         return (text || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     }
 
+    // Small clickable chips for a model's newer versions/variants.
+    function variantChips(model) {
+        if (!model.variants || !model.variants.length) return '';
+        return model.variants.map(v => {
+            const url = v.hf || v.paper || '#';
+            const note = (v.note || '').replace(/"/g, '&quot;');
+            return `<a href="${url}" target="_blank" class="variant-chip" title="${note}"><i class="ph ph-git-fork"></i> ${v.name}</a>`;
+        }).join('');
+    }
+
     // A field is "meaningful" only if it isn't blank, "Not found", or "N/A".
     function isMeaningful(text) {
         if (!text) return false;
@@ -140,6 +150,26 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>`;
             }
         });
+        if (model.variants && model.variants.length) {
+            const vRows = model.variants.map(v => {
+                let vlinks = '';
+                if (v.hf) vlinks += `<a href="${v.hf}" target="_blank" class="variant-link"><i class="ph ph-cube"></i> Model</a>`;
+                if (v.paper) vlinks += `<a href="${v.paper}" target="_blank" class="variant-link"><i class="ph ph-file-text"></i> Paper</a>`;
+                return `<div class="variant-row">
+                            <div class="variant-head"><span class="variant-name">${v.name}</span>${v.year ? `<span class="variant-year">${v.year}</span>` : ''}</div>
+                            ${v.note ? `<div class="variant-note">${v.note}</div>` : ''}
+                            ${vlinks ? `<div class="variant-links">${vlinks}</div>` : ''}
+                        </div>`;
+            }).join('');
+            facetsHtml += `
+                    <div class="facet">
+                        <button class="facet-btn" type="button" aria-expanded="false">
+                            <span class="facet-label"><i class="ph ph-git-fork"></i> Versions / variants</span>
+                            <i class="ph ph-caret-down facet-caret"></i>
+                        </button>
+                        <div class="facet-content facet-variants" hidden>${vRows}</div>
+                    </div>`;
+        }
         if (model.bibtex) {
             facetsHtml += `
                     <div class="facet">
@@ -275,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </td>
                         <td><span class="year-badge">${model.year}</span></td>
                         <td class="idea-col">${preferAudit(model.audit_notes, model.idea)}</td>
-                        <td><div class="links-col">${linksHTML}</div></td>
+                        <td><div class="links-col">${linksHTML}${variantChips(model)}</div></td>
                     `;
                     
                     // Modal logic
@@ -315,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span>${preferAudit(model.audit_wsis, model.data)}</span>
                         </div>
                         <div class="card-links">
-                            ${linksHTML}
+                            ${linksHTML}${variantChips(model)}
                         </div>
                         <button class="card-expand-btn">
                             Detailed Metadata <i class="ph ph-arrows-out-simple"></i>
@@ -356,7 +386,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const matchedModels = cat.models.filter(m => {
                 const haystack = [
                     m.name, m.idea, m.data, m.year, cat.category,
-                    m.audit_notes, m.paper_title, m.paper_author, m.tag
+                    m.audit_notes, m.paper_title, m.paper_author, m.tag,
+                    ...(m.variants || []).map(v => v.name)
                 ].filter(Boolean).join(' ').toLowerCase();
                 return haystack.includes(searchTerm);
             });

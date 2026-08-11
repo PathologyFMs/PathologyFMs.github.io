@@ -1085,6 +1085,91 @@ th.expand-col, td.expand-col {
     overflow-y: auto;
 }
 
+/* Versions / variants */
+.variant-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.2rem 0.6rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-1);
+    background: transparent;
+    border: 1px dashed var(--border-color);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.variant-chip i {
+    font-size: 0.85rem;
+}
+
+.variant-chip:hover {
+    color: var(--btn-hover-text);
+    background: var(--accent-1);
+    border-color: var(--accent-1);
+}
+
+.facet-variants {
+    padding: 0;
+}
+
+.variant-row {
+    padding: 0.85rem 1.1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.variant-row:last-child {
+    border-bottom: none;
+}
+
+.variant-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+}
+
+.variant-name {
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+.variant-year {
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    background: var(--bg-primary);
+    padding: 0.05rem 0.45rem;
+    border-radius: 20px;
+}
+
+.variant-note {
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.45;
+}
+
+.variant-links {
+    margin-top: 0.5rem;
+    display: flex;
+    gap: 0.9rem;
+}
+
+.variant-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-1);
+    text-decoration: none;
+}
+
+.variant-link:hover {
+    text-decoration: underline;
+}
+
 /* Modal Table Styles */
 .modal-table {
     width: 100%;

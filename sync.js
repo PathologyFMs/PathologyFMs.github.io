@@ -25,6 +25,10 @@ function resources(m) {
     if (m.github) res.push(`[Code](${m.github})`);
     if (m.hf) res.push(`[Model](${m.hf})`);
     if (m.website) res.push(`[Website](${m.website})`);
+    (m.variants || []).forEach(v => {
+        const link = v.hf || v.paper;
+        if (link) res.push(`[${v.name}](${link})`);
+    });
     return res.join(" • ");
 }
 
