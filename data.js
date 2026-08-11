@@ -1094,6 +1094,20 @@ const modelData = [
         "audit_notes": "Triplet-based corpus rather than WSI-count-based pretraining.",
         "paper_title": "VISTA-PATH: An interactive foundation model for pathology image segmentation and quantitative analysis in computational pathology",
         "paper_author": "Liang"
+      },
+      {
+        "name": "PathoSAM",
+        "year": 2025,
+        "data": "SAM for histopathology",
+        "idea": "Segment Anything (SAM) adapted for histopathology; SOTA automatic and interactive nucleus instance segmentation, with whole-slide-scale scripts",
+        "github": "https://github.com/computational-cell-analytics/patho-sam",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2502.00408",
+        "bibtex": "@misc{griebel2025segmenthistopathology,\n      title={Segment Anything for Histopathology},\n      author={Titus Griebel and Anwai Archit and Constantin Pape},\n      year={2025},\n      eprint={2502.00408},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2502.00408},\n}",
+        "audit_downstream": "Automatic & interactive nucleus instance segmentation (SOTA); semantic nucleus segmentation (behind CellViT)",
+        "audit_notes": "SAM fine-tuned for histopathology (MIDL 2025); open-source, WSI-compatible; SOTA nucleus instance segmentation.",
+        "paper_title": "Segment Anything for Histopathology",
+        "paper_author": "Griebel"
       }
     ]
   },
@@ -1119,6 +1133,24 @@ const modelData = [
         "audit_notes": "Multimodal pathology diffusion transformer; synthetic images are also assessed as augmentation data.",
         "paper_title": "A Generative Foundation Model for Multimodal Histopathology",
         "paper_author": "Xiang"
+      },
+      {
+        "name": "PixCell",
+        "year": 2025,
+        "data": "30M patches (PanCan-30M)",
+        "idea": "First generative foundation model for histopathology: a self-supervision-conditioned diffusion model (PanCan-30M) enabling data augmentation, privacy-preserving synthesis, and virtual IHC staining",
+        "github": "https://github.com/cvlab-stonybrook/PixCell",
+        "hf": "https://huggingface.co/StonyBrook-CVLab/PixCell-1024",
+        "website": "https://histodiffusion.github.io",
+        "paper": "https://arxiv.org/abs/2506.05127",
+        "bibtex": "@misc{yellapragada2025pixcellgenerativefoundationmodel,\n      title={PixCell: A generative foundation model for digital histopathology images},\n      author={Srikar Yellapragada and Alexandros Graikos and Zilinghan Li and Kostas Triaridis and Varun Belagali and Tarak Nath Nandi and Karen Bai and Beatrice S. Knudsen and Tahsin Kurc and Rajarsi R. Gupta and Prateek Prasanna and Ravi K Madduri and Joel Saltz and Dimitris Samaras},\n      year={2025},\n      eprint={2506.05127},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2506.05127},\n}",
+        "audit_wsis": "69,184 H&E WSIs (PanCan-30M)",
+        "audit_patches": "30M histology patches (PanCan-30M)",
+        "audit_organs": "Pan-cancer (H&E)",
+        "audit_downstream": "Conditional data augmentation, privacy-preserving synthetic data, virtual IHC staining (H&E->IHC)",
+        "audit_notes": "First generative foundation model for histopathology; diffusion with self-supervised conditioning (variants PixCell-256/1024), trained on PanCan-30M without human annotation.",
+        "paper_title": "PixCell: A generative foundation model for digital histopathology images",
+        "paper_author": "Yellapragada"
       }
     ]
   },

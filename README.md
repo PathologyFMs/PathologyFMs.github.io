@@ -106,6 +106,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | Model | Year | Pretraining Data | Key Idea | Resources |
 |---|---|---|---|---|
 | **VISTA-PATH** | 2026 | 1.65M triplets (Image + Mask + Text) | Interactive Class-Aware Segmentation | [Paper](https://arxiv.org/abs/2601.16451) • [Code](https://github.com/zhihuanglab/VISTA-PATH) |
+| **PathoSAM** | 2025 | SAM for histopathology | Segment Anything (SAM) adapted for histopathology; SOTA automatic and interactive nucleus instance segmentation, with whole-slide-scale scripts | [Paper](https://arxiv.org/abs/2502.00408) • [Code](https://github.com/computational-cell-analytics/patho-sam) |
 
 ---
 
@@ -114,6 +115,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | Model | Year | Pretraining Data | Key Idea | Resources |
 |---|---|---|---|---|
 | **MuPD** | 2026 | 100M patches | Multimodal Pathology Diffusion Model | [Paper](https://arxiv.org/abs/2604.03635) • [Code](https://github.com/lilab-stanford/MUPAD) • [Model](https://huggingface.co/collections/xiangjx/mupad-multimodal-pathology-diffusion-model) |
+| **PixCell** | 2025 | 30M patches (PanCan-30M) | First generative foundation model for histopathology: a self-supervision-conditioned diffusion model (PanCan-30M) enabling data augmentation, privacy-preserving synthesis, and virtual IHC staining | [Paper](https://arxiv.org/abs/2506.05127) • [Code](https://github.com/cvlab-stonybrook/PixCell) • [Model](https://huggingface.co/StonyBrook-CVLab/PixCell-1024) • [Website](https://histodiffusion.github.io) |
 
 ---
 
