@@ -126,6 +126,11 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **PathBench** | 2025 | Slide & Patch | Leakage-free multi-center clinical benchmark spanning multiple tasks, with a live public leaderboard | [Paper](https://arxiv.org/abs/2505.20202) • [Code](https://github.com/birkhoffkiki/PathBench) • [Website](https://birkhoffkiki.github.io/PathBench/) |
 | **Stanford PathBench** | 2026 | Slide & Patch | Comprehensive benchmark of 32 PFMs across 41 tasks with a public leaderboard | [Paper](https://www.nature.com/articles/s41467-026-76004-6) |
 | **SpaPath-Bench** | 2026 | Patch (spatial) | Tests 19 encoders on paired histology-spatial-transcriptomics to assess whether embeddings distinguish biologically meaningful tissue domains and their spatial organization | [Paper](https://arxiv.org/abs/2605.25764) |
+| **Prostate FM Benchmark** | 2025 | Slide (prostate) | Critical PFM vs task-specific comparison on >100K prostate biopsies (15 sites, 11 countries); PFMs help most under limited labels, but well-trained task-specific models can match or outperform them with far less compute | [Paper](https://arxiv.org/abs/2502.21264) |
+| **Kidney FM Benchmark** | 2026 | Slide & Patch (kidney) | Benchmarks 11 PFMs on 11 kidney histopathology tasks; PFMs encode coarse/meso-scale morphology well but struggle with subtle microstructure, complex phenotypes and prognosis | [Paper](https://arxiv.org/abs/2603.15967) |
+| **Breast Survival Benchmark** | 2026 | Slide (breast) | Benchmarks PFMs for breast cancer survival across 3 cohorts (>5,400 patients); second-gen models improve but recent models differ modestly, and H0-mini can slightly beat its larger teacher (diminishing scaling returns) | [Paper](https://arxiv.org/abs/2604.24679) |
+| **Segmentation FM Benchmark** | 2026 | Patch (segmentation) | Benchmarks 10 FMs on 4 semantic-segmentation datasets using attention heads as pixel representations; differently-trained PFMs are complementary - fusing CONCH, PathDino and CellViT improves performance | [Paper](https://arxiv.org/abs/2602.18747) |
+| **WSI Retrieval Benchmark** | 2025 | Slide (retrieval) | Zero-shot WSI retrieval testing whether embedding geometry supports retrieval across 23 organs and 117 cancer subtypes; UNI, Virchow and GigaPath differ meaningfully | [Paper](https://www.nature.com/articles/s41598-025-88545-9) |
 
 ---
 
