@@ -109,7 +109,7 @@ const modelData = [
         "audit_organs": "Pan-cancer",
         "audit_downstream": "Patch classification, WSI classification, PD-L1 expression classification, cross-site IHC tumor identification",
         "audit_cohorts": "TCGA, HyReCo, BCI and downstream public datasets",
-        "audit_notes": "Cross-scale/cross-stain learning; exact unique pretraining patch total not recovered.",
+        "audit_notes": "Cross-scale, cross-stain pretraining on paired H&E-IHC data.",
         "paper_title": "PathoDuet: Foundation Models for Pathological Slide Analysis of H&E and IHC Stains",
         "paper_author": "Hua"
       },
@@ -126,7 +126,7 @@ const modelData = [
         "audit_organs": "58 tissue types; 129 histochemical/IHC stain modalities",
         "audit_downstream": "Tumor-microenvironment profiling, biomarker evaluation, reference-case search",
         "audit_cohorts": ">15 laboratories across Europe/US",
-        "audit_notes": "The often-repeated seed-list slide total was not visible in the primary text I could verify, so it is deliberately not reproduced.",
+        "audit_notes": "Pathologist-curated pretraining across >15 European/US laboratories; 58 tissue types and 129 histochemical/IHC stain modalities.",
         "paper_title": "RudolfV: A Foundation Model by Pathologists for Pathologists",
         "paper_author": "Dippel"
       },
@@ -221,7 +221,7 @@ const modelData = [
         "audit_organs": "Diverse tissues",
         "audit_downstream": "Patch- and slide-level benchmarks",
         "audit_cohorts": "Proprietary corpus",
-        "audit_notes": "I retained only the >1M number explicitly visible in the primary description.",
+        "audit_notes": "Open-source DINOv2 ViT family (Hibou-B and Hibou-L); >1M proprietary WSIs.",
         "paper_title": "Hibou: A Family of Foundational Vision Transformers for Pathology",
         "paper_author": "Nechaev"
       },
@@ -328,7 +328,7 @@ const modelData = [
         "bibtex": "@article{Kapse_2026, title={GenBio-PathFM: A State-of-the-Art Foundation Model for Histopathology}, url={http://dx.doi.org/10.64898/2026.03.17.712534}, DOI={10.64898/2026.03.17.712534}, publisher={openRxiv}, author={Kapse, Saarthak and Aygün, Mehmet and Cole, Elijah and Lundberg, Emma and Song, Le and Xing, Eric P.}, year={2026}, month=Mar }",
         "audit_downstream": "THUNDER, HEST, PathoROB benchmark families",
         "audit_cohorts": "Public-only training",
-        "audit_notes": "1.1B-parameter model trained exclusively on publicly available data. JEDI = DINO (stage 1) + JEPA (stage 2). SOTA on THUNDER, HEST, PathoROB. Exact pretraining WSI/patch counts not recovered from primary text.",
+        "audit_notes": "1.1B-parameter model trained exclusively on publicly available data. JEDI = DINO (stage 1) + JEPA (stage 2). SOTA on THUNDER, HEST, PathoROB.",
         "paper_title": "GenBio-PathFM: A State-of-the-Art Foundation Model for Histopathology",
         "paper_author": "Kapse"
       },
@@ -900,6 +900,21 @@ const modelData = [
         "paper_title": "Robustifying pathology foundation models via fine-tuning",
         "paper_author": "Filiot",
         "type": "Robustness adaptation"
+      },
+      {
+        "name": "SmartStu",
+        "year": 2026,
+        "data": "Breast (distilled)",
+        "idea": "Adversarial distillation of multiple teacher PFMs into a compact, debiased breast-cancer-specific student; mitigates site-specific and prevalence confounding",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2608.01356",
+        "bibtex": "@misc{chen2026harnessingadversarialdistillationcustomise,\n      title={Harnessing Adversarial Distillation to Customise Debiased, Disease-Specific Pathology Foundation Models for Breast Cancer},\n      author={Zhiwei Chen and Yang Hu and Yuxiang Xiao and Yakun Ju and Tianyang Zhang and Yingxue Xu and Wei Li and Hao Chen and Jens Rittscher and Kaixiang Yang},\n      year={2026},\n      eprint={2608.01356},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2608.01356},\n}",
+        "audit_organs": "Breast",
+        "audit_notes": "Distills multiple teacher PFMs into a lightweight breast-specific student via adversarial distillation with a dedicated noise model, mitigating site-specific and prevalence bias.",
+        "paper_title": "Harnessing Adversarial Distillation to Customise Debiased, Disease-Specific Pathology Foundation Models for Breast Cancer",
+        "paper_author": "Chen",
+        "type": "Debiasing distillation"
       }
     ]
   },
@@ -1179,7 +1194,7 @@ const modelData = [
         "audit_organs": "Multiple tissues",
         "audit_downstream": "**32 foundation models** evaluated across slide- and patch-level task categories",
         "audit_cohorts": "TCGA, CPTAC and external/OOD datasets",
-        "audit_notes": "Published July 24, 2026; decision-level ensembling also evaluated. The seed-list \u201c41 tasks\u201d figure is not asserted here because I did not independently recover it from the accessible primary source.",
+        "audit_notes": "Published July 24, 2026; decision-level ensembling also evaluated.",
         "paper_title": "A benchmark study of vision and pathology foundation models for computational pathology",
         "paper_author": "Bareja"
       },
@@ -1268,6 +1283,21 @@ const modelData = [
         "audit_cohorts": "TCGA",
         "paper_title": "Validation of histopathology foundation models through whole slide image retrieval",
         "paper_author": "Alfasly"
+      },
+      {
+        "name": "HistoVL",
+        "year": 2025,
+        "data": "Patch (VLM)",
+        "idea": "Holistic benchmark for histopathology VLMs across 26 organs, 31 cancer types, >5M patches from 41K+ WSIs (11 scanners); tests text-change sensitivity, adversarial robustness and calibration",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2503.12990",
+        "bibtex": "@misc{majzoub2025goodhistopathologyvisionlanguagefoundation,\n      title={How Good is my Histopathology Vision-Language Foundation Model? A Holistic Benchmark},\n      author={Roba Al Majzoub and Hashmat Malik and Muzammal Naseer and Zaigham Zaheer and Tariq Mahmood and Salman Khan and Fahad Khan},\n      year={2025},\n      eprint={2503.12990},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2503.12990},\n}",
+        "audit_organs": "26 organs; 31 cancer types",
+        "audit_downstream": "VLM evaluation: text-change sensitivity, adversarial robustness, calibration across clinical tasks",
+        "audit_cohorts": ">5M patches from 41K+ WSIs; 11 acquisition tools",
+        "paper_title": "How Good is my Histopathology Vision-Language Foundation Model? A Holistic Benchmark",
+        "paper_author": "Al Majzoub"
       },
     ]
   },
@@ -1483,6 +1513,30 @@ const modelData = [
         "bibtex": "@article{Wang_2026, title={Universal and transferable attacks on pathology foundation models using microscopic perturbations}, volume={15}, ISSN={2047-7538}, url={http://dx.doi.org/10.1038/s41377-026-02347-w}, DOI={10.1038/s41377-026-02347-w}, number={1}, journal={Light: Science & Applications}, publisher={Springer Science and Business Media LLC}, author={Wang, Yuntian and Yang, Xilin and Shen, Che-Yung and Dong, Shuhang and Pillar, Nir and Ozcan, Aydogan}, year={2026}, month=June }",
         "paper_title": "Universal and transferable attacks on pathology foundation models using microscopic perturbations",
         "paper_author": "Wang"
+      },
+      {
+        "name": "Liu et al.",
+        "year": 2025,
+        "data": "",
+        "idea": "First systematic study of adversarial vulnerability in PFMs: modifying just 0.1% of patches with imperceptible noise degrades accuracy by up to 20% (label-free attack; 3 PFMs, 5 datasets, 6 tasks)",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2505.24141",
+        "bibtex": "@misc{liu2025butterflyeffectpathologyexploring,\n      title={The Butterfly Effect in Pathology: Exploring Security in Pathology Foundation Models},\n      author={Jiashuai Liu and Yingjia Shang and Yingkang Zhan and Di Zhang and Yi Niu and Dong Wei and Xian Wu and Zeyu Gao and Chen Li and Yefeng Zheng},\n      year={2025},\n      eprint={2505.24141},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2505.24141},\n}",
+        "paper_title": "The Butterfly Effect in Pathology: Exploring Security in Pathology Foundation Models",
+        "paper_author": "Liu"
+      },
+      {
+        "name": "CRoMa",
+        "year": 2026,
+        "data": "",
+        "idea": "Introduces the Cross-confounder Robustness Margin (CRoMa), a sample-level measure of whether representations are driven by biology vs non-biological variation (e.g., staining); every tile encoder retained a confounder-dominated lower tail",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2607.25497",
+        "bibtex": "@misc{grisi2026countsdistributionalrobustnessmargin,\n      title={Beyond Counts: A Distributional Robustness Margin For Pathology Foundation Models},\n      author={Clément Grisi and Jeroen van der Laak and Geert Litjens},\n      year={2026},\n      eprint={2607.25497},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2607.25497},\n}",
+        "paper_title": "Beyond Counts: A Distributional Robustness Margin For Pathology Foundation Models",
+        "paper_author": "Grisi"
       }
     ]
   },

@@ -345,8 +345,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span>${preferAudit(model.audit_wsis, model.data)}</span>
                         </div>
                         <div class="card-links">
-                            ${linksHTML}${variantChips(model)}
+                            ${linksHTML}
                         </div>
+                        ${variantChips(model) ? `<div class="card-variants">${variantChips(model)}</div>` : ''}
                         <button class="card-expand-btn">
                             Detailed Metadata <i class="ph ph-arrows-out-simple"></i>
                         </button>

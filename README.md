@@ -82,6 +82,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **SEAL** | 2026 | --- | --- | [Paper](https://arxiv.org/abs/2602.14177) • [Code](https://github.com/mahmoodlab/SEAL/) • [Model](https://huggingface.co/MahmoodLab/SEAL) |
 | **Phaet** | 2026 | --- | Robustness-tuned Phikon-v2 | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/phaet) |
 | **Mascaret** | 2026 | --- | Robustness-tuned Midnight-12k | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/mascaret) |
+| **SmartStu** | 2026 | Breast (distilled) | Adversarial distillation of multiple teacher PFMs into a compact, debiased breast-cancer-specific student; mitigates site-specific and prevalence confounding | [Paper](https://arxiv.org/abs/2608.01356) |
 
 ---
 
@@ -131,6 +132,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Breast Survival Benchmark** | 2026 | Slide (breast) | Benchmarks PFMs for breast cancer survival across 3 cohorts (>5,400 patients); second-gen models improve but recent models differ modestly, and H0-mini can slightly beat its larger teacher (diminishing scaling returns) | [Paper](https://arxiv.org/abs/2604.24679) |
 | **Segmentation FM Benchmark** | 2026 | Patch (segmentation) | Benchmarks 10 FMs on 4 semantic-segmentation datasets using attention heads as pixel representations; differently-trained PFMs are complementary - fusing CONCH, PathDino and CellViT improves performance | [Paper](https://arxiv.org/abs/2602.18747) |
 | **WSI Retrieval Benchmark** | 2025 | Slide (retrieval) | Zero-shot WSI retrieval testing whether embedding geometry supports retrieval across 23 organs and 117 cancer subtypes; UNI, Virchow and GigaPath differ meaningfully | [Paper](https://www.nature.com/articles/s41598-025-88545-9) |
+| **HistoVL** | 2025 | Patch (VLM) | Holistic benchmark for histopathology VLMs across 26 organs, 31 cancer types, >5M patches from 41K+ WSIs (11 scanners); tests text-change sensitivity, adversarial robustness and calibration | [Paper](https://arxiv.org/abs/2503.12990) |
 
 ---
 
@@ -162,6 +164,8 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Chai et al.** — *Impact of tissue staining and scanner variation on the performance of pathology foundation models: a study of sarcomas and their mimics* | 2026 | Investigates the sensitivity of PFM-based analysis to histologic staining and scanner variability in sarcomas and their mimics | [Paper](https://doi.org/10.1002/2056-4538.70080) |
 | **Yajnik et al.** — *The Good, the Bad, and the Brittle: Benchmarking Robustness and Generalisation of Histopathology Foundation Models* | 2026 | Tests 12 PFMs against 11 clinically realistic perturbations; larger models are not automatically more robust, and UNI2/Virchow2-sized models can match or exceed larger ones | [Paper](https://arxiv.org/abs/2607.04401) |
 | **Wang et al.** — *Universal and transferable attacks on pathology foundation models using microscopic perturbations* | 2026 | A single weak, transferable microscopic perturbation degrades multiple black-box PFMs across datasets, revealing common vulnerabilities in their feature spaces | [Paper](https://www.nature.com/articles/s41377-026-02347-w) |
+| **Liu et al.** — *The Butterfly Effect in Pathology: Exploring Security in Pathology Foundation Models* | 2025 | First systematic study of adversarial vulnerability in PFMs: modifying just 0.1% of patches with imperceptible noise degrades accuracy by up to 20% (label-free attack; 3 PFMs, 5 datasets, 6 tasks) | [Paper](https://arxiv.org/abs/2505.24141) |
+| **CRoMa** — *Beyond Counts: A Distributional Robustness Margin For Pathology Foundation Models* | 2026 | Introduces the Cross-confounder Robustness Margin (CRoMa), a sample-level measure of whether representations are driven by biology vs non-biological variation (e.g., staining); every tile encoder retained a confounder-dominated lower tail | [Paper](https://arxiv.org/abs/2607.25497) |
 
 ---
 

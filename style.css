@@ -398,6 +398,8 @@ body.light-mode .tag-green { color: #16a34a; }
 
 .links-col {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 0.5rem;
 }
 
@@ -1106,9 +1108,18 @@ th.expand-col, td.expand-col {
 }
 
 .variant-chip:hover {
-    color: var(--btn-hover-text);
-    background: var(--accent-1);
+    color: var(--accent-1);
+    border-style: solid;
     border-color: var(--accent-1);
+    background: color-mix(in srgb, var(--accent-1) 10%, transparent);
+}
+
+/* Variant chips get their own wrapped row in card view */
+.card-variants {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.6rem;
 }
 
 .facet-variants {
