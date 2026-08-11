@@ -937,6 +937,22 @@ const modelData = [
         "paper_title": "Harnessing Adversarial Distillation to Customise Debiased, Disease-Specific Pathology Foundation Models for Breast Cancer",
         "paper_author": "Chen",
         "type": "Debiasing distillation"
+      },
+      {
+        "name": "CellViT++",
+        "year": 2025,
+        "data": "Cell segmentation (7 datasets)",
+        "idea": "Generalized cell segmentation/classification using ViT with foundation-model encoders; energy-efficient adaptation to unseen cell types with minimal data, zero-shot segmentation, and IF-generated training sets",
+        "github": "https://github.com/TIO-IKIM/CellViT-plus-plus",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2501.05269",
+        "bibtex": "@misc{horst2025cellvitenergyefficientadaptivecell,\n      title={CellViT++: Energy-Efficient and Adaptive Cell Segmentation and Classification Using Foundation Models},\n      author={Fabian Hörst and Moritz Rempe and Helmut Becker and Lukas Heine and Julius Keyl and Jens Kleesiek},\n      year={2025},\n      eprint={2501.05269},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2501.05269},\n}",
+        "audit_organs": "Multiple organs / cell types (7 datasets)",
+        "audit_downstream": "Cell instance segmentation + cell-type classification across 7 datasets; zero-shot segmentation, data-efficient classification",
+        "audit_notes": "ViT with FM encoders computing cell features + masks simultaneously; efficient adaptation to unseen cell types (reduced carbon footprint); can build training sets from immunofluorescence without pathologist annotation. Open-source with web UI.",
+        "paper_title": "CellViT++: Energy-Efficient and Adaptive Cell Segmentation and Classification Using Foundation Models",
+        "paper_author": "Hörst",
+        "type": "Adaptive cell segmentation"
       }
     ]
   },

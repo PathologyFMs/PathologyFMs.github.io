@@ -84,6 +84,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Phaet** | 2026 | --- | Robustness-tuned Phikon-v2 | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/phaet) |
 | **Mascaret** | 2026 | --- | Robustness-tuned Midnight-12k | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/mascaret) |
 | **SmartStu** | 2026 | Breast (distilled) | Adversarial distillation of multiple teacher PFMs into a compact, debiased breast-cancer-specific student; mitigates site-specific and prevalence confounding | [Paper](https://arxiv.org/abs/2608.01356) |
+| **CellViT++** | 2025 | Cell segmentation (7 datasets) | Generalized cell segmentation/classification using ViT with foundation-model encoders; energy-efficient adaptation to unseen cell types with minimal data, zero-shot segmentation, and IF-generated training sets | [Paper](https://arxiv.org/abs/2501.05269) • [Code](https://github.com/TIO-IKIM/CellViT-plus-plus) |
 
 ---
 
