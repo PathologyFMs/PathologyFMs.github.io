@@ -81,6 +81,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     }
 
+    // Escape for safe display inside a <pre> block.
+    function escapeHtml(text) {
+        return (text || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+    }
+
     // A field is "meaningful" only if it isn't blank, "Not found", or "N/A".
     function isMeaningful(text) {
         if (!text) return false;
@@ -134,6 +139,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>`;
             }
         });
+        if (model.bibtex) {
+            facetsHtml += `
+                    <div class="facet">
+                        <button class="facet-btn" type="button" aria-expanded="false">
+                            <span class="facet-label"><i class="ph ph-quotes"></i> Cite (BibTeX)</span>
+                            <i class="ph ph-caret-down facet-caret"></i>
+                        </button>
+                        <div class="facet-content facet-cite" hidden>
+                            <button class="copy-bibtex" type="button"><i class="ph ph-copy"></i> Copy</button>
+                            <pre class="bibtex-block">${escapeHtml(model.bibtex)}</pre>
+                        </div>
+                    </div>`;
+        }
         const facetsBlock = facetsHtml ? `<div class="modal-facets">${facetsHtml}</div>` : '';
 
         let rowsHtml = '';
@@ -175,6 +193,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
+
+        // Copy-to-clipboard for the BibTeX entry.
+        const copyBtn = modalBody.querySelector('.copy-bibtex');
+        if (copyBtn && model.bibtex) {
+            copyBtn.addEventListener('click', () => {
+                navigator.clipboard.writeText(model.bibtex).then(() => {
+                    const orig = copyBtn.innerHTML;
+                    copyBtn.innerHTML = '<i class="ph ph-check"></i> Copied!';
+                    setTimeout(() => { copyBtn.innerHTML = orig; }, 2000);
+                });
+            });
+        }
 
         modal.style.display = "block";
         modal.setAttribute('aria-hidden', 'false');
@@ -351,13 +381,33 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput.addEventListener('input', handleFilters);
     categoryFilter.addEventListener('change', handleFilters);
 
+    // Build the BibTeX for every paper, grouped by category (%-comment headers),
+    // de-duplicated by citation key so shared papers appear once (valid .bib).
+    function buildAllBibtex() {
+        const seen = new Set();
+        const blocks = [];
+        modelData.forEach(cat => {
+            const entries = [];
+            cat.models.forEach(m => {
+                if (!m.bibtex) return;
+                const key = (m.bibtex.match(/^@\w+\{\s*([^,]+),/) || [, ''])[1].trim();
+                if (key && seen.has(key)) return;
+                if (key) seen.add(key);
+                entries.push(m.bibtex.trim());
+            });
+            if (entries.length) {
+                blocks.push(`% ${cat.category}\n${entries.join('\n\n')}`);
+            }
+        });
+        return blocks.join('\n\n');
+    }
+
     const bibtexBtn = document.getElementById('bibtexBtn');
     if (bibtexBtn) {
         bibtexBtn.addEventListener('click', () => {
-            const bibtex = `@misc{pfms2026,\n  author = {Chanda, Dibaloke},\n  title = {Pathology Foundation Models (PFMs)},\n  year = {2026},\n  publisher = {GitHub},\n  journal = {GitHub repository},\n  howpublished = {\\url{https://github.com/dibalokechanda/PFMs}}\n}`;
-            navigator.clipboard.writeText(bibtex).then(() => {
+            navigator.clipboard.writeText(buildAllBibtex()).then(() => {
                 const originalText = bibtexBtn.innerHTML;
-                bibtexBtn.innerHTML = '<i class="ph ph-check"></i> Copied!';
+                bibtexBtn.innerHTML = '<i class="ph ph-check"></i> Copied all!';
                 setTimeout(() => { bibtexBtn.innerHTML = originalText; }, 2000);
             });
         });

@@ -1027,6 +1027,51 @@ th.expand-col, td.expand-col {
     display: none;
 }
 
+/* Cite (BibTeX) facet */
+.facet-cite {
+    position: relative;
+    padding: 0;
+}
+
+.bibtex-block {
+    margin: 0;
+    padding: 1rem 1.1rem;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-x: auto;
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+.copy-bibtex {
+    position: absolute;
+    top: 0.55rem;
+    right: 0.55rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.7rem;
+    font-size: 0.8rem;
+    font-family: inherit;
+    font-weight: 600;
+    color: var(--btn-hover-text);
+    background: var(--accent-1);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 0.2s;
+    z-index: 1;
+}
+
+.copy-bibtex:hover {
+    opacity: 1;
+}
+
 /* Modal Table Styles */
 .modal-table {
     width: 100%;
