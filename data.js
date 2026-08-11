@@ -1033,6 +1033,21 @@ const modelData = [
         "audit_notes": "\u201cDeveloped on\u201d is preserved rather than relabeled as \u201cpretrained on.\u201d",
         "paper_title": "Unified Multi-Foundation-Model Slide Representation for Pan-Cancer Recognition and Text-Guided Tumor Localization",
         "paper_author": "Wang"
+      },
+      {
+        "name": "Flannery et al.",
+        "year": 2025,
+        "data": "Fuses 8 PFMs (5 tile + 3 slide)",
+        "idea": "Information-driven fusion via correlation-guided pruning of redundant features; integrates 5 tile-level (CONCH v1.5, MUSK, Virchow2, H-optimus-1, Prov-GigaPath) + 3 slide-level (TITAN, CHIEF, MADELEINE) models for cancer grading/staging",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2512.11104",
+        "bibtex": "@misc{flannery2025informationdrivenfusionpathologyfoundation,\n      title={Information-driven Fusion of Pathology Foundation Models for Enhanced Disease Characterization},\n      author={Brennan Flannery and Thomas DeSilvio and Jane Nguyen and Satish E. Viswanath},\n      year={2025},\n      eprint={2512.11104},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2512.11104},\n}",
+        "audit_organs": "Kidney, prostate, rectal",
+        "audit_downstream": "Cancer grading and staging across 3 cancer types; consistent gains over individual models",
+        "audit_notes": "Fuses 8 PFMs (5 tile-level + 3 slide-level) via correlation-guided pruning of redundant features; concentrates attention on tumor regions.",
+        "paper_title": "Information-driven Fusion of Pathology Foundation Models for Enhanced Disease Characterization",
+        "paper_author": "Flannery"
       }
     ]
   },
