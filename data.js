@@ -51,7 +51,7 @@ const modelData = [
         "audit_wsis": "29,018",
         "audit_patches": "50M pathology images",
         "audit_cohorts": "TCGA for pathology SSL",
-        "audit_notes": "The 29,018/50M figures are explicitly restated in the Prov-GigaPath methods comparison; REMEDIS also covers non-pathology medical imaging.",
+        "audit_notes": "BiT + SimCLR pretraining on 29,018 WSIs / 50M pathology images; the broader REMEDIS study also covers non-pathology medical imaging.",
         "paper_title": "Robust and data-efficient generalization of self-supervised machine learning for diagnostic imaging",
         "paper_author": "Azizi"
       },
@@ -90,7 +90,7 @@ const modelData = [
         "audit_organs": "16 cancer types",
         "audit_downstream": "patch- and WSI-level cancer tasks",
         "audit_cohorts": "TCGA public source",
-        "audit_notes": "iBOT pretraining; official Owkin material reports >40M images. The 6,093-slide PanCancer corpus is independently specified by the H0-mini official material.",
+        "audit_notes": "iBOT masked-image pretraining on the 6,093-slide TCGA PanCancer corpus (>40M tiles).",
         "paper_title": "Scaling Self-Supervised Learning for Histopathology with Masked Image Modeling",
         "paper_author": "Filiot"
       },
@@ -553,7 +553,7 @@ const modelData = [
         "audit_wsi_report": "195K clinical reports (no explicit one-to-one WSI-report count)",
         "audit_downstream": "Report generation, zero-shot cancer detection/subtyping, biomarker identification, slide classification",
         "audit_cohorts": "**MSKCC**",
-        "audit_notes": "Virchow tile embeddings + reports. Do not relabel \u201c195K reports\u201d as \u201c195K WSI-report pairs.\u201d",
+        "audit_notes": "Generative slide-level model over Virchow tile embeddings + 195K clinical reports (reports are not one-to-one WSI-report pairs).",
         "paper_title": "PRISM: A Multi-Modal Generative Foundation Model for Slide-Level Histopathology",
         "paper_author": "Shaikovski"
       },
@@ -707,7 +707,7 @@ const modelData = [
         "audit_organs": "39 major organs",
         "audit_downstream": "54 tasks: 8 subtyping/grading, 21 mutation, 12 IHC status, 13 treatment response/survival",
         "audit_cohorts": "23 cohorts from 17 sources; downstream 28,856 WSIs (PANDA 9,555; IMP 5,333; EBRAINS 2,319; CPTAC 2,115)",
-        "audit_notes": "47,171 H&E sections + omics; 125M patches (512x512 @ 20x); 39 organs; 54 downstream tasks. Primary source says tissue sections, not necessarily distinct WSIs.",
+        "audit_notes": "47,171 H&E sections + omics; 125M patches (512x512 @ 20x); 39 organs; 54 downstream tasks. Counts are tissue sections rather than distinct WSIs.",
         "paper_title": "Molecular-driven Foundation Model for Oncologic Pathology",
         "paper_author": "Vaidya"
       },
@@ -725,7 +725,7 @@ const modelData = [
         "audit_image_omics": "**26,169 aggregate slide-level modality pairs** spanning H&E WSIs, reports and RNA-seq; 10,275 patients",
         "audit_organs": "**32 cancer types**",
         "audit_downstream": "**43 subtasks across 7 task types**",
-        "audit_notes": "Crucially, the 26,169 aggregate multimodal pairs cannot be safely split into invented WSI-report and WSI-RNA counts.",
+        "audit_notes": "Multimodal knowledge-enhanced whole-slide FM integrating H&E WSIs, reports and RNA-seq; 26,169 aggregate slide-level pairs across 10,275 patients.",
         "paper_title": "A multimodal knowledge-enhanced whole-slide pathology foundation model",
         "paper_author": "Xu"
       },
@@ -936,7 +936,7 @@ const modelData = [
         "audit_organs": "**34 major tissue types**",
         "audit_downstream": "**39 specific tasks across 6 clinical task types**",
         "audit_cohorts": "Public datasets",
-        "audit_notes": "Expert + self knowledge distillation. **Primary source says ~86K, not 96K WSIs.**",
+        "audit_notes": "Expert + self knowledge distillation; ~86K public H&E WSIs / 190M tiles; 34 tissue types.",
         "paper_title": "Towards A Generalizable Pathology Foundation Model via Unified Knowledge Distillation",
         "paper_author": "Ma"
       },
