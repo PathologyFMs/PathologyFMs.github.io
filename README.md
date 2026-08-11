@@ -38,7 +38,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **CHIEF** | 2024 | 60K WSIs, 19 sites | Weakly supervised slide pattern recognition | [Paper](https://www.nature.com/articles/s41586-024-07894-z) • [Code](https://github.com/hms-dbmi/CHIEF) |
 | **Feather** | 2025 | 3,499 WSIs | Transferable Pretrained MIL Models | [Paper](https://arxiv.org/abs/2506.09022) • [Code](https://github.com/mahmoodlab/MIL-Lab) • [Model](https://huggingface.co/collections/MahmoodLab/feather) |
 | **EXAONE Path 2.0** | 2025 | 37K WSIs | End-to-end hierarchical learning | [Paper](https://arxiv.org/pdf/2507.06639) |
-| **MOOZY** | 2026 | 77K WSIs | Patient-first case-level aggregator | [Paper](https://arxiv.org/abs/2603.27048) • [Code](https://github.com/AtlasAnalyticsLab/MOOZY) |
+| **MOOZY** | 2026 | 77K WSIs | Patient-first case-level aggregator | [Paper](https://arxiv.org/abs/2603.27048) • [Code](https://github.com/AtlasAnalyticsLab/MOOZY) • [Website](https://atlasanalyticslab.github.io/MOOZY/) |
 | **GigaPath-Flash** | 2026 | Real-world Providence cohort | Efficient 43M ViT-S+LongNet whole-slide foundation model | [Paper](https://arxiv.org/abs/2607.18218) • [Model](https://huggingface.co/prov-gigapath/prov-gigapath-flash) |
 
 ---
@@ -48,9 +48,10 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | Model | Year | Pretraining Data | Key Idea | Resources |
 |---|---|---|---|---|
 | **PLIP** | 2023 | 208K image-text pairs | Pretrained on medical Twitter | [Paper](https://doi.org/10.1038/s41591-023-02504-3) • [Code](https://github.com/pathologyfoundation/plip) • [Model](https://huggingface.co/vinid/plip) |
+| **QuiltNet** | 2023 | 1M image-text pairs | CLIP VLM trained on Quilt-1M: 1M histopathology image-text pairs curated from 1,087h of educational YouTube videos (+ Twitter/papers) | [Paper](https://arxiv.org/abs/2306.11207) • [Code](https://github.com/wisdomikezogwo/quilt1m) • [Model](https://huggingface.co/wisdomik/QuiltNet-B-16) |
 | **CONCH** | 2024 | 1.17M image-text pairs | CoCa-based task-agnostic pretraining | [Paper](https://doi.org/10.1038/s41591-024-02856-4) • [Code](https://github.com/mahmoodlab/CONCH) • [Model](https://huggingface.co/MahmoodLab/CONCH) • [CONCH v1.5](https://huggingface.co/MahmoodLab/conchv1_5) |
 | **PRISM** | 2024 | Virchow tiles + reports | Generative model via Virchow tiles | [Paper](https://arxiv.org/abs/2405.10254) • [Model](https://huggingface.co/paige-ai/Prism) |
-| **MUSK** | 2025 | 50M images + 1B text tokens | Unified masked modeling | [Paper](https://www.nature.com/articles/s41586-024-08378-w) • [Code](https://github.com/lilab-stanford/MUSK) |
+| **MUSK** | 2025 | 50M images + 1B text tokens | Unified masked modeling | [Paper](https://www.nature.com/articles/s41586-024-08378-w) • [Code](https://github.com/lilab-stanford/MUSK) • [Model](https://huggingface.co/xiangjx/musk) |
 | **TITAN** | 2025 | 335K WSIs + reports | Whole-slide alignment with reports | [Paper](https://www.nature.com/articles/s41591-025-03982-3) • [Code](https://github.com/mahmoodlab/TITAN) • [Model](https://huggingface.co/MahmoodLab/TITAN) |
 | **CPath-Omni** | 2025 | 700k image-caption + WSI report | Unified Patch–Slide Multimodal Model | [Paper](https://arxiv.org/pdf/2412.12077) • [Code](https://github.com/PathFoundation/CPath-Omni) |
 | **KEEP** | 2026 | 143K knowledge-grouped pairs | Disease knowledge graph integration | [Paper](https://arxiv.org/abs/2412.13126) • [Code](https://github.com/MAGIC-AI4Med/KEEP) • [Model](https://huggingface.co/Astaxanthin/KEEP) |
