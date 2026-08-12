@@ -91,8 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function variantChips(model) {
         if (!model.variants || !model.variants.length) return '';
         return model.variants.map(v => {
-            const url = v.hf || v.paper || '#';
+            const url = v.hf || v.paper;
             const note = (v.note || '').replace(/"/g, '&quot;');
+            if (!url) return `<span class="variant-chip variant-chip-static" title="${note}"><i class="ph ph-git-fork"></i> ${v.name}</span>`;
             return `<a href="${url}" target="_blank" class="variant-chip" title="${note}"><i class="ph ph-git-fork"></i> ${v.name}</a>`;
         }).join('');
     }

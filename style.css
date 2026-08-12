@@ -1130,6 +1130,19 @@ th.expand-col, td.expand-col {
     background: color-mix(in srgb, var(--accent-1) 10%, transparent);
 }
 
+/* Unlinked variant: shown but not clickable */
+.variant-chip-static {
+    color: var(--text-muted);
+    cursor: default;
+}
+
+.variant-chip-static:hover {
+    color: var(--text-muted);
+    background: transparent;
+    border-color: var(--border-color);
+    border-style: dashed;
+}
+
 /* Variant chips get their own wrapped row in card view */
 .card-variants {
     display: flex;

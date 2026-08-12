@@ -28,7 +28,7 @@ function resources(m) {
     if (m.website) res.push(`[Website](${m.website})`);
     (m.variants || []).forEach(v => {
         const link = v.hf || v.paper;
-        if (link) res.push(`[${v.name}](${link})`);
+        res.push(link ? `[${v.name}](${link})` : v.name);
     });
     return res.join(" • ");
 }
