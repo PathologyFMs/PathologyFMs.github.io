@@ -34,6 +34,7 @@ function resources(m) {
 }
 
 let md = "# Pathology Foundation Models (PFMs)\n\n" +
+    "### 🌐 [**Explore the interactive website →**](https://dibalokechanda.github.io/PFMs/)\n\n" +
     "A comprehensive, curated summary of state-of-the-art foundation models mapping the latent space of pathology. " +
     "This repository contains the source code for an interactive web viewer of this taxonomy.\n\n";
 

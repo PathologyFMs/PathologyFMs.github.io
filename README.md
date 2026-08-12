@@ -1,5 +1,7 @@
 # Pathology Foundation Models (PFMs)
 
+### 🌐 [**Explore the interactive website →**](https://dibalokechanda.github.io/PFMs/)
+
 A comprehensive, curated summary of state-of-the-art foundation models mapping the latent space of pathology. This repository contains the source code for an interactive web viewer of this taxonomy.
 
 ## 🔬 Tile-Level Vision Foundation Models
