@@ -3,23 +3,6 @@ const modelData = [
     "category": "Tile-Level Vision Foundation Models",
     "models": [
       {
-        "name": "BRAVE",
-        "year": 2026,
-        "data": "57,271 WSIs",
-        "idea": "Breast-adaptive pathology foundation model",
-        "stains": "H&E",
-        "github": "",
-        "hf": "",
-        "paper": "https://arxiv.org/abs/2605.08207",
-        "bibtex": "@misc{xu2026breastvisionpathologyfoundation,\n      title={A Breast Vision Pathology Foundation Model for Real-world Clinical Utility}, \n      author={Yingxue Xu and Zhengyu Zhang and Xiuming Zhang and Mengwei Xu and Fengtao Zhou and Yihui Wang and Jiabo Ma and Yi Xin and Danyi Li and Chengyu Lu and Zhijian Cen and Ying Tan and Qingbing Yao and Qi Wang and Zizhao Gao and Yong Zhang and Jingjing Chen and Feifei Liu and Qian Xu and Yi Dai and Hongxuan Tan and Cheng Jin and Huajun Zhou and Zhengrui Guo and Ling Liang and Hongyi Wang and Yingcong Chen and Xi Wang and Zhenhui Li and Ronald Cheong Kin Chan and Ning Mao and Muyan Cai and Zhe Wang and Li Liang and Hao Chen},\n      year={2026},\n      eprint={2605.08207},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2605.08207}, \n}",
-        "audit_wsis": "101,638 WSIs (total resource)",
-        "audit_organs": "Breast",
-        "audit_downstream": "34 tasks in 82 cohorts",
-        "audit_cohorts": "32 sources across Asia, Europe and North America",
-        "paper_title": "A Breast Vision Pathology Foundation Model for Real-world Clinical Utility",
-        "paper_author": "Xu"
-      },
-      {
         "name": "CTransPath",
         "year": 2022,
         "data": "32K+ WSIs",
@@ -93,6 +76,25 @@ const modelData = [
         "audit_notes": "iBOT masked-image pretraining on the 6,093-slide TCGA PanCancer corpus (>40M tiles).",
         "paper_title": "Scaling Self-Supervised Learning for Histopathology with Masked Image Modeling",
         "paper_author": "Filiot"
+      },
+      {
+        "name": "Path Foundation",
+        "year": 2023,
+        "data": "60M H&E patches (TCGA)",
+        "idea": "Google patch-level histopathology embedding model (ViT-S, 384-d) trained with Masked Siamese Networks on 60M TCGA H&E patches at 3 magnifications",
+        "github": "",
+        "hf": "https://huggingface.co/google/path-foundation",
+        "website": "https://developers.google.com/health-ai-developer-foundations/path-foundation",
+        "paper": "https://arxiv.org/abs/2310.13259",
+        "bibtex": "@misc{lai2023domainspecificoptimizationdiverseevaluation,\n      title={Domain-specific optimization and diverse evaluation of self-supervised models for histopathology},\n      author={Jeremy Lai and Faruk Ahmed and Supriya Vijay and Tiam Jaroensri and Jessica Loo and Saurabh Vyawahare and Saloni Agarwal and Fayaz Jamil and Yossi Matias and Greg S. Corrado and Dale R. Webster and Jonathan Krause and Yun Liu and Po-Hsuan Cameron Chen and Ellery Wulczyn and David F. Steiner},\n      year={2023},\n      eprint={2310.13259},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2310.13259},\n}",
+        "stains": "H&E",
+        "audit_patches": "60M H&E patches (TCGA), 3 magnifications (~0.5/1/2 um/px)",
+        "audit_organs": "32 solid tumor studies (pan-cancer)",
+        "audit_downstream": "Patch embeddings for cancer detection/classification/grading, biomarker development, QC",
+        "audit_cohorts": "TCGA",
+        "audit_notes": "Google HAI-DEF patch encoder (ViT-S, 384-d embeddings) via Masked Siamese Networks; 60M TCGA H&E patches across 3 magnifications.",
+        "paper_title": "Domain-specific optimization and diverse evaluation of self-supervised models for histopathology",
+        "paper_author": "Lai"
       },
       {
         "name": "PathoDuet",
@@ -383,6 +385,23 @@ const modelData = [
         "audit_notes": "GRACE = LoRA continued-pretraining on 25,719 gastric WSIs (107M patches); 48,364 total dev/validation WSIs (37,493 patients) across 9 hospitals. Gastric-specific.",
         "paper_title": "A Pathology Foundation Model for Gastric Cancer with Real-World Validation",
         "paper_author": "Liang"
+      },
+      {
+        "name": "BRAVE",
+        "year": 2026,
+        "data": "57,271 WSIs",
+        "idea": "Breast-adaptive pathology foundation model",
+        "stains": "H&E",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2605.08207",
+        "bibtex": "@misc{xu2026breastvisionpathologyfoundation,\n      title={A Breast Vision Pathology Foundation Model for Real-world Clinical Utility}, \n      author={Yingxue Xu and Zhengyu Zhang and Xiuming Zhang and Mengwei Xu and Fengtao Zhou and Yihui Wang and Jiabo Ma and Yi Xin and Danyi Li and Chengyu Lu and Zhijian Cen and Ying Tan and Qingbing Yao and Qi Wang and Zizhao Gao and Yong Zhang and Jingjing Chen and Feifei Liu and Qian Xu and Yi Dai and Hongxuan Tan and Cheng Jin and Huajun Zhou and Zhengrui Guo and Ling Liang and Hongyi Wang and Yingcong Chen and Xi Wang and Zhenhui Li and Ronald Cheong Kin Chan and Ning Mao and Muyan Cai and Zhe Wang and Li Liang and Hao Chen},\n      year={2026},\n      eprint={2605.08207},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2605.08207}, \n}",
+        "audit_wsis": "101,638 WSIs (total resource)",
+        "audit_organs": "Breast",
+        "audit_downstream": "34 tasks in 82 cohorts",
+        "audit_cohorts": "32 sources across Asia, Europe and North America",
+        "paper_title": "A Breast Vision Pathology Foundation Model for Real-world Clinical Utility",
+        "paper_author": "Xu"
       }
     ]
   },

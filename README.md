@@ -6,11 +6,11 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 
 | Model | Year | Pretraining Data | Key Idea | Resources |
 |---|---|---|---|---|
-| **BRAVE** | 2026 | 57,271 WSIs | Breast-adaptive pathology foundation model | [Paper](https://arxiv.org/abs/2605.08207) |
 | **CTransPath** | 2022 | 32K+ WSIs | SRCL with hybrid CNN-ViT | [Paper](https://www.sciencedirect.com/science/article/pii/S1361841522002043) • [Code](https://github.com/Xiyue-Wang/TransPath) • [Model](https://drive.google.com/file/d/1DoDx_70_TLj98gTf6YTXnu4tFhsFocDX/view) |
 | **REMEDIS** | 2023 | 29K+ WSIs | BiT + SimCLR Pretraining | [Paper](https://doi.org/10.1038/s41551-023-01049-7) |
 | **Lunit** | 2023 | 36K+ WSI | Pathology-Specific SSL Pretraining | [Paper](https://arxiv.org/abs/2212.04690) • [Code](https://github.com/lunit-io/benchmark-ssl-pathology) • [Model](https://huggingface.co/1aurent/vit_small_patch8_224.lunit_dino) |
 | **Phikon** | 2023 | 6,093 WSIs | iBOT Masked Image Pretraining | [Paper](https://www.medrxiv.org/content/10.1101/2023.07.21.23292757v2) • [Code](https://github.com/owkin/HistoSSLscaling/) • [Model](https://huggingface.co/owkin/phikon) • [Phikon-v2](https://huggingface.co/owkin/phikon-v2) |
+| **Path Foundation** | 2023 | 60M H&E patches (TCGA) | Google patch-level histopathology embedding model (ViT-S, 384-d) trained with Masked Siamese Networks on 60M TCGA H&E patches at 3 magnifications | [Paper](https://arxiv.org/abs/2310.13259) • [Model](https://huggingface.co/google/path-foundation) • [Website](https://developers.google.com/health-ai-developer-foundations/path-foundation) |
 | **PathoDuet** | 2024 | 11K WSIs | Cross-Scale Cross-Stain Pretraining | [Paper](https://www.sciencedirect.com/science/article/pii/S1361841524002147) • [Code](https://github.com/openmedlab/PathoDuet) |
 | **RudolfV** | 2024 | 134K WSIs, 58 tissue types | Pathologist-curated data and expertise | [Paper](https://arxiv.org/abs/2401.04079) |
 | **PLUTO** | 2024 | 195M tiles | Lightweight multi-scale representation | [Paper](https://arxiv.org/abs/2405.07905) |
@@ -27,6 +27,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **RudolfV2** | 2026 | 300K+ WSIs | Robust Multi-Scale SSL Pretraining | [Paper](https://cdn.prod.website-files.com/67adb01f31489469b513304a/6a74e2f9f1d4aef06489a3f1_RudolfV_2_260806.pdf) • [Model](https://huggingface.co/Aignostics/RudolfV-2) |
 | **Atlas 2** | 2026 | 5.5M WSIs | 2B params, robust evaluation on 80 benchmarks | [Paper](https://arxiv.org/pdf/2601.05148) |
 | **GRACE** | 2026 | 48K WSIs | Gastric-specific foundation model | [Paper](https://arxiv.org/abs/2606.04792) |
+| **BRAVE** | 2026 | 57,271 WSIs | Breast-adaptive pathology foundation model | [Paper](https://arxiv.org/abs/2605.08207) |
 
 ---
 
