@@ -289,7 +289,7 @@ const modelData = [
         "idea": "Data-efficient DINOv2 optimization",
         "stains": "H&E",
         "github": "https://github.com/kaiko-ai/midnight",
-        "hf": "",
+        "hf": "https://huggingface.co/kaiko-ai/midnight",
         "paper": "https://arxiv.org/abs/2504.05186",
         "bibtex": "@misc{karasikov2025trainingstateoftheartpathologyfoundation,\n      title={Training state-of-the-art pathology foundation models with orders of magnitude less data}, \n      author={Mikhail Karasikov and Joost van Doorn and Nicolas Känzig and Melis Erdal Cesur and Hugo Mark Horlings and Robert Berke and Fei Tang and Sebastian Otálora},\n      year={2025},\n      eprint={2504.05186},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2504.05186}, \n}",
         "audit_wsis": "12K / 92K",
