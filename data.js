@@ -264,6 +264,22 @@ const modelData = [
         "paper_author": "kaiko.ai"
       },
       {
+        "name": "PathDino",
+        "year": 2024,
+        "data": "Lightweight ViT (~9M params)",
+        "idea": "Lightweight rotation-agnostic histopathology ViT (~9M params, 5 blocks); HistoRotate 360-degree SSL + Fast Patch Selection for efficient WSI analysis",
+        "github": "https://github.com/KimiaLabMayo/PathDino",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2311.08359",
+        "bibtex": "@misc{alfasly2024rotationagnosticimagerepresentationlearning,\n      title={Rotation-Agnostic Image Representation Learning for Digital Pathology},\n      author={Saghir Alfasly and Abubakr Shafique and Peyman Nejat and Jibran Khan and Areej Alsaafin and Ghazal Alabtah and H. R. Tizhoosh},\n      year={2024},\n      eprint={2311.08359},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2311.08359},\n}",
+        "stains": "H&E",
+        "audit_organs": "Breast, liver, skin, colorectal (internal) + 7 public datasets",
+        "audit_downstream": "Patch/WSI classification across 12 datasets (PANDA, CAMELYON16, BRACS, DigestPath, Kather, PanNuke, WSSS4LUAD)",
+        "audit_notes": "Compact ViT (~9M params, 5 transformer blocks) with rotation-agnostic SSL (HistoRotate) and Fast Patch Selection (FPS); CVPR 2024 (Tizhoosh/Mayo).",
+        "paper_title": "Rotation-Agnostic Image Representation Learning for Digital Pathology",
+        "paper_author": "Alfasly"
+      },
+      {
         "name": "Atlas",
         "year": 2025,
         "data": "1.2M WSIs (Mayo + Charit\u00e9)",
