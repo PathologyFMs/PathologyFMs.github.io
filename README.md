@@ -145,6 +145,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Segmentation FM Benchmark** | 2026 | Patch (segmentation) | Benchmarks 10 FMs on 4 semantic-segmentation datasets using attention heads as pixel representations; differently-trained PFMs are complementary - fusing CONCH, PathDino and CellViT improves performance | [Paper](https://arxiv.org/abs/2602.18747) |
 | **WSI Retrieval Benchmark** | 2025 | Slide (retrieval) | Zero-shot WSI retrieval testing whether embedding geometry supports retrieval across 23 organs and 117 cancer subtypes; UNI, Virchow and GigaPath differ meaningfully | [Paper](https://www.nature.com/articles/s41598-025-88545-9) |
 | **HistoVL** | 2025 | Patch (VLM) | Holistic benchmark for histopathology VLMs across 26 organs, 31 cancer types, >5M patches from 41K+ WSIs (11 scanners); tests text-change sensitivity, adversarial robustness and calibration | [Paper](https://arxiv.org/abs/2503.12990) |
+| **MAKO** | 2026 | Slide (breast) | MAKO benchmark: evaluates 12 PFMs (+2 non-pathology baselines) for interpretable breast-cancer recurrence-risk (ROR-P) prediction from H&E WSIs via attention-based MIL | [Paper](https://www.nature.com/articles/s41746-025-02334-2) • [Code](https://github.com/kaczmarj/mako) |
 
 ---
 

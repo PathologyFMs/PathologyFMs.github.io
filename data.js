@@ -1472,6 +1472,22 @@ const modelData = [
         "paper_title": "How Good is my Histopathology Vision-Language Foundation Model? A Holistic Benchmark",
         "paper_author": "Al Majzoub"
       },
+      {
+        "name": "MAKO",
+        "year": 2026,
+        "data": "Slide (breast)",
+        "idea": "MAKO benchmark: evaluates 12 PFMs (+2 non-pathology baselines) for interpretable breast-cancer recurrence-risk (ROR-P) prediction from H&E WSIs via attention-based MIL",
+        "github": "https://github.com/kaczmarj/mako",
+        "hf": "",
+        "paper": "https://www.nature.com/articles/s41746-025-02334-2",
+        "bibtex": "@article{Kaczmarzyk_2026, title={Towards interpretable prediction of recurrence risk in breast cancer using pathology foundation models}, volume={9}, ISSN={2398-6352}, url={http://dx.doi.org/10.1038/s41746-025-02334-2}, DOI={10.1038/s41746-025-02334-2}, number={1}, journal={npj Digital Medicine}, publisher={Springer Science and Business Media LLC}, author={Kaczmarzyk, Jakub R. and Van Alsten, Sarah C. and Cozzo, Alyssa J. and Gupta, Rajarsi and Koo, Peter K. and Troester, Melissa A. and Hoadley, Katherine A. and Saltz, Joel H.}, year={2026}, month=Jan }",
+        "audit_organs": "Breast (ER+/HER2-)",
+        "audit_downstream": "Recurrence-risk (ROR-P / PAM50) prediction from H&E; 12 PFMs + 2 baselines via attention-based MIL",
+        "audit_cohorts": "Carolina Breast Cancer Study + external validation",
+        "audit_notes": "MAKO benchmarking framework for interpretable recurrence-risk prediction; predicts transcriptomic ROR-P scores from H&E WSIs.",
+        "paper_title": "Towards interpretable prediction of recurrence risk in breast cancer using pathology foundation models",
+        "paper_author": "Kaczmarzyk"
+      },
     ]
   },
   {
