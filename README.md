@@ -35,6 +35,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 
 | Model | Year | Pretraining Data | Key Idea | Resources |
 |---|---|---|---|---|
+| **HIPT** | 2022 | 10,678 WSIs (TCGA) | Hierarchical Image Pyramid Transformer: two-stage DINO SSL on gigapixel WSIs (256px and 4096px views) for slide-level representation | [Paper](https://arxiv.org/abs/2206.02647) • [Code](https://github.com/mahmoodlab/HIPT) |
 | **Prov-GigaPath** | 2024 | 1.3B tiles, 171K WSIs | LongNet for ultra-large context | [Paper](https://www.nature.com/articles/s41586-024-07441-w) • [Code](https://github.com/prov-gigapath/prov-gigapath) • [Model](https://huggingface.co/prov-gigapath/prov-gigapath) |
 | **CHIEF** | 2024 | 60K WSIs, 19 sites | Weakly supervised slide pattern recognition | [Paper](https://www.nature.com/articles/s41586-024-07894-z) • [Code](https://github.com/hms-dbmi/CHIEF) |
 | **Feather** | 2025 | 3,499 WSIs | Transferable Pretrained MIL Models | [Paper](https://arxiv.org/abs/2506.09022) • [Code](https://github.com/mahmoodlab/MIL-Lab) • [Model](https://huggingface.co/collections/MahmoodLab/feather) |
@@ -68,6 +69,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Madeleine** | 2025 | 4,211 WSIs (Paired Multi-Stain) | Multistain Cross-Stain Slide Pretraining | [Paper](https://arxiv.org/pdf/2408.02859) • [Code](https://github.com/mahmoodlab/MADELEINE) • [Model](https://huggingface.co/MahmoodLab/madeleine) |
 | **Threads** | 2025 | 47K paired (H&E + multi-omics) | Multi-omics driven representation | [Paper](https://arxiv.org/html/2501.16652v1) |
 | **mSTAR** | 2025 | 26K paired triplets | Slide, report, and RNA-seq integration | [Paper](https://www.nature.com/articles/s41467-025-66220-x) • [Code](https://github.com/Innse/mSTAR) • [Model](https://huggingface.co/Wangyh/mSTAR) |
+| **OmiCLIP** | 2025 | 2.2M paired image-transcriptomics | Visual-omics foundation model bridging H&E histology with spatial transcriptomics (CLIP-style); powers the Loki platform (alignment, annotation, cell-type decomposition, retrieval, ST prediction) | [Paper](https://www.nature.com/articles/s41592-025-02707-1) • [Code](https://github.com/GuangyuWangLab2021/Loki) • [Model](https://huggingface.co/WangGuangyuLab/Loki) |
 | **KRONOS** | 2025 | 47M patches | Foundation model built for spatial proteomics via segmentation-free patch-level processing | [Paper](https://arxiv.org/abs/2506.03373) • [Code](https://github.com/mahmoodlab/KRONOS) • [Model](https://huggingface.co/MahmoodLab/KRONOS) |
 | **EXAONE Path 2.5** | 2025 | 37K WSIs | End-to-end hierarchical learning with direct slide-level supervision | [Paper](https://arxiv.org/abs/2512.14019) • [Model](https://huggingface.co/LGAI-EXAONE/EXAONE-Path-2.5) |
 | **CARE** | 2026 | 34K WSIs | Molecular-Guided Adaptive Region Modeling | [Paper](https://arxiv.org/abs/2602.21637) • [Code](https://github.com/zdipath/CARE) • [Model](https://huggingface.co/Zipper-1/CARE) |

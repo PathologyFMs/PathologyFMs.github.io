@@ -409,6 +409,24 @@ const modelData = [
     "category": "Slide-Level & Patient-Level Foundation Models",
     "models": [
       {
+        "name": "HIPT",
+        "year": 2022,
+        "data": "10,678 WSIs (TCGA)",
+        "idea": "Hierarchical Image Pyramid Transformer: two-stage DINO SSL on gigapixel WSIs (256px and 4096px views) for slide-level representation",
+        "github": "https://github.com/mahmoodlab/HIPT",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2206.02647",
+        "bibtex": "@misc{chen2022scalingvisiontransformersgigapixel,\n      title={Scaling Vision Transformers to Gigapixel Images via Hierarchical Self-Supervised Learning},\n      author={Richard J. Chen and Chengkuan Chen and Yicong Li and Tiffany Y. Chen and Andrew D. Trister and Rahul G. Krishnan and Faisal Mahmood},\n      year={2022},\n      eprint={2206.02647},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2206.02647},\n}",
+        "stains": "H&E",
+        "audit_wsis": "10,678 TCGA WSIs (33 cancer types)",
+        "audit_organs": "33 cancer types (TCGA)",
+        "audit_downstream": "Slide-level cancer subtyping and survival prediction",
+        "audit_cohorts": "TCGA",
+        "audit_notes": "Early hierarchical WSI foundation model (CVPR 2022); two-stage DINO on 256px and 4096px views (ViT-256 + ViT-4096).",
+        "paper_title": "Scaling Vision Transformers to Gigapixel Images via Hierarchical Self-Supervised Learning",
+        "paper_author": "Chen"
+      },
+      {
         "name": "Prov-GigaPath",
         "year": 2024,
         "data": "1.3B tiles, 171K WSIs",
@@ -769,6 +787,24 @@ const modelData = [
         "audit_notes": "Multimodal knowledge-enhanced whole-slide FM integrating H&E WSIs, reports and RNA-seq; 26,169 aggregate slide-level pairs across 10,275 patients.",
         "paper_title": "A multimodal knowledge-enhanced whole-slide pathology foundation model",
         "paper_author": "Xu"
+      },
+      {
+        "name": "OmiCLIP",
+        "year": 2025,
+        "data": "2.2M paired image-transcriptomics",
+        "idea": "Visual-omics foundation model bridging H&E histology with spatial transcriptomics (CLIP-style); powers the Loki platform (alignment, annotation, cell-type decomposition, retrieval, ST prediction)",
+        "github": "https://github.com/GuangyuWangLab2021/Loki",
+        "hf": "https://huggingface.co/WangGuangyuLab/Loki",
+        "website": "",
+        "paper": "https://www.nature.com/articles/s41592-025-02707-1",
+        "bibtex": "@article{Chen_2025, title={A visual–omics foundation model to bridge histopathology with spatial transcriptomics}, volume={22}, ISSN={1548-7105}, url={http://dx.doi.org/10.1038/s41592-025-02707-1}, DOI={10.1038/s41592-025-02707-1}, number={7}, journal={Nature Methods}, publisher={Springer Science and Business Media LLC}, author={Chen, Weiqing and Zhang, Pengzhi and Tran, Tu N and Xiao, Yiwei and Li, Shengyu and Shah, Vrutant V. and Cheng, Hao and Brannan, Kristopher W. and Youker, Keith and Lai, Li and Fang, Longhou and Yang, Yu and Le, Nhat-Tu and Abe, Jun-ichi and Chen, Shu-Hsia and Ma, Qin and Chen, Ken and Song, Qianqian and Cooke, John P. and Wang, Guangyu}, year={2025}, month=May, pages={1568–1582} }",
+        "stains": "H&E",
+        "audit_image_omics": "2.2M paired tissue images + spatial transcriptomics (Visium), 32 organs",
+        "audit_organs": "32 organs",
+        "audit_downstream": "Loki platform: tissue alignment, annotation, cell-type decomposition, image-transcriptomics retrieval, ST gene-expression prediction from H&E",
+        "audit_notes": "Visual-omics FM (Nature Methods 2025) aligning H&E with spatial transcriptomics via CLIP; transcriptomics encoded as sentences of top-expressed genes. Powers the Loki platform.",
+        "paper_title": "A visual-omics foundation model to bridge histopathology with spatial transcriptomics",
+        "paper_author": "Chen"
       },
       {
         "name": "KRONOS",
