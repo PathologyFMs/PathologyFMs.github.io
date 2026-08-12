@@ -526,7 +526,7 @@ const modelData = [
         "idea": "Patient-first case-level aggregator",
         "stains": "H&E",
         "github": "https://github.com/AtlasAnalyticsLab/MOOZY",
-        "hf": "",
+        "hf": "https://huggingface.co/AtlasAnalyticsLab/MOOZY",
         "website": "https://atlasanalyticslab.github.io/MOOZY/",
         "paper": "https://arxiv.org/abs/2603.27048",
         "bibtex": "@misc{kotp2026moozypatientfirstfoundationmodel,\n      title={MOOZY: A Patient-First Foundation Model for Computational Pathology}, \n      author={Yousef Kotp and Vincent Quoc-Huy Trinh and Christopher Pal and Mahdi S. Hosseini},\n      year={2026},\n      eprint={2603.27048},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2603.27048}, \n}",

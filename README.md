@@ -43,7 +43,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **CHIEF** | 2024 | 60K WSIs, 19 sites | Weakly supervised slide pattern recognition | [Paper](https://www.nature.com/articles/s41586-024-07894-z) • [Code](https://github.com/hms-dbmi/CHIEF) |
 | **Feather** | 2025 | 3,499 WSIs | Transferable Pretrained MIL Models | [Paper](https://arxiv.org/abs/2506.09022) • [Code](https://github.com/mahmoodlab/MIL-Lab) • [Model](https://huggingface.co/collections/MahmoodLab/feather) |
 | **EXAONE Path 2.0** | 2025 | 37K WSIs | End-to-end hierarchical learning | [Paper](https://arxiv.org/pdf/2507.06639) |
-| **MOOZY** | 2026 | 77K WSIs | Patient-first case-level aggregator | [Paper](https://arxiv.org/abs/2603.27048) • [Code](https://github.com/AtlasAnalyticsLab/MOOZY) • [Website](https://atlasanalyticslab.github.io/MOOZY/) |
+| **MOOZY** | 2026 | 77K WSIs | Patient-first case-level aggregator | [Paper](https://arxiv.org/abs/2603.27048) • [Code](https://github.com/AtlasAnalyticsLab/MOOZY) • [Model](https://huggingface.co/AtlasAnalyticsLab/MOOZY) • [Website](https://atlasanalyticslab.github.io/MOOZY/) |
 | **GigaPath-Flash** | 2026 | Real-world Providence cohort | Efficient 43M ViT-S+LongNet whole-slide foundation model | [Paper](https://arxiv.org/abs/2607.18218) • [Model](https://huggingface.co/prov-gigapath/prov-gigapath-flash) |
 | **WSI-Concepts** | 2026 | Supervised slide-level (multitask) | Supervised, end-to-end multitask slide foundation model unifying cancer subtyping, risk estimation and mutation prediction from slide-level labels | [Paper](https://arxiv.org/abs/2507.05742) |
 
