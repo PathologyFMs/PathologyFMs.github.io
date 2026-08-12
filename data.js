@@ -246,6 +246,24 @@ const modelData = [
         "paper_author": "Yang"
       },
       {
+        "name": "Kaiko",
+        "year": 2024,
+        "data": "~29K WSIs (TCGA)",
+        "idea": "kaiko.ai ViT tile encoders (kaiko-B8/L14) trained with DINO/DINOv2 on TCGA; large-scale online-patching study, released with the eva benchmark",
+        "github": "https://github.com/kaiko-ai/towards_large_pathology_fms",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2404.15217",
+        "bibtex": "@misc{ai2024largescaletrainingpathologyfoundation,\n      title={Towards Large-Scale Training of Pathology Foundation Models},\n      author={kaiko. ai and Nanne Aben and Edwin D. de Jong and Ioannis Gatopoulos and Nicolas Känzig and Mikhail Karasikov and Axel Lagré and Roman Moser and Joost van Doorn and Fei Tang},\n      year={2024},\n      eprint={2404.15217},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2404.15217},\n}",
+        "stains": "H&E",
+        "audit_wsis": "~29K TCGA WSIs",
+        "audit_organs": "TCGA (pan-cancer)",
+        "audit_downstream": "Patch- and slide-level benchmarks (evaluated via the eva framework)",
+        "audit_cohorts": "TCGA",
+        "audit_notes": "kaiko.ai ViT-S/B/L tile encoders via DINO/DINOv2 on TCGA; released with the eva benchmark. Predecessor to Midnight.",
+        "paper_title": "Towards Large-Scale Training of Pathology Foundation Models",
+        "paper_author": "kaiko.ai"
+      },
+      {
         "name": "Atlas",
         "year": 2025,
         "data": "1.2M WSIs (Mayo + Charit\u00e9)",
@@ -536,6 +554,21 @@ const modelData = [
         "audit_notes": "22M ViT-S + 21M LongNet (~43M); tile encoder distilled from GigaPath; open-weight Apache-2.0. Providence pretraining size not disclosed.",
         "paper_title": "GigaPath-Flash and GigaTIME-Flash: Efficient Pathology Foundation Models for Whole-Slide and Tumor Microenvironment Analysis",
         "paper_author": "Usuyama"
+      },
+      {
+        "name": "WSI-Concepts",
+        "year": 2026,
+        "data": "Supervised slide-level (multitask)",
+        "idea": "Supervised, end-to-end multitask slide foundation model unifying cancer subtyping, risk estimation and mutation prediction from slide-level labels",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2507.05742",
+        "bibtex": "@misc{nicke2026slideconceptssupervisedfoundation,\n      title={Whole Slide Concepts: A Supervised Foundation Model For Pathological Images},\n      author={Till Nicke and Daniela Schacherer and Jan Raphael Schäfer and Natalia Artysh and Antje Prasse and André Homeyer and Andrea Schenk and Henning Höfener and Johannes Lotz},\n      year={2026},\n      eprint={2507.05742},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2507.05742},\n}",
+        "stains": "H&E",
+        "audit_downstream": "Slide-level cancer subtyping, risk estimation, genetic mutation prediction (multitask)",
+        "audit_notes": "Supervised, end-to-end multitask slide-level foundation model (Fraunhofer MEVIS); combines subtyping, risk and mutation prediction in one model.",
+        "paper_title": "Whole Slide Concepts: A Supervised Foundation Model For Pathological Images",
+        "paper_author": "Nicke"
       }
     ]
   },

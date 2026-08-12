@@ -21,6 +21,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Virchow2** | 2024 | 3.1M WSIs | 1.9B parameters, mixed magnification | [Paper](https://arxiv.org/abs/2408.00738) • [Model](https://huggingface.co/paige-ai/Virchow2) |
 | **Hibou** | 2024 | 1M WSIs | Open-source DINOv2 architecture | [Paper](https://arxiv.org/abs/2406.05074) • [Code](https://github.com/histai/hibou) • [Model](https://huggingface.co/histai/hibou-L) • [Hibou-B](https://huggingface.co/histai/hibou-b) |
 | **BEPH** | 2024 | 11M tiles | BEiT-based masked image modeling | [Paper](https://www.nature.com/articles/s41467-025-57587-y) • [Code](https://github.com/Zhcyoung/BEPH) • [Model](https://drive.google.com/file/d/19Fu3dw3G4i2gPXijzrxfaQ2D_xcqNdNz/view) |
+| **Kaiko** | 2024 | ~29K WSIs (TCGA) | kaiko.ai ViT tile encoders (kaiko-B8/L14) trained with DINO/DINOv2 on TCGA; large-scale online-patching study, released with the eva benchmark | [Paper](https://arxiv.org/abs/2404.15217) • [Code](https://github.com/kaiko-ai/towards_large_pathology_fms) |
 | **Atlas** | 2025 | 1.2M WSIs (Mayo + Charité) | Efficient RudolfV-based model | [Paper](https://arxiv.org/abs/2501.05409) |
 | **Midnight** | 2025 | 12K / 92K WSIs | Data-efficient DINOv2 optimization | [Paper](https://arxiv.org/abs/2504.05186) • [Code](https://github.com/kaiko-ai/midnight) |
 | **H-optimus-0** | 2025 | 500K WSIs | SSL Pretraining, FM Distillation | [Paper](https://arxiv.org/abs/2501.16239v1) • [Code](https://github.com/bioptimus/releases/tree/main/models/h-optimus/v0) • [Model](https://huggingface.co/bioptimus/H-optimus-0) • [H-optimus-1](https://huggingface.co/bioptimus/H-optimus-1) |
@@ -44,6 +45,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **EXAONE Path 2.0** | 2025 | 37K WSIs | End-to-end hierarchical learning | [Paper](https://arxiv.org/pdf/2507.06639) |
 | **MOOZY** | 2026 | 77K WSIs | Patient-first case-level aggregator | [Paper](https://arxiv.org/abs/2603.27048) • [Code](https://github.com/AtlasAnalyticsLab/MOOZY) • [Website](https://atlasanalyticslab.github.io/MOOZY/) |
 | **GigaPath-Flash** | 2026 | Real-world Providence cohort | Efficient 43M ViT-S+LongNet whole-slide foundation model | [Paper](https://arxiv.org/abs/2607.18218) • [Model](https://huggingface.co/prov-gigapath/prov-gigapath-flash) |
+| **WSI-Concepts** | 2026 | Supervised slide-level (multitask) | Supervised, end-to-end multitask slide foundation model unifying cancer subtyping, risk estimation and mutation prediction from slide-level labels | [Paper](https://arxiv.org/abs/2507.05742) |
 
 ---
 
