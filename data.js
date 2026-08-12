@@ -1554,7 +1554,7 @@ const modelData = [
         "paper_author": "Srikanthan"
       },
       {
-        "name": "Ndubuisi",
+        "name": "Ndubuisi et al.",
         "year": 2026,
         "data": "",
         "idea": "Patient-controlled TCGA-BRCA analysis across 11 frozen backbones; some molecular signal is genuine, but much is explained by interpretable morphology",
