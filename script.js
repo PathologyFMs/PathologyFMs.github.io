@@ -33,22 +33,18 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentView = 'table';
     const gridBtn = document.getElementById('gridBtn');
     const tableBtn = document.getElementById('tableBtn');
+    const timelineBtn = document.getElementById('timelineBtn');
 
-    // View toggle logic
-    if (gridBtn && tableBtn) {
-        gridBtn.addEventListener('click', () => {
-            currentView = 'grid';
-            gridBtn.classList.add('active');
-            tableBtn.classList.remove('active');
-            handleFilters();
-        });
-        tableBtn.addEventListener('click', () => {
-            currentView = 'table';
-            tableBtn.classList.add('active');
-            gridBtn.classList.remove('active');
-            handleFilters();
-        });
+    // View toggle logic (grid / table / timeline)
+    function setView(view, activeBtn) {
+        currentView = view;
+        [gridBtn, tableBtn, timelineBtn].forEach(b => b && b.classList.remove('active'));
+        if (activeBtn) activeBtn.classList.add('active');
+        handleFilters();
     }
+    if (gridBtn) gridBtn.addEventListener('click', () => setView('grid', gridBtn));
+    if (tableBtn) tableBtn.addEventListener('click', () => setView('table', tableBtn));
+    if (timelineBtn) timelineBtn.addEventListener('click', () => setView('timeline', timelineBtn));
 
     // Populate Category Filter
     modelData.forEach(cat => {
@@ -246,8 +242,164 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Render Data
+    // Distinct per-category palette for the spiral timeline (12 categories).
+    const SPIRAL_COLORS = {
+        'Tile-Level Vision Foundation Models': '#3b82f6',
+        'Slide-Level & Patient-Level Foundation Models': '#14b8a6',
+        'Vision-Language Foundation Models': '#a855f7',
+        'Multimodal & Molecular Foundation Models': '#22c55e',
+        'Foundation Model Adaptation & Distillation': '#06b6d4',
+        'Multi-FM Integration & Distillation': '#6366f1',
+        'Segmentation & Interactive Foundation Models': '#eab308',
+        'Generative Foundation Models': '#ec4899',
+        'Foundation Model Benchmarking': '#f97316',
+        'Interpretability and Analysis': '#d946ef',
+        'Robustness and Generalization': '#ef4444',
+        'Survey and Perspectives': '#94a3b8',
+    };
+    const spiralColor = c => SPIRAL_COLORS[c] || '#9ca3af';
+
+    // Format an ISO date (YYYY-MM-DD) as "Mon D, YYYY".
+    function formatDate(iso) {
+        if (!iso) return '';
+        const [y, mo, d] = iso.split('-').map(Number);
+        const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        return `${months[mo - 1]} ${d}, ${y}`;
+    }
+
+    // Timeline view: an Archimedean spiral — one full revolution per year, so
+    // same-month entries align radially and the field's growth reads outward.
+    function renderTimeline(data) {
+        const items = [];
+        data.forEach(cat => cat.models.forEach(m => items.push({ m, category: cat.category })));
+        container.innerHTML = '';
+        if (!items.length) {
+            container.innerHTML = `
+                <div class="empty-state">
+                    <i class="ph ph-ghost" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                    <h3>No models found</h3><p>Try adjusting your search or filters.</p>
+                </div>`;
+            return;
+        }
+        items.sort((a, b) => (a.m.date || '').localeCompare(b.m.date || ''));
+
+        // Map an ISO date to spiral parameter t (in years from the earliest year present).
+        const baseYear = Math.min(...items.map(it => +(it.m.date || (it.m.year + '-01-01')).slice(0, 4)));
+        const toT = iso => { const [y, mo, d] = (iso || (baseYear + '-01-01')).split('-').map(Number); return (y - baseYear) + (((mo - 1) * 30.44 + (d - 1)) / 365); };
+        const ts = items.map(it => toT(it.m.date));
+        const tMax = Math.max(...ts);
+
+        const R0 = 56, K = 74;                 // start radius + growth (gap) per revolution
+        const p0 = t => { const th = 2 * Math.PI * t, r = R0 + K * t; return [r * Math.sin(th), -r * Math.cos(th)]; };
+
+        // Place dots; fan collisions outward along the radius so clustered dates stay visible.
+        const placed = [];
+        const P = ts.map(t => {
+            const th = 2 * Math.PI * t; let r = R0 + K * t, x = r * Math.sin(th), y = -r * Math.cos(th), tries = 0;
+            while (tries < 80 && placed.some(q => Math.hypot(q[0] - x, q[1] - y) < 13.5)) { r += 4.6; x = r * Math.sin(th); y = -r * Math.cos(th); tries++; }
+            placed.push([x, y]); return [x, y];
+        });
+
+        const maxR = Math.max(R0 + K * tMax, ...P.map(p => Math.hypot(p[0], p[1])));
+        const pad = 40, size = Math.ceil(2 * (maxR + pad)), c = size / 2;
+
+        // Colored quarter wedges (faint pie slices) + a month dial with all 12 labels.
+        const mNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+        const onC = (f, R) => [c + R * Math.sin(2 * Math.PI * f), c - R * Math.cos(2 * Math.PI * f)];
+        let wedges = '';
+        [['q1', 0, 0.25], ['q2', 0.25, 0.5], ['q3', 0.5, 0.75], ['q4', 0.75, 1]].forEach(([cls, f1, f2]) => {
+            const a = onC(f1, maxR), b = onC(f2, maxR);
+            wedges += `<path d="M ${c},${c} L ${a[0].toFixed(1)},${a[1].toFixed(1)} A ${maxR.toFixed(1)},${maxR.toFixed(1)} 0 0 1 ${b[0].toFixed(1)},${b[1].toFixed(1)} Z" class="spiral-quarter ${cls}"/>`;
+        });
+        let ticks = '', monthLabels = '';
+        for (let m = 0; m < 12; m++) {
+            const q = m % 3 === 0, a = onC(m / 12, maxR - (q ? 14 : 8)), b = onC(m / 12, maxR + (q ? 4 : 0));
+            ticks += `<line x1="${a[0].toFixed(1)}" y1="${a[1].toFixed(1)}" x2="${b[0].toFixed(1)}" y2="${b[1].toFixed(1)}" class="spiral-tick${q ? ' q' : ''}"/>`;
+            const [lx, ly] = onC(m / 12, maxR + 17);
+            monthLabels += `<text x="${lx.toFixed(1)}" y="${(ly + 3.5).toFixed(1)}" class="spiral-monthlabel${q ? ' q' : ''}" text-anchor="middle">${mNames[m]}</text>`;
+        }
+
+        // Spiral path.
+        let dPath = '';
+        for (let t = 0; t <= tMax + 0.001; t += 0.006) { const [x, y] = p0(t); dPath += (dPath ? 'L' : 'M') + (x + c).toFixed(1) + ',' + (y + c).toFixed(1); }
+
+        // Year ticks/labels at the top of each year's loop (January = 12 o'clock).
+        const years = [...new Set(items.map(it => (it.m.date || '').slice(0, 4)).filter(Boolean))];
+        let yearMarks = '';
+        years.forEach(ys => { const [x, y] = p0(toT(ys + '-01-01')); yearMarks += `<circle cx="${(x + c).toFixed(1)}" cy="${(y + c).toFixed(1)}" r="2.5" class="spiral-yeartick"/><text x="${(x + c).toFixed(1)}" y="${(y + c - 10).toFixed(1)}" class="spiral-yearlabel" text-anchor="middle">${ys}</text>`; });
+
+        // Dots.
+        let dots = '';
+        items.forEach((it, i) => { const col = spiralColor(it.category); dots += `<circle class="spiral-dot" data-idx="${i}" cx="${(P[i][0] + c).toFixed(1)}" cy="${(P[i][1] + c).toFixed(1)}" r="6" fill="${col}" style="color:${col};animation-delay:${i * 8}ms"/>`; });
+
+        // Legend (categories present, in canonical order).
+        const present = Object.keys(SPIRAL_COLORS).filter(cat => items.some(it => it.category === cat));
+        const legend = present.map(cat => `<span class="spiral-leg"><i style="background:${spiralColor(cat)}"></i>${cat}</span>`).join('');
+
+        container.innerHTML = `
+        <div class="spiral-wrap">
+          <svg viewBox="0 0 ${size} ${size}" class="spiral-svg" role="img" aria-label="Spiral timeline of ${items.length} models, one revolution per year">
+            <defs>
+              <radialGradient id="spiralGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="var(--accent-1)" stop-opacity="0.10"/>
+                <stop offset="72%" stop-color="var(--accent-1)" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="spiralStroke" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="var(--accent-1)"/>
+                <stop offset="100%" stop-color="var(--accent-2)"/>
+              </linearGradient>
+            </defs>
+            ${wedges}
+            <circle cx="${c}" cy="${c}" r="${maxR.toFixed(1)}" fill="url(#spiralGlow)"/>
+            ${ticks}
+            <path d="${dPath}" fill="none" stroke="url(#spiralStroke)" stroke-width="1.6" stroke-opacity="0.4" stroke-linecap="round"/>
+            ${yearMarks}
+            ${dots}
+            <text x="${c}" y="${c + 9}" class="spiral-center-num" text-anchor="middle">${items.length}</text>
+            ${monthLabels}
+          </svg>
+          <div class="spiral-hovercard" id="spiralCard" hidden></div>
+          <div class="spiral-legend">${legend}</div>
+        </div>`;
+
+        // Interactions: hover → preview card (with bridge), click → modal.
+        const wrap = container.querySelector('.spiral-wrap');
+        const svgEl = container.querySelector('.spiral-svg');
+        const card = container.querySelector('#spiralCard');
+        let hideTimer;
+        const showCard = (i, dot) => {
+            clearTimeout(hideTimer);
+            const it = items[i], m = it.m;
+            let links = '';
+            if (m.paper) links += `<a href="${m.paper}" target="_blank" class="icon-link paper" title="Paper"><i class="ph ph-file-text"></i></a>`;
+            if (m.github) links += `<a href="${m.github}" target="_blank" class="icon-link github" title="Code"><i class="ph ph-github-logo"></i></a>`;
+            if (m.hf) links += `<a href="${m.hf}" target="_blank" class="icon-link hf" title="Model"><i class="ph ph-cube"></i></a>`;
+            if (m.website) links += `<a href="${m.website}" target="_blank" class="icon-link website" title="Website"><i class="ph ph-globe"></i></a>`;
+            card.innerHTML = `<div class="sc-head"><span class="sc-dot" style="background:${spiralColor(it.category)}"></span><strong>${m.name}</strong></div>
+                <div class="sc-date">${formatDate(m.date) || m.year} · ${it.category}</div>
+                <div class="sc-idea">${preferAudit(m.audit_notes, m.idea)}</div>
+                <div class="sc-links">${links}<button class="sc-details" type="button">Details</button></div>`;
+            card.hidden = false;
+            card.querySelector('.sc-details').addEventListener('click', () => openModal(m));
+            const wr = wrap.getBoundingClientRect(), dr = dot.getBoundingClientRect();
+            const cw = card.offsetWidth, ch = card.offsetHeight;
+            let left = (dr.left - wr.left + dr.width / 2) - cw / 2;
+            left = Math.max(4, Math.min(left, wrap.clientWidth - cw - 4));
+            let top = (dr.top - wr.top) - ch - 12;
+            if (top < 4) top = (dr.bottom - wr.top) + 12;
+            card.style.left = left + 'px';
+            card.style.top = top + 'px';
+        };
+        svgEl.addEventListener('mouseover', e => { const dot = e.target.closest('.spiral-dot'); if (dot) { dot.classList.add('active'); showCard(+dot.dataset.idx, dot); } });
+        svgEl.addEventListener('mouseout', e => { const dot = e.target.closest('.spiral-dot'); if (dot) { dot.classList.remove('active'); hideTimer = setTimeout(() => { card.hidden = true; }, 140); } });
+        card.addEventListener('mouseenter', () => clearTimeout(hideTimer));
+        card.addEventListener('mouseleave', () => { card.hidden = true; });
+        svgEl.addEventListener('click', e => { const dot = e.target.closest('.spiral-dot'); if (dot) openModal(items[+dot.dataset.idx].m); });
+    }
+
     function render(data) {
         container.innerHTML = '';
+        if (currentView === 'timeline') { renderTimeline(data); return; }
         let hasResults = false;
 
         data.forEach(categoryGroup => {

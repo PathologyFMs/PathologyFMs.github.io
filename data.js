@@ -5,6 +5,7 @@ const modelData = [
       {
         "name": "CTransPath",
         "year": 2022,
+        "date": "2022-10-01",
         "data": "32K+ WSIs",
         "idea": "SRCL with hybrid CNN-ViT",
         "stains": "H&E",
@@ -17,13 +18,14 @@ const modelData = [
         "audit_organs": ">25 anatomic sites; 32 cancer subtypes",
         "audit_downstream": "5 task families: patch retrieval, supervised patch classification, weakly supervised WSI classification, mitosis detection, colorectal gland segmentation; 9 public datasets",
         "audit_cohorts": "Pretraining sources TCGA + PAIP",
-        "audit_notes": "Public-source pathology corpus; SRCL hybrid CNN\u2013ViT.",
+        "audit_notes": "Public-source pathology corpus; SRCL hybrid CNN–ViT.",
         "paper_title": "Transformer-based unsupervised contrastive learning for histopathological image classification",
         "paper_author": "Wang"
       },
       {
         "name": "RetCCL",
         "year": 2023,
+        "date": "2022-10-01",
         "data": "WSI retrieval (TCGA)",
         "idea": "Clustering-guided contrastive learning (ResNet50) for whole-slide image retrieval; a general histopathology feature extractor from the CTransPath group",
         "github": "https://github.com/Xiyue-Wang/RetCCL",
@@ -40,6 +42,7 @@ const modelData = [
       {
         "name": "REMEDIS",
         "year": 2023,
+        "date": "2023-06-08",
         "data": "29K+ WSIs",
         "idea": "BiT + SimCLR Pretraining",
         "stains": "H&E",
@@ -57,6 +60,7 @@ const modelData = [
       {
         "name": "Lunit",
         "year": 2023,
+        "date": "2022-12-09",
         "data": "36K+ WSI",
         "idea": "Pathology-Specific SSL Pretraining",
         "stains": "H&E",
@@ -69,19 +73,28 @@ const modelData = [
         "audit_organs": "Multiple cancers",
         "audit_downstream": "2 task types over 5 datasets: classification on BACH, CRC, MHIST, PatchCamelyon; nuclei instance segmentation/classification on CoNSeP",
         "audit_cohorts": "2 pretraining sources: TCGA 20,994 WSIs + internal TULIP 15,672",
-        "audit_notes": "19,000,069 TCGA + 13,578,488 TULIP patches; 20\u00d7/40\u00d7.",
+        "audit_notes": "19,000,069 TCGA + 13,578,488 TULIP patches; 20×/40×.",
         "paper_title": "Benchmarking Self-Supervised Learning on Diverse Pathology Datasets",
         "paper_author": "Kang"
       },
       {
         "name": "Phikon",
         "year": 2023,
+        "date": "2023-07-26",
         "data": "6,093 WSIs",
         "idea": "iBOT Masked Image Pretraining",
         "stains": "H&E",
         "github": "https://github.com/owkin/HistoSSLscaling/",
         "hf": "https://huggingface.co/owkin/phikon",
-        "variants": [{"name":"Phikon-v2","year":2024,"hf":"https://huggingface.co/owkin/phikon-v2","paper":"https://arxiv.org/abs/2409.09173","note":"ViT-L/16, 0.3B params; 456M tiles from 60K slides (PANCAN-XL: TCGA+CPTAC+GTEx). Scales up Phikon (40M -> 456M images)."}],
+        "variants": [
+          {
+            "name": "Phikon-v2",
+            "year": 2024,
+            "hf": "https://huggingface.co/owkin/phikon-v2",
+            "paper": "https://arxiv.org/abs/2409.09173",
+            "note": "ViT-L/16, 0.3B params; 456M tiles from 60K slides (PANCAN-XL: TCGA+CPTAC+GTEx). Scales up Phikon (40M -> 456M images)."
+          }
+        ],
         "paper": "https://www.medrxiv.org/content/10.1101/2023.07.21.23292757v2",
         "bibtex": "@article{Filiot_2023, title={Scaling Self-Supervised Learning for Histopathology with Masked Image Modeling}, url={http://dx.doi.org/10.1101/2023.07.21.23292757}, DOI={10.1101/2023.07.21.23292757}, publisher={openRxiv}, author={Filiot, Alexandre and Ghermi, Ridouane and Olivier, Antoine and Jacob, Paul and Fidon, Lucas and Camara, Axel and Mac Kain, Alice and Saillard, Charlie and Schiratti, Jean-Baptiste}, year={2023}, month=July }",
         "audit_wsis": "6,093 TCGA WSIs",
@@ -96,6 +109,7 @@ const modelData = [
       {
         "name": "Path Foundation",
         "year": 2023,
+        "date": "2023-10-20",
         "data": "60M H&E patches (TCGA)",
         "idea": "Google patch-level histopathology embedding model (ViT-S, 384-d) trained with Masked Siamese Networks on 60M TCGA H&E patches at 3 magnifications",
         "github": "",
@@ -115,6 +129,7 @@ const modelData = [
       {
         "name": "PathoDuet",
         "year": 2024,
+        "date": "2024-10-01",
         "data": "11K WSIs",
         "idea": "Cross-Scale Cross-Stain Pretraining",
         "stains": "H&E + IHC (paired)",
@@ -134,6 +149,7 @@ const modelData = [
       {
         "name": "RudolfV",
         "year": 2024,
+        "date": "2024-01-08",
         "data": "134K WSIs, 58 tissue types",
         "idea": "Pathologist-curated data and expertise",
         "stains": "129 histochemical & IHC stain modalities",
@@ -151,6 +167,7 @@ const modelData = [
       {
         "name": "PLUTO",
         "year": 2024,
+        "date": "2024-05-13",
         "data": "195M tiles",
         "idea": "Lightweight multi-scale representation",
         "stains": "H&E + IHC",
@@ -170,12 +187,28 @@ const modelData = [
       {
         "name": "UNI",
         "year": 2024,
+        "date": "2024-03-01",
         "data": "100M tiles, 100K WSIs",
         "idea": "General-purpose DINOv2 on 100K WSIs",
         "stains": "H&E",
         "github": "https://github.com/mahmoodlab/UNI",
         "hf": "https://huggingface.co/MahmoodLab/UNI",
-        "variants": [{"name":"UNI2-h","year":2025,"hf":"https://huggingface.co/MahmoodLab/UNI2-h","paper":"","note":"ViT-H/14, 681M params; 200M+ tiles from 300K+ MGB H&E/IHC slides (DINOv2). Larger successor to UNI."},{"name":"UNI2-g-preview","year":2025,"hf":"","paper":"","note":"ViT-g preview variant of UNI2 (gated)."}],
+        "variants": [
+          {
+            "name": "UNI2-h",
+            "year": 2025,
+            "hf": "https://huggingface.co/MahmoodLab/UNI2-h",
+            "paper": "",
+            "note": "ViT-H/14, 681M params; 200M+ tiles from 300K+ MGB H&E/IHC slides (DINOv2). Larger successor to UNI."
+          },
+          {
+            "name": "UNI2-g-preview",
+            "year": 2025,
+            "hf": "",
+            "paper": "",
+            "note": "ViT-g preview variant of UNI2 (gated)."
+          }
+        ],
         "paper": "https://doi.org/10.1038/s41591-024-02857-3",
         "bibtex": "@article{Chen_2024, title={Towards a general-purpose foundation model for computational pathology}, volume={30}, ISSN={1546-170X}, url={http://dx.doi.org/10.1038/s41591-024-02857-3}, DOI={10.1038/s41591-024-02857-3}, number={3}, journal={Nature Medicine}, publisher={Springer Science and Business Media LLC}, author={Chen, Richard J. and Ding, Tong and Lu, Ming Y. and Williamson, Drew F. K. and Jaume, Guillaume and Song, Andrew H. and Chen, Bowen and Zhang, Andrew and Shao, Daniel and Shaban, Muhammad and Williams, Mane and Oldenburg, Lukas and Weishaupt, Luca L. and Wang, Judy J. and Vaidya, Anurag and Le, Long Phi and Gerber, Georg and Sahai, Sharifa and Williams, Walt and Mahmood, Faisal}, year={2024}, month=Mar, pages={850–862} }",
         "audit_wsis": ">100K WSIs",
@@ -190,6 +223,7 @@ const modelData = [
       {
         "name": "Virchow",
         "year": 2024,
+        "date": "2024-07-22",
         "data": "1.5M WSIs, 100K patients",
         "idea": "Clinical-grade pan-cancer detection",
         "stains": "H&E",
@@ -209,31 +243,49 @@ const modelData = [
       {
         "name": "Virchow2",
         "year": 2024,
+        "date": "2024-08-01",
         "data": "3.1M WSIs",
         "idea": "1.9B parameters, mixed magnification",
         "stains": "H&E + IHC (mixed magnification)",
         "github": "",
         "hf": "https://huggingface.co/paige-ai/Virchow2",
-        "variants": [{"name":"Virchow2G","year":2024,"hf":"","paper":"","note":"ViT-G/14, 1.9B params - the giant variant of Virchow2 (gated)."}],
+        "variants": [
+          {
+            "name": "Virchow2G",
+            "year": 2024,
+            "hf": "",
+            "paper": "",
+            "note": "ViT-G/14, 1.9B params - the giant variant of Virchow2 (gated)."
+          }
+        ],
         "paper": "https://arxiv.org/abs/2408.00738",
         "bibtex": "@misc{zimmermann2024virchow2scalingselfsupervisedmixed,\n      title={Virchow2: Scaling Self-Supervised Mixed Magnification Models in Pathology}, \n      author={Eric Zimmermann and Eugene Vorontsov and Julian Viret and Adam Casson and Michal Zelechowski and George Shaikovski and Neil Tenenholtz and James Hall and David Klimstra and Razik Yousfi and Thomas Fuchs and Nicolo Fusi and Siqi Liu and Kristen Severson},\n      year={2024},\n      eprint={2408.00738},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2408.00738}, \n}",
         "audit_wsis": "3.1M",
         "audit_organs": "Nearly 200 tissue types",
         "audit_downstream": "12 tile-level downstream tasks reported",
         "audit_cohorts": "225,401 patients",
-        "audit_notes": "Mixed 5\u00d7/10\u00d7/20\u00d7/40\u00d7; H&E + IHC diversity.",
+        "audit_notes": "Mixed 5×/10×/20×/40×; H&E + IHC diversity.",
         "paper_title": "Virchow2: Scaling Self-Supervised Mixed Magnification Models in Pathology",
         "paper_author": "Zimmermann"
       },
       {
         "name": "Hibou",
         "year": 2024,
+        "date": "2024-06-07",
         "data": "1M WSIs",
         "idea": "Open-source DINOv2 architecture",
         "stains": "H&E + IHC",
         "github": "https://github.com/histai/hibou",
         "hf": "https://huggingface.co/histai/hibou-L",
-        "variants": [{"name":"Hibou-B","year":2024,"hf":"https://huggingface.co/histai/hibou-b","paper":"","note":"ViT-B/14, 85.7M params. Compact base variant of the Hibou family (vs Hibou-L)."}],
+        "variants": [
+          {
+            "name": "Hibou-B",
+            "year": 2024,
+            "hf": "https://huggingface.co/histai/hibou-b",
+            "paper": "",
+            "note": "ViT-B/14, 85.7M params. Compact base variant of the Hibou family (vs Hibou-L)."
+          }
+        ],
         "paper": "https://arxiv.org/abs/2406.05074",
         "bibtex": "@misc{nechaev2024hiboufamilyfoundationalvision,\n      title={Hibou: A Family of Foundational Vision Transformers for Pathology}, \n      author={Dmitry Nechaev and Alexey Pchelnikov and Ekaterina Ivanova},\n      year={2024},\n      eprint={2406.05074},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2406.05074}, \n}",
         "audit_wsis": ">1M",
@@ -247,6 +299,7 @@ const modelData = [
       {
         "name": "BEPH",
         "year": 2024,
+        "date": "2025-03-10",
         "data": "11M tiles",
         "idea": "BEiT-based masked image modeling",
         "stains": "H&E",
@@ -265,6 +318,7 @@ const modelData = [
       {
         "name": "Kaiko",
         "year": 2024,
+        "date": "2024-03-24",
         "data": "~29K WSIs (TCGA)",
         "idea": "kaiko.ai ViT tile encoders (kaiko-B8/L14) trained with DINO/DINOv2 on TCGA; large-scale online-patching study, released with the eva benchmark",
         "github": "https://github.com/kaiko-ai/towards_large_pathology_fms",
@@ -283,6 +337,7 @@ const modelData = [
       {
         "name": "PathDino",
         "year": 2024,
+        "date": "2023-11-14",
         "data": "Lightweight ViT (~9M params)",
         "idea": "Lightweight rotation-agnostic histopathology ViT (~9M params, 5 blocks); HistoRotate 360-degree SSL + Fast Patch Selection for efficient WSI analysis",
         "github": "https://github.com/KimiaLabMayo/PathDino",
@@ -299,7 +354,8 @@ const modelData = [
       {
         "name": "Atlas",
         "year": 2025,
-        "data": "1.2M WSIs (Mayo + Charit\u00e9)",
+        "date": "2025-01-09",
+        "data": "1.2M WSIs (Mayo + Charité)",
         "idea": "Efficient RudolfV-based model",
         "stains": "H&E, IHC, special stains (100+ types)",
         "github": "",
@@ -318,6 +374,7 @@ const modelData = [
       {
         "name": "Midnight",
         "year": 2025,
+        "date": "2025-04-07",
         "data": "12K / 92K WSIs",
         "idea": "Data-efficient DINOv2 optimization",
         "stains": "H&E",
@@ -337,12 +394,21 @@ const modelData = [
       {
         "name": "H-optimus-0",
         "year": 2025,
+        "date": "2025-01-27",
         "data": "500K WSIs",
         "idea": "SSL Pretraining, FM Distillation",
         "stains": "H&E",
         "github": "https://github.com/bioptimus/releases/tree/main/models/h-optimus/v0",
         "hf": "https://huggingface.co/bioptimus/H-optimus-0",
-        "variants": [{"name":"H-optimus-1","year":2025,"hf":"https://huggingface.co/bioptimus/H-optimus-1","paper":"","note":"1.1B ViT-g; billions of tiles from 1M+ slides, 800K+ patients. Successor to H-optimus-0."}],
+        "variants": [
+          {
+            "name": "H-optimus-1",
+            "year": 2025,
+            "hf": "https://huggingface.co/bioptimus/H-optimus-1",
+            "paper": "",
+            "note": "1.1B ViT-g; billions of tiles from 1M+ slides, 800K+ patients. Successor to H-optimus-0."
+          }
+        ],
         "paper": "https://arxiv.org/abs/2501.16239v1",
         "bibtex": "@misc{filiot2025distillingfoundationmodelsrobust,\n      title={Distilling foundation models for robust and efficient models in digital pathology}, \n      author={Alexandre Filiot and Nicolas Dop and Oussama Tchita and Auriane Riou and Rémy Dubois and Thomas Peeters and Daria Valter and Marin Scalbert and Charlie Saillard and Geneviève Robin and Antoine Olivier},\n      year={2025},\n      eprint={2501.16239},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2501.16239}, \n}",
         "audit_wsis": ">500K proprietary H&E WSIs",
@@ -354,6 +420,7 @@ const modelData = [
       {
         "name": "PathOrchestra",
         "year": 2025,
+        "date": "2025-03-31",
         "data": "27K WSIs, 100 tasks",
         "idea": "Evaluated on 112 clinical tasks",
         "stains": "H&E, IHC, special stains (>35 types)",
@@ -372,6 +439,7 @@ const modelData = [
       {
         "name": "GenBio-PathFM",
         "year": 2026,
+        "date": "2026-03-20",
         "data": "177K WSIs",
         "idea": "JEDI (JEPA+DINO) dual-stage learning",
         "stains": "H&E",
@@ -388,6 +456,7 @@ const modelData = [
       {
         "name": "RudolfV2",
         "year": 2026,
+        "date": "2026-08-06",
         "data": "300K+ WSIs",
         "idea": "Robust Multi-Scale SSL Pretraining",
         "github": "",
@@ -403,6 +472,7 @@ const modelData = [
       {
         "name": "Atlas 2",
         "year": 2026,
+        "date": "2026-01-08",
         "data": "5.5M WSIs",
         "idea": "2B params, robust evaluation on 80 benchmarks",
         "stains": "H&E, IHC, special stains (100+ types)",
@@ -413,7 +483,7 @@ const modelData = [
         "audit_wsis": "5.5M WSIs",
         "audit_organs": "70+ tissue types; 100+ staining types",
         "audit_downstream": "80 public benchmarks",
-        "audit_cohorts": "3 institutions: Charit\u00e9, LMU Munich, Mayo Clinic",
+        "audit_cohorts": "3 institutions: Charité, LMU Munich, Mayo Clinic",
         "audit_notes": "~490K cases and 7 scanner types reported by official project material.",
         "paper_title": "Atlas 2 -- Foundation models for clinical deployment",
         "paper_author": "Alber"
@@ -421,6 +491,7 @@ const modelData = [
       {
         "name": "GRACE",
         "year": 2026,
+        "date": "2026-06-03",
         "data": "48K WSIs",
         "idea": "Gastric-specific foundation model",
         "stains": "Primarily H&E",
@@ -440,6 +511,7 @@ const modelData = [
       {
         "name": "BRAVE",
         "year": 2026,
+        "date": "2026-05-06",
         "data": "57,271 WSIs",
         "idea": "Breast-adaptive pathology foundation model",
         "stains": "H&E",
@@ -462,6 +534,7 @@ const modelData = [
       {
         "name": "HIPT",
         "year": 2022,
+        "date": "2022-06-06",
         "data": "10,678 WSIs (TCGA)",
         "idea": "Hierarchical Image Pyramid Transformer: two-stage DINO SSL on gigapixel WSIs (256px and 4096px views) for slide-level representation",
         "github": "https://github.com/mahmoodlab/HIPT",
@@ -480,6 +553,7 @@ const modelData = [
       {
         "name": "Prov-GigaPath",
         "year": 2024,
+        "date": "2024-05-22",
         "data": "1.3B tiles, 171K WSIs",
         "idea": "LongNet for ultra-large context",
         "stains": "H&E + IHC",
@@ -488,7 +562,7 @@ const modelData = [
         "paper": "https://www.nature.com/articles/s41586-024-07441-w",
         "bibtex": "@article{Xu_2024, title={A whole-slide foundation model for digital pathology from real-world data}, volume={630}, ISSN={1476-4687}, url={http://dx.doi.org/10.1038/s41586-024-07441-w}, DOI={10.1038/s41586-024-07441-w}, number={8015}, journal={Nature}, publisher={Springer Science and Business Media LLC}, author={Xu, Hanwen and Usuyama, Naoto and Bagga, Jaspreet and Zhang, Sheng and Rao, Rajesh and Naumann, Tristan and Wong, Cliff and Gero, Zelalem and González, Javier and Gu, Yu and Xu, Yanbo and Wei, Mu and Wang, Wenhui and Ma, Shuming and Wei, Furu and Yang, Jianwei and Li, Chunyuan and Gao, Jianfeng and Rosemon, Jaylen and Bower, Tucker and Lee, Soohee and Weerasinghe, Roshanthi and Wright, Bill J. and Robicsek, Ari and Piening, Brian and Bifulco, Carlo and Wang, Sheng and Poon, Hoifung}, year={2024}, month=May, pages={181–188} }",
         "audit_wsis": "171,189 H&E/IHC WSIs",
-        "audit_patches": "1,384,860,229 256\u00d7256 tiles",
+        "audit_patches": "1,384,860,229 256×256 tiles",
         "audit_wsi_report": "Reports used in V-L experiment",
         "audit_organs": "31 major tissue types",
         "audit_downstream": "26 tasks: 9 cancer-subtyping + 17 pathomics",
@@ -500,6 +574,7 @@ const modelData = [
       {
         "name": "CHIEF",
         "year": 2024,
+        "date": "2024-09-04",
         "data": "60K WSIs, 19 sites",
         "idea": "Weakly supervised slide pattern recognition",
         "stains": "H&E",
@@ -518,6 +593,7 @@ const modelData = [
       {
         "name": "Feather",
         "year": 2025,
+        "date": "2025-06-10",
         "data": "3,499 WSIs",
         "idea": "Transferable Pretrained MIL Models",
         "stains": "H&E",
@@ -536,6 +612,7 @@ const modelData = [
       {
         "name": "EXAONE Path 2.0",
         "year": 2025,
+        "date": "2025-07-09",
         "data": "37K WSIs",
         "idea": "End-to-end hierarchical learning",
         "stains": "H&E (FFPE)",
@@ -555,6 +632,7 @@ const modelData = [
       {
         "name": "MOOZY",
         "year": 2026,
+        "date": "2026-03-27",
         "data": "77K WSIs",
         "idea": "Patient-first case-level aggregator",
         "stains": "H&E",
@@ -574,6 +652,7 @@ const modelData = [
       {
         "name": "GigaPath-Flash",
         "year": 2026,
+        "date": "2026-07-20",
         "data": "Real-world Providence cohort",
         "idea": "Efficient 43M ViT-S+LongNet whole-slide foundation model",
         "stains": "H&E",
@@ -591,6 +670,7 @@ const modelData = [
       {
         "name": "WSI-Concepts",
         "year": 2026,
+        "date": "2025-07-08",
         "data": "Supervised slide-level (multitask)",
         "idea": "Supervised, end-to-end multitask slide foundation model unifying cancer subtyping, risk estimation and mutation prediction from slide-level labels",
         "github": "",
@@ -611,6 +691,7 @@ const modelData = [
       {
         "name": "PLIP",
         "year": 2023,
+        "date": "2023-08-17",
         "data": "208K image-text pairs",
         "idea": "Pretrained on medical Twitter",
         "github": "https://github.com/pathologyfoundation/plip",
@@ -620,16 +701,17 @@ const modelData = [
         "tag_color": "teal",
         "bibtex": "@article{Huang_2023, title={A visual–language foundation model for pathology image analysis using medical Twitter}, volume={29}, ISSN={1546-170X}, url={http://dx.doi.org/10.1038/s41591-023-02504-3}, DOI={10.1038/s41591-023-02504-3}, number={9}, journal={Nature Medicine}, publisher={Springer Science and Business Media LLC}, author={Huang, Zhi and Bianchi, Federico and Yuksekgonul, Mert and Montine, Thomas J. and Zou, James}, year={2023}, month=Aug, pages={2307–2316} }",
         "audit_patches": "208,414 pathology images",
-        "audit_image_text": "208,414 image\u2013text pairs",
+        "audit_image_text": "208,414 image–text pairs",
         "audit_downstream": "4 external zero-shot classification datasets + image/text retrieval",
         "audit_cohorts": "OpenPath / medical Twitter + LAION; institution count not applicable/reported",
         "audit_notes": "Crowdsourced public image-description data.",
-        "paper_title": "A visual\u2013language foundation model for pathology image analysis using medical Twitter",
+        "paper_title": "A visual–language foundation model for pathology image analysis using medical Twitter",
         "paper_author": "Huang"
       },
       {
         "name": "QuiltNet",
         "year": 2023,
+        "date": "2023-06-20",
         "data": "1M image-text pairs",
         "idea": "CLIP VLM trained on Quilt-1M: 1M histopathology image-text pairs curated from 1,087h of educational YouTube videos (+ Twitter/papers)",
         "github": "https://github.com/wisdomikezogwo/quilt1m",
@@ -649,16 +731,25 @@ const modelData = [
       {
         "name": "CONCH",
         "year": 2024,
+        "date": "2024-03-01",
         "data": "1.17M image-text pairs",
         "idea": "CoCa-based task-agnostic pretraining",
         "github": "https://github.com/mahmoodlab/CONCH",
         "hf": "https://huggingface.co/MahmoodLab/CONCH",
-        "variants": [{"name":"CONCH v1.5","year":2025,"hf":"https://huggingface.co/MahmoodLab/conchv1_5","paper":"","note":"ViT-L/16 vision encoder (CONCH restored from UNI checkpoint + CoCa fine-tuning); used as TITAN's patch encoder."}],
+        "variants": [
+          {
+            "name": "CONCH v1.5",
+            "year": 2025,
+            "hf": "https://huggingface.co/MahmoodLab/conchv1_5",
+            "paper": "",
+            "note": "ViT-L/16 vision encoder (CONCH restored from UNI checkpoint + CoCa fine-tuning); used as TITAN's patch encoder."
+          }
+        ],
         "paper": "https://doi.org/10.1038/s41591-024-02856-4",
         "bibtex": "@article{Lu_2024, title={A visual-language foundation model for computational pathology}, volume={30}, ISSN={1546-170X}, url={http://dx.doi.org/10.1038/s41591-024-02856-4}, DOI={10.1038/s41591-024-02856-4}, number={3}, journal={Nature Medicine}, publisher={Springer Science and Business Media LLC}, author={Lu, Ming Y. and Chen, Bowen and Williamson, Drew F. K. and Chen, Richard J. and Liang, Ivy and Ding, Tong and Jaume, Guillaume and Odintsov, Igor and Le, Long Phi and Gerber, Georg and Parwani, Anil V. and Zhang, Andrew and Mahmood, Faisal}, year={2024}, month=Mar, pages={863–874} }",
-        "audit_image_text": ">1.17M image\u2013caption pairs",
+        "audit_image_text": ">1.17M image–caption pairs",
         "audit_organs": "Diverse histopathology",
-        "audit_downstream": "14 benchmarks spanning classification, segmentation, captioning, text\u2192image and image\u2192text retrieval, including slide-level few-shot evaluation",
+        "audit_downstream": "14 benchmarks spanning classification, segmentation, captioning, text→image and image→text retrieval, including slide-level few-shot evaluation",
         "audit_cohorts": "Multiple sources",
         "audit_notes": "CoCa-style task-agnostic pathology VLM.",
         "paper_title": "A visual-language foundation model for computational pathology",
@@ -667,6 +758,7 @@ const modelData = [
       {
         "name": "PRISM",
         "year": 2024,
+        "date": "2024-05-16",
         "data": "Virchow tiles + reports",
         "idea": "Generative model via Virchow tiles",
         "stains": "H&E",
@@ -685,6 +777,7 @@ const modelData = [
       {
         "name": "MUSK",
         "year": 2025,
+        "date": "2025-01-08",
         "data": "50M images + 1B text tokens",
         "idea": "Unified masked modeling",
         "github": "https://github.com/lilab-stanford/MUSK",
@@ -692,16 +785,17 @@ const modelData = [
         "paper": "https://www.nature.com/articles/s41586-024-08378-w",
         "bibtex": "@article{Xiang_2025, title={A vision–language foundation model for precision oncology}, volume={638}, ISSN={1476-4687}, url={http://dx.doi.org/10.1038/s41586-024-08378-w}, DOI={10.1038/s41586-024-08378-w}, number={8051}, journal={Nature}, publisher={Springer Science and Business Media LLC}, author={Xiang, Jinxi and Wang, Xiyue and Zhang, Xiaoming and Xi, Yinghua and Eweje, Feyisope and Chen, Yijiang and Li, Yuchen and Bergstrom, Colin and Gopaulchan, Matthew and Kim, Ted and Yu, Kun-Hsing and Willens, Sierra and Olguin, Francesca Maria and Nirschl, Jeffrey J. and Neal, Joel and Diehn, Maximilian and Yang, Sen and Li, Ruijiang}, year={2025}, month=Jan, pages={769–778} }",
         "audit_patches": "50M pathology images",
-        "audit_image_text": "1M image\u2013text pairs in alignment stage",
+        "audit_image_text": "1M image–text pairs in alignment stage",
         "audit_downstream": "23 patch- and slide-level benchmarks, including retrieval, VQA, classification and biomarker prediction",
         "audit_cohorts": "11,577 patients",
         "audit_notes": "First-stage language corpus also contains 1B pathology-related text tokens; initial image/text can be unpaired.",
-        "paper_title": "A vision\u2013language foundation model for precision oncology",
+        "paper_title": "A vision–language foundation model for precision oncology",
         "paper_author": "Xiang"
       },
       {
         "name": "TITAN",
         "year": 2025,
+        "date": "2025-11-01",
         "data": "335K WSIs + reports",
         "idea": "Whole-slide alignment with reports",
         "stains": "H&E 89.7%, IHC 7.9%, special 2.3%, other 0.1%",
@@ -710,7 +804,7 @@ const modelData = [
         "paper": "https://www.nature.com/articles/s41591-025-03982-3",
         "bibtex": "@article{Ding_2025, title={A multimodal whole-slide foundation model for pathology}, volume={31}, ISSN={1546-170X}, url={http://dx.doi.org/10.1038/s41591-025-03982-3}, DOI={10.1038/s41591-025-03982-3}, number={11}, journal={Nature Medicine}, publisher={Springer Science and Business Media LLC}, author={Ding, Tong and Wagner, Sophia J. and Song, Andrew H. and Chen, Richard J. and Lu, Ming Y. and Zhang, Andrew and Vaidya, Anurag J. and Jaume, Guillaume and Shaban, Muhammad and Kim, Ahrong and Williamson, Drew F. K. and Robertson, Harry and Chen, Bowen and Almagro-Pérez, Cristina and Doucet, Paul and Sahai, Sharifa and Chen, Chengkuan and Chen, Christina S. and Komura, Daisuke and Kawabe, Akihiro and Ochi, Mieko and Sato, Shinya and Yokose, Tomoyuki and Miyagi, Yohei and Ishikawa, Shumpei and Gerber, Georg and Peng, Tingying and Le, Long Phi and Mahmood, Faisal}, year={2025}, month=Nov, pages={3749–3761} }",
         "audit_wsis": "335,645 WSIs",
-        "audit_image_text": "423,122 synthetic image/ROI\u2013caption examples",
+        "audit_image_text": "423,122 synthetic image/ROI–caption examples",
         "audit_wsi_report": ">182K pathology reports (slide-report cardinality unspecified)",
         "audit_organs": "20 organs",
         "audit_downstream": "6 broad families: linear probing, few-shot classification, zero-shot classification, rare-cancer retrieval, cross-modal retrieval, report generation",
@@ -722,8 +816,9 @@ const modelData = [
       {
         "name": "CPath-Omni",
         "year": 2025,
+        "date": "2024-12-16",
         "data": "700k image-caption + WSI report",
-        "idea": "Unified Patch\u2013Slide Multimodal Model",
+        "idea": "Unified Patch–Slide Multimodal Model",
         "github": "https://github.com/PathFoundation/CPath-Omni",
         "hf": "",
         "paper": "https://arxiv.org/pdf/2412.12077",
@@ -741,6 +836,7 @@ const modelData = [
       {
         "name": "KEEP",
         "year": 2026,
+        "date": "2024-12-17",
         "data": "143K knowledge-grouped pairs",
         "idea": "Disease knowledge graph integration",
         "github": "https://github.com/MAGIC-AI4Med/KEEP",
@@ -759,6 +855,7 @@ const modelData = [
       {
         "name": "PRISM2",
         "year": 2026,
+        "date": "2025-06-16",
         "data": "2.3M WSIs",
         "idea": "Clinical Dialogue Multimodal Pretraining",
         "stains": "H&E",
@@ -770,7 +867,7 @@ const modelData = [
         "audit_wsi_report": "~700K specimens / 2.3M WSIs have diagnostic reports (no explicit pair total isolated)",
         "audit_downstream": "Diagnostic/biomarker/report-QA and survival-oriented evaluations",
         "audit_cohorts": "Nearly 700K specimens",
-        "audit_notes": "One report-bearing specimen can have several slides, hence 2.3M \u2260 2.3M WSI-report pairs.",
+        "audit_notes": "One report-bearing specimen can have several slides, hence 2.3M ≠ 2.3M WSI-report pairs.",
         "paper_title": "PRISM2: Unlocking Multi-Modal General Pathology AI with Clinical Dialogue",
         "paper_author": "Vorontsov"
       }
@@ -782,6 +879,7 @@ const modelData = [
       {
         "name": "Tangle",
         "year": 2024,
+        "date": "2024-05-19",
         "data": "8.6K paired (slide + RNA-seq)",
         "idea": "Transcriptomics-aligned slide representation",
         "stains": "H&E",
@@ -801,6 +899,7 @@ const modelData = [
       {
         "name": "Madeleine",
         "year": 2025,
+        "date": "2024-08-05",
         "data": "4,211 WSIs (Paired Multi-Stain)",
         "idea": "Multistain Cross-Stain Slide Pretraining",
         "stains": "Multi-stain: breast H&E + ER/PR/HER2/KI67; kidney H&E + PAS/Jones/Trichrome",
@@ -820,6 +919,7 @@ const modelData = [
       {
         "name": "Threads",
         "year": 2025,
+        "date": "2025-01-28",
         "data": "47K paired (H&E + multi-omics)",
         "idea": "Multi-omics driven representation",
         "stains": "H&E",
@@ -839,6 +939,7 @@ const modelData = [
       {
         "name": "mSTAR",
         "year": 2025,
+        "date": "2025-12-12",
         "data": "26K paired triplets",
         "idea": "Slide, report, and RNA-seq integration",
         "stains": "H&E",
@@ -857,6 +958,7 @@ const modelData = [
       {
         "name": "OmiCLIP",
         "year": 2025,
+        "date": "2025-05-29",
         "data": "2.2M paired image-transcriptomics",
         "idea": "Visual-omics foundation model bridging H&E histology with spatial transcriptomics (CLIP-style); powers the Loki platform (alignment, annotation, cell-type decomposition, retrieval, ST prediction)",
         "github": "https://github.com/GuangyuWangLab2021/Loki",
@@ -875,6 +977,7 @@ const modelData = [
       {
         "name": "KRONOS",
         "year": 2025,
+        "date": "2025-06-03",
         "data": "47M patches",
         "idea": "Foundation model built for spatial proteomics via segmentation-free patch-level processing",
         "stains": "Multiplexed immunofluorescence (175 protein markers)",
@@ -895,6 +998,7 @@ const modelData = [
       {
         "name": "EXAONE Path 2.5",
         "year": 2025,
+        "date": "2025-12-16",
         "data": "37K WSIs",
         "idea": "End-to-end hierarchical learning with direct slide-level supervision",
         "stains": "H&E",
@@ -912,6 +1016,7 @@ const modelData = [
       {
         "name": "CARE",
         "year": 2026,
+        "date": "2026-02-25",
         "data": "34K WSIs",
         "idea": "Molecular-Guided Adaptive Region Modeling",
         "stains": "H&E",
@@ -932,6 +1037,7 @@ const modelData = [
       {
         "name": "KRONOS2",
         "year": 2026,
+        "date": "2025-06-03",
         "data": "SPM56M patches; 268 markers",
         "idea": "Marker-aware DINOv2 successor to KRONOS (268 markers)",
         "stains": "Multiplexed immunofluorescence (268 protein markers)",
@@ -949,6 +1055,7 @@ const modelData = [
       {
         "name": "GigaTIME-Flash",
         "year": 2026,
+        "date": "2026-07-20",
         "data": "Real-world Providence cohort",
         "idea": "Efficient spatial proteomics prediction from H&E",
         "stains": "H&E (predicts multiplex-IF markers)",
@@ -973,6 +1080,7 @@ const modelData = [
         "name": "H0-mini",
         "type": "Single-FM Distillation",
         "year": 2025,
+        "date": "2025-01-27",
         "data": "43 million tiles, 6,093 WSIs",
         "idea": "Lightweight foundation model distilled from H-optimus-0 with DINOv2",
         "stains": "H&E",
@@ -992,6 +1100,7 @@ const modelData = [
       {
         "name": "SEAL",
         "year": 2026,
+        "date": "2026-02-15",
         "data": "---",
         "idea": "---",
         "stains": "H&E (+ spatial transcriptomics)",
@@ -1000,17 +1109,18 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2602.14177",
         "bibtex": "@misc{hemker2026spatialtranscriptomicsdrivenpathologyfoundation,\n      title={Towards Spatial Transcriptomics-driven Pathology Foundation Models}, \n      author={Konstantin Hemker and Andrew H. Song and Cristina Almagro-Pérez and Guillaume Jaume and Sophia J. Wagner and Anurag Vaidya and Nikola Simidjievski and Mateja Jamnik and Faisal Mahmood},\n      year={2026},\n      eprint={2602.14177},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2602.14177}, \n}",
         "audit_wsis": "Parameter-efficient vision-omics adaptation (no new WSI corpus)",
-        "audit_image_omics": ">700K paired spatial-transcriptomics gene-expression spot\u2013tissue-region examples",
+        "audit_image_omics": ">700K paired spatial-transcriptomics gene-expression spot–tissue-region examples",
         "audit_organs": "14 organs",
-        "audit_downstream": "53 tasks = 38 slide-level + 15 patch-level; molecular status, pathways, treatment response, gene-expression prediction, gene\u2192image retrieval",
+        "audit_downstream": "53 tasks = 38 slide-level + 15 patch-level; molecular status, pathways, treatment response, gene-expression prediction, gene→image retrieval",
         "audit_notes": "ST-guided fine-tuning of existing PFMs rather than a wholly new from-scratch visual encoder.",
         "paper_title": "Towards Spatial Transcriptomics-driven Pathology Foundation Models",
         "paper_author": "Hemker",
-        "type": "Vision\u2013omics adaptation"
+        "type": "Vision–omics adaptation"
       },
       {
         "name": "Phaet",
         "year": 2026,
+        "date": "2026-07-24",
         "data": "---",
         "idea": "Robustness-tuned Phikon-v2",
         "stains": "H&E",
@@ -1029,6 +1139,7 @@ const modelData = [
       {
         "name": "Mascaret",
         "year": 2026,
+        "date": "2026-07-24",
         "data": "---",
         "idea": "Robustness-tuned Midnight-12k",
         "stains": "H&E",
@@ -1047,6 +1158,7 @@ const modelData = [
       {
         "name": "SmartStu",
         "year": 2026,
+        "date": "2026-08-02",
         "data": "Breast (distilled)",
         "idea": "Adversarial distillation of multiple teacher PFMs into a compact, debiased breast-cancer-specific student; mitigates site-specific and prevalence confounding",
         "github": "",
@@ -1062,6 +1174,7 @@ const modelData = [
       {
         "name": "CellViT++",
         "year": 2025,
+        "date": "2025-01-09",
         "data": "Cell segmentation (7 datasets)",
         "idea": "Generalized cell segmentation/classification using ViT with foundation-model encoders; energy-efficient adaptation to unseen cell types with minimal data, zero-shot segmentation, and IF-generated training sets",
         "github": "https://github.com/TIO-IKIM/CellViT-plus-plus",
@@ -1083,6 +1196,7 @@ const modelData = [
       {
         "name": "GPFM",
         "year": 2025,
+        "date": "2024-07-26",
         "data": "190M tiles, 96K WSIs",
         "idea": "Multi-teacher distillation",
         "stains": "H&E",
@@ -1102,6 +1216,7 @@ const modelData = [
       {
         "name": "COBRA",
         "year": 2025,
+        "date": "2024-11-20",
         "data": "3048 WSIs",
         "idea": "Multi-FM representation integration",
         "stains": "H&E",
@@ -1121,6 +1236,7 @@ const modelData = [
       {
         "name": "ELF",
         "year": 2025,
+        "date": "2025-08-22",
         "data": "53K WSIs (20 anatomical sites)",
         "idea": "Ensemble learning",
         "stains": "H&E",
@@ -1140,6 +1256,7 @@ const modelData = [
       {
         "name": "Shazam",
         "year": 2026,
+        "date": "2025-03-02",
         "data": "Fuses 5 models (UNI 2, Virchow2, H-optimus-1, Prov-Gigapath, Phikon-v2)",
         "idea": "Adaptive integration/distillation",
         "github": "",
@@ -1157,6 +1274,7 @@ const modelData = [
       {
         "name": "ALICE",
         "year": 2026,
+        "date": "2026-07-10",
         "data": "24.9M tiles + 155K high-res images",
         "idea": "Agglomerative distillation",
         "stains": "H&E",
@@ -1176,6 +1294,7 @@ const modelData = [
       {
         "name": "ASTRA",
         "year": 2026,
+        "date": "2026-04-21",
         "data": "10.3K WSIs (CHTN cohort)",
         "idea": "MoE fusion/alignment",
         "stains": "H&E",
@@ -1189,13 +1308,14 @@ const modelData = [
         "audit_organs": "16 tumor types",
         "audit_downstream": "4 main task settings: 4-category classification, 3-class solid-tumor typing, 16-class cancer typing, text-guided tumor localization",
         "audit_cohorts": "CHTN development 10,359 WSIs + external TCGA 1,686 WSIs",
-        "audit_notes": "\u201cDeveloped on\u201d is preserved rather than relabeled as \u201cpretrained on.\u201d",
+        "audit_notes": "“Developed on” is preserved rather than relabeled as “pretrained on.”",
         "paper_title": "Unified Multi-Foundation-Model Slide Representation for Pan-Cancer Recognition and Text-Guided Tumor Localization",
         "paper_author": "Wang"
       },
       {
         "name": "Flannery et al.",
         "year": 2025,
+        "date": "2025-12-11",
         "data": "Fuses 8 PFMs (5 tile + 3 slide)",
         "idea": "Information-driven fusion via correlation-guided pruning of redundant features; integrates 5 tile-level (CONCH v1.5, MUSK, Virchow2, H-optimus-1, Prov-GigaPath) + 3 slide-level (TITAN, CHIEF, MADELEINE) models for cancer grading/staging",
         "github": "",
@@ -1216,6 +1336,7 @@ const modelData = [
       {
         "name": "VISTA-PATH",
         "year": 2026,
+        "date": "2026-01-23",
         "data": "1.65M triplets (Image + Mask + Text)",
         "idea": "Interactive Class-Aware Segmentation",
         "stains": "H&E",
@@ -1223,7 +1344,7 @@ const modelData = [
         "hf": "",
         "paper": "https://arxiv.org/abs/2601.16451",
         "bibtex": "@misc{liang2026vistapathinteractivefoundationmodel,\n      title={VISTA-PATH: An interactive foundation model for pathology image segmentation and quantitative analysis in computational pathology}, \n      author={Peixian Liang and Songhao Li and Shunsuke Koga and Yutong Li and Zahra Alipour and Yucheng Tang and Daguang Xu and Zhi Huang},\n      year={2026},\n      eprint={2601.16451},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2601.16451}, \n}",
-        "audit_patches": ">1.6M image\u2013mask\u2013text triplets",
+        "audit_patches": ">1.6M image–mask–text triplets",
         "audit_image_text": ">1.6M triplets contain a text component",
         "audit_organs": "9 organs; 93 tissue classes",
         "audit_downstream": "Held-out/external semantic segmentation plus TME quantitative/survival analyses",
@@ -1235,6 +1356,7 @@ const modelData = [
       {
         "name": "PathoSAM",
         "year": 2025,
+        "date": "2025-02-01",
         "data": "SAM for histopathology",
         "idea": "Segment Anything (SAM) adapted for histopathology; SOTA automatic and interactive nucleus instance segmentation, with whole-slide-scale scripts",
         "github": "https://github.com/computational-cell-analytics/patho-sam",
@@ -1254,6 +1376,7 @@ const modelData = [
       {
         "name": "MuPD",
         "year": 2026,
+        "date": "2026-04-04",
         "data": "100M patches",
         "idea": "Multimodal Pathology Diffusion Model",
         "stains": "H&E",
@@ -1262,8 +1385,8 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2604.03635",
         "bibtex": "@misc{xiang2026generativefoundationmodelmultimodal,\n      title={A Generative Foundation Model for Multimodal Histopathology}, \n      author={Jinxi Xiang and Mingjie Li and Siyu Hou and Yijiang Chen and Xiangde Luo and Yuanfeng Ji and Xiang Zhou and Ehsan Adeli and Akshay Chaudhari and Curtis P. Langlotz and Kilian M. Pohl and Ruijiang Li},\n      year={2026},\n      eprint={2604.03635},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2604.03635}, \n}",
         "audit_patches": "100M histology patches",
-        "audit_image_text": "1.6M text\u2013histology pairs",
-        "audit_image_omics": "10.8M RNA\u2013histology pairs",
+        "audit_image_text": "1.6M text–histology pairs",
+        "audit_image_omics": "10.8M RNA–histology pairs",
         "audit_organs": "34 human organs",
         "audit_downstream": "Text-conditioned generation, image-to-image generation, RNA-conditioned generation, virtual staining, synthetic-data augmentation; no single explicit scalar total",
         "audit_cohorts": "TCGA, GTEx, PAIP, PLCO (H&E); PathGen-1.6M (image-text); TCGA bulk RNA-seq (RNA-image). MOSAIC used for ST evaluation only.",
@@ -1274,6 +1397,7 @@ const modelData = [
       {
         "name": "PixCell",
         "year": 2025,
+        "date": "2025-06-05",
         "data": "30M patches (PanCan-30M)",
         "idea": "First generative foundation model for histopathology: a self-supervision-conditioned diffusion model (PanCan-30M) enabling data augmentation, privacy-preserving synthesis, and virtual IHC staining",
         "github": "https://github.com/cvlab-stonybrook/PixCell",
@@ -1297,6 +1421,7 @@ const modelData = [
       {
         "name": "EVA",
         "year": 2024,
+        "date": "2024-01-01",
         "data": "Slide & Patch",
         "idea": "Standardized framework for systematic evaluation and comparison of PFMs",
         "github": "https://github.com/kaiko-ai/eva",
@@ -1311,6 +1436,7 @@ const modelData = [
       {
         "name": "Patho-Bench",
         "year": 2025,
+        "date": "2025-02-10",
         "data": "Slide",
         "idea": "Open-source benchmarking toolkit with standardized datasets and reproducible evaluation pipelines",
         "github": "https://github.com/mahmoodlab/Patho-Bench",
@@ -1327,6 +1453,7 @@ const modelData = [
       {
         "name": "QuIIL-PathBench",
         "year": 2025,
+        "date": "2024-10-21",
         "data": "Patch",
         "idea": "Systematically benchmarks PFMs by evaluating patch-level representations",
         "github": "https://github.com/QuIIL/BenchmarkingPathologyFoundationModels",
@@ -1341,6 +1468,7 @@ const modelData = [
       {
         "name": "Clinical Benchmark",
         "year": 2025,
+        "date": "2025-04-17",
         "data": "Slide",
         "idea": "Clinical benchmark with MSHS and MSKCC datasets covering disease detection and biomarker prediction",
         "github": "https://github.com/sinai-computational-pathology/SSL_tile_benchmarks#automated-external-benchmarking",
@@ -1357,6 +1485,7 @@ const modelData = [
       {
         "name": "Feature-Extractor Benchmark",
         "year": 2025,
+        "date": "2025-10-01",
         "data": "Slide",
         "idea": "Benchmarks 19 FMs as feature extractors for weakly-supervised slide tasks; CONCH best, CONCH+Virchow2 ensemble tops 55% of tasks",
         "github": "https://github.com/KatherLab/STAMP",
@@ -1374,6 +1503,7 @@ const modelData = [
       {
         "name": "PathBench",
         "year": 2025,
+        "date": "2025-05-26",
         "data": "Slide & Patch",
         "idea": "Leakage-free multi-center clinical benchmark spanning multiple tasks, with a live public leaderboard",
         "github": "https://github.com/birkhoffkiki/PathBench",
@@ -1390,6 +1520,7 @@ const modelData = [
       {
         "name": "Stanford PathBench",
         "year": 2026,
+        "date": "2026-07-24",
         "data": "Slide & Patch",
         "idea": "Comprehensive benchmark of 32 PFMs across 41 tasks with a public leaderboard",
         "github": "",
@@ -1407,6 +1538,7 @@ const modelData = [
       {
         "name": "SpaPath-Bench",
         "year": 2026,
+        "date": "2026-05-25",
         "data": "Patch (spatial)",
         "idea": "Tests 19 encoders on paired histology-spatial-transcriptomics to assess whether embeddings distinguish biologically meaningful tissue domains and their spatial organization",
         "github": "https://github.com/Bokai-Zhao/SpaPath-bench",
@@ -1421,6 +1553,7 @@ const modelData = [
       {
         "name": "Prostate FM Benchmark",
         "year": 2025,
+        "date": "2025-02-28",
         "data": "Slide (prostate)",
         "idea": "Critical PFM vs task-specific comparison on >100K prostate biopsies (15 sites, 11 countries); PFMs help most under limited labels, but well-trained task-specific models can match or outperform them with far less compute",
         "github": "",
@@ -1436,6 +1569,7 @@ const modelData = [
       {
         "name": "Kidney FM Benchmark",
         "year": 2026,
+        "date": "2026-03-16",
         "data": "Slide & Patch (kidney)",
         "idea": "Benchmarks 11 PFMs on 11 kidney histopathology tasks; PFMs encode coarse/meso-scale morphology well but struggle with subtle microstructure, complex phenotypes and prognosis",
         "github": "",
@@ -1450,6 +1584,7 @@ const modelData = [
       {
         "name": "Breast Survival Benchmark",
         "year": 2026,
+        "date": "2026-04-27",
         "data": "Slide (breast)",
         "idea": "Benchmarks PFMs for breast cancer survival across 3 cohorts (>5,400 patients); second-gen models improve but recent models differ modestly, and H0-mini can slightly beat its larger teacher (diminishing scaling returns)",
         "github": "",
@@ -1465,6 +1600,7 @@ const modelData = [
       {
         "name": "Segmentation FM Benchmark",
         "year": 2026,
+        "date": "2026-02-21",
         "data": "Patch (segmentation)",
         "idea": "Benchmarks 10 FMs on 4 semantic-segmentation datasets using attention heads as pixel representations; differently-trained PFMs are complementary - fusing CONCH, PathDino and CellViT improves performance",
         "github": "",
@@ -1478,6 +1614,7 @@ const modelData = [
       {
         "name": "WSI Retrieval Benchmark",
         "year": 2025,
+        "date": "2025-02-01",
         "data": "Slide (retrieval)",
         "idea": "Zero-shot WSI retrieval testing whether embedding geometry supports retrieval across 23 organs and 117 cancer subtypes; UNI, Virchow and GigaPath differ meaningfully",
         "github": "",
@@ -1493,6 +1630,7 @@ const modelData = [
       {
         "name": "HistoVL",
         "year": 2025,
+        "date": "2025-03-17",
         "data": "Patch (VLM)",
         "idea": "Holistic benchmark for histopathology VLMs across 26 organs, 31 cancer types, >5M patches from 41K+ WSIs (11 scanners); tests text-change sensitivity, adversarial robustness and calibration",
         "github": "",
@@ -1508,6 +1646,7 @@ const modelData = [
       {
         "name": "MAKO",
         "year": 2026,
+        "date": "2026-01-16",
         "data": "Slide (breast)",
         "idea": "MAKO benchmark: evaluates 12 PFMs (+2 non-pathology baselines) for interpretable breast-cancer recurrence-risk (ROR-P) prediction from H&E WSIs via attention-based MIL",
         "github": "https://github.com/kaczmarj/mako",
@@ -1520,7 +1659,7 @@ const modelData = [
         "audit_notes": "MAKO benchmarking framework for interpretable recurrence-risk prediction; predicts transcriptomic ROR-P scores from H&E WSIs.",
         "paper_title": "Towards interpretable prediction of recurrence risk in breast cancer using pathology foundation models",
         "paper_author": "Kaczmarzyk"
-      },
+      }
     ]
   },
   {
@@ -1529,6 +1668,7 @@ const modelData = [
       {
         "name": "Mishra et al.",
         "year": 2025,
+        "date": "2025-09-18",
         "data": "",
         "idea": "Comparing Computational Pathology Foundation Models using Representational Similarity Analysis",
         "github": "",
@@ -1536,11 +1676,12 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2509.15482",
         "bibtex": "@misc{mishra2025comparingcomputationalpathologyfoundation,\n      title={Comparing Computational Pathology Foundation Models using Representational Similarity Analysis}, \n      author={Vaibhav Mishra and William Lotter},\n      year={2025},\n      eprint={2509.15482},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2509.15482}, \n}",
         "paper_title": "Comparing Computational Pathology Foundation Models using Representational Similarity Analysis",
-        "paper_author": "Mishra",
+        "paper_author": "Mishra"
       },
       {
         "name": "Le et al.",
         "year": 2024,
+        "date": "2024-07-15",
         "data": "",
         "idea": "Interpretability analysis on a pathology foundation model reveals biologically relevant embeddings across modalities",
         "github": "",
@@ -1548,11 +1689,12 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2407.10785v1",
         "bibtex": "@misc{le2024learningbiologicallyrelevantfeatures,\n      title={Learning biologically relevant features in a pathology foundation model using sparse autoencoders}, \n      author={Nhat Minh Le and Ciyue Shen and Neel Patel and Chintan Shah and Darpan Sanghavi and Blake Martin and Alfred Eng and Daniel Shenker and Harshith Padigela and Raymond Biju and Syed Ashar Javed and Jennifer Hipp and John Abel and Harsha Pokkalla and Sean Grullon and Dinkar Juyal},\n      year={2024},\n      eprint={2407.10785},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2407.10785}, \n}",
         "paper_title": "Interpretability analysis on a pathology foundation model reveals biologically relevant embeddings across modalities",
-        "paper_author": "Le",
+        "paper_author": "Le"
       },
       {
         "name": "Vig et al.",
         "year": 2026,
+        "date": "2026-01-29",
         "data": "",
         "idea": "Applies diffusion pseudotime to PFM embeddings; 5 models recover continuous cancer-progression trajectories, and trajectory fidelity predicts few-shot generalization",
         "github": "",
@@ -1565,6 +1707,7 @@ const modelData = [
       {
         "name": "Kim et al.",
         "year": 2026,
+        "date": "2026-06-16",
         "data": "",
         "idea": "Sparse representation learning decomposes PFM embeddings into interpretable histomorphological concepts, producing a pathology concept atlas (bioRxiv preprint)",
         "github": "",
@@ -1577,6 +1720,7 @@ const modelData = [
       {
         "name": "Srikanthan et al.",
         "year": 2026,
+        "date": "2026-06-03",
         "data": "",
         "idea": "Evaluates attention coherence of 5 PFMs via spatial transcriptomics in glioblastoma; attention aligns with transcriptional pathways, and models attend to different biological compartments",
         "github": "",
@@ -1589,6 +1733,7 @@ const modelData = [
       {
         "name": "Ndubuisi et al.",
         "year": 2026,
+        "date": "2026-07-31",
         "data": "",
         "idea": "Patient-controlled TCGA-BRCA analysis across 11 frozen backbones; some molecular signal is genuine, but much is explained by interpretable morphology",
         "github": "",
@@ -1601,6 +1746,7 @@ const modelData = [
       {
         "name": "Cui et al.",
         "year": 2026,
+        "date": "2026-03-19",
         "data": "",
         "idea": "Maps PFM embeddings to cell composition and gene-expression features via spatial transcriptomics, decoding latent features into interpretable biology",
         "github": "",
@@ -1609,7 +1755,7 @@ const modelData = [
         "bibtex": "@article{Cui2026TranslatingHF,\n  author = {Saishi Cui and Zhining Sui and Ziyi Li and Kristina A. Matkowskyj and Ming Yu and William M. Grady and Wei Sun},\n  title = {Translating Histopathology Foundation Model Embeddings into Cellular and Molecular Features for Clinical Studies},\n  journal = {bioRxiv},\n  year = {2026},\n  doi = {10.64898/2026.03.17.711896},\n  url = {https://www.biorxiv.org/content/10.64898/2026.03.17.711896v1}\n}",
         "paper_title": "Translating Histopathology Foundation Model Embeddings into Cellular and Molecular Features for Clinical Studies",
         "paper_author": "Cui"
-      },
+      }
     ]
   },
   {
@@ -1618,6 +1764,7 @@ const modelData = [
       {
         "name": "PathoROB",
         "year": 2026,
+        "date": "2026-06-11",
         "data": "Patch",
         "idea": "Robustness benchmark: 20 PFMs, 99,392 patches, 28 biological classes, 34 centers; compares biological information vs technical confounding and finds substantial robustness deficits",
         "github": "",
@@ -1632,6 +1779,7 @@ const modelData = [
       {
         "name": "de Jong et al.",
         "year": 2025,
+        "date": "2025-01-29",
         "data": "",
         "idea": "Introduces a Robustness Index; across 10 PFMs, medical-center information is often represented more strongly than tissue/cancer information, tying downstream errors to center confounding",
         "github": "",
@@ -1644,6 +1792,7 @@ const modelData = [
       {
         "name": "Kömen et al.",
         "year": 2024,
+        "date": "2024-11-08",
         "data": "",
         "idea": "Shows histopathology FM embeddings still carry hospital-specific batch signatures that bias predictions; not removed by stain normalization",
         "github": "",
@@ -1656,6 +1805,7 @@ const modelData = [
       {
         "name": "Elphick et al.",
         "year": 2024,
+        "date": "2024-12-16",
         "data": "",
         "idea": "Tests rotation invariance of 12 PFMs via mutual-kNN alignment; models trained with rotation augmentation are substantially more invariant",
         "github": "",
@@ -1668,6 +1818,7 @@ const modelData = [
       {
         "name": "Gustafsson et al.",
         "year": 2026,
+        "date": "2024-10-09",
         "data": "",
         "idea": "UNI and CONCH outperform older baselines for prostate grading, but large-scale diverse pretraining does not guarantee robustness to real-world distribution shifts",
         "github": "",
@@ -1680,6 +1831,7 @@ const modelData = [
       {
         "name": "Carloni et al.",
         "year": 2025,
+        "date": "2025-07-29",
         "data": "",
         "idea": "Shows scanner bias in existing PFMs and proposes ScanGen, a contrastive loss that improves scanner robustness during downstream training",
         "github": "",
@@ -1692,6 +1844,7 @@ const modelData = [
       {
         "name": "Thiringer et al.",
         "year": 2026,
+        "date": "2026-01-07",
         "data": "",
         "idea": "Evaluates 14 PFMs on the same breast tissue scanned on 5 scanners; embeddings contain substantial scanner-specific structure, and AUC can stay stable while calibration becomes scanner-dependent",
         "github": "",
@@ -1704,6 +1857,7 @@ const modelData = [
       {
         "name": "Chai et al.",
         "year": 2026,
+        "date": "2026-02-24",
         "data": "",
         "idea": "Investigates the sensitivity of PFM-based analysis to histologic staining and scanner variability in sarcomas and their mimics",
         "github": "",
@@ -1716,6 +1870,7 @@ const modelData = [
       {
         "name": "Yajnik et al.",
         "year": 2026,
+        "date": "2026-07-05",
         "data": "",
         "idea": "Tests 12 PFMs against 11 clinically realistic perturbations; larger models are not automatically more robust, and UNI2/Virchow2-sized models can match or exceed larger ones",
         "github": "",
@@ -1728,6 +1883,7 @@ const modelData = [
       {
         "name": "Wang et al.",
         "year": 2026,
+        "date": "2026-06-01",
         "data": "",
         "idea": "A single weak, transferable microscopic perturbation degrades multiple black-box PFMs across datasets, revealing common vulnerabilities in their feature spaces",
         "github": "",
@@ -1740,6 +1896,7 @@ const modelData = [
       {
         "name": "Liu et al.",
         "year": 2025,
+        "date": "2025-05-30",
         "data": "",
         "idea": "First systematic study of adversarial vulnerability in PFMs: modifying just 0.1% of patches with imperceptible noise degrades accuracy by up to 20% (label-free attack; 3 PFMs, 5 datasets, 6 tasks)",
         "github": "https://github.com/Jiashuai-Liu-hmos/Attack-WSI-pathology-foundation-models",
@@ -1752,6 +1909,7 @@ const modelData = [
       {
         "name": "CRoMa",
         "year": 2026,
+        "date": "2026-07-28",
         "data": "",
         "idea": "Introduces the Cross-confounder Robustness Margin (CRoMa), a sample-level measure of whether representations are driven by biology vs non-biological variation (e.g., staining); every tile encoder retained a confounder-dominated lower tail",
         "github": "",
@@ -1769,6 +1927,7 @@ const modelData = [
       {
         "name": "Xiong et al.",
         "year": 2025,
+        "date": "2025-04-05",
         "data": "",
         "idea": "Comprehensive survey of progress and future directions in pathology foundation models",
         "github": "",
@@ -1776,11 +1935,12 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2504.04045",
         "bibtex": "@misc{xiong2025surveypathologyfoundationmodel,\n      title={A Survey of Pathology Foundation Model: Progress and Future Directions}, \n      author={Conghao Xiong and Hao Chen and Joseph J. Y. Sung},\n      year={2025},\n      eprint={2504.04045},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2504.04045}, \n}",
         "paper_title": "A Survey of Pathology Foundation Model: Progress and Future Directions",
-        "paper_author": "Xiong",
+        "paper_author": "Xiong"
       },
       {
         "name": "Chanda et al.",
         "year": 2024,
+        "date": "2024-08-23",
         "data": "",
         "idea": "Survey on Foundation and Vision-Language Models",
         "github": "",
@@ -1788,11 +1948,12 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2408.14496",
         "bibtex": "@misc{chanda2024neweracomputationalpathology,\n      title={A New Era in Computational Pathology: A Survey on Foundation and Vision-Language Models}, \n      author={Dibaloke Chanda and Milan Aryal and Nasim Yahya Soltani and Masoud Ganji},\n      year={2024},\n      eprint={2408.14496},\n      archivePrefix={arXiv},\n      primaryClass={cs.LG},\n      url={https://arxiv.org/abs/2408.14496}, \n}",
         "paper_title": "A New Era in Computational Pathology: A Survey on Foundation and Vision-Language Models",
-        "paper_author": "Chanda",
+        "paper_author": "Chanda"
       },
       {
         "name": "Li et al.",
         "year": 2025,
+        "date": "2026-07-02",
         "data": "",
         "idea": "Survey covering datasets, adaptation strategies, and evaluation tasks",
         "github": "",
@@ -1800,11 +1961,12 @@ const modelData = [
         "paper": "https://link.springer.com/article/10.1007/s10115-026-02806-1",
         "bibtex": "@article{Li_2026, title={A survey on computational pathology foundation models: datasets, adaptation strategies, and evaluation tasks}, volume={68}, ISSN={0219-3116}, url={http://dx.doi.org/10.1007/s10115-026-02806-1}, DOI={10.1007/s10115-026-02806-1}, number={1}, journal={Knowledge and Information Systems}, publisher={Springer Science and Business Media LLC}, author={Li, Dong and Wan, Guihong and Wu, Xintao and Wu, Xinyu and He, Yi and Chen, Zhong and Nirmal, Ajit J. and Lian, Christine G. and Sorger, Peter K. and Semenov, Yevgeniy R. and Zhao, Chen}, year={2026}, month=July }",
         "paper_title": "A survey on computational pathology foundation models: datasets, adaptation strategies, and evaluation tasks",
-        "paper_author": "Li",
+        "paper_author": "Li"
       },
       {
         "name": "Lin et al.",
         "year": 2025,
+        "date": "2025-02-24",
         "data": "",
         "idea": "Quantitative perspective on ethical risks in pathology foundation models",
         "github": "",
@@ -1819,6 +1981,7 @@ const modelData = [
       {
         "name": "Bilal et al.",
         "year": 2025,
+        "date": "2025-02-12",
         "data": "",
         "idea": "Review of challenges, opportunities, and impact of Foundation Models in CPath",
         "github": "",
@@ -1826,11 +1989,12 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2502.08333",
         "bibtex": "@misc{bilal2025foundationmodelscomputationalpathology,\n      title={Foundation Models in Computational Pathology: A Review of Challenges, Opportunities, and Impact}, \n      author={Mohsin Bilal and Aadam and Manahil Raza and Youssef Altherwy and Anas Alsuhaibani and Abdulrahman Abduljabbar and Fahdah Almarshad and Paul Golding and Nasir Rajpoot},\n      year={2025},\n      eprint={2502.08333},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2502.08333}, \n}",
         "paper_title": "Foundation Models in Computational Pathology: A Review of Challenges, Opportunities, and Impact",
-        "paper_author": "Bilal",
+        "paper_author": "Bilal"
       },
       {
         "name": "Tizhoosh et al.",
         "year": 2026,
+        "date": "2026-06-12",
         "data": "",
         "idea": "Perspective on rethinking foundation models in pathology",
         "github": "",
@@ -1847,6 +2011,6 @@ const modelData = [
 ];
 
 // Node.js export (browser ignores this — `module` is undefined in the browser).
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = modelData;
 }
