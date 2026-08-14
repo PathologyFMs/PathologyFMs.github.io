@@ -1327,6 +1327,26 @@ const modelData = [
         "audit_notes": "Fuses 8 PFMs (5 tile-level + 3 slide-level) via correlation-guided pruning of redundant features; concentrates attention on tumor regions.",
         "paper_title": "Information-driven Fusion of Pathology Foundation Models for Enhanced Disease Characterization",
         "paper_author": "Flannery"
+      },
+      {
+        "name": "LogitProd",
+        "year": 2026,
+        "date": "2026-04-09",
+        "data": "Multi-FM logit fusion",
+        "idea": "Plug-and-play fusion of heterogeneous FM predictors: treats independently trained experts as fixed and learns sample-adaptive weights over their slide-level logits — no encoder retraining or feature-space alignment, with a guarantee of matching the best single expert",
+        "stains": "H&E",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2604.07779",
+        "bibtex": "@misc{huang2026plugandplaylogitfusionheterogeneous,\n      title={Plug-and-Play Logit Fusion for Heterogeneous Pathology Foundation Models}, \n      author={Gexin Huang and Anqi Li and Yusheng Tan and Beidi Zhao and Gang Wang and Zu-Hua Gao and Xiaoxiao Li},\n      year={2026},\n      eprint={2604.07779},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2604.07779}, \n}",
+        "audit_wsis": "",
+        "audit_patches": "",
+        "audit_organs": "",
+        "audit_downstream": "WSI-level & tile-level classification, gene mutation prediction, discrete-time survival (22 benchmarks)",
+        "audit_cohorts": "",
+        "audit_notes": "Logit-level product fusion (LogitProd); ranks first on 20/22 tasks, +~3% average over the strongest single expert, ~12x lower training cost than feature-fusion alternatives",
+        "paper_title": "Plug-and-Play Logit Fusion for Heterogeneous Pathology Foundation Models",
+        "paper_author": "Huang"
       }
     ]
   },
