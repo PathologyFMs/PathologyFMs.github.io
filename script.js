@@ -134,6 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
             { key: 'audit_organs', label: 'Organ / Tissue site', icon: 'ph-tree' },
             { key: 'audit_cohorts', label: 'Institution / data sources', icon: 'ph-buildings' },
             { key: 'audit_scanners', label: 'Scanners / vendors', icon: 'ph-scan' },
+            { key: 'audit_omics', label: 'Omics modality & scale', icon: 'ph-dna' },
             { key: 'audit_downstream', label: 'Downstream tasks', icon: 'ph-list-checks' }
         ];
         let facetsHtml = '';

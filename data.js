@@ -892,13 +892,14 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2405.11618",
         "bibtex": "@misc{jaume2024transcriptomicsguidedsliderepresentationlearning,\n      title={Transcriptomics-guided Slide Representation Learning in Computational Pathology}, \n      author={Guillaume Jaume and Lukas Oldenburg and Anurag Vaidya and Richard J. Chen and Drew F. K. Williamson and Thomas Peeters and Andrew H. Song and Faisal Mahmood},\n      year={2024},\n      eprint={2405.11618},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2405.11618}, \n}",
         "audit_wsis": "Slide encoder trained on 8,629 paired slides; tile encoder (iBOT-Tox) pretrained on 47,227 liver/kidney WSIs",
-        "audit_image_omics": "8,629 paired slide + RNA-seq samples (TG-GATEs liver 6,597; TCGA-BRCA 1,041; TCGA-NSCLC 1,031)",
         "audit_organs": "Liver (rat), breast, lung (human)",
         "audit_downstream": "3 tasks: few-shot linear probing, prototype classification, slide retrieval; 3 test datasets (liver, breast, lung)",
         "audit_cohorts": "TG-GATEs (rat) + TCGA-BRCA + TCGA-NSCLC; plus in-house breast/lung cohorts",
+        "audit_omics": "Transcriptomics (bulk RNA-seq) — 8,629 slide–RNA-seq pairs",
         "audit_notes": "Confirmed 8,629 paired slide+RNA-seq (TG-GATEs 6,597, TCGA-BRCA 1,041, TCGA-NSCLC 1,031).",
         "paper_title": "Transcriptomics-guided Slide Representation Learning in Computational Pathology",
-        "paper_author": "Jaume"
+        "paper_author": "Jaume",
+        "audit_image_omics": "8,629 paired slide + RNA-seq samples (TG-GATEs liver 6,597; TCGA-BRCA 1,041; TCGA-NSCLC 1,031)"
       },
       {
         "name": "Madeleine",
@@ -936,6 +937,7 @@ const modelData = [
         "audit_downstream": "54 tasks: 8 subtyping/grading, 21 mutation, 12 IHC status, 13 treatment response/survival",
         "audit_cohorts": "Mass General Brigham (MGH + BWH) + TCGA + GTEx; 47,171 H&E–omics pairs (MBTG-47k)",
         "audit_scanners": "Aperio GT450 (MGB); TCGA: Aperio + Hamamatsu; GTEx: Aperio AT2 / Hamamatsu NanoZoomer-XR",
+        "audit_omics": "Transcriptomics + genomics — 47,171 H&E–omics pairs; ~4,848 genes (scGPT vocabulary)",
         "audit_notes": "47,171 H&E sections + omics; 125M patches (512x512 @ 20x); 39 organs; 54 downstream tasks. Counts are tissue sections rather than distinct WSIs.",
         "paper_title": "Molecular-driven Foundation Model for Oncologic Pathology",
         "paper_author": "Vaidya",
@@ -953,12 +955,13 @@ const modelData = [
         "paper": "https://www.nature.com/articles/s41467-025-66220-x",
         "bibtex": "@article{Xu_2025, title={A multimodal knowledge-enhanced whole-slide pathology foundation model}, volume={16}, ISSN={2041-1723}, url={http://dx.doi.org/10.1038/s41467-025-66220-x}, DOI={10.1038/s41467-025-66220-x}, number={1}, journal={Nature Communications}, publisher={Springer Science and Business Media LLC}, author={Xu, Yingxue and Wang, Yihui and Zhou, Fengtao and Ma, Jiabo and Jin, Cheng and Yang, Shu and Li, Jinbang and Zhang, Zhengyu and Zhao, Chenglong and Zhou, Huajun and Li, Zhenhui and Lin, Huangjing and Wang, Xin and Wang, Jiguang and Han, Anjia and Chan, Ronald Cheong Kin and Liang, Li and Zhang, Xiuming and Chen, Hao}, year={2025}, month=Dec }",
         "audit_patches": ">116M patch images",
-        "audit_image_omics": "26,169 aggregate slide-level modality pairs spanning H&E WSIs, reports and RNA-seq; 10,275 patients",
         "audit_organs": "32 cancer types",
         "audit_downstream": "43 subtasks across 7 task types",
+        "audit_omics": "Transcriptomics (bulk RNA-seq) + pathology reports — 26,169 slide–report–RNA triplets",
         "audit_notes": "Multimodal knowledge-enhanced whole-slide FM integrating H&E WSIs, reports and RNA-seq; 26,169 aggregate slide-level pairs across 10,275 patients.",
         "paper_title": "A multimodal knowledge-enhanced whole-slide pathology foundation model",
-        "paper_author": "Xu"
+        "paper_author": "Xu",
+        "audit_image_omics": "26,169 aggregate slide-level modality pairs spanning H&E WSIs, reports and RNA-seq; 10,275 patients"
       },
       {
         "name": "OmiCLIP",
@@ -966,18 +969,19 @@ const modelData = [
         "date": "2025-05-29",
         "data": "2.2M paired image-transcriptomics",
         "idea": "Visual-omics foundation model bridging H&E histology with spatial transcriptomics (CLIP-style); powers the Loki platform (alignment, annotation, cell-type decomposition, retrieval, ST prediction)",
+        "stains": "H&E",
         "github": "https://github.com/GuangyuWangLab2021/Loki",
         "hf": "https://huggingface.co/WangGuangyuLab/Loki",
-        "website": "",
         "paper": "https://www.nature.com/articles/s41592-025-02707-1",
         "bibtex": "@article{Chen_2025, title={A visual–omics foundation model to bridge histopathology with spatial transcriptomics}, volume={22}, ISSN={1548-7105}, url={http://dx.doi.org/10.1038/s41592-025-02707-1}, DOI={10.1038/s41592-025-02707-1}, number={7}, journal={Nature Methods}, publisher={Springer Science and Business Media LLC}, author={Chen, Weiqing and Zhang, Pengzhi and Tran, Tu N and Xiao, Yiwei and Li, Shengyu and Shah, Vrutant V. and Cheng, Hao and Brannan, Kristopher W. and Youker, Keith and Lai, Li and Fang, Longhou and Yang, Yu and Le, Nhat-Tu and Abe, Jun-ichi and Chen, Shu-Hsia and Ma, Qin and Chen, Ken and Song, Qianqian and Cooke, John P. and Wang, Guangyu}, year={2025}, month=May, pages={1568–1582} }",
-        "stains": "H&E",
-        "audit_image_omics": "2.2M paired tissue images + spatial transcriptomics (Visium), 32 organs",
         "audit_organs": "32 organs",
         "audit_downstream": "Loki platform: tissue alignment, annotation, cell-type decomposition, image-transcriptomics retrieval, ST gene-expression prediction from H&E",
+        "audit_omics": "Spatial transcriptomics — 2.2M paired image–ST tiles",
         "audit_notes": "Visual-omics FM (Nature Methods 2025) aligning H&E with spatial transcriptomics via CLIP; transcriptomics encoded as sentences of top-expressed genes. Powers the Loki platform.",
         "paper_title": "A visual-omics foundation model to bridge histopathology with spatial transcriptomics",
-        "paper_author": "Chen"
+        "paper_author": "Chen",
+        "website": "",
+        "audit_image_omics": "2.2M paired tissue images + spatial transcriptomics (Visium), 32 organs"
       },
       {
         "name": "KRONOS",
@@ -992,13 +996,14 @@ const modelData = [
         "bibtex": "@misc{shaban2025foundationmodelspatialproteomics,\n      title={A Foundation Model for Spatial Proteomics}, \n      author={Muhammad Shaban and Yuzhou Chang and Huaying Qiu and Yao Yu Yeo and Andrew H. Song and Guillaume Jaume and Yuchen Wang and Luca L. Weishaupt and Tong Ding and Anurag Vaidya and Abdallah Lamane and Daniel Shao and Mohammed Zidane and Yunhao Bai and Paige McCallum and Shuli Luo and Wenrui Wu and Yang Wang and Precious Cramer and Chi Ngai Chan and Pierre Stephan and Johanna Schaffenrath and Jia Le Lee and Hendrik A. Michel and Caiwei Tian and Cristina Almagro-Perez and Sophia J. Wagner and Sharifa Sahai and Ming Y. Lu and Richard J. Chen and Andrew Zhang and Mark Edward M. Gonzales and Ahmad Makky and Jia-Ying Joey Lee and Hao Cheng and Nourhan El Ahmar and Sayed Matar and Maximilian Haist and Darci Phillips and Yuqi Tan and Garry P. Nolan and W. Richard Burack and Jacob D. Estes and Jonathan T. C. Liu and Toni K Choueiri and Neeraj Agarwal and Marc Barry and Scott J. Rodig and Long Phi Le and Georg Gerber and Christian M. Schürch and Fabian J. Theis and Youn H Kim and Joe Yeong and Sabina Signoretti and Brooke E. Howitt and Lit-Hsin Loo and Qin Ma and Sizun Jiang and Faisal Mahmood},\n      year={2025},\n      eprint={2506.03373},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2506.03373}, \n}",
         "audit_wsis": "Spatial-proteomics image corpus (not conventional WSI pretraining)",
         "audit_patches": ">47M spatial-proteomics image patches",
-        "audit_image_omics": "47M+ patches cover 175 protein markers",
         "audit_organs": "16 tissue types",
         "audit_downstream": "Cell phenotyping, region classification, patient stratification, treatment-response prediction, retrieval/reverse search",
         "audit_cohorts": "11 independent evaluation cohorts; 8 fluorescence imaging platforms",
+        "audit_omics": "Spatial proteomics (CODEX / multiplex IF) — 175 unique protein markers (3–52 per cohort)",
         "audit_notes": "Segmentation-free, multi-channel spatial-proteomics FM.",
         "paper_title": "A Foundation Model for Spatial Proteomics",
-        "paper_author": "Shaban"
+        "paper_author": "Shaban",
+        "audit_image_omics": "47M+ patches cover 175 protein markers"
       },
       {
         "name": "EXAONE Path 2.5",
@@ -1031,13 +1036,14 @@ const modelData = [
         "bibtex": "@misc{zhang2026caremolecularguidedfoundationmodel,\n      title={CARE: A Molecular-Guided Foundation Model with Adaptive Region Modeling for Whole Slide Image Analysis}, \n      author={Di Zhang and Zhangpeng Gong and Xiaobo Pang and Jiashuai Liu and Junbo Lu and Hao Cui and Jiusong Ge and Zhi Zeng and Kai Yi and Yinghua Li and Si Liu and Tingsong Yu and Haoran Wang and Mireia Crispin-Ortuzar and Weimiao Yu and Chen Li and Zeyu Gao},\n      year={2026},\n      eprint={2602.21637},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2602.21637}, \n}",
         "audit_wsis": "34,277 WSIs (11,463 TCGA H&E FFPE + 22,814 GTEx normal)",
         "audit_patches": "285,710 sub-WSIs (DBSCAN clusters, <=360 patches each)",
-        "audit_image_omics": "13,289 WSI-RNA pairs + 8,225 WSI-protein pairs",
         "audit_organs": "Pan-cancer (TCGA + GTEx); eval spans CPTAC (GBM/BRCA/CCRCC/COAD/HNSCC/LUAD/PDA), EBRAINS, colorectal, breast, lung",
         "audit_downstream": "33 tasks across 9 datasets (CPTAC, EBRAINS, MUT-HET-RCC, IMP, BCNB, DHMC-LUAD, DHMC-RCC, SR386, Local-LUNG)",
         "audit_cohorts": "Pretraining: TCGA + GTEx; eval: CPTAC + 7 additional public/institutional cohorts",
+        "audit_omics": "Molecular-guided (CPTAC proteogenomics; TCGA + GTEx)",
         "audit_notes": "Confirmed 34,277 pretraining WSIs (TCGA 11,463 + GTEx 22,814). Molecular-guided adaptive region modeling; 13,289 WSI-RNA + 8,225 WSI-protein pairs.",
         "paper_title": "CARE: A Molecular-Guided Foundation Model with Adaptive Region Modeling for Whole Slide Image Analysis",
-        "paper_author": "Zhang"
+        "paper_author": "Zhang",
+        "audit_image_omics": "13,289 WSI-RNA pairs + 8,225 WSI-protein pairs"
       },
       {
         "name": "KRONOS2",
@@ -1052,10 +1058,11 @@ const modelData = [
         "bibtex": "@misc{shaban2025foundationmodelspatialproteomics,\n      title={A Foundation Model for Spatial Proteomics}, \n      author={Muhammad Shaban and Yuzhou Chang and Huaying Qiu and Yao Yu Yeo and Andrew H. Song and Guillaume Jaume and Yuchen Wang and Luca L. Weishaupt and Tong Ding and Anurag Vaidya and Abdallah Lamane and Daniel Shao and Mohammed Zidane and Yunhao Bai and Paige McCallum and Shuli Luo and Wenrui Wu and Yang Wang and Precious Cramer and Chi Ngai Chan and Pierre Stephan and Johanna Schaffenrath and Jia Le Lee and Hendrik A. Michel and Caiwei Tian and Cristina Almagro-Perez and Sophia J. Wagner and Sharifa Sahai and Ming Y. Lu and Richard J. Chen and Andrew Zhang and Mark Edward M. Gonzales and Ahmad Makky and Jia-Ying Joey Lee and Hao Cheng and Nourhan El Ahmar and Sayed Matar and Maximilian Haist and Darci Phillips and Yuqi Tan and Garry P. Nolan and W. Richard Burack and Jacob D. Estes and Jonathan T. C. Liu and Toni K Choueiri and Neeraj Agarwal and Marc Barry and Scott J. Rodig and Long Phi Le and Georg Gerber and Christian M. Schürch and Fabian J. Theis and Youn H Kim and Joe Yeong and Sabina Signoretti and Brooke E. Howitt and Lit-Hsin Loo and Qin Ma and Sizun Jiang and Faisal Mahmood},\n      year={2025},\n      eprint={2506.03373},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2506.03373}, \n}",
         "audit_wsis": "Spatial-proteomics image corpus",
         "audit_patches": "SPM56M pretraining set (name implies ~56M spatial-proteomics patches; exact count not on card)",
-        "audit_image_omics": "Pretraining marker vocabulary: 268 protein markers (vs 175 in KRONOS)",
+        "audit_omics": "Spatial proteomics (marker-aware) — 268 protein markers",
         "audit_notes": "Marker-aware DINOv2 ViT-B/16, next-gen successor to KRONOS. No distinct KRONOS2 paper yet - shares the KRONOS arXiv (Shaban et al., 2025).",
         "paper_title": "A foundation model for spatial proteomics",
-        "paper_author": "Shaban"
+        "paper_author": "Shaban",
+        "audit_image_omics": "Pretraining marker vocabulary: 268 protein markers (vs 175 in KRONOS)"
       },
       {
         "name": "GigaTIME-Flash",
@@ -1068,13 +1075,14 @@ const modelData = [
         "hf": "https://huggingface.co/prov-gigatime/gigatime-flash",
         "paper": "https://arxiv.org/abs/2607.18218",
         "bibtex": "@misc{usuyama2026gigapathflashgigatimeflashefficientpathology,\n      title={GigaPath-Flash and GigaTIME-Flash: Efficient Pathology Foundation Models for Whole-Slide and Tumor Microenvironment Analysis}, \n      author={Naoto Usuyama and Jeya Maria Jose Valanarasu and Sicong Yao and Hanwen Xu and Jaspreet Bagga and Guanghui Qin and Robert E. Kramer and Cliff Wong and Soohee Lee and Hao Qiu and Theodore Zhengde Zhao and Racheli Ben Shimol and Angela Crabtree and Kevin Matlock and Eduardo Alejandro Lozano Garcia and Naiteek Sangani and Alberto Santamaria-Pang and Maximilian Rokuss and Yashna Hasija and Naisargi Manishkumar Patel and Jason Entenmann and Alexandra Q. Bartlett and Bill J. Wright and Bernard A. Fox and Brian Piening and Sheng Zhang and Sheng Wang and Tristan Naumann and Carlo Bifulco and Hoifung Poon},\n      year={2026},\n      eprint={2607.18218},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2607.18218}, \n}",
-        "audit_image_omics": "Spatial-proteomics prediction supervision",
         "audit_organs": "Evaluation: prostate, brain, lung (LUAD/LUSC), breast, colon (Prov-TMA)",
         "audit_downstream": "Tumor immune microenvironment / spatial-proteomics prediction (windowed Pearson on mIF markers)",
         "audit_cohorts": "Large real-world clinical data",
+        "audit_omics": "Spatial proteomics — predicted from H&E",
         "audit_notes": "Uses the compact GigaPath-Flash visual backbone. Providence pretraining size not disclosed.",
         "paper_title": "GigaPath-Flash and GigaTIME-Flash: Efficient Pathology Foundation Models for Whole-Slide and Tumor Microenvironment Analysis",
-        "paper_author": "Usuyama"
+        "paper_author": "Usuyama",
+        "audit_image_omics": "Spatial-proteomics prediction supervision"
       }
     ]
   },
@@ -2036,6 +2044,6 @@ const modelData = [
 ];
 
 // Node.js export (browser ignores this — `module` is undefined in the browser).
-if (typeof module !== 'undefined' && module.exports) {
+if (typeof module !== "undefined" && module.exports) {
   module.exports = modelData;
 }
