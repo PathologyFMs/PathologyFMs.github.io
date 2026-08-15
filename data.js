@@ -411,6 +411,24 @@ const modelData = [
         "paper_author": "Karasikov"
       },
       {
+        "name": "OpenMidnight",
+        "year": 2025,
+        "date": "2025-11-14",
+        "data": "TCGA-12K (~12K WSIs)",
+        "idea": "Fully open reproduction of Midnight (MedARC / Sophont): a ViT-G/14 tile encoder trained with DINOv2 on just ~12K TCGA WSIs for ~$1.6k, matching state-of-the-art pathology FMs with orders-of-magnitude less data",
+        "stains": "H&E",
+        "github": "https://github.com/MedARC-AI/OpenMidnight",
+        "hf": "https://huggingface.co/SophontAI/OpenMidnight",
+        "paper": "https://sophont.med/blog/openmidnight",
+        "bibtex": "@misc{openmidnight2025,\n  title={OpenMidnight: How to Train a State-of-the-Art Pathology Foundation Model with \\$1.6k},\n  author={{MedARC} and {Sophont}},\n  year={2025},\n  url={https://sophont.med/blog/openmidnight}\n}",
+        "audit_objective": "DINOv2 self-distillation (DINO + iBOT) with a KDE entropy regularizer (replaces KoLeo); ViT-G/14 initialized from the DINOv2 register checkpoint",
+        "audit_wsis": "~12K TCGA WSIs (TCGA-12K, ~12 TB; pre-patched, streamed from Hugging Face)",
+        "audit_cohorts": "TCGA (public); developed by MedARC + Sophont",
+        "audit_notes": "Open reproduction of kaiko.ai Midnight; ViT-G/14 (~1.1B params) with 4 register tokens; trained for ~$1.6k and matches SOTA with far less data; fully open weights and reproducible code",
+        "paper_title": "OpenMidnight: How to Train a State-of-the-Art Pathology Foundation Model with $1.6k",
+        "paper_author": ""
+      },
+      {
         "name": "H-optimus-0",
         "year": 2025,
         "date": "2025-01-27",
