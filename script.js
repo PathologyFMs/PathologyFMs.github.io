@@ -304,14 +304,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const ts = items.map(it => toT(it.m.date));
         const tMax = Math.max(...ts);
 
-        const R0 = 56, K = 74;                 // start radius + growth (gap) per revolution
+        const single = spiralYear !== 'all';   // single-year view: bigger, more open loop with larger dots
+        const R0 = single ? 90 : 56, K = single ? 175 : 74;
+        const dotR = single ? 8 : 6, dotHr = single ? 11 : 9, collide = single ? 17 : 13.5;
         const p0 = t => { const th = 2 * Math.PI * t, r = R0 + K * t; return [r * Math.sin(th), -r * Math.cos(th)]; };
 
         // Place dots; fan collisions outward along the radius so clustered dates stay visible.
         const placed = [];
         const P = ts.map(t => {
             const th = 2 * Math.PI * t; let r = R0 + K * t, x = r * Math.sin(th), y = -r * Math.cos(th), tries = 0;
-            while (tries < 80 && placed.some(q => Math.hypot(q[0] - x, q[1] - y) < 13.5)) { r += 4.6; x = r * Math.sin(th); y = -r * Math.cos(th); tries++; }
+            while (tries < 80 && placed.some(q => Math.hypot(q[0] - x, q[1] - y) < collide)) { r += collide * 0.34; x = r * Math.sin(th); y = -r * Math.cos(th); tries++; }
             placed.push([x, y]); return [x, y];
         });
 
@@ -345,7 +347,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Dots.
         let dots = '';
-        items.forEach((it, i) => { const col = spiralColor(it.category); dots += `<circle class="spiral-dot" data-idx="${i}" cx="${(P[i][0] + c).toFixed(1)}" cy="${(P[i][1] + c).toFixed(1)}" r="6" fill="${col}" style="color:${col};animation-delay:${i * 8}ms"/>`; });
+        items.forEach((it, i) => { const col = spiralColor(it.category); dots += `<circle class="spiral-dot" data-idx="${i}" cx="${(P[i][0] + c).toFixed(1)}" cy="${(P[i][1] + c).toFixed(1)}" r="${dotR}" fill="${col}" style="color:${col};animation-delay:${i * 8}ms"/>`; });
 
         // Legend (categories present, in canonical order).
         const present = Object.keys(SPIRAL_COLORS).filter(cat => items.some(it => it.category === cat));
@@ -354,7 +356,7 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = `
         <div class="spiral-wrap">
           <div class="spiral-tabs">${tabs}</div>
-          <svg viewBox="0 0 ${size} ${size}" class="spiral-svg" role="img" aria-label="Spiral timeline of ${items.length} models, one revolution per year">
+          <svg viewBox="0 0 ${size} ${size}" class="spiral-svg" style="--dot-hr:${dotHr}" role="img" aria-label="Spiral timeline of ${items.length} models, one revolution per year">
             <defs>
               <radialGradient id="spiralGlow" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stop-color="var(--accent-1)" stop-opacity="0.10"/>
