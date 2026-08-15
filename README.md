@@ -106,7 +106,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **ELF** | 2025 | 53K WSIs (20 anatomical sites) | Ensemble learning | [Paper](https://arxiv.org/abs/2508.16085) • [Code](https://github.com/lilab-stanford/ELF) |
 | **Shazam** | 2026 | Fuses 5 models (UNI 2, Virchow2, H-optimus-1, Prov-Gigapath, Phikon-v2) | Adaptive integration/distillation | [Paper](https://arxiv.org/abs/2503.00736) |
 | **ALICE** | 2026 | 24.9M tiles + 155K high-res images | Agglomerative distillation | [Paper](https://arxiv.org/pdf/2607.09526) • [Code](https://github.com/WonderLandxD/ALICE) |
-| **ASTRA** | 2026 | 10.3K WSIs (CHTN cohort) | MoE fusion/alignment | [Paper](https://arxiv.org/abs/2604.22846) |
+| **ASTRA** | 2026 | 10.3K WSIs (CHTN cohort) | Integrates multiple heterogeneous FM tile representations into a shared slide-level space via sparse mixture-of-experts, masked multi-model reconstruction and contrastive alignment to structured pathology prompts; enables pan-cancer classification and text-guided tumor localization without pixel-level supervision | [Paper](https://arxiv.org/abs/2604.22846) |
 | **Flannery et al.** | 2025 | Fuses 8 PFMs (5 tile + 3 slide) | Information-driven fusion via correlation-guided pruning of redundant features; integrates 5 tile-level (CONCH v1.5, MUSK, Virchow2, H-optimus-1, Prov-GigaPath) + 3 slide-level (TITAN, CHIEF, MADELEINE) models for cancer grading/staging | [Paper](https://arxiv.org/abs/2512.11104) |
 | **LogitProd** | 2026 | Multi-FM logit fusion | Plug-and-play fusion of heterogeneous FM predictors: treats independently trained experts as fixed and learns sample-adaptive weights over their slide-level logits — no encoder retraining or feature-space alignment, with a guarantee of matching the best single expert | [Paper](https://arxiv.org/abs/2604.07779) |
 
@@ -116,7 +116,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 
 | Model | Year | Pretraining Data | Key Idea | Resources |
 |---|---|---|---|---|
-| **VISTA-PATH** | 2026 | 1.65M triplets (Image + Mask + Text) | Interactive Class-Aware Segmentation | [Paper](https://arxiv.org/abs/2601.16451) • [Code](https://github.com/zhihuanglab/VISTA-PATH) |
+| **VISTA-PATH** | 2026 | 1.65M triplets (Image + Mask + Text) | Interactive, class-aware pathology segmentation foundation model conditioned on visual context, text tissue descriptions and optional expert spatial prompts; supports human-in-the-loop refinement (sparse box feedback propagated to whole-slide masks), trained on 1.6M+ image–mask–text triplets across 9 organs / 93 tissue classes | [Paper](https://arxiv.org/abs/2601.16451) • [Code](https://github.com/zhihuanglab/VISTA-PATH) |
 | **PathoSAM** | 2025 | SAM for histopathology | Segment Anything (SAM) adapted for histopathology; SOTA automatic and interactive nucleus instance segmentation, with whole-slide-scale scripts | [Paper](https://arxiv.org/abs/2502.00408) • [Code](https://github.com/computational-cell-analytics/patho-sam) |
 
 ---
