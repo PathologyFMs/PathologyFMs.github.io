@@ -191,6 +191,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let rowsHtml = '';
 
         const fields = [
+            { label: 'Pre-training objective', value: model.audit_objective },
             { label: 'Pretraining WSIs', value: model.audit_wsis },
             { label: 'Patches / tiles', value: model.audit_patches },
             { label: 'Image-text pairs', value: model.audit_image_text },
