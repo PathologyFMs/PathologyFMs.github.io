@@ -159,7 +159,8 @@ const modelData = [
         "bibtex": "@misc{dippel2024rudolfvfoundationmodelpathologists,\n      title={RudolfV: A Foundation Model by Pathologists for Pathologists}, \n      author={Jonas Dippel and Barbara Feulner and Tobias Winterhoff and Timo Milbich and Stephan Tietz and Simon Schallenberg and Gabriel Dernbach and Andreas Kunft and Simon Heinke and Marie-Lisa Eich and Julika Ribbat-Idel and Rosemarie Krupar and Philipp Anders and Niklas Prenißl and Philipp Jurmeister and David Horst and Lukas Ruff and Klaus-Robert Müller and Frederick Klauschen and Maximilian Alber},\n      year={2024},\n      eprint={2401.04079},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2401.04079}, \n}",
         "audit_organs": "58 tissue types; 129 histochemical/IHC stain modalities",
         "audit_downstream": "Tumor-microenvironment profiling, biomarker evaluation, reference-case search",
-        "audit_cohorts": ">15 laboratories across Europe/US",
+        "audit_cohorts": "Proprietary archive from >15 European/US labs (~108K WSIs, 81%) + TCGA (~27K, 19%)",
+        "audit_scanners": "6 scanner types, incl. Roche Ventana DP600, Leica Aperio GT450, 3DHISTECH Pannoramic 1000 (also Ventana DP200, Akoya Vectra Polaris)",
         "audit_notes": "Pathologist-curated pretraining across >15 European/US laboratories; 58 tissue types and 129 histochemical/IHC stain modalities.",
         "paper_title": "RudolfV: A Foundation Model by Pathologists for Pathologists",
         "paper_author": "Dippel"
@@ -179,7 +180,7 @@ const modelData = [
         "audit_patches": "195M image tiles",
         "audit_organs": "16 tissue groups; 28 disease areas",
         "audit_downstream": "Instance segmentation, tile classification, slide-level prediction across public (NSCLC, CRC-100K, Camelyon17-WILDS, GlaS, PanNuke) + proprietary benchmarks",
-        "audit_cohorts": "50+ source sites (TCGA, MSKCC, MGH, BWH, GTEx, NCT Biobank, UMM)",
+        "audit_cohorts": "TCGA + proprietary (PathAI); 158K WSIs / 195M tiles",
         "audit_notes": "Pathology-Universal Transformer; 158,852 WSIs / 195M tiles from 50+ sites; multi-scale (FlexiViT) representation.",
         "paper_title": "PLUTO: Pathology-Universal Transformer",
         "paper_author": "Juyal"
@@ -193,6 +194,16 @@ const modelData = [
         "stains": "H&E",
         "github": "https://github.com/mahmoodlab/UNI",
         "hf": "https://huggingface.co/MahmoodLab/UNI",
+        "paper": "https://doi.org/10.1038/s41591-024-02857-3",
+        "bibtex": "@article{Chen_2024, title={Towards a general-purpose foundation model for computational pathology}, volume={30}, ISSN={1546-170X}, url={http://dx.doi.org/10.1038/s41591-024-02857-3}, DOI={10.1038/s41591-024-02857-3}, number={3}, journal={Nature Medicine}, publisher={Springer Science and Business Media LLC}, author={Chen, Richard J. and Ding, Tong and Lu, Ming Y. and Williamson, Drew F. K. and Jaume, Guillaume and Song, Andrew H. and Chen, Bowen and Zhang, Andrew and Shao, Daniel and Shaban, Muhammad and Williams, Mane and Oldenburg, Lukas and Weishaupt, Luca L. and Wang, Judy J. and Vaidya, Anurag and Le, Long Phi and Gerber, Georg and Sahai, Sharifa and Williams, Walt and Mahmood, Faisal}, year={2024}, month=Mar, pages={850–862} }",
+        "audit_wsis": ">100K WSIs",
+        "audit_patches": ">100M images",
+        "audit_organs": "20 major tissue types",
+        "audit_downstream": "34 representative CPath tasks",
+        "audit_cohorts": "Mass-100K: Massachusetts General Hospital (MGH) + Brigham and Women’s Hospital (BWH) + GTEx (~100K WSIs / 100M patches)",
+        "audit_notes": ">77 TB diagnostic H&E; public/private mix.",
+        "paper_title": "Towards a general-purpose foundation model for computational pathology",
+        "paper_author": "Chen",
         "variants": [
           {
             "name": "UNI2-h",
@@ -208,17 +219,7 @@ const modelData = [
             "paper": "",
             "note": "ViT-g preview variant of UNI2 (gated)."
           }
-        ],
-        "paper": "https://doi.org/10.1038/s41591-024-02857-3",
-        "bibtex": "@article{Chen_2024, title={Towards a general-purpose foundation model for computational pathology}, volume={30}, ISSN={1546-170X}, url={http://dx.doi.org/10.1038/s41591-024-02857-3}, DOI={10.1038/s41591-024-02857-3}, number={3}, journal={Nature Medicine}, publisher={Springer Science and Business Media LLC}, author={Chen, Richard J. and Ding, Tong and Lu, Ming Y. and Williamson, Drew F. K. and Jaume, Guillaume and Song, Andrew H. and Chen, Bowen and Zhang, Andrew and Shao, Daniel and Shaban, Muhammad and Williams, Mane and Oldenburg, Lukas and Weishaupt, Luca L. and Wang, Judy J. and Vaidya, Anurag and Le, Long Phi and Gerber, Georg and Sahai, Sharifa and Williams, Walt and Mahmood, Faisal}, year={2024}, month=Mar, pages={850–862} }",
-        "audit_wsis": ">100K WSIs",
-        "audit_patches": ">100M images",
-        "audit_organs": "20 major tissue types",
-        "audit_downstream": "34 representative CPath tasks",
-        "audit_cohorts": "Two hospitals plus GTEx are reported as principal sources",
-        "audit_notes": ">77 TB diagnostic H&E; public/private mix.",
-        "paper_title": "Towards a general-purpose foundation model for computational pathology",
-        "paper_author": "Chen"
+        ]
       },
       {
         "name": "Virchow",
@@ -235,7 +236,7 @@ const modelData = [
         "audit_patches": "~2B sampled training tiles; ~13B available tissue tiles",
         "audit_organs": "17 high-level tissue groups",
         "audit_downstream": "Pan-cancer detection across 17 types, rare-cancer detection across 7 rare types, tile benchmarks and slide biomarker prediction",
-        "audit_cohorts": "Pretraining at MSKCC; external evaluation includes 7 additional clinical datasets",
+        "audit_cohorts": "Memorial Sloan Kettering Cancer Center (MSKCC); ~1.5M WSIs",
         "audit_notes": "~100K patients; 2B is sampled training instances, not unique patches.",
         "paper_title": "A foundation model for clinical-grade computational pathology and rare cancers detection",
         "paper_author": "Vorontsov"
@@ -249,6 +250,15 @@ const modelData = [
         "stains": "H&E + IHC (mixed magnification)",
         "github": "",
         "hf": "https://huggingface.co/paige-ai/Virchow2",
+        "paper": "https://arxiv.org/abs/2408.00738",
+        "bibtex": "@misc{zimmermann2024virchow2scalingselfsupervisedmixed,\n      title={Virchow2: Scaling Self-Supervised Mixed Magnification Models in Pathology}, \n      author={Eric Zimmermann and Eugene Vorontsov and Julian Viret and Adam Casson and Michal Zelechowski and George Shaikovski and Neil Tenenholtz and James Hall and David Klimstra and Razik Yousfi and Thomas Fuchs and Nicolo Fusi and Siqi Liu and Kristen Severson},\n      year={2024},\n      eprint={2408.00738},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2408.00738}, \n}",
+        "audit_wsis": "3.1M",
+        "audit_organs": "Nearly 200 tissue types",
+        "audit_downstream": "12 tile-level downstream tasks reported",
+        "audit_cohorts": "MSKCC; ~15% of WSIs / 57% of patients from diverse institutions worldwide (consultation cases)",
+        "audit_notes": "Mixed 5×/10×/20×/40×; H&E + IHC diversity.",
+        "paper_title": "Virchow2: Scaling Self-Supervised Mixed Magnification Models in Pathology",
+        "paper_author": "Zimmermann",
         "variants": [
           {
             "name": "Virchow2G",
@@ -257,16 +267,7 @@ const modelData = [
             "paper": "",
             "note": "ViT-G/14, 1.9B params - the giant variant of Virchow2 (gated)."
           }
-        ],
-        "paper": "https://arxiv.org/abs/2408.00738",
-        "bibtex": "@misc{zimmermann2024virchow2scalingselfsupervisedmixed,\n      title={Virchow2: Scaling Self-Supervised Mixed Magnification Models in Pathology}, \n      author={Eric Zimmermann and Eugene Vorontsov and Julian Viret and Adam Casson and Michal Zelechowski and George Shaikovski and Neil Tenenholtz and James Hall and David Klimstra and Razik Yousfi and Thomas Fuchs and Nicolo Fusi and Siqi Liu and Kristen Severson},\n      year={2024},\n      eprint={2408.00738},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2408.00738}, \n}",
-        "audit_wsis": "3.1M",
-        "audit_organs": "Nearly 200 tissue types",
-        "audit_downstream": "12 tile-level downstream tasks reported",
-        "audit_cohorts": "225,401 patients",
-        "audit_notes": "Mixed 5×/10×/20×/40×; H&E + IHC diversity.",
-        "paper_title": "Virchow2: Scaling Self-Supervised Mixed Magnification Models in Pathology",
-        "paper_author": "Zimmermann"
+        ]
       },
       {
         "name": "Hibou",
@@ -400,6 +401,14 @@ const modelData = [
         "stains": "H&E",
         "github": "https://github.com/bioptimus/releases/tree/main/models/h-optimus/v0",
         "hf": "https://huggingface.co/bioptimus/H-optimus-0",
+        "paper": "https://arxiv.org/abs/2501.16239v1",
+        "bibtex": "@misc{filiot2025distillingfoundationmodelsrobust,\n      title={Distilling foundation models for robust and efficient models in digital pathology}, \n      author={Alexandre Filiot and Nicolas Dop and Oussama Tchita and Auriane Riou and Rémy Dubois and Thomas Peeters and Daria Valter and Marin Scalbert and Charlie Saillard and Geneviève Robin and Antoine Olivier},\n      year={2025},\n      eprint={2501.16239},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2501.16239}, \n}",
+        "audit_wsis": ">500K proprietary H&E WSIs",
+        "audit_downstream": "Examples include mutation prediction, survival prediction, tissue classification",
+        "audit_scanners": "Robustness evaluated across scanners: Aperio (GT450/AT2/ScanScope), Olympus VS200, Hamamatsu S60, Pramana, Huron (GR / CLB / CuriMeta / PLISM cohorts)",
+        "audit_notes": "1.1B-parameter tile FM; private corpus.",
+        "paper_title": "Distilling foundation models for robust and efficient models in digital pathology",
+        "paper_author": "Filiot",
         "variants": [
           {
             "name": "H-optimus-1",
@@ -408,14 +417,7 @@ const modelData = [
             "paper": "",
             "note": "1.1B ViT-g; billions of tiles from 1M+ slides, 800K+ patients. Successor to H-optimus-0."
           }
-        ],
-        "paper": "https://arxiv.org/abs/2501.16239v1",
-        "bibtex": "@misc{filiot2025distillingfoundationmodelsrobust,\n      title={Distilling foundation models for robust and efficient models in digital pathology}, \n      author={Alexandre Filiot and Nicolas Dop and Oussama Tchita and Auriane Riou and Rémy Dubois and Thomas Peeters and Daria Valter and Marin Scalbert and Charlie Saillard and Geneviève Robin and Antoine Olivier},\n      year={2025},\n      eprint={2501.16239},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2501.16239}, \n}",
-        "audit_wsis": ">500K proprietary H&E WSIs",
-        "audit_downstream": "Examples include mutation prediction, survival prediction, tissue classification",
-        "audit_notes": "1.1B-parameter tile FM; private corpus.",
-        "paper_title": "Distilling foundation models for robust and efficient models in digital pathology",
-        "paper_author": "Filiot"
+        ]
       },
       {
         "name": "PathOrchestra",
@@ -431,7 +433,7 @@ const modelData = [
         "audit_wsis": "287,424 H&E WSIs",
         "audit_organs": "21 tissues/organs/systems",
         "audit_downstream": "112 tasks: 61 WSI + 51 ROI; slide preprocessing 12, pan-cancer 3, lesion identification 15, cancer subtyping 36, biomarker evaluation 36, gene-expression assessment 10",
-        "audit_cohorts": "3 pretraining centers; evaluation uses 51 public + 61 private datasets",
+        "audit_cohorts": "Air Force Military Medical Hospital + Anhui Provincial Hospital (internal); eval incl. Radboud & Karolinska (PANDA), Helsinki University Hospital",
         "audit_notes": "Evaluation corpus is 27,755 WSIs + 9,415,729 ROIs; >35 stains and >50 genes.",
         "paper_title": "PathOrchestra: A Comprehensive Foundation Model for Computational Pathology with Over 100 Diverse Clinical-Grade Tasks",
         "paper_author": "Yan"
@@ -503,7 +505,8 @@ const modelData = [
         "audit_patches": "107 million patches (pretraining subset)",
         "audit_organs": "Stomach/gastric, 1 organ focus",
         "audit_downstream": "28 tasks (28 internal, 11 external, 33 prospective cohorts): precancerous lesions, histopathologic assessment, molecular profiling, prognosis",
-        "audit_cohorts": "9 hospitals (H1-H9); 72 validation cohorts; 37,493 dev patients; downstream 22,645 WSIs / 11,774 patients",
+        "audit_cohorts": "9 hospitals (H1–H9); Nanfang Hospital, Southern Medical University; pretrained on 23,708 WSIs (Hospital H7)",
+        "audit_scanners": "Multiple vendors: Leica Aperio, 3DHISTECH, KFBIO, TEKSQRAY (formats SDPC / KFB / SVS / MRXS / TIF)",
         "audit_notes": "GRACE = LoRA continued-pretraining on 25,719 gastric WSIs (107M patches); 48,364 total dev/validation WSIs (37,493 patients) across 9 hospitals. Gastric-specific.",
         "paper_title": "A Pathology Foundation Model for Gastric Cancer with Real-World Validation",
         "paper_author": "Liang"
@@ -563,13 +566,13 @@ const modelData = [
         "bibtex": "@article{Xu_2024, title={A whole-slide foundation model for digital pathology from real-world data}, volume={630}, ISSN={1476-4687}, url={http://dx.doi.org/10.1038/s41586-024-07441-w}, DOI={10.1038/s41586-024-07441-w}, number={8015}, journal={Nature}, publisher={Springer Science and Business Media LLC}, author={Xu, Hanwen and Usuyama, Naoto and Bagga, Jaspreet and Zhang, Sheng and Rao, Rajesh and Naumann, Tristan and Wong, Cliff and Gero, Zelalem and González, Javier and Gu, Yu and Xu, Yanbo and Wei, Mu and Wang, Wenhui and Ma, Shuming and Wei, Furu and Yang, Jianwei and Li, Chunyuan and Gao, Jianfeng and Rosemon, Jaylen and Bower, Tucker and Lee, Soohee and Weerasinghe, Roshanthi and Wright, Bill J. and Robicsek, Ari and Piening, Brian and Bifulco, Carlo and Wang, Sheng and Poon, Hoifung}, year={2024}, month=May, pages={181–188} }",
         "audit_wsis": "171,189 H&E/IHC WSIs",
         "audit_patches": "1,384,860,229 256×256 tiles",
-        "audit_wsi_report": "Reports used in V-L experiment",
         "audit_organs": "31 major tissue types",
         "audit_downstream": "26 tasks: 9 cancer-subtyping + 17 pathomics",
-        "audit_cohorts": "Providence network: 28 cancer centers, >30K patients",
+        "audit_cohorts": "Providence health network (28 cancer centers, ~30K patients); 171K WSIs",
         "audit_notes": "Private real-world clinical corpus; DINOv2 tile encoder + LongNet/MAE slide encoder.",
         "paper_title": "A whole-slide foundation model for digital pathology from real-world data",
-        "paper_author": "Xu"
+        "paper_author": "Xu",
+        "audit_wsi_report": "Reports used in V-L experiment"
       },
       {
         "name": "CHIEF",
@@ -864,12 +867,13 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2506.13063",
         "bibtex": "@misc{vorontsov2025prism2unlockingmultimodalgeneral,\n      title={PRISM2: Unlocking Multi-Modal General Pathology AI with Clinical Dialogue}, \n      author={Eugene Vorontsov and George Shaikovski and Adam Casson and Julian Viret and Eric Zimmermann and Neil Tenenholtz and Yi Kan Wang and Jan H. Bernhard and Ran A. Godrich and Juan A. Retamero and Jinru Shia and Mithat Gonen and Martin R. Weiser and David S. Klimstra and Razik Yousfi and Nicolo Fusi and Thomas J. Fuchs and Kristen Severson and Siqi Liu},\n      year={2025},\n      eprint={2506.13063},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2506.13063}, \n}",
         "audit_wsis": "2.3M WSIs",
-        "audit_wsi_report": "~700K specimens / 2.3M WSIs have diagnostic reports (no explicit pair total isolated)",
         "audit_downstream": "Diagnostic/biomarker/report-QA and survival-oriented evaluations",
-        "audit_cohorts": "Nearly 700K specimens",
+        "audit_cohorts": "Memorial Sloan Kettering (MSK) + TCGA; ~100K-patient survival cohort (Paige)",
+        "audit_scanners": "Leica scanners (20×, 0.5 mpp)",
         "audit_notes": "One report-bearing specimen can have several slides, hence 2.3M ≠ 2.3M WSI-report pairs.",
         "paper_title": "PRISM2: Unlocking Multi-Modal General Pathology AI with Clinical Dialogue",
-        "paper_author": "Vorontsov"
+        "paper_author": "Vorontsov",
+        "audit_wsi_report": "~700K specimens / 2.3M WSIs have diagnostic reports (no explicit pair total isolated)"
       }
     ]
   },
@@ -928,13 +932,14 @@ const modelData = [
         "paper": "https://arxiv.org/html/2501.16652v1",
         "bibtex": "@misc{vaidya2025moleculardrivenfoundationmodeloncologic,\n      title={Molecular-driven Foundation Model for Oncologic Pathology}, \n      author={Anurag Vaidya and Andrew Zhang and Guillaume Jaume and Andrew H. Song and Tong Ding and Sophia J. Wagner and Ming Y. Lu and Paul Doucet and Harry Robertson and Cristina Almagro-Perez and Richard J. Chen and Dina ElHarouni and Georges Ayoub and Connor Bossi and Keith L. Ligon and Georg Gerber and Long Phi Le and Faisal Mahmood},\n      year={2025},\n      eprint={2501.16652},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2501.16652}, \n}",
         "audit_patches": "125,148,770 patches (512x512 @ 20x)",
-        "audit_image_omics": "47,171 H&E sections paired with genomic + transcriptomic profiles (BWH 20,556; TCGA 10,209; GTEx 9,507; MGH 6,899)",
         "audit_organs": "39 major organs",
         "audit_downstream": "54 tasks: 8 subtyping/grading, 21 mutation, 12 IHC status, 13 treatment response/survival",
-        "audit_cohorts": "23 cohorts from 17 sources; downstream 28,856 WSIs (PANDA 9,555; IMP 5,333; EBRAINS 2,319; CPTAC 2,115)",
+        "audit_cohorts": "Mass General Brigham (MGH + BWH) + TCGA + GTEx; 47,171 H&E–omics pairs (MBTG-47k)",
+        "audit_scanners": "Aperio GT450 (MGB); TCGA: Aperio + Hamamatsu; GTEx: Aperio AT2 / Hamamatsu NanoZoomer-XR",
         "audit_notes": "47,171 H&E sections + omics; 125M patches (512x512 @ 20x); 39 organs; 54 downstream tasks. Counts are tissue sections rather than distinct WSIs.",
         "paper_title": "Molecular-driven Foundation Model for Oncologic Pathology",
-        "paper_author": "Vaidya"
+        "paper_author": "Vaidya",
+        "audit_image_omics": "47,171 H&E sections paired with genomic + transcriptomic profiles (BWH 20,556; TCGA 10,209; GTEx 9,507; MGH 6,899)"
       },
       {
         "name": "mSTAR",
@@ -2031,6 +2036,6 @@ const modelData = [
 ];
 
 // Node.js export (browser ignores this — `module` is undefined in the browser).
-if (typeof module !== "undefined" && module.exports) {
+if (typeof module !== 'undefined' && module.exports) {
   module.exports = modelData;
 }
