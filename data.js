@@ -870,10 +870,10 @@ const modelData = [
         "audit_downstream": "Diagnostic/biomarker/report-QA and survival-oriented evaluations",
         "audit_cohorts": "Memorial Sloan Kettering (MSK) + TCGA; ~100K-patient survival cohort (Paige)",
         "audit_scanners": "Leica scanners (20×, 0.5 mpp)",
-        "audit_notes": "One report-bearing specimen can have several slides, hence 2.3M ≠ 2.3M WSI-report pairs.",
+        "audit_notes": "Extends PRISM with clinical-dialogue (conversational) multimodal supervision for general pathology AI; pretrained on ~2.3M WSIs with paired diagnostic reports (Paige / MSK).",
         "paper_title": "PRISM2: Unlocking Multi-Modal General Pathology AI with Clinical Dialogue",
         "paper_author": "Vorontsov",
-        "audit_wsi_report": "~700K specimens / 2.3M WSIs have diagnostic reports (no explicit pair total isolated)"
+        "audit_wsi_report": "~2.3M WSIs from ~700K report-bearing specimens (several slides per specimen, so distinct reports ≪ WSIs)"
       }
     ]
   },
