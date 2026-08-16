@@ -49,6 +49,130 @@ document.addEventListener('DOMContentLoaded', () => {
     if (timelineBtn) timelineBtn.addEventListener('click', () => setView('timeline', timelineBtn));
     if (treeBtn) treeBtn.addEventListener('click', () => setView('tree', treeBtn));
 
+    // ---- Faceted filtering (optional collapsible panel) --------------------
+    const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+    function parseScale(str) {
+        if (!str) return null;
+        const mm = String(str).replace(/,/g, '').match(/([\d.]+)\s*([kKmM])?/);
+        if (!mm) return null;
+        let n = parseFloat(mm[1]);
+        if (!isFinite(n)) return null;
+        const u = (mm[2] || '').toLowerCase();
+        if (u === 'k') n *= 1e3; else if (u === 'm') n *= 1e6;
+        return n;
+    }
+    const FACETS = [
+        { key: 'objective', label: 'Pre-training objective', icon: 'ph-atom', tags: m => {
+            const s = (m.audit_objective || '').toLowerCase(); const o = [];
+            if (/dino/.test(s)) o.push('DINO / DINOv2');
+            if (/ibot/.test(s)) o.push('iBOT');
+            if (/\bmae\b|masked[- ]?auto/.test(s)) o.push('MAE');
+            if (/moco/.test(s)) o.push('MoCo');
+            if (/simclr/.test(s)) o.push('SimCLR');
+            if (/swav/.test(s)) o.push('SwAV');
+            if (/barlow/.test(s)) o.push('Barlow Twins');
+            if (/coca/.test(s)) o.push('CoCa');
+            if (/siglip/.test(s)) o.push('SigLIP');
+            if (/clip/.test(s)) o.push('CLIP');
+            if (/contrastive|infonce/.test(s)) o.push('Contrastive');
+            if (/masked (image|modeling|self|token)|beit|\bmim\b/.test(s)) o.push('Masked modeling');
+            if (/distill/.test(s)) o.push('Distillation');
+            if (/supervis|weakly/.test(s)) o.push('Supervised / weakly');
+            return o;
+        } },
+        { key: 'stain', label: 'Stain', icon: 'ph-drop', tags: m => {
+            const s = (m.stains || '').toLowerCase(); const o = [];
+            if (/h&e|h & e|hematoxylin/.test(s)) o.push('H&E');
+            if (/ihc|immunohisto/.test(s)) o.push('IHC');
+            if (/special|\bpas\b|jones|trichrome|histochem/.test(s)) o.push('Special stains');
+            if (/immunofluoresc|multiplex|codex|\bif\b/.test(s)) o.push('Immunofluorescence');
+            if (/spatial transcriptom|visium/.test(s)) o.push('Spatial transcriptomics');
+            return o;
+        } },
+        { key: 'molecular', label: 'Molecular data', icon: 'ph-dna', tags: m => {
+            const s = (m.audit_omics || '').toLowerCase(); const o = [];
+            if (/transcriptom|rna|expression|\bgene/.test(s)) o.push('Transcriptomic');
+            if (/proteom|protein marker/.test(s)) o.push('Proteomic');
+            if (/genom/.test(s)) o.push('Genomic');
+            if (/spatial/.test(s)) o.push('Spatial');
+            return o;
+        } },
+        { key: 'scale', label: 'Pre-training scale (WSIs)', icon: 'ph-stack', order: ['< 10K', '10K – 100K', '100K – 1M', '≥ 1M'], tags: m => {
+            const n = parseScale(m.audit_wsis); if (n == null) return [];
+            if (n < 1e4) return ['< 10K'];
+            if (n < 1e5) return ['10K – 100K'];
+            if (n < 1e6) return ['100K – 1M'];
+            return ['≥ 1M'];
+        } }
+    ];
+    const activeFacets = {};
+    FACETS.forEach(f => { activeFacets[f.key] = new Set(); });
+
+    const allModels = () => modelData.reduce((a, c) => a.concat(c.models), []);
+    function modelPassesFacets(m) {
+        for (const f of FACETS) {
+            const sel = activeFacets[f.key];
+            if (!sel.size) continue;
+            if (!f.tags(m).some(t => sel.has(t))) return false;
+        }
+        return true;
+    }
+    function updateFacetBadge() {
+        const c = FACETS.reduce((n, f) => n + activeFacets[f.key].size, 0);
+        const badge = document.getElementById('facetCount');
+        if (badge) { badge.textContent = c; badge.hidden = c === 0; }
+        const btn = document.getElementById('facetBtn');
+        if (btn) btn.classList.toggle('has-active', c > 0);
+    }
+    function buildFacetPanel() {
+        const panel = document.getElementById('facetPanel');
+        if (!panel) return;
+        const models = allModels();
+        let html = '<div class="facet-head"><span><i class="ph ph-funnel"></i> Filter by metadata</span>' +
+            '<button type="button" id="facetClear" class="facet-clear">Clear all</button></div><div class="facet-groups">';
+        FACETS.forEach(f => {
+            const counts = {};
+            models.forEach(m => f.tags(m).forEach(t => { counts[t] = (counts[t] || 0) + 1; }));
+            let vals = Object.keys(counts);
+            if (!vals.length) return;
+            if (f.order) vals.sort((a, b) => f.order.indexOf(a) - f.order.indexOf(b));
+            else vals.sort((a, b) => counts[b] - counts[a]);
+            html += '<div class="facet-group"><div class="facet-group-label"><i class="ph ' + f.icon + '"></i> ' + f.label + '</div><div class="facet-chips">';
+            vals.forEach(v => {
+                html += '<button type="button" class="facet-chip" data-key="' + f.key + '" data-val="' + esc(v) + '">' +
+                    esc(v) + ' <span class="facet-chip-n">' + counts[v] + '</span></button>';
+            });
+            html += '</div></div>';
+        });
+        html += '</div>';
+        panel.innerHTML = html;
+        panel.querySelectorAll('.facet-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                const k = chip.dataset.key, v = chip.dataset.val;
+                if (activeFacets[k].has(v)) activeFacets[k].delete(v); else activeFacets[k].add(v);
+                chip.classList.toggle('active');
+                updateFacetBadge();
+                handleFilters();
+            });
+        });
+        const clr = document.getElementById('facetClear');
+        if (clr) clr.addEventListener('click', () => {
+            FACETS.forEach(f => activeFacets[f.key].clear());
+            panel.querySelectorAll('.facet-chip.active').forEach(c => c.classList.remove('active'));
+            updateFacetBadge();
+            handleFilters();
+        });
+    }
+    const facetBtn = document.getElementById('facetBtn');
+    if (facetBtn) facetBtn.addEventListener('click', () => {
+        const panel = document.getElementById('facetPanel');
+        if (!panel) return;
+        const open = panel.hidden;
+        panel.hidden = !open;
+        facetBtn.classList.toggle('open', open);
+        facetBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+
     // Populate Category Filter
     modelData.forEach(cat => {
         const option = document.createElement('option');
@@ -778,7 +902,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     m.audit_notes, m.paper_title, m.paper_author, m.tag,
                     ...(m.variants || []).map(v => v.name)
                 ].filter(Boolean).join(' ').toLowerCase();
-                return haystack.includes(searchTerm);
+                return haystack.includes(searchTerm) && modelPassesFacets(m);
             });
             return { ...cat, models: matchedModels };
         });
@@ -871,5 +995,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    buildFacetPanel();
     render(modelData);
 });
