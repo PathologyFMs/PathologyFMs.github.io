@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://dibalokechanda.github.io/PFMs/sitemap.xml
