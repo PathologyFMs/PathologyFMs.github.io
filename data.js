@@ -1200,6 +1200,24 @@ const modelData = [
         "type": "Vision–omics adaptation"
       },
       {
+        "name": "Pathryoshka",
+        "year": 2026,
+        "date": "2025-11-28",
+        "data": "Multi-teacher distillation of pathology FMs",
+        "idea": "Compresses large pathology FMs via multi-teacher knowledge distillation (RADIO-style) with Matryoshka/nested embeddings, yielding an 86-92% smaller model with adaptable embedding dimensions at on-par accuracy and +7.0 median over comparable single-teacher distillation",
+        "stains": "H&E",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2511.23204",
+        "bibtex": "@misc{grashei2026pathryoshkacompressingpathologyfoundation,\n      title={Pathryoshka: Compressing Pathology Foundation Models via Multi-Teacher Knowledge Distillation with Nested Embeddings}, \n      author={Christian Grashei and Christian Brechenmacher and Rao Muhammad Umer and Jingsong Liu and Carsten Marr and Peter J. Schüffler and Ewa Szczurek},\n      year={2026},\n      eprint={2511.23204},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2511.23204}, \n}",
+        "audit_objective": "Multi-teacher knowledge distillation (RADIO-inspired) + Matryoshka Representation Learning (nested, adaptable embedding dimensions)",
+        "audit_wsis": "Distilled from teacher PFMs (no new from-scratch pretraining corpus)",
+        "audit_downstream": "Ten public pathology benchmarks (varied downstream tasks)",
+        "audit_notes": "Reduces model size 86-92% at on-par performance and outperforms comparable single-teacher distillation by +7.0 median accuracy; enables efficient local/clinical deployment with adaptable embedding dims.",
+        "paper_title": "Pathryoshka: Compressing Pathology Foundation Models via Multi-Teacher Knowledge Distillation with Nested Embeddings",
+        "paper_author": "Grashei"
+      },
+      {
         "name": "Phaet",
         "year": 2026,
         "date": "2026-07-24",
@@ -1334,6 +1352,26 @@ const modelData = [
         "audit_notes": "Confirmed 53,699 pretraining WSIs, 20 anatomical sites, 11 public datasets. Ensembles 5 FMs: GigaPath, CONCH v1.5, Virchow2, H-optimus-0, UNI.",
         "paper_title": "Ensemble learning of foundation models for precision oncology",
         "paper_author": "Luo"
+      },
+      {
+        "name": "TICON",
+        "year": 2025,
+        "date": "2025-12-24",
+        "data": "Contextualizes any tile FM; slide FM on 11K WSIs",
+        "idea": "A shared transformer 'tile contextualizer' (6-layer ViT with ALiBi) masked-modeling-pretrained to unify and add slide-level context to embeddings from any/diverse tile foundation models; an aggregator on top forms a slide-level FM that beats models pretrained on up to 30x more WSIs",
+        "stains": "H&E",
+        "github": "https://github.com/cvlab-stonybrook/TICON",
+        "hf": "",
+        "website": "https://cvlab-stonybrook.github.io/TICON/",
+        "paper": "https://arxiv.org/abs/2512.21331",
+        "bibtex": "@misc{belagali2025ticonslideleveltilecontextualizer,\n      title={TICON: A Slide-Level Tile Contextualizer for Histopathology Representation Learning}, \n      author={Varun Belagali and Saarthak Kapse and Pierre Marza and Srijan Das and Zilinghan Li and Sofiène Boutaj and Pushpak Pati and Srikar Yellapragada and Tarak Nath Nandi and Ravi K Madduri and Joel Saltz and Prateek Prasanna and Stergios Christodoulidis and Maria Vakalopoulou and Dimitris Samaras},\n      year={2025},\n      eprint={2512.21331},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2512.21331}, \n}",
+        "audit_objective": "Masked modeling over frozen tile-FM embeddings (6-layer ViT contextualizer with ALiBi positional bias)",
+        "audit_wsis": "11,000 WSIs (slide-level aggregator pretraining)",
+        "audit_patches": "Contextualizes embeddings from any/diverse tile-level foundation models",
+        "audit_downstream": "New SOTA on tile-level (HEST-Bench, THUNDER, CATCH) and slide-level (Patho-Bench) benchmarks",
+        "audit_notes": "Unifies heterogeneous tile-FM embeddings into contextualized representations; slide aggregator pretrained on only 11K WSIs outperforms slide FMs trained on up to 350K WSIs. CVPR 2026 Findings.",
+        "paper_title": "TICON: A Slide-Level Tile Contextualizer for Histopathology Representation Learning",
+        "paper_author": "Belagali"
       },
       {
         "name": "Shazam",
@@ -1514,6 +1552,25 @@ const modelData = [
         "audit_notes": "First generative foundation model for histopathology; diffusion with self-supervised conditioning (variants PixCell-256/1024), trained on PanCan-30M without human annotation.",
         "paper_title": "PixCell: A generative foundation model for digital histopathology images",
         "paper_author": "Yellapragada"
+      },
+      {
+        "name": "CRAFTS",
+        "year": 2025,
+        "date": "2025-12-15",
+        "data": "~2.8M image-caption pairs (30 cancer types)",
+        "idea": "A latent-diffusion generative foundation model for pathology text-to-image synthesis; a correlation-regulated alignment mechanism suppresses semantic drift/morphological hallucination, and ControlNet coupling adds mask- and fluorescence-conditioned generation across 30 cancer types",
+        "stains": "H&E",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2512.13164",
+        "bibtex": "@misc{guan2025semanticallyenhancedgenerativefoundation,\n      title={A Semantically Enhanced Generative Foundation Model Improves Pathological Image Synthesis}, \n      author={Xianchao Guan and Zhiyuan Fan and Yifeng Wang and Fuqiang Chen and Yanjiang Zhou and Zengyang Che and Hongxue Meng and Xin Li and Yaowei Wang and Hongpeng Wang and Min Zhang and Heng Tao Shen and Zheng Zhang and Yongbing Zhang},\n      year={2025},\n      eprint={2512.13164},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2512.13164}, \n}",
+        "audit_objective": "Latent diffusion (VAE latent space) with dual-stage training + correlation-regulated semantic alignment; ControlNet for spatial conditioning",
+        "audit_image_text": "~2.8M image-caption pairs",
+        "audit_organs": "30 cancer types",
+        "audit_downstream": "Synthetic-data augmentation improving classification, cross-modal retrieval, SSL and VQA; controllable synthesis from nuclear-segmentation masks / fluorescence images",
+        "audit_notes": "CRAFTS = Correlation-Regulated Alignment Framework for Tissue Synthesis; presented as the first generative FM for pathology-specific text-to-image synthesis, with an alignment mechanism to ensure biological accuracy and suppress hallucination.",
+        "paper_title": "A Semantically Enhanced Generative Foundation Model Improves Pathological Image Synthesis",
+        "paper_author": "Guan"
       }
     ]
   },

@@ -91,6 +91,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 |---|---|---|---|---|
 | **H0-mini** | 2025 | 43 million tiles, 6,093 WSIs | Lightweight foundation model distilled from H-optimus-0 with DINOv2 | [Paper](https://arxiv.org/abs/2501.16239) • [Model](https://huggingface.co/bioptimus/H0-mini) |
 | **SEAL** | 2026 | --- | --- | [Paper](https://arxiv.org/abs/2602.14177) • [Code](https://github.com/mahmoodlab/SEAL/) • [Model](https://huggingface.co/MahmoodLab/SEAL) |
+| **Pathryoshka** | 2026 | Multi-teacher distillation of pathology FMs | Compresses large pathology FMs via multi-teacher knowledge distillation (RADIO-style) with Matryoshka/nested embeddings, yielding an 86-92% smaller model with adaptable embedding dimensions at on-par accuracy and +7.0 median over comparable single-teacher distillation | [Paper](https://arxiv.org/abs/2511.23204) |
 | **Phaet** | 2026 | --- | Robustness-tuned Phikon-v2 | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/phaet) |
 | **Mascaret** | 2026 | --- | Robustness-tuned Midnight-12k | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/mascaret) |
 | **SmartStu** | 2026 | Breast (distilled) | Adversarial distillation of multiple teacher PFMs into a compact, debiased breast-cancer-specific student; mitigates site-specific and prevalence confounding | [Paper](https://arxiv.org/abs/2608.01356) |
@@ -105,6 +106,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **GPFM** | 2025 | 190M tiles, 96K WSIs | Multi-teacher distillation | [Paper](https://arxiv.org/abs/2407.18449) • [Code](https://github.com/birkhoffkiki/GPFM/) |
 | **COBRA** | 2025 | 3048 WSIs | Multi-FM representation integration | [Paper](https://arxiv.org/abs/2411.13623) • [Code](https://github.com/KatherLab/COBRA) • [Model](https://huggingface.co/KatherLab/COBRA) |
 | **ELF** | 2025 | 53K WSIs (20 anatomical sites) | Ensemble learning | [Paper](https://arxiv.org/abs/2508.16085) • [Code](https://github.com/lilab-stanford/ELF) |
+| **TICON** | 2025 | Contextualizes any tile FM; slide FM on 11K WSIs | A shared transformer 'tile contextualizer' (6-layer ViT with ALiBi) masked-modeling-pretrained to unify and add slide-level context to embeddings from any/diverse tile foundation models; an aggregator on top forms a slide-level FM that beats models pretrained on up to 30x more WSIs | [Paper](https://arxiv.org/abs/2512.21331) • [Code](https://github.com/cvlab-stonybrook/TICON) • [Website](https://cvlab-stonybrook.github.io/TICON/) |
 | **Shazam** | 2026 | Fuses 5 models (UNI 2, Virchow2, H-optimus-1, Prov-Gigapath, Phikon-v2) | Adaptive integration/distillation | [Paper](https://arxiv.org/abs/2503.00736) |
 | **ALICE** | 2026 | 24.9M tiles + 155K high-res images | Agglomerative distillation | [Paper](https://arxiv.org/pdf/2607.09526) • [Code](https://github.com/WonderLandxD/ALICE) |
 | **ASTRA** | 2026 | 10.3K WSIs (CHTN cohort) | Integrates multiple heterogeneous FM tile representations into a shared slide-level space via sparse mixture-of-experts, masked multi-model reconstruction and contrastive alignment to structured pathology prompts; enables pan-cancer classification and text-guided tumor localization without pixel-level supervision | [Paper](https://arxiv.org/abs/2604.22846) |
@@ -128,6 +130,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 |---|---|---|---|---|
 | **MuPD** | 2026 | 100M patches | Multimodal Pathology Diffusion Model | [Paper](https://arxiv.org/abs/2604.03635) • [Code](https://github.com/lilab-stanford/MUPAD) • [Model](https://huggingface.co/collections/xiangjx/mupad-multimodal-pathology-diffusion-model) |
 | **PixCell** | 2025 | 30M patches (PanCan-30M) | First generative foundation model for histopathology: a self-supervision-conditioned diffusion model (PanCan-30M) enabling data augmentation, privacy-preserving synthesis, and virtual IHC staining | [Paper](https://arxiv.org/abs/2506.05127) • [Code](https://github.com/cvlab-stonybrook/PixCell) • [Model](https://huggingface.co/StonyBrook-CVLab/PixCell-1024) • [Website](https://histodiffusion.github.io) |
+| **CRAFTS** | 2025 | ~2.8M image-caption pairs (30 cancer types) | A latent-diffusion generative foundation model for pathology text-to-image synthesis; a correlation-regulated alignment mechanism suppresses semantic drift/morphological hallucination, and ControlNet coupling adds mask- and fluorescence-conditioned generation across 30 cancer types | [Paper](https://arxiv.org/abs/2512.13164) |
 
 ---
 
