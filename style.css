@@ -641,6 +641,7 @@ body.light-mode .tag-green { color: #16a34a; }
 
 .card-links {
     display: flex;
+    flex-wrap: wrap;
     gap: 0.75rem;
     margin-top: auto;
 }
@@ -656,7 +657,8 @@ body.light-mode .tag-green { color: #16a34a; }
     font-weight: 600;
     text-decoration: none;
     transition: all 0.2s ease;
-    flex: 1;
+    flex: 1 1 auto;
+    min-width: 92px;
 }
 
 .link-paper {
