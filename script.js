@@ -31,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // View state
     let currentView = 'table';
-    let removed = new Set();   // session-local: papers removed via the table view (reset on reload)
     let spiralYear = 'all';
     const gridBtn = document.getElementById('gridBtn');
     const tableBtn = document.getElementById('tableBtn');
@@ -495,14 +494,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentView === 'timeline') { renderTimeline(data); return; }
         let hasResults = false;
 
-        if (removed.size > 0) {
-            const banner = document.createElement('div');
-            banner.className = 'removed-banner';
-            banner.innerHTML = `<span><i class="ph ph-eye-slash"></i> ${removed.size} paper${removed.size > 1 ? 's' : ''} removed this session</span><button class="restore-btn" type="button">Restore all</button>`;
-            banner.querySelector('.restore-btn').addEventListener('click', () => { removed.clear(); handleFilters(); });
-            container.appendChild(banner);
-        }
-
         data.forEach(categoryGroup => {
             if (categoryGroup.models.length === 0) return;
             hasResults = true;
@@ -569,7 +560,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     `;
 
                     tr.querySelector('.expand-btn').addEventListener('click', () => openModal(model));
-                    tr.querySelector('.remove-btn').addEventListener('click', () => { removed.add(model.name); handleFilters(); });
+                    tr.querySelector('.remove-btn').addEventListener('click', () => tr.remove());
 
                     tbody.appendChild(tr);
                 });
@@ -644,7 +635,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 return { ...cat, models: [] };
             }
             const matchedModels = cat.models.filter(m => {
-                if (removed.has(m.name)) return false;
                 const haystack = [
                     m.name, m.idea, m.data, m.year, cat.category,
                     m.audit_notes, m.paper_title, m.paper_author, m.tag,
