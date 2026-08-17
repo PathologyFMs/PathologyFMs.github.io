@@ -334,10 +334,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const tableBlock = rowsHtml ? `<table class="modal-table"><tbody>${rowsHtml}</tbody></table>` : '';
 
-        if (!facetsBlock && !tableBlock) {
+        // Resource links (Paper / Code / Model / Dataset / Website).
+        let linkRow = '';
+        if (model.paper) linkRow += `<a href="${model.paper}" target="_blank" class="link-btn link-paper"><i class="ph ph-file-text"></i> Paper</a>`;
+        if (model.github) linkRow += `<a href="${model.github}" target="_blank" class="link-btn link-github"><i class="ph ph-github-logo"></i> Code</a>`;
+        if (model.hf) linkRow += `<a href="${model.hf}" target="_blank" class="link-btn link-hf"><i class="ph ph-cube"></i> Model</a>`;
+        if (model.dataset) linkRow += `<a href="${model.dataset}" target="_blank" class="link-btn link-dataset"><i class="ph ph-database"></i> Dataset</a>`;
+        if (model.website) linkRow += `<a href="${model.website}" target="_blank" class="link-btn link-website"><i class="ph ph-globe"></i> Website</a>`;
+        const linksBlock = linkRow ? `<div class="modal-links">${linkRow}</div>` : '';
+
+        if (!facetsBlock && !tableBlock && !linksBlock) {
             modalBody.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 2rem;">No detailed metadata found for this model.</p>';
         } else {
-            modalBody.innerHTML = facetsBlock + tableBlock;
+            modalBody.innerHTML = facetsBlock + tableBlock + linksBlock;
         }
 
         // Wire up the accordion toggles.
