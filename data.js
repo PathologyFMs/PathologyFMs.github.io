@@ -1218,6 +1218,25 @@ const modelData = [
         "paper_author": "Grashei"
       },
       {
+        "name": "TAPFM",
+        "year": 2025,
+        "date": "2025-06-05",
+        "data": "Bladder & lung-adeno mutation prediction (institutional + TCGA)",
+        "idea": "Single-GPU end-to-end task adaptation of pathology FMs under weak WSI-level labels: uses ViT attention for MIL aggregation and jointly optimizes feature representations and attention weights, keeping separate computational graphs for the MIL aggregator and the PFM for stable training",
+        "stains": "H&E",
+        "github": "https://github.com/pfmadaptation/tapfm",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2506.05184",
+        "bibtex": "@misc{kumar2025singlegputaskadaptation,\n      title={Single GPU Task Adaptation of Pathology Foundation Models for Whole Slide Image Analysis}, \n      author={Neeraj Kumar and Swaraj Nanda and Siddharth Singi and Jamal Benhamida and David Kim and Jie-Fu Chen and Amir Momeni-Boroujeni and Gregory M. Goldgof and Gabriele Campanella and Chad Vanderbilt},\n      year={2025},\n      eprint={2506.05184},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2506.05184}, \n}",
+        "audit_objective": "End-to-end task adaptation — ViT-attention MIL aggregation with joint optimization of features + attention; separate computational graphs for aggregator and PFM",
+        "audit_wsis": "Task adaptation of pretrained PFMs (no new from-scratch pretraining corpus)",
+        "audit_organs": "Bladder cancer, lung adenocarcinoma",
+        "audit_downstream": "Actionable-mutation prediction across institutional and TCGA cohorts; H-optimus-0 (TAPFM) outperforms conventional MIL benchmarks",
+        "audit_notes": "TAPFM = Task Adaptation of Pathology Foundation Models; single-GPU end-to-end fine-tuning under weak (WSI-level) labels via MIL. Backbone-agnostic (demonstrated with H-optimus-0).",
+        "paper_title": "Single GPU Task Adaptation of Pathology Foundation Models for Whole Slide Image Analysis",
+        "paper_author": "Kumar"
+      },
+      {
         "name": "Phaet",
         "year": 2026,
         "date": "2026-07-24",
