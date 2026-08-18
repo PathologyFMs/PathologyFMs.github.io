@@ -1521,7 +1521,7 @@ const modelData = [
         "date": "2025-03-02",
         "data": "Fuses 5 models (UNI 2, Virchow2, H-optimus-1, Prov-Gigapath, Phikon-v2)",
         "idea": "Adaptive integration/distillation",
-        "github": "",
+        "github": "https://github.com/Tuner12/Shazam",
         "hf": "",
         "paper": "https://arxiv.org/abs/2503.00736",
         "bibtex": "@misc{lei2026unifyingmultiplefoundationmodels,\n      title={Unifying Multiple Foundation Models for Advanced Computational Pathology}, \n      author={Wenhui Lei and Yusheng Tan and Anqi Li and Hanyu Chen and Hengrui Tian and Ruiying Li and Zhengqun Jiang and Fang Yan and Xiaofan Zhang and Shaoting Zhang},\n      year={2026},\n      eprint={2503.00736},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2503.00736}, \n}",
