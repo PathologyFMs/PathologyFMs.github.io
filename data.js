@@ -1570,7 +1570,7 @@ const modelData = [
         "audit_organs": "16 tumor types",
         "audit_downstream": "4 main task settings: 4-category classification, 3-class solid-tumor typing, 16-class cancer typing, text-guided tumor localization",
         "audit_cohorts": "CHTN development 10,359 WSIs + external TCGA 1,686 WSIs",
-        "audit_notes": "“Developed on” is preserved rather than relabeled as “pretrained on.”",
+        "audit_notes": "Multi-FM integration model — learns a unified slide-level representation from several frozen tile-FM encoders rather than pretraining its own; developed on the CHTN cohort and externally validated on TCGA.",
         "paper_title": "Unified Multi-Foundation-Model Slide Representation for Pan-Cancer Recognition and Text-Guided Tumor Localization",
         "paper_author": "Wang"
       },
