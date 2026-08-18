@@ -1763,7 +1763,7 @@ const modelData = [
         "paper": "https://openreview.net/forum?id=FNBQOPj18N",
         "bibtex": "@inproceedings{kaikoai2024eva,\n  title={eva: Evaluation framework for pathology foundation models},\n  author={{kaiko.ai}},\n  booktitle={Medical Imaging with Deep Learning (MIDL)},\n  year={2024},\n  url={https://openreview.net/forum?id=FNBQOPj18N}\n}",
         "audit_downstream": "Standardized patch-/slide-level FM evaluation framework",
-        "audit_notes": "Benchmark rather than pretrained model.",
+        "audit_notes": "Open, reproducible evaluation framework (kaiko.ai) that scores any pathology encoder on a fixed suite of patch- and slide-level tasks under standardized splits, metrics and protocols, so models can be compared head-to-head.",
         "paper_title": "eva: Evaluation framework for pathology foundation models",
         "paper_author": "kaiko.ai"
       },
@@ -1795,7 +1795,7 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2410.16038",
         "bibtex": "@misc{lee2024benchmarkingpathologyfoundationmodels,\n      title={Benchmarking Pathology Foundation Models: Adaptation Strategies and Scenarios}, \n      author={Jeaung Lee and Jeewoo Lim and Keunho Byeon and Jin Tae Kwak},\n      year={2024},\n      eprint={2410.16038},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2410.16038}, \n}",
         "audit_downstream": "Patch-level PFM benchmarking",
-        "audit_notes": "Benchmark, not a pretraining corpus.",
+        "audit_notes": "Patch-level study comparing adaptation strategies (e.g. linear probing vs fine-tuning) across deployment scenarios, isolating how much downstream performance comes from the encoder itself versus the adaptation choice.",
         "paper_title": "Benchmarking Pathology Foundation Models: Adaptation Strategies and Scenarios",
         "paper_author": "Lee"
       },
