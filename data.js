@@ -965,7 +965,7 @@ const modelData = [
         "data": "20M paired histology images + single-cell transcriptomes (pan-cancer)",
         "idea": "Pan-cancer single-cell foundation model that jointly encodes cellular morphology and gene expression from 20M paired histopathology–single-cell-transcriptome examples, learning unified cross-modal representations for single-cell gene-expression prediction, virtual molecular staining and multimodal survival analysis directly from routine slides",
         "stains": "H&E",
-        "github": "",
+        "github": "https://github.com/Changchun-Yang/past_sc",
         "hf": "",
         "paper": "https://arxiv.org/abs/2507.06418",
         "bibtex": "@misc{yang2025pastmultimodalsinglecellfoundation,\n      title={PAST: A multimodal single-cell foundation model for histopathology and spatial transcriptomics in cancer}, \n      author={Changchun Yang and Haoyang Li and Yushuai Wu and Yilan Zhang and Yifeng Jiao and Yu Zhang and Rihan Huang and Yuan Cheng and Yuan Qi and Xin Guo and Xin Gao},\n      year={2025},\n      eprint={2507.06418},\n      archivePrefix={arXiv},\n      primaryClass={q-bio.QM},\n      url={https://arxiv.org/abs/2507.06418}, \n}",
