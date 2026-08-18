@@ -948,6 +948,7 @@ const modelData = [
         "stains": "H&E (+ spatial transcriptomics)",
         "github": "",
         "hf": "",
+        "website": "https://storm-web-demo.vercel.app/",
         "paper": "https://arxiv.org/abs/2604.03630",
         "bibtex": "@misc{xiang2026multimodalfoundationmodelspatial,\n      title={A Multimodal Foundation Model of Spatial Transcriptomics and Histology for Biological Discovery and Clinical Prediction}, \n      author={Jinxi Xiang and Siyu Hou and Yuchen Li and Ryan Quinton and Xiaoming Zhang and Feyisope Eweje and Xiangde Luo and Yijiang Chen and Zhe Li and Colin Bergstrom and Ted Kim and Sierra Willens and Francesca Maria Olguin and Matthew Abikenari and Andrew Heider and Sanjeeth Rajaram and Joel Neal and Maximilian Diehn and Xiang Zhou and Ruijiang Li},\n      year={2026},\n      eprint={2604.03630},\n      archivePrefix={arXiv},\n      primaryClass={cs.AI},\n      url={https://arxiv.org/abs/2604.03630}, \n}",
         "audit_objective": "Hierarchical multimodal representation learning over morphology + gene expression + spatial context",
