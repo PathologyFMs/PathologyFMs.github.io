@@ -1444,7 +1444,7 @@ const modelData = [
         "idea": "Multi-teacher distillation",
         "stains": "H&E",
         "github": "https://github.com/birkhoffkiki/GPFM/",
-        "hf": "",
+        "hf": "https://huggingface.co/majiabo/GPFM",
         "paper": "https://arxiv.org/abs/2407.18449",
         "bibtex": "@misc{ma2025generalizablepathologyfoundationmodel,\n      title={Towards A Generalizable Pathology Foundation Model via Unified Knowledge Distillation}, \n      author={Jiabo Ma and Zhengrui Guo and Fengtao Zhou and Yihui Wang and Yingxue Xu and Jinbang Li and Fang Yan and Yu Cai and Zhengjie Zhu and Cheng Jin and Yi Lin and Xinrui Jiang and Chenglong Zhao and Danyi Li and Anjia Han and Zhenhui Li and Ronald Cheong Kin Chan and Jiguang Wang and Peng Fei and Kwang-Ting Cheng and Shaoting Zhang and Li Liang and Hao Chen},\n      year={2025},\n      eprint={2407.18449},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2407.18449}, \n}",
         "audit_wsis": "~86K public H&E WSIs",
