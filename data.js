@@ -1410,7 +1410,7 @@ const modelData = [
         "date": "2025-10-31",
         "data": "Fuses multi-scale heterogeneous PFMs",
         "idea": "Framework for fusing multi-scale, heterogeneous pathology FMs: multi-view clustering filters discriminative patches, cluster-level re-embedding fuses patch-level features, and collaborative distillation fuses slide-level FMs, yielding superior ensemble performance on WSI analysis",
-        "github": "",
+        "github": "https://github.com/ZhidongYang/FuseCPath",
         "hf": "",
         "paper": "https://arxiv.org/abs/2510.27237",
         "bibtex": "@misc{yang2025fusionmultiscaleheterogeneouspathology,\n      title={Fusion of Multi-scale Heterogeneous Pathology Foundation Models for Whole Slide Image Analysis}, \n      author={Zhidong Yang and Xiuhui Shi and Wei Ba and Zhigang Song and Haijing Luan and Taiyuan Hu and Senlin Lin and Jiguang Wang and Shaohua Kevin Zhou and Rui Yan},\n      year={2025},\n      eprint={2510.27237},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2510.27237}, \n}",
