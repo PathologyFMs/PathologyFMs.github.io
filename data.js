@@ -907,7 +907,7 @@ const modelData = [
         "data": "700k image-caption + WSI report",
         "idea": "Unified Patch–Slide Multimodal Model",
         "github": "https://github.com/PathFoundation/CPath-Omni",
-        "hf": "",
+        "hf": "https://huggingface.co/jamessyx/CPath-CLIP",
         "paper": "https://arxiv.org/pdf/2412.12077",
         "bibtex": "@misc{sun2024cpathomniunifiedmultimodalfoundation,\n      title={CPath-Omni: A Unified Multimodal Foundation Model for Patch and Whole Slide Image Analysis in Computational Pathology}, \n      author={Yuxuan Sun and Yixuan Si and Chenglu Zhu and Xuan Gong and Kai Zhang and Pingyi Chen and Ye Zhang and Zhongyi Shui and Tao Lin and Lin Yang},\n      year={2024},\n      eprint={2412.12077},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2412.12077}, \n}",
         "audit_objective": "CLIP-based (CPath-CLIP: LLM text encoder + Virchow2) + LLM instruction tuning",
