@@ -255,6 +255,7 @@ const modelData = [
         "audit_organs": "17 high-level tissue groups",
         "audit_downstream": "Pan-cancer detection across 17 types, rare-cancer detection across 7 rare types, tile benchmarks and slide biomarker prediction",
         "audit_cohorts": "Memorial Sloan Kettering Cancer Center (MSKCC); ~1.5M WSIs",
+        "audit_scanners": "Leica scanners (20× / 0.5 µm/px); specific models and scanner count not stated in the paper",
         "audit_notes": "",
         "paper_title": "A foundation model for clinical-grade computational pathology and rare cancers detection",
         "paper_author": "Vorontsov"
