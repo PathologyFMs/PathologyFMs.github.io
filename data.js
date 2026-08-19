@@ -1240,24 +1240,6 @@ const modelData = [
     "category": "Foundation Model Adaptation & Distillation",
     "models": [
       {
-        "name": "MuCoDi",
-        "year": 2026,
-        "date": "2026-07-06",
-        "data": "14.3M TCGA tiles (11.8K WSIs); distilled from 3 PFMs",
-        "idea": "Multi-teacher contrastive distillation (MoCo v3-style) that distills cached tile embeddings from Virchow2, UNI2 and H-optimus-1 into compact edge encoders (MobileOne/RepViT); students retain near-teacher accuracy at orders-of-magnitude smaller size, reaching up to 605x single-tile speedup on a Raspberry Pi 5",
-        "stains": "H&E",
-        "github": "",
-        "hf": "",
-        "paper": "https://arxiv.org/abs/2607.05533",
-        "bibtex": "@misc{lenz2026multiteachercontrastivedistillationedgeefficient,\n      title={Multi-Teacher Contrastive Distillation for Edge-Efficient Pathology Foundation Models}, \n      author={Tim Lenz and Maurice Heide and Marco Gustav and Nic G. Reitsam and Jakob Nikolas Kather},\n      year={2026},\n      eprint={2607.05533},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2607.05533}, \n}",
-        "audit_objective": "Contrastive distillation (adapted from MoCo v3) using cached Virchow2 / UNI2 / H-optimus-1 embeddings as keys",
-        "audit_wsis": "14.3M TCGA tiles from 11.8K WSIs (student pretraining)",
-        "audit_downstream": "23 clinically-curated downstream classification tasks; MuCoEdge students within ~0.8pp AUROC of the best teacher (Virchow2)",
-        "audit_notes": "MuCoDi = Multi-teacher Contrastive Distillation; MuCoEdge students (MobileOne/RepViT) for edge deployment. Teachers: Virchow2, UNI2, H-optimus-1.",
-        "paper_title": "Multi-Teacher Contrastive Distillation for Edge-Efficient Pathology Foundation Models",
-        "paper_author": "Lenz"
-      },
-      {
         "name": "H0-mini",
         "type": "Single-FM Distillation",
         "year": 2025,
@@ -1297,24 +1279,6 @@ const modelData = [
         "paper_title": "Towards Spatial Transcriptomics-driven Pathology Foundation Models",
         "paper_author": "Hemker",
         "type": "Vision–omics adaptation"
-      },
-      {
-        "name": "Pathryoshka",
-        "year": 2026,
-        "date": "2025-11-28",
-        "data": "Multi-teacher distillation of pathology FMs",
-        "idea": "Compresses large pathology FMs via multi-teacher knowledge distillation (RADIO-style) with Matryoshka/nested embeddings, yielding an 86-92% smaller model with adaptable embedding dimensions at on-par accuracy and +7.0 median over comparable single-teacher distillation",
-        "stains": "H&E",
-        "github": "",
-        "hf": "",
-        "paper": "https://arxiv.org/abs/2511.23204",
-        "bibtex": "@misc{grashei2026pathryoshkacompressingpathologyfoundation,\n      title={Pathryoshka: Compressing Pathology Foundation Models via Multi-Teacher Knowledge Distillation with Nested Embeddings}, \n      author={Christian Grashei and Christian Brechenmacher and Rao Muhammad Umer and Jingsong Liu and Carsten Marr and Peter J. Schüffler and Ewa Szczurek},\n      year={2026},\n      eprint={2511.23204},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2511.23204}, \n}",
-        "audit_objective": "Multi-teacher knowledge distillation (RADIO-inspired) + Matryoshka Representation Learning (nested, adaptable embedding dimensions)",
-        "audit_wsis": "Distilled from teacher PFMs (no new from-scratch pretraining corpus)",
-        "audit_downstream": "Ten public pathology benchmarks (varied downstream tasks)",
-        "audit_notes": "Reduces model size 86-92% at on-par performance and outperforms comparable single-teacher distillation by +7.0 median accuracy; enables efficient local/clinical deployment with adaptable embedding dims.",
-        "paper_title": "Pathryoshka: Compressing Pathology Foundation Models via Multi-Teacher Knowledge Distillation with Nested Embeddings",
-        "paper_author": "Grashei"
       },
       {
         "name": "TAPFM",
@@ -1411,6 +1375,42 @@ const modelData = [
   {
     "category": "Multi-FM Integration & Distillation",
     "models": [
+      {
+        "name": "MuCoDi",
+        "year": 2026,
+        "date": "2026-07-06",
+        "data": "14.3M TCGA tiles (11.8K WSIs); distilled from 3 PFMs",
+        "idea": "Multi-teacher contrastive distillation (MoCo v3-style) that distills cached tile embeddings from Virchow2, UNI2 and H-optimus-1 into compact edge encoders (MobileOne/RepViT); students retain near-teacher accuracy at orders-of-magnitude smaller size, reaching up to 605x single-tile speedup on a Raspberry Pi 5",
+        "stains": "H&E",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2607.05533",
+        "bibtex": "@misc{lenz2026multiteachercontrastivedistillationedgeefficient,\n      title={Multi-Teacher Contrastive Distillation for Edge-Efficient Pathology Foundation Models}, \n      author={Tim Lenz and Maurice Heide and Marco Gustav and Nic G. Reitsam and Jakob Nikolas Kather},\n      year={2026},\n      eprint={2607.05533},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2607.05533}, \n}",
+        "audit_objective": "Contrastive distillation (adapted from MoCo v3) using cached Virchow2 / UNI2 / H-optimus-1 embeddings as keys",
+        "audit_wsis": "14.3M TCGA tiles from 11.8K WSIs (student pretraining)",
+        "audit_downstream": "23 clinically-curated downstream classification tasks; MuCoEdge students within ~0.8pp AUROC of the best teacher (Virchow2)",
+        "audit_notes": "MuCoDi = Multi-teacher Contrastive Distillation; MuCoEdge students (MobileOne/RepViT) for edge deployment. Teachers: Virchow2, UNI2, H-optimus-1.",
+        "paper_title": "Multi-Teacher Contrastive Distillation for Edge-Efficient Pathology Foundation Models",
+        "paper_author": "Lenz"
+      },
+      {
+        "name": "Pathryoshka",
+        "year": 2026,
+        "date": "2025-11-28",
+        "data": "Multi-teacher distillation of pathology FMs",
+        "idea": "Compresses large pathology FMs via multi-teacher knowledge distillation (RADIO-style) with Matryoshka/nested embeddings, yielding an 86-92% smaller model with adaptable embedding dimensions at on-par accuracy and +7.0 median over comparable single-teacher distillation",
+        "stains": "H&E",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2511.23204",
+        "bibtex": "@misc{grashei2026pathryoshkacompressingpathologyfoundation,\n      title={Pathryoshka: Compressing Pathology Foundation Models via Multi-Teacher Knowledge Distillation with Nested Embeddings}, \n      author={Christian Grashei and Christian Brechenmacher and Rao Muhammad Umer and Jingsong Liu and Carsten Marr and Peter J. Schüffler and Ewa Szczurek},\n      year={2026},\n      eprint={2511.23204},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2511.23204}, \n}",
+        "audit_objective": "Multi-teacher knowledge distillation (RADIO-inspired) + Matryoshka Representation Learning (nested, adaptable embedding dimensions)",
+        "audit_wsis": "Distilled from teacher PFMs (no new from-scratch pretraining corpus)",
+        "audit_downstream": "Ten public pathology benchmarks (varied downstream tasks)",
+        "audit_notes": "Reduces model size 86-92% at on-par performance and outperforms comparable single-teacher distillation by +7.0 median accuracy; enables efficient local/clinical deployment with adaptable embedding dims.",
+        "paper_title": "Pathryoshka: Compressing Pathology Foundation Models via Multi-Teacher Knowledge Distillation with Nested Embeddings",
+        "paper_author": "Grashei"
+      },
       {
         "name": "Meta-Encoder",
         "year": 2026,
