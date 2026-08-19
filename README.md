@@ -43,7 +43,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 |---|---|---|---|---|
 | **HIPT** | 2022 | 10,678 WSIs (TCGA) | Hierarchical Image Pyramid Transformer: two-stage DINO SSL on gigapixel WSIs (256px and 4096px views) for slide-level representation | [Paper](https://arxiv.org/abs/2206.02647) • [Code](https://github.com/mahmoodlab/HIPT) |
 | **Prov-GigaPath** | 2024 | 1.3B tiles, 171K WSIs | LongNet for ultra-large context | [Paper](https://www.nature.com/articles/s41586-024-07441-w) • [Code](https://github.com/prov-gigapath/prov-gigapath) • [Model](https://huggingface.co/prov-gigapath/prov-gigapath) |
-| **CHIEF** | 2024 | 60K WSIs, 19 sites | Weakly supervised slide pattern recognition | [Paper](https://www.nature.com/articles/s41586-024-07894-z) • [Code](https://github.com/hms-dbmi/CHIEF) |
+| **CHIEF** | 2024 | 60K WSIs, 19 sites | Weakly supervised slide pattern recognition | [Paper](https://www.nature.com/articles/s41586-024-07894-z) • [Code](https://github.com/hms-dbmi/CHIEF) • [Model](https://hub.docker.com/r/chiefcontainer/chief/) |
 | **Feather** | 2025 | 3,944 WSIs (BWH) | Transferable Pretrained MIL Models | [Paper](https://arxiv.org/abs/2506.09022) • [Code](https://github.com/mahmoodlab/MIL-Lab) • [Model](https://huggingface.co/collections/MahmoodLab/feather) |
 | **EXAONE Path 2.0** | 2025 | 37K WSIs | End-to-end hierarchical learning | [Paper](https://arxiv.org/pdf/2507.06639) |
 | **MOOZY** | 2026 | 77K WSIs | Patient-first case-level aggregator | [Paper](https://arxiv.org/abs/2603.27048) • [Code](https://github.com/AtlasAnalyticsLab/MOOZY) • [Model](https://huggingface.co/AtlasAnalyticsLab/MOOZY) • [Website](https://atlasanalyticslab.github.io/MOOZY/) |
@@ -97,7 +97,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **TAPFM** | 2025 | Bladder & lung-adeno mutation prediction (institutional + TCGA) | Single-GPU end-to-end task adaptation of pathology FMs under weak WSI-level labels: uses ViT attention for MIL aggregation and jointly optimizes feature representations and attention weights, keeping separate computational graphs for the MIL aggregator and the PFM for stable training | [Paper](https://arxiv.org/abs/2506.05184) • [Code](https://github.com/pfmadaptation/tapfm) |
 | **Phaet** | 2026 | --- | Robustness-tuned Phikon-v2 | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/phaet) |
 | **Mascaret** | 2026 | --- | Robustness-tuned Midnight-12k | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/mascaret) |
-| **SmartStu** | 2026 | Breast (distilled) | Adversarial distillation of multiple teacher PFMs into a compact, debiased breast-cancer-specific student; mitigates site-specific and prevalence confounding | [Paper](https://arxiv.org/abs/2608.01356) |
+| **SmartStu** | 2026 | Breast (distilled) | Adversarial distillation of multiple teacher PFMs into a compact, debiased breast-cancer-specific student; mitigates site-specific and prevalence confounding | [Paper](https://arxiv.org/abs/2608.01356) • [Code](https://github.com/zwchen03/advDistall) |
 | **CellViT++** | 2025 | Cell segmentation (7 datasets) | Generalized cell segmentation/classification using ViT with foundation-model encoders; energy-efficient adaptation to unseen cell types with minimal data, zero-shot segmentation, and IF-generated training sets | [Paper](https://arxiv.org/abs/2501.05269) • [Code](https://github.com/TIO-IKIM/CellViT-plus-plus) |
 
 ---
