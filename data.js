@@ -196,6 +196,7 @@ const modelData = [
         "audit_organs": "16 tissue groups; 28 disease areas",
         "audit_downstream": "Instance segmentation, tile classification, slide-level prediction across public (NSCLC, CRC-100K, Camelyon17-WILDS, GlaS, PanNuke) + proprietary benchmarks",
         "audit_cohorts": "TCGA + proprietary (PathAI); 158K WSIs / 195M tiles",
+        "audit_scanners": "11 scanners across 5 vendors — Aperio/Leica (GT 450, AT2, NOS, AT Turbo), Philips (UFS), Ventana/Roche (DP 200), Hamamatsu (S360, XR C12000, S210, 2.0-HT), 3DHISTECH (Pannoramic Scan II)",
         "audit_notes": "Pathology-Universal Transformer; 158,852 WSIs / 195M tiles from 50+ sites; multi-scale (FlexiViT) representation.",
         "paper_title": "PLUTO: Pathology-Universal Transformer",
         "paper_author": "Juyal"
