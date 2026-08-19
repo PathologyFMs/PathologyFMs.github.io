@@ -375,6 +375,7 @@ const modelData = [
         "audit_patches": "6,087,558 patches (20×)",
         "audit_organs": "Breast, liver, skin, colorectal (internal) + 7 public datasets",
         "audit_downstream": "Patch/WSI classification across 12 datasets (PANDA, CAMELYON16, BRACS, DigestPath, Kather, PanNuke, WSSS4LUAD)",
+        "audit_cohorts": "TCGA (11,765 diagnostic WSIs, pretraining); evaluated on internal cohorts + 12 public datasets",
         "audit_notes": "Compact ViT (~9M params, 5 transformer blocks) with rotation-agnostic SSL (HistoRotate) and Fast Patch Selection (FPS).",
         "paper_title": "Rotation-Agnostic Image Representation Learning for Digital Pathology",
         "paper_author": "Alfasly"
@@ -540,7 +541,8 @@ const modelData = [
         "paper": "https://arxiv.org/pdf/2601.05148",
         "bibtex": "@misc{alber2026atlas2foundation,\n      title={Atlas 2 -- Foundation models for clinical deployment}, \n      author={Maximilian Alber and Timo Milbich and Alexandra Carpen-Amarie and Stephan Tietz and Jonas Dippel and Lukas Muttenthaler and Beatriz Perez Cancer and Alessandro Benetti and Panos Korfiatis and Elias Eulig and Jérôme Lüscher and Jiasen Wu and Sayed Abid Hashimi and Gabriel Dernbach and Simon Schallenberg and Neelay Shah and Moritz Krügener and Aniruddh Jammoria and Jake Matras and Patrick Duffy and Matt Redlon and Philipp Jurmeister and David Horst and Lukas Ruff and Klaus-Robert Müller and Frederick Klauschen and Andrew Norgan},\n      year={2026},\n      eprint={2601.05148},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2601.05148}, \n}",
         "audit_objective": "DINOv2",
-        "audit_wsis": "5.5M WSIs (~490K cases; 7 scanner types)",
+        "audit_wsis": "5.5M WSIs (~490K cases)",
+        "audit_scanners": "7 scanner types across Charité, LMU Munich and Mayo Clinic (specific vendors/models not enumerated in the paper)",
         "audit_organs": "70+ tissue types; 100+ staining types",
         "audit_downstream": "80 public benchmarks across 5 FM evaluation frameworks — eva, HEST, Plismbench, PathoROB and Patho-Bench (95 tasks: morphological/molecular subtyping, TME, grading, mutation, treatment-response, survival) — plus additional TME & MSI datasets (BACH, BreakHis, CoNSeP, CRC-100k, Gleason, MHIST, MoNuSAC, PANDA, PCAM, CAMELYON16, TCGA-Uniform, MSI-CRC/STAD)",
         "audit_cohorts": "Charité – Universitätsmedizin Berlin + LMU Munich + Mayo Clinic (5.5M WSIs)",
