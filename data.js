@@ -52,7 +52,7 @@ const modelData = [
         "stains": "H&E",
         "github": "",
         "hf": "",
-        "paper": "https://doi.org/10.1038/s41551-023-01049-7",
+        "paper": "https://arxiv.org/abs/2205.09723",
         "bibtex": "@article{Azizi_2023, title={Robust and data-efficient generalization of self-supervised machine learning for diagnostic imaging}, volume={7}, ISSN={2157-846X}, url={http://dx.doi.org/10.1038/s41551-023-01049-7}, DOI={10.1038/s41551-023-01049-7}, number={6}, journal={Nature Biomedical Engineering}, publisher={Springer Science and Business Media LLC}, author={Azizi, Shekoofeh and Culp, Laura and Freyberg, Jan and Mustafa, Basil and Baur, Sebastien and Kornblith, Simon and Chen, Ting and Tomasev, Nenad and Mitrović, Jovana and Strachan, Patricia and Mahdavi, S. Sara and Wulczyn, Ellery and Babenko, Boris and Walker, Megan and Loh, Aaron and Chen, Po-Hsuan Cameron and Liu, Yuan and Bavishi, Pinal and McKinney, Scott Mayer and Winkens, Jim and Roy, Abhijit Guha and Beaver, Zach and Ryan, Fiona and Krogue, Justin and Etemadi, Mozziyar and Telang, Umesh and Liu, Yun and Peng, Lily and Corrado, Greg S. and Webster, Dale R. and Fleet, David and Hinton, Geoffrey and Houlsby, Neil and Karthikesalingam, Alan and Norouzi, Mohammad and Natarajan, Vivek}, year={2023}, month=June, pages={756–779} }",
         "audit_objective": "SimCLR (contrastive)",
         "audit_wsis": "29,018",
