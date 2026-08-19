@@ -605,10 +605,11 @@ const modelData = [
         "bibtex": "@misc{chen2022scalingvisiontransformersgigapixel,\n      title={Scaling Vision Transformers to Gigapixel Images via Hierarchical Self-Supervised Learning},\n      author={Richard J. Chen and Chengkuan Chen and Yicong Li and Tiffany Y. Chen and Andrew D. Trister and Rahul G. Krishnan and Faisal Mahmood},\n      year={2022},\n      eprint={2206.02647},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2206.02647},\n}",
         "audit_objective": "DINO (hierarchical, two-stage)",
         "audit_wsis": "10,678 TCGA WSIs (33 cancer types)",
+        "audit_patches": "104M 256×256 patches + 408,218 4096×4096 regions",
         "audit_organs": "33 cancer types (TCGA)",
         "audit_downstream": "Slide-level cancer subtyping and survival prediction",
         "audit_cohorts": "TCGA",
-        "audit_notes": "Early hierarchical WSI foundation model (CVPR 2022); two-stage DINO on 256px and 4096px views (ViT-256 + ViT-4096).",
+        "audit_notes": "Early hierarchical WSI foundation model; two-stage DINO on 256px and 4096px views (ViT-256 + ViT-4096).",
         "paper_title": "Scaling Vision Transformers to Gigapixel Images via Hierarchical Self-Supervised Learning",
         "paper_author": "Chen"
       },
@@ -632,7 +633,7 @@ const modelData = [
         "audit_notes": "Private real-world clinical corpus; DINOv2 tile encoder + LongNet/MAE slide encoder.",
         "paper_title": "A whole-slide foundation model for digital pathology from real-world data",
         "paper_author": "Xu",
-        "audit_wsi_report": "Reports used in V-L experiment"
+        "audit_wsi_report": "17,383 WSI–report pairs (only in the optional vision-language alignment experiment; reports cleaned with GPT-3.5, aligned via OpenCLIP with a PubMedBERT text encoder)"
       },
       {
         "name": "CHIEF",
