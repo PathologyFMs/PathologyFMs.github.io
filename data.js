@@ -2293,7 +2293,8 @@ const modelData = [
     "category": "Survey and Perspectives",
     "models": [
       {
-        "name": "Jaume",
+        "name": "Jaume et al.",
+        "tag": "perspective",
         "year": 2026,
         "date": "2026-07-01",
         "data": "",

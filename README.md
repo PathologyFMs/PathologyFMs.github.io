@@ -205,7 +205,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 
 | Paper | Year | Focus | Resources |
 |---|---|---|---|
-| **Jaume** — *Foundation models in pathology and the challenge of clinical time* | 2026 | Perspective (Annals of Oncology) on foundation models in pathology and 'the challenge of clinical time' — reflecting on what it will take for PFMs to translate into real clinical practice beyond benchmark performance, given the temporal realities of clinical workflows | [Paper](https://doi.org/10.1016/j.annonc.2026.03.004) |
+| **Jaume et al.** — *Foundation models in pathology and the challenge of clinical time* | 2026 | Perspective (Annals of Oncology) on foundation models in pathology and 'the challenge of clinical time' — reflecting on what it will take for PFMs to translate into real clinical practice beyond benchmark performance, given the temporal realities of clinical workflows | [Paper](https://doi.org/10.1016/j.annonc.2026.03.004) |
 | **Xiong et al.** — *A Survey of Pathology Foundation Model: Progress and Future Directions* | 2025 | Comprehensive survey of progress and future directions in pathology foundation models | [Paper](https://arxiv.org/abs/2504.04045) |
 | **Chanda et al.** — *A New Era in Computational Pathology: A Survey on Foundation and Vision-Language Models* | 2024 | Survey on Foundation and Vision-Language Models | [Paper](https://arxiv.org/abs/2408.14496) |
 | **Li et al.** — *A survey on computational pathology foundation models: datasets, adaptation strategies, and evaluation tasks* | 2025 | Survey covering datasets, adaptation strategies, and evaluation tasks | [Paper](https://link.springer.com/article/10.1007/s10115-026-02806-1) |
