@@ -152,8 +152,7 @@ const modelData = [
         "audit_cohorts": "TCGA, HyReCo, BCI and downstream public datasets",
         "audit_notes": "Cross-scale, cross-stain pretraining on paired H&E-IHC data.",
         "paper_title": "PathoDuet: Foundation Models for Pathological Slide Analysis of H&E and IHC Stains",
-        "paper_author": "Hua",
-        "audit_image_omics": "Paired H&E–IHC used"
+        "paper_author": "Hua"
       },
       {
         "name": "RudolfV",
@@ -839,7 +838,7 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2405.10254",
         "bibtex": "@misc{shaikovski2024prismmultimodalgenerativefoundation,\n      title={PRISM: A Multi-Modal Generative Foundation Model for Slide-Level Histopathology}, \n      author={George Shaikovski and Adam Casson and Kristen Severson and Eric Zimmermann and Yi Kan Wang and Jeremy D. Kunz and Juan A. Retamero and Gerard Oakley and David Klimstra and Christopher Kanan and Matthew Hanna and Michal Zelechowski and Julian Viret and Neil Tenenholtz and James Hall and Nicolo Fusi and Razik Yousfi and Peter Hamilton and William A. Moye and Eugene Vorontsov and Siqi Liu and Thomas J. Fuchs},\n      year={2024},\n      eprint={2405.10254},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2405.10254}, \n}",
         "audit_objective": "CoCa (contrastive + captioning; Perceiver on Virchow tiles)",
-        "audit_wsis": "587K WSIs",
+        "audit_wsis": "587,196 WSIs (195,344 specimens, each with a clinical report)",
         "audit_downstream": "Report generation, zero-shot cancer detection/subtyping, biomarker identification, slide classification",
         "audit_cohorts": "MSKCC",
         "audit_notes": "Generative slide-level model over Virchow tile embeddings + 195K clinical reports (reports are not one-to-one WSI-report pairs).",
