@@ -37,6 +37,7 @@ const modelData = [
         "audit_objective": "CCL (clustering-guided contrastive learning; MoCo-based)",
         "audit_wsis": "~34,700 WSIs (≈32,220 TCGA + 2,457 PAIP)",
         "audit_patches": "~15M patches",
+        "audit_organs": "Pan-cancer histopathology (TCGA + PAIP); general-purpose features focused on whole-slide image retrieval",
         "audit_downstream": "Whole-slide image retrieval; general-purpose histopathology features",
         "audit_cohorts": "TCGA",
         "audit_notes": "Clustering-guided contrastive learning (ResNet50) for WSI retrieval; companion feature extractor to CTransPath (Wang et al., Medical Image Analysis 2023).",
