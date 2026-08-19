@@ -1604,7 +1604,7 @@ const modelData = [
         "paper_author": "Wang"
       },
       {
-        "name": "Flannery et al.",
+        "name": "InfoFusion",
         "year": 2025,
         "date": "2025-12-11",
         "data": "Fuses 8 PFMs (5 tile + 3 slide)",
