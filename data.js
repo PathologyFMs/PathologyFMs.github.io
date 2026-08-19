@@ -2286,6 +2286,19 @@ const modelData = [
     "category": "Survey and Perspectives",
     "models": [
       {
+        "name": "Jaume",
+        "year": 2026,
+        "date": "2026-07-01",
+        "data": "",
+        "idea": "Perspective (Annals of Oncology) on foundation models in pathology and 'the challenge of clinical time' — reflecting on what it will take for PFMs to translate into real clinical practice beyond benchmark performance, given the temporal realities of clinical workflows",
+        "github": "",
+        "hf": "",
+        "paper": "https://doi.org/10.1016/j.annonc.2026.03.004",
+        "bibtex": "@article{jaume2026foundationmodelspathology, title={Foundation models in pathology and the challenge of clinical time}, author={Jaume, G.}, journal={Annals of Oncology}, year={2026}, doi={10.1016/j.annonc.2026.03.004}, url={https://doi.org/10.1016/j.annonc.2026.03.004} }",
+        "paper_title": "Foundation models in pathology and the challenge of clinical time",
+        "paper_author": "Jaume"
+      },
+      {
         "name": "Xiong et al.",
         "year": 2025,
         "date": "2025-04-05",
