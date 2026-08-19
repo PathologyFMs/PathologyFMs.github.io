@@ -324,11 +324,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const fields = [
             { label: 'Pre-training objective', value: model.audit_objective },
+            { label: 'Tasks', value: model.audit_tasks || model.audit_downstream },
+            { label: 'Domain / focus', value: model.audit_domain || model.audit_organs },
+            { label: 'Benchmark / dataset', value: model.audit_benchmark },
+            { label: 'Headline result', value: model.audit_result },
             { label: 'Pretraining WSIs', value: model.audit_wsis },
             { label: 'Patches / tiles', value: model.audit_patches },
             { label: 'Image-text pairs', value: model.audit_image_text },
             { label: 'WSI-report pairs', value: model.audit_wsi_report },
             { label: 'Image-omics pairs', value: model.audit_image_omics },
+            { label: 'Institution / data sources', value: model.audit_cohorts },
+            { label: 'Scanners / vendors', value: model.audit_scanners },
+            { label: 'Omics modality & scale', value: model.audit_omics },
+            { label: 'Stain', value: model.stains },
             { label: 'Dataset notes', value: model.audit_notes }
         ];
 
