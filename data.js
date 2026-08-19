@@ -540,7 +540,7 @@ const modelData = [
         "audit_objective": "DINOv2",
         "audit_wsis": "5.5M WSIs (~490K cases; 7 scanner types)",
         "audit_organs": "70+ tissue types; 100+ staining types",
-        "audit_downstream": "80 public benchmarks",
+        "audit_downstream": "80 public benchmarks across 5 FM evaluation frameworks — eva, HEST, Plismbench, PathoROB and Patho-Bench (95 tasks: morphological/molecular subtyping, TME, grading, mutation, treatment-response, survival) — plus additional TME & MSI datasets (BACH, BreakHis, CoNSeP, CRC-100k, Gleason, MHIST, MoNuSAC, PANDA, PCAM, CAMELYON16, TCGA-Uniform, MSI-CRC/STAD)",
         "audit_cohorts": "Charité – Universitätsmedizin Berlin + LMU Munich + Mayo Clinic (5.5M WSIs)",
         "audit_notes": "",
         "paper_title": "Atlas 2 -- Foundation models for clinical deployment",
