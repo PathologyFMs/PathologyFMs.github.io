@@ -728,7 +728,7 @@ const modelData = [
         "audit_organs": "Evaluation: prostate (PANDA), brain (EBRAINS, 30 subtypes), lung (LUAD/LUSC), breast, colon (Prov-TMA)",
         "audit_wsis": "Providence real-world cohort (pretraining size not disclosed); tile encoder distilled from GigaPath ViT-g (itself trained on ~171K Providence WSIs)",
         "audit_downstream": "PANDA ISUP grading (6-class), EBRAINS 30-class brain subtyping, + spatial-proteomics prediction",
-        "audit_cohorts": "Large real-world clinical data",
+        "audit_cohorts": "Providence Health System — real-world clinical cohort (same source as Prov-GigaPath)",
         "audit_notes": "22M ViT-S + 21M LongNet (~43M); tile encoder distilled from GigaPath; open-weight Apache-2.0. Providence pretraining size not disclosed.",
         "paper_title": "GigaPath-Flash and GigaTIME-Flash: Efficient Pathology Foundation Models for Whole-Slide and Tumor Microenvironment Analysis",
         "paper_author": "Usuyama"
@@ -747,6 +747,7 @@ const modelData = [
         "audit_objective": "Weakly-supervised on patient-level clinical labels (not SSL)",
         "audit_wsis": "22,225 TCGA WSIs (+2,352 PLCO prostate) for supervised training; CPTAC held out for testing",
         "audit_downstream": "Slide-level cancer subtyping, risk estimation, genetic mutation prediction (multitask)",
+        "audit_cohorts": "TCGA (primary training) + PLCO prostate; CPTAC held out for testing",
         "audit_notes": "Supervised, end-to-end multitask slide-level foundation model (Fraunhofer MEVIS); combines subtyping, risk and mutation prediction in one model.",
         "paper_title": "Whole Slide Concepts: A Supervised Foundation Model For Pathological Images",
         "paper_author": "Nicke"
@@ -1219,7 +1220,7 @@ const modelData = [
         "audit_objective": "Distilled from GigaPath (DINOv2 tiles + MAE slide); GigaPath-Flash backbone",
         "audit_organs": "Evaluation: prostate, brain, lung (LUAD/LUSC), breast, colon (Prov-TMA)",
         "audit_downstream": "Tumor immune microenvironment / spatial-proteomics prediction (windowed Pearson on mIF markers)",
-        "audit_cohorts": "Large real-world clinical data",
+        "audit_cohorts": "Providence Health System — real-world clinical cohort (same source as Prov-GigaPath)",
         "audit_omics": "Spatial proteomics — predicted from H&E",
         "audit_notes": "Uses the compact GigaPath-Flash visual backbone. Providence pretraining size not disclosed.",
         "paper_title": "GigaPath-Flash and GigaTIME-Flash: Efficient Pathology Foundation Models for Whole-Slide and Tumor Microenvironment Analysis",
