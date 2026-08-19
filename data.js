@@ -40,7 +40,7 @@ const modelData = [
         "audit_organs": "Pan-cancer histopathology (TCGA + PAIP); general-purpose features focused on whole-slide image retrieval",
         "audit_downstream": "Whole-slide image retrieval; general-purpose histopathology features",
         "audit_cohorts": "TCGA",
-        "audit_notes": "Clustering-guided contrastive learning (ResNet50) for WSI retrieval; companion feature extractor to CTransPath (Wang et al., Medical Image Analysis 2023).",
+        "audit_notes": "Clustering-guided contrastive learning (ResNet50) for WSI retrieval; companion feature extractor to CTransPath.",
         "paper_title": "RetCCL: Clustering-guided contrastive learning for whole-slide image retrieval",
         "paper_author": "Wang"
       },
@@ -373,7 +373,7 @@ const modelData = [
         "audit_patches": "6,087,558 patches (20×)",
         "audit_organs": "Breast, liver, skin, colorectal (internal) + 7 public datasets",
         "audit_downstream": "Patch/WSI classification across 12 datasets (PANDA, CAMELYON16, BRACS, DigestPath, Kather, PanNuke, WSSS4LUAD)",
-        "audit_notes": "Compact ViT (~9M params, 5 transformer blocks) with rotation-agnostic SSL (HistoRotate) and Fast Patch Selection (FPS); CVPR 2024 (Tizhoosh/Mayo).",
+        "audit_notes": "Compact ViT (~9M params, 5 transformer blocks) with rotation-agnostic SSL (HistoRotate) and Fast Patch Selection (FPS).",
         "paper_title": "Rotation-Agnostic Image Representation Learning for Digital Pathology",
         "paper_author": "Alfasly"
       },
