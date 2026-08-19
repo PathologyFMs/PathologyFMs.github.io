@@ -55,7 +55,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
     function parseScale(str) {
         if (!str) return null;
-        const mm = String(str).replace(/,/g, '').match(/([\d.]+)\s*([kKmM])?/);
+        const s = String(str).replace(/,/g, '');
+        // Adaptation / integration entries with no from-scratch corpus state so — no pre-training scale.
+        if (/no new|not disclosed|no standalone|no from-scratch|no fixed|not a (pretrain|from-scratch)|image-text pairs, not/i.test(s)) return null;
+        // Prefer a number explicitly labelled as WSIs/slides (skips tile counts and model-name numbers like "Phikon-v2" / "Midnight-12k").
+        let mm = s.match(/([\d.]+)\s*([kKmM])?[^\d]{0,18}?(?:WSI|slide|whole[- ]?slide)/i);
+        if (!mm) mm = s.match(/([\d.]+)\s*([kKmM])?/);
         if (!mm) return null;
         let n = parseFloat(mm[1]);
         if (!isFinite(n)) return null;
@@ -88,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (/ihc|immunohisto/.test(s)) o.push('IHC');
             if (/special|\bpas\b|jones|trichrome|histochem/.test(s)) o.push('Special stains');
             if (/immunofluoresc|multiplex|codex|\bif\b/.test(s)) o.push('Immunofluorescence');
-            if (/spatial transcriptom|visium/.test(s)) o.push('Spatial transcriptomics');
             return o;
         } },
         { key: 'molecular', label: 'Molecular data', icon: 'ph-dna', tags: m => {
