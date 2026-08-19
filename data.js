@@ -57,6 +57,8 @@ const modelData = [
         "audit_objective": "SimCLR (contrastive)",
         "audit_wsis": "29,018",
         "audit_patches": "50M pathology images",
+        "audit_organs": "Histopathology arm of a multi-domain medical-imaging SSL framework; pathology SSL pretrained on pan-cancer TCGA",
+        "audit_downstream": "Downstream pathology: metastasis detection (breast cancer, lymph nodes) — part of a broader REMEDIS evaluation spanning 6 imaging domains / 15 datasets (dermatology, diabetic retinopathy, chest X-ray, mammography, pathology)",
         "audit_cohorts": "TCGA for pathology SSL",
         "audit_notes": "BiT + SimCLR pretraining on 29,018 WSIs / 50M pathology images; the broader REMEDIS study also covers non-pathology medical imaging.",
         "paper_title": "Robust and data-efficient generalization of self-supervised machine learning for diagnostic imaging",
