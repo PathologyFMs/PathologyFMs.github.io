@@ -96,9 +96,9 @@ document.addEventListener('DOMContentLoaded', () => {
             return o;
         } },
         { key: 'molecular', label: 'Molecular data', icon: 'ph-dna', tags: m => {
-            const s = (m.audit_omics || '').toLowerCase(); const o = [];
-            if (/transcriptom|rna|expression|\bgene/.test(s)) o.push('Transcriptomic');
-            if (/proteom|protein marker/.test(s)) o.push('Proteomic');
+            const s = ((m.audit_omics || '') + ' ' + (m.audit_image_omics || '')).toLowerCase(); const o = [];
+            if (/transcriptom|\brna\b|gene[- ]?expression/.test(s)) o.push('Transcriptomic');
+            if (/proteom|protein|proteogenom/.test(s)) o.push('Proteomic');
             if (/genom/.test(s)) o.push('Genomic');
             if (/spatial/.test(s)) o.push('Spatial');
             return o;

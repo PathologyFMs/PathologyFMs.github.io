@@ -552,7 +552,7 @@ const modelData = [
         "date": "2026-06-03",
         "data": "48K WSIs",
         "idea": "Gastric-specific pathology foundation model built by LoRA continued-pretraining of a general PFM on 25,719 gastric WSIs (107M patches); specializes for gastric diagnosis, grading and prognosis",
-        "stains": "Primarily H&E",
+        "stains": "H&E",
         "github": "",
         "hf": "",
         "paper": "https://arxiv.org/abs/2606.04792",
