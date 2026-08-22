@@ -527,8 +527,14 @@ const modelData = [
         "audit_downstream": "Evaluated on HEST, eva, PathoROB and Plismbench (tile- + slide-level); best open-weights model overall (robustness-average 84.3), approaching the closed Atlas 2; distilled ViT-B/ViT-S match far larger models at a fraction of inference cost",
         "audit_notes": "Open-weights family released for academic research: RudolfV 2 (ViT-g/8, 1.1B), RudolfV 2-B (ViT-B, 86M) and RudolfV 2-S (ViT-S, 22M distilled). Introduces a dedicated posttraining stage (representational alignment) — a first for pathology FMs.",
         "variants": [
-          { "name": "RudolfV 2-B", "note": "Distilled ViT-B (86M params) — matches far larger models at a fraction of the inference cost" },
-          { "name": "RudolfV 2-S", "note": "Distilled ViT-S (22M params) — efficient and notably robust for its size" }
+          {
+            "name": "RudolfV 2-B",
+            "note": "Distilled ViT-B (86M params) — matches far larger models at a fraction of the inference cost"
+          },
+          {
+            "name": "RudolfV 2-S",
+            "note": "Distilled ViT-S (22M params) — efficient and notably robust for its size"
+          }
         ],
         "paper_title": "RudolfV 2: A Family of Robust and Efficient Open-Weights Pathology Foundation Models",
         "paper_author": "Milbich"
@@ -594,6 +600,54 @@ const modelData = [
         "audit_cohorts": "32 sources across Asia, Europe and North America",
         "paper_title": "A Breast Vision Pathology Foundation Model for Real-world Clinical Utility",
         "paper_author": "Xu"
+      },
+      {
+        "name": "BROW",
+        "year": 2023,
+        "date": "2023-09-15",
+        "data": "11K+ WSIs",
+        "idea": "Self-distillation (DINO-style) tile encoder that adds patch shuffling as an augmentation and pulls an extra global view from the WSI's own multi-scale pyramid, so the encoder sees slide-level context while still training on tiles",
+        "stains": "H&E",
+        "github": "https://github.com/openmedlab/BROW",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2309.08259",
+        "bibtex": "@misc{wu2023browbetterfeaturesslide,\n      title={BROW: Better featuRes fOr Whole slide image based on self-distillation}, \n      author={Yuanfeng Wu and Shaojie Li and Zhiqiang Du and Wentao Zhu},\n      year={2023},\n      eprint={2309.08259},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2309.08259}, \n}",
+        "audit_objective": "Self-distillation (DINO-style) with patch shuffling and an extra multi-scale global view",
+        "audit_wsis": "11,000+ WSIs (mixed public and private)",
+        "audit_patches": ">180M patches",
+        "audit_domain": "General-purpose tile encoder; multiple organs and tissue types",
+        "audit_benchmark": "Slide-level subtyping, patch-level classification, and nuclei instance segmentation",
+        "audit_result": "Consistent gains over prior WSI feature extractors across subtyping, patch classification and nuclei segmentation, with or without light fine-tuning",
+        "audit_organs": "Multiple organs and tissue types",
+        "audit_downstream": "Slide-level subtyping; patch-level classification; nuclei instance segmentation",
+        "audit_cohorts": "Mixed private and public sources",
+        "audit_notes": "Released through OpenMEDLab.",
+        "paper_title": "BROW: Better featuRes fOr Whole slide image based on self-distillation",
+        "paper_author": "Wu"
+      },
+      {
+        "name": "Digepath",
+        "year": 2026,
+        "date": "2026-05-01",
+        "data": "210K WSIs",
+        "idea": "Subspecialty-specific (gastrointestinal) foundation model trained with a dual-phase iterative strategy: large-scale SSL pretraining followed by a fine-screening stage on expert-annotated regions, targeted at the sparsely distributed lesions that general pan-cancer encoders tend to miss",
+        "stains": "H&E",
+        "github": "",
+        "hf": "",
+        "paper": "https://www.nature.com/articles/s41746-026-02684-5",
+        "bibtex": "@article{Zhu_2026, title={Subspecialty-specific foundation model for intelligent gastrointestinal pathology}, volume={9}, ISSN={2398-6352}, url={http://dx.doi.org/10.1038/s41746-026-02684-5}, DOI={10.1038/s41746-026-02684-5}, number={1}, journal={npj Digital Medicine}, publisher={Springer Science and Business Media LLC}, author={Zhu, Lianghui and Ling, Xitong and Ouyang, Minxi and Liu, Xiaoping and Guan, Tian and Fu, Mingxi and Zeng, Maomao and Cheng, Zhiqiang and Fu, Fanglei and Huang, Qiang and Zhu, Mingxi and Jin, Yibo and He, Qiming and Wang, Yizhi and Cheng, Junru and Wang, Xuanyu and Xie, Luxi and Li, Houqiang and Tian, Sufang and He, Yonghong}, year={2026}, month=May }",
+        "audit_objective": "Dual-phase iterative optimization: SSL pretraining followed by fine-screening on expert-annotated lesion regions",
+        "audit_wsis": "210,043 H&E gastrointestinal WSIs",
+        "audit_patches": ">353M multi-scale patches; fine-screening stage uses 471,443 expert-annotated regions",
+        "audit_domain": "Gastrointestinal pathology (subspecialty-specific rather than pan-cancer)",
+        "audit_benchmark": "34 GI pathology tasks spanning diagnosis, protein-expression status, gene-mutation prediction and prognosis; screening validated across nine independent institutions",
+        "audit_result": "State of the art on 33 of 34 GI tasks; 99.70% sensitivity for cancer screening across nine independent medical institutions",
+        "audit_organs": "Gastrointestinal tract (esophagus, stomach, colorectum)",
+        "audit_downstream": "Pathological diagnosis; protein-expression status prediction; gene-mutation prediction; prognosis evaluation; cancer screening",
+        "audit_cohorts": "Nine independent medical institutions for external screening validation",
+        "audit_notes": "Preprint arXiv:2505.21928; published in npj Digital Medicine 2026.",
+        "paper_title": "Subspecialty-specific foundation model for intelligent gastrointestinal pathology",
+        "paper_author": "Zhu"
       }
     ]
   },
@@ -681,7 +735,10 @@ const modelData = [
         "audit_cohorts": "PC-108 cases from Brigham and Women's Hospital (BWH); other sources not stated",
         "audit_notes": "Feather = transferable pretrained MIL aggregators (Mahmood Lab MIL-Lab). Source tasks PC-43 (43 cancer types) and PC-108 (108 OncoTree codes) use 3,944 BWH training WSIs (+1,620 validation).",
         "variants": [
-          { "name": "FEATHER-24K", "note": "Released checkpoint pretrained on 24K WSIs (vs 3,944 in the paper); used in MOSAIC via TRIDENT" }
+          {
+            "name": "FEATHER-24K",
+            "note": "Released checkpoint pretrained on 24K WSIs (vs 3,944 in the paper); used in MOSAIC via TRIDENT"
+          }
         ],
         "paper_title": "Do Multiple Instance Learning Models Transfer?",
         "paper_author": "Shao"
@@ -1244,6 +1301,54 @@ const modelData = [
         "paper_title": "GigaPath-Flash and GigaTIME-Flash: Efficient Pathology Foundation Models for Whole-Slide and Tumor Microenvironment Analysis",
         "paper_author": "Usuyama",
         "audit_image_omics": "Spatial-proteomics prediction supervision"
+      },
+      {
+        "name": "H2O",
+        "year": 2026,
+        "date": "2026-04-24",
+        "data": "1.3M paired H&E–spatial-omics patches",
+        "idea": "Bridges the modality gap between histology and spatial omics by CLIP-style contrastive alignment of a DINOv2 vision encoder with a fine-tuned scGPT omics encoder, letting routine H&E be read directly as a spatial transcriptomic and proteomic landscape",
+        "stains": "H&E (predicts spatial transcriptomics and proteomics)",
+        "github": "",
+        "hf": "",
+        "paper": "https://www.biorxiv.org/content/10.64898/2026.04.21.717342v1",
+        "bibtex": "@article{Gu2026H2O,\n  author = {Yuxuan Gu and Zhenhui Wu and Rui Yan and Zhuo Wang and Yi Li and Shan Lin and Yanfeng Cui and Han Lai and Xin Luo and S. Kevin Zhou and Zhiyuan Yuan and Jianhua Yao},\n  title = {H2O: A Foundation Model Bridging Histopathology to Spatial Multi-Omics Profiling},\n  journal = {bioRxiv},\n  year = {2026},\n  doi = {10.64898/2026.04.21.717342},\n  url = {https://www.biorxiv.org/content/10.64898/2026.04.21.717342v1}\n}",
+        "audit_objective": "Contrastive (CLIP-style) alignment between a DINOv2 ViT vision encoder and an scGPT omics encoder fine-tuned on spatial transcriptomics",
+        "audit_patches": "54,435,706 patches from 44,992 samples for vision pretraining; 1.3M paired H&E–spatial patches from 1,229 samples for alignment",
+        "audit_image_omics": "1.3M paired H&E–spatial-omics patches across 25 organs and cancer types",
+        "audit_domain": "Pan-tissue histology-to-spatial-multi-omics inference (transcriptomics and proteomics) across 25 organs and cancer types",
+        "audit_benchmark": "HEST-1k-ccRCC and HEST-1k-PRAD (internal); IDCLymphNode (external); HTSA (development), OpenST (3D architecture), HTAPP (transcriptomics + proteomics)",
+        "audit_result": "Outperforms HisToGene, BLEEP, DeepPT and OmiCLIP across three cancer benchmarks; recovers the MIF–CD74/CD44 signalling axis from H&E alone and generalises to fetal/paediatric thymus, metastatic lymph node and breast cohorts",
+        "audit_organs": "25 organs and cancer types (TCGA 32 cancer types, GTEx 40 tissue types)",
+        "audit_downstream": "Spatial transcriptomic and proteomic expression prediction; cell–cell communication inference; developmental-trajectory and 3D tumour-invasion reconstruction",
+        "audit_cohorts": "TCGA, GTEx, HEST-1k, in-house breast cancer cohorts; Tencent AI for Life Science Lab",
+        "audit_omics": "Spatial transcriptomics and spatial proteomics",
+        "audit_notes": "Vision encoder trained on both FFPE and fresh-frozen tissue.",
+        "paper_title": "H2O: A Foundation Model Bridging Histopathology to Spatial Multi-Omics Profiling",
+        "paper_author": "Gu"
+      },
+      {
+        "name": "spEMO",
+        "year": 2026,
+        "date": "2026-02-01",
+        "data": "Spatial multi-omic cohorts",
+        "idea": "Rather than pretraining a new encoder, spEMO unifies frozen embeddings from pathology foundation models and LLMs into a training-flexible framework for spatial multi-omic data, and adds a multi-modal alignment task that measures how much molecular information a PFM's features actually retain",
+        "stains": "H&E (paired with spatial transcriptomics and proteomics)",
+        "github": "https://github.com/HelloWorldLTY/spEMO",
+        "hf": "",
+        "paper": "https://www.nature.com/articles/s41551-025-01602-6",
+        "bibtex": "@article{Liu_2026, title={Leveraging multi-modal foundation models for analysing spatial multi-omic and histopathology data}, volume={10}, ISSN={2157-846X}, url={http://dx.doi.org/10.1038/s41551-025-01602-6}, DOI={10.1038/s41551-025-01602-6}, number={8}, journal={Nature Biomedical Engineering}, publisher={Springer Science and Business Media LLC}, author={Liu, Tianyu and Huang, Tinglin and Ding, Tong and Wu, Hao and Humphrey, Peter and Perincheri, Sudhir and Schalper, Kurt and Ying, Rex and Xu, Hua and Zou, James and Mahmood, Faisal and Zhao, Hongyu}, year={2026}, month=Feb, pages={1714–1731} }",
+        "audit_objective": "Post-hoc fusion of frozen PFM and LLM embeddings with task-specific expert modules (no new pretraining)",
+        "audit_image_omics": "Spot-level H&E patches paired with spatial transcriptomic and proteomic measurements",
+        "audit_domain": "Spatial multi-omic tissue analysis; also a probe of how much molecular signal PFM embeddings carry",
+        "audit_benchmark": "Spatial domain identification, spot-type classification, whole-slide disease-state prediction and interpretation, multicellular interaction inference, automated report generation, and a new multi-modal alignment retrieval task",
+        "audit_result": "Beats single-modality baselines across all six task families; the proposed multi-modal alignment task exposes large differences in how well different PFMs encode molecular information",
+        "audit_downstream": "Spatial domain identification; spot-type classification; whole-slide disease-state prediction; multicellular interaction inference; medical report generation",
+        "audit_cohorts": "Yale University; Harvard/BWH (Mahmood lab) collaboration",
+        "audit_omics": "Spatial transcriptomics and spatial proteomics",
+        "audit_notes": "Preprint bioRxiv 10.1101/2025.01.13.632818; published in Nature Biomedical Engineering 2026.",
+        "paper_title": "Leveraging multi-modal foundation models for analysing spatial multi-omic and histopathology data",
+        "paper_author": "Liu"
       }
     ]
   },
@@ -1644,6 +1749,30 @@ const modelData = [
         "audit_notes": "Logit-level product fusion (LogitProd); ranks first on 20/22 tasks, +~3% average over the strongest single expert, ~12x lower training cost than feature-fusion alternatives",
         "paper_title": "Plug-and-Play Logit Fusion for Heterogeneous Pathology Foundation Models",
         "paper_author": "Huang"
+      },
+      {
+        "name": "LiteFM",
+        "year": 2026,
+        "date": "2026-02-15",
+        "data": "~190M patches (72,280 WSIs); distilled from 3 PFMs",
+        "idea": "Multi-teacher distillation of Virchow2, H-Optimus-1 and UNI2 into a 22.5M-parameter ViT-S, paired with an Adaptive Patch Selector that drops task-irrelevant tiles — the two together (LitePath) make whole-slide inference cheap enough for edge hardware without giving up accuracy",
+        "stains": "H&E",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2602.14010",
+        "bibtex": "@misc{cai2026deploymentfriendlyfoundationalframeworkefficient,\n      title={A Deployment-Friendly Foundational Framework for Efficient Computational Pathology}, \n      author={Yu Cai and Cheng Jin and Zhengyu Zhang and Jiabo Ma and Fengtao Zhou and Yingxue Xu and Zhengrui Guo and Yihui Wang and Zhengyu Zhang and Ling Liang and Yonghao Tan and Pingcheng Dong and Du Cai and On Ki Tang and Chenglong Zhao and Zhijian Cen and Ying Tan and Xi Wang and Can Yang and Yali Xu and Jing Cui and Zhenhui Li and Ronald Cheong Kin Chan and Yueping Liu and Feng Gao and Xiuming Zhang and Li Liang and Hao Chen and Kwang-Ting Cheng},\n      year={2026},\n      eprint={2602.14010},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2602.14010}, \n}",
+        "audit_objective": "Multi-teacher knowledge distillation into a 22.5M-parameter ViT-S student (28x smaller than Virchow2); teachers Virchow2, H-Optimus-1, UNI2",
+        "audit_wsis": "72,280 WSIs (33 public datasets, curated following GPFM)",
+        "audit_patches": "~190M patches for distillation",
+        "audit_domain": "General-purpose efficient tile encoder for edge and low-resource deployment",
+        "audit_benchmark": "45 multicentre cohorts (33 internal, 10 external, 2 prospective) from 9 hospitals; 17,837 slides, 9,977 patients, 33 tasks (26 classification, 7 survival)",
+        "audit_result": "Best average rank among 22 PFMs (6.56 vs Virchow2's 6.58); retains 99.71% of Virchow2's Macro-AUC and gains +2.14pp mean C-index on survival, at 28x fewer parameters, 403.5x fewer FLOPs and 208 slides/hour on a Jetson Orin Nano Super",
+        "audit_organs": "Lung, breast, gastric, colorectal",
+        "audit_downstream": "26 classification tasks and 7 survival tasks across 45 cohorts",
+        "audit_cohorts": "9 hospitals (H1–H9); 33 public pretraining datasets",
+        "audit_notes": "LiteFM is the distilled encoder inside LitePath, which also contributes the Adaptive Patch Selector (APS) for task-specific tile selection.",
+        "paper_title": "A Deployment-Friendly Foundational Framework for Efficient Computational Pathology",
+        "paper_author": "Cai"
       }
     ]
   },
@@ -2028,6 +2157,31 @@ const modelData = [
         "audit_notes": "MAKO benchmarking framework for interpretable recurrence-risk prediction; predicts transcriptomic ROR-P scores from H&E WSIs.",
         "paper_title": "Towards interpretable prediction of recurrence risk in breast cancer using pathology foundation models",
         "paper_author": "Kaczmarzyk"
+      },
+      {
+        "name": "PLISM",
+        "year": 2025,
+        "date": "2025-01-27",
+        "data": "Robustness (scanner + staining)",
+        "idea": "Turns the PLISM registered multi-scanner/multi-stain dataset into a robustness benchmark: because the same tissue is imaged under every stain-device combination and the tiles are pixel-aligned, feature drift under domain shift can be measured directly rather than inferred from downstream accuracy",
+        "stains": "13 H&E staining conditions",
+        "github": "https://github.com/owkin/plism-benchmark",
+        "hf": "",
+        "dataset": "https://huggingface.co/datasets/owkin/plism-dataset",
+        "website": "https://owkin.github.io/plism-benchmark/",
+        "paper": "https://www.nature.com/articles/s41597-024-03122-5",
+        "bibtex": "@article{Ochi_2024, title={Registered multi-device/staining histology image dataset for domain-agnostic machine learning models}, volume={11}, ISSN={2052-4463}, url={http://dx.doi.org/10.1038/s41597-024-03122-5}, DOI={10.1038/s41597-024-03122-5}, number={1}, journal={Scientific Data}, publisher={Springer Science and Business Media LLC}, author={Ochi, Mieko and Komura, Daisuke and Onoyama, Takumi and Shinbo, Koki and Endo, Haruya and Odaka, Hiroto and Kakiuchi, Miwako and Katoh, Hiroto and Ushiku, Tetsuo and Ishikawa, Shumpei}, year={2024}, month=Apr }",
+        "audit_domain": "Robustness of tile encoders to scanner and staining shift, measured on pixel-aligned tiles of the same tissue",
+        "audit_benchmark": "PLISM dataset: 91 WSIs spanning 13 staining conditions x 13 imaging devices over 46 human tissue types; ~16,278 aligned tiles per slide (310,947 tiles) and 4,095 slide pairs",
+        "audit_result": "Public leaderboard of 16 PFMs; H0-mini ranks first (0.541) and Hibou-L last (0.147), showing that robustness to stain/scanner shift does not track model size",
+        "audit_patches": "310,947 aligned tiles across 91 stain-device combinations",
+        "audit_organs": "46 human tissue types",
+        "audit_downstream": "Cross-scanner and cross-staining feature robustness via cosine similarity and top-k retrieval accuracy (k = 1, 3, 5, 10)",
+        "audit_cohorts": "PLISM dataset (Ochi et al., University of Tokyo); benchmark released by Owkin",
+        "audit_scanners": "13 imaging devices (whole-slide scanners and smartphone cameras)",
+        "audit_notes": "Benchmark introduced alongside H0-mini in Filiot et al., MICCAI 2025 (arXiv:2501.16239); the cited paper is the underlying PLISM dataset.",
+        "paper_title": "Registered multi-device/staining histology image dataset for domain-agnostic machine learning models",
+        "paper_author": "Ochi"
       }
     ]
   },
@@ -2100,13 +2254,23 @@ const modelData = [
         "paper_author": "Vig"
       },
       {
-        "name": "Kim et al.",
+        "name": "PICASSO",
         "year": 2026,
         "date": "2026-06-16",
-        "data": "",
-        "idea": "Sparse representation learning decomposes PFM embeddings into interpretable histomorphological concepts, producing a pathology concept atlas (bioRxiv preprint)",
+        "data": ">120M patches, 32 cancer types",
+        "idea": "A sparse autoencoder decomposes PFM embeddings into human-interpretable histomorphological concepts, yielding a pan-cancer concept atlas that supports not just auditing but concept-level intervention — suppressing artifact concepts or generating counterfactual embeddings",
         "github": "",
         "hf": "",
+        "audit_objective": "Sparse dictionary learning (sparse autoencoder) over frozen PFM embeddings",
+        "audit_patches": ">120M tissue patches across 32 cancer types",
+        "audit_domain": "Interpretability and controllability of pathology FM embeddings; pan-cancer concept atlas",
+        "audit_benchmark": "Clinical-model auditing, EGFR-mutation morphology discovery in lung adenocarcinoma, concept-to-spatial-transcriptomics association, artifact-concept suppression, and counterfactual TIL-density manipulation for survival",
+        "audit_result": "Identifies hobnailing epithelial morphology as a previously unrecognised biomarker of EGFR mutation in lung adenocarcinoma; suppressing technical-artifact concepts reduces model reliance on spurious signals",
+        "audit_organs": "32 cancer types (pan-cancer)",
+        "audit_downstream": "Model auditing; biomarker discovery; morphology–gene-expression association; artifact suppression; counterfactual embedding generation",
+        "audit_cohorts": "Paul G. Allen School of Computer Science & Engineering, University of Washington",
+        "audit_omics": "Spatial transcriptomics used to link concepts to gene-expression programs",
+        "audit_notes": "PICASSO = Pathology Image Concept Atlas built via SparSe dictiOnary learning.",
         "paper": "https://www.biorxiv.org/content/10.64898/2026.06.12.731496v1",
         "bibtex": "@article{Kim2026DissectingAD,\n  author = {Chanwoo Kim and Jakub R. Kaczmarzyk and D. Savant and Zhen Zhao and Peter K. Koo and Su-In Lee},\n  title = {Dissecting and directing pathology foundation models},\n  journal = {bioRxiv},\n  year = {2026},\n  doi = {10.64898/2026.06.12.731496},\n  url = {https://www.biorxiv.org/content/10.64898/2026.06.12.731496v1}\n}",
         "paper_title": "Dissecting and Directing Pathology Foundation Models",
@@ -2303,7 +2467,7 @@ const modelData = [
         "paper_author": "Yajnik"
       },
       {
-        "name": "Wang et al.",
+        "name": "UTAP",
         "year": 2026,
         "date": "2026-06-01",
         "data": "",
