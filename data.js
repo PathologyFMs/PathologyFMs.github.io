@@ -19,7 +19,7 @@ const modelData = [
         "audit_organs": ">25 anatomic sites; 32 cancer subtypes",
         "audit_downstream": "5 task families: patch retrieval, supervised patch classification, weakly supervised WSI classification, mitosis detection, colorectal gland segmentation; 9 public datasets",
         "audit_cohorts": "Pretraining sources TCGA + PAIP",
-        "audit_notes": "Public-source pathology corpus; SRCL hybrid CNN–ViT.",
+        "audit_notes": "",
         "paper_title": "Transformer-based unsupervised contrastive learning for histopathological image classification",
         "paper_author": "Wang"
       },
@@ -115,6 +115,30 @@ const modelData = [
             "note": "ViT-L/16, 0.3B params; 456M tiles from 60K slides (PANCAN-XL: TCGA+CPTAC+GTEx). Scales up Phikon (40M -> 456M images)."
           }
         ]
+      },
+      {
+        "name": "BROW",
+        "year": 2023,
+        "date": "2023-09-15",
+        "data": "11K+ WSIs",
+        "idea": "Self-distillation (DINO-style) tile encoder that adds patch shuffling as an augmentation and pulls an extra global view from the WSI's own multi-scale pyramid, so the encoder sees slide-level context while still training on tiles",
+        "stains": "H&E",
+        "github": "https://github.com/openmedlab/BROW",
+        "hf": "https://drive.google.com/drive/folders/184TSs-rlzdttVWbRHIPCZgEYqIQNb9WB",
+        "paper": "https://arxiv.org/abs/2309.08259",
+        "bibtex": "@misc{wu2023browbetterfeaturesslide,\n      title={BROW: Better featuRes fOr Whole slide image based on self-distillation}, \n      author={Yuanfeng Wu and Shaojie Li and Zhiqiang Du and Wentao Zhu},\n      year={2023},\n      eprint={2309.08259},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2309.08259}, \n}",
+        "audit_objective": "Self-distillation (DINO-style) with patch shuffling and an extra multi-scale global view",
+        "audit_wsis": "11,000+ WSIs (mixed public and private)",
+        "audit_patches": ">180M patches",
+        "audit_domain": "General-purpose tile encoder; multiple organs and tissue types",
+        "audit_benchmark": "Slide-level subtyping, patch-level classification, and nuclei instance segmentation",
+        "audit_result": "Consistent gains over prior WSI feature extractors across subtyping, patch classification and nuclei segmentation, with or without light fine-tuning",
+        "audit_organs": "Multiple organs and tissue types",
+        "audit_downstream": "Slide-level subtyping; patch-level classification; nuclei instance segmentation",
+        "audit_cohorts": "Mixed private and public sources",
+        "audit_notes": "",
+        "paper_title": "BROW: Better featuRes fOr Whole slide image based on self-distillation",
+        "paper_author": "Wu"
       },
       {
         "name": "Path Foundation",
@@ -525,7 +549,7 @@ const modelData = [
         "audit_objective": "DINOv2-based (extended RudolfV + Atlas framework, selective DINOv3 improvements); ViT-g/8 backbone; novel dedicated posttraining stage (representational alignment) — first introduced for pathology FMs; distilled into ViT-B / ViT-S students",
         "audit_wsis": "~300K WSIs",
         "audit_downstream": "Evaluated on HEST, eva, PathoROB and Plismbench (tile- + slide-level); best open-weights model overall (robustness-average 84.3), approaching the closed Atlas 2; distilled ViT-B/ViT-S match far larger models at a fraction of inference cost",
-        "audit_notes": "Open-weights family released for academic research: RudolfV 2 (ViT-g/8, 1.1B), RudolfV 2-B (ViT-B, 86M) and RudolfV 2-S (ViT-S, 22M distilled). Introduces a dedicated posttraining stage (representational alignment) — a first for pathology FMs.",
+        "audit_notes": "",
         "variants": [
           {
             "name": "RudolfV 2-B",
@@ -600,30 +624,6 @@ const modelData = [
         "audit_cohorts": "32 sources across Asia, Europe and North America",
         "paper_title": "A Breast Vision Pathology Foundation Model for Real-world Clinical Utility",
         "paper_author": "Xu"
-      },
-      {
-        "name": "BROW",
-        "year": 2023,
-        "date": "2023-09-15",
-        "data": "11K+ WSIs",
-        "idea": "Self-distillation (DINO-style) tile encoder that adds patch shuffling as an augmentation and pulls an extra global view from the WSI's own multi-scale pyramid, so the encoder sees slide-level context while still training on tiles",
-        "stains": "H&E",
-        "github": "https://github.com/openmedlab/BROW",
-        "hf": "",
-        "paper": "https://arxiv.org/abs/2309.08259",
-        "bibtex": "@misc{wu2023browbetterfeaturesslide,\n      title={BROW: Better featuRes fOr Whole slide image based on self-distillation}, \n      author={Yuanfeng Wu and Shaojie Li and Zhiqiang Du and Wentao Zhu},\n      year={2023},\n      eprint={2309.08259},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2309.08259}, \n}",
-        "audit_objective": "Self-distillation (DINO-style) with patch shuffling and an extra multi-scale global view",
-        "audit_wsis": "11,000+ WSIs (mixed public and private)",
-        "audit_patches": ">180M patches",
-        "audit_domain": "General-purpose tile encoder; multiple organs and tissue types",
-        "audit_benchmark": "Slide-level subtyping, patch-level classification, and nuclei instance segmentation",
-        "audit_result": "Consistent gains over prior WSI feature extractors across subtyping, patch classification and nuclei segmentation, with or without light fine-tuning",
-        "audit_organs": "Multiple organs and tissue types",
-        "audit_downstream": "Slide-level subtyping; patch-level classification; nuclei instance segmentation",
-        "audit_cohorts": "Mixed private and public sources",
-        "audit_notes": "",
-        "paper_title": "BROW: Better featuRes fOr Whole slide image based on self-distillation",
-        "paper_author": "Wu"
       },
       {
         "name": "Digepath",
@@ -1505,7 +1505,7 @@ const modelData = [
         "audit_objective": "Contrastive distillation (adapted from MoCo v3) using cached Virchow2 / UNI2 / H-optimus-1 embeddings as keys",
         "audit_wsis": "14.3M TCGA tiles from 11.8K WSIs (student pretraining)",
         "audit_downstream": "23 clinically-curated downstream classification tasks; MuCoEdge students within ~0.8pp AUROC of the best teacher (Virchow2)",
-        "audit_notes": "MuCoDi = Multi-teacher Contrastive Distillation; MuCoEdge students (MobileOne/RepViT) for edge deployment. Teachers: Virchow2, UNI2, H-optimus-1.",
+        "audit_notes": "",
         "paper_title": "Multi-Teacher Contrastive Distillation for Edge-Efficient Pathology Foundation Models",
         "paper_author": "Lenz"
       },
@@ -1539,7 +1539,7 @@ const modelData = [
         "bibtex": "@article{gao2026metaencoder, title={Meta-encoder: a unified integration framework for multiple pathological foundation models in cancer detection}, author={Gao, Ruitian and Yang, Zhaochang and Yuan, Xin and Wang, Yifan and Xia, Yujia and Zhang, Yufei and Zheng, Bingyan and Gong, Yuqiao and Yue, Yiping and Tu, Yansong and Yu, Zhangsheng}, journal={Nature Communications}, year={2026}, doi={10.1038/s41467-026-71558-x}, url={https://doi.org/10.1038/s41467-026-71558-x} }",
         "audit_wsis": "No standalone pretraining corpus — integrates pretrained PFM features",
         "audit_downstream": "Cancer detection across multiple datasets",
-        "audit_notes": "Meta-encoder unifies representations from several PFMs; published in Nature Communications. Preprint: bioRxiv 2025.06.05.657960.",
+        "audit_notes": "",
         "paper_title": "Meta-encoder: a unified integration framework for multiple pathological foundation models in cancer detection",
         "paper_author": "Gao"
       },
@@ -1555,7 +1555,7 @@ const modelData = [
         "bibtex": "@misc{yang2025fusionmultiscaleheterogeneouspathology,\n      title={Fusion of Multi-scale Heterogeneous Pathology Foundation Models for Whole Slide Image Analysis}, \n      author={Zhidong Yang and Xiuhui Shi and Wei Ba and Zhigang Song and Haijing Luan and Taiyuan Hu and Senlin Lin and Jiguang Wang and Shaohua Kevin Zhou and Rui Yan},\n      year={2025},\n      eprint={2510.27237},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2510.27237}, \n}",
         "audit_wsis": "No standalone pretraining corpus — fuses pretrained PFM features",
         "audit_downstream": "WSI analysis across multiple tasks/datasets",
-        "audit_notes": "Three-stage fusion: multi-view clustering + cluster-level re-embedding (patch) + collaborative distillation (slide).",
+        "audit_notes": "",
         "paper_title": "Fusion of Multi-scale Heterogeneous Pathology Foundation Models for Whole Slide Image Analysis",
         "paper_author": "Yang"
       },
@@ -1571,7 +1571,7 @@ const modelData = [
         "bibtex": "@misc{xiao2025adafusionpromptguidedinferenceadaptive,\n      title={AdaFusion: Prompt-Guided Inference with Adaptive Fusion of Pathology Foundation Models}, \n      author={Yuxiang Xiao and Yang Hu and Bin Li and Tianyang Zhang and Zexi Li and Huazhu Fu and Jens Rittscher and Kaixiang Yang},\n      year={2025},\n      eprint={2508.05084},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2508.05084}, \n}",
         "audit_wsis": "No standalone pretraining corpus — inference-time fusion of pretrained PFMs",
         "audit_downstream": "Treatment-response prediction, tumour grading, spatial gene-expression inference",
-        "audit_notes": "Prompt-guided adaptive fusion; interpretable insight into model-specific inductive biases.",
+        "audit_notes": "",
         "paper_title": "AdaFusion: Prompt-Guided Inference with Adaptive Fusion of Pathology Foundation Models",
         "paper_author": "Xiao"
       },
@@ -1725,8 +1725,8 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2512.11104",
         "bibtex": "@misc{flannery2025informationdrivenfusionpathologyfoundation,\n      title={Information-driven Fusion of Pathology Foundation Models for Enhanced Disease Characterization},\n      author={Brennan Flannery and Thomas DeSilvio and Jane Nguyen and Satish E. Viswanath},\n      year={2025},\n      eprint={2512.11104},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2512.11104},\n}",
         "audit_organs": "Kidney, prostate, rectal",
-        "audit_downstream": "Cancer grading and staging across 3 cancer types; consistent gains over individual models",
-        "audit_notes": "Fuses 8 PFMs (5 tile-level + 3 slide-level) via correlation-guided pruning of redundant features; concentrates attention on tumor regions.",
+        "audit_downstream": "Cancer grading and staging across 3 cancer types; consistent gains over individual models, with fused attention concentrating on tumour regions",
+        "audit_notes": "",
         "paper_title": "Information-driven Fusion of Pathology Foundation Models for Enhanced Disease Characterization",
         "paper_author": "Flannery"
       },
@@ -1911,10 +1911,11 @@ const modelData = [
         "hf": "",
         "paper": "https://arxiv.org/abs/2512.14922",
         "bibtex": "@misc{ebbert2025pandaplusbenchclinicalbenchmarkevaluating,\n      title={PANDA-PLUS-Bench: A Clinical Benchmark for Evaluating Robustness of AI Foundation Models in Prostate Cancer Diagnosis}, \n      author={Joshua L. Ebbert and Dennis Della Corte},\n      year={2025},\n      eprint={2512.14922},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2512.14922}, \n}",
-        "audit_downstream": "Prostate Gleason-grading robustness: cross-slide accuracy vs slide-level artifact encoding (7 FMs; HistoEncoder best cross-slide 59.7%)",
-        "audit_notes": "Benchmark, not a pretrained model; includes an open Colab to evaluate additional FMs. Distinct from the earlier Prostate FM Benchmark.",
+        "audit_downstream": "Prostate Gleason-grading robustness: cross-slide accuracy vs slide-level artifact encoding (7 FMs; HistoEncoder best cross-slide 59.7%); ships an open Colab for evaluating additional FMs",
+        "audit_notes": "",
         "paper_title": "PANDA-PLUS-Bench: A Clinical Benchmark for Evaluating Robustness of AI Foundation Models in Prostate Cancer Diagnosis",
-        "paper_author": "Ebbert"
+        "paper_author": "Ebbert",
+        "audit_benchmark": "Nine expert-annotated prostate biopsies; non-overlapping patches at 512 and 224 px across eight augmentations. Distinct from the earlier Prostate FM Benchmark entry."
       },
       {
         "name": "EVA",
@@ -2011,7 +2012,7 @@ const modelData = [
         "bibtex": "@misc{ma2025pathbenchcomprehensivecomparisonbenchmark,\n      title={PathBench: A comprehensive comparison benchmark for pathology foundation models towards precision oncology}, \n      author={Jiabo Ma and Yingxue Xu and Fengtao Zhou and Yihui Wang and Cheng Jin and Zhengrui Guo and Jianfeng Wu and On Ki Tang and Huajun Zhou and Xi Wang and Luyang Luo and Zhengyu Zhang and Du Cai and Zizhao Gao and Wei Wang and Yueping Liu and Jiankun He and Jing Cui and Zhenhui Li and Jing Zhang and Feng Gao and Xiuming Zhang and Li Liang and Ronald Cheong Kin Chan and Zhe Wang and Hao Chen},\n      year={2025},\n      eprint={2505.20202},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2505.20202}, \n}",
         "audit_downstream": "Leakage-free slide/patch multi-center clinical benchmark",
         "audit_cohorts": "Multi-center",
-        "audit_notes": "Public leaderboard; benchmark rather than model.",
+        "audit_notes": "",
         "paper_title": "PathBench: A comprehensive comparison benchmark for pathology foundation models towards precision oncology",
         "paper_author": "Ma"
       },
