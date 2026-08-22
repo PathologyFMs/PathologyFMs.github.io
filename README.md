@@ -35,7 +35,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Atlas 2** | 2026 | 5.5M WSIs | Pathology vision foundation model (released as Atlas 2 / Atlas 2-B / Atlas 2-S) trained with DINOv2 on the largest dataset to date — 5.5M WSIs from Charité, LMU Munich and Mayo Clinic — for state-of-the-art accuracy, robustness and efficiency across 80 public benchmarks | [Paper](https://arxiv.org/pdf/2601.05148) |
 | **GRACE** | 2026 | 48K WSIs | Gastric-specific pathology foundation model built by LoRA continued-pretraining of a general PFM on 25,719 gastric WSIs (107M patches); specializes for gastric diagnosis, grading and prognosis | [Paper](https://arxiv.org/abs/2606.04792) |
 | **BRAVE** | 2026 | 57,271 WSIs | Breast-adaptive pathology foundation model | [Paper](https://arxiv.org/abs/2605.08207) |
-| **Digepath** | 2026 | 210K WSIs | Subspecialty-specific (gastrointestinal) foundation model trained with a dual-phase iterative strategy: large-scale SSL pretraining followed by a fine-screening stage on expert-annotated regions, targeted at the sparsely distributed lesions that general pan-cancer encoders tend to miss | [Paper](https://www.nature.com/articles/s41746-026-02684-5) |
+| **Digepath** | 2026 | 210K WSIs | Subspecialty-specific (gastrointestinal) foundation model trained with a dual-phase iterative strategy: large-scale SSL pretraining followed by a fine-screening stage on expert-annotated regions, targeted at the sparsely distributed lesions that general pan-cancer encoders tend to miss | [Paper](https://www.nature.com/articles/s41746-026-02684-5) • [Model](https://huggingface.co/xtxx/Digepath) |
 
 ---
 

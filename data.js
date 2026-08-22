@@ -633,7 +633,7 @@ const modelData = [
         "idea": "Subspecialty-specific (gastrointestinal) foundation model trained with a dual-phase iterative strategy: large-scale SSL pretraining followed by a fine-screening stage on expert-annotated regions, targeted at the sparsely distributed lesions that general pan-cancer encoders tend to miss",
         "stains": "H&E",
         "github": "",
-        "hf": "",
+        "hf": "https://huggingface.co/xtxx/Digepath",
         "paper": "https://www.nature.com/articles/s41746-026-02684-5",
         "bibtex": "@article{Zhu_2026, title={Subspecialty-specific foundation model for intelligent gastrointestinal pathology}, volume={9}, ISSN={2398-6352}, url={http://dx.doi.org/10.1038/s41746-026-02684-5}, DOI={10.1038/s41746-026-02684-5}, number={1}, journal={npj Digital Medicine}, publisher={Springer Science and Business Media LLC}, author={Zhu, Lianghui and Ling, Xitong and Ouyang, Minxi and Liu, Xiaoping and Guan, Tian and Fu, Mingxi and Zeng, Maomao and Cheng, Zhiqiang and Fu, Fanglei and Huang, Qiang and Zhu, Mingxi and Jin, Yibo and He, Qiming and Wang, Yizhi and Cheng, Junru and Wang, Xuanyu and Xie, Luxi and Li, Houqiang and Tian, Sufang and He, Yonghong}, year={2026}, month=May }",
         "audit_objective": "Dual-phase iterative optimization: SSL pretraining followed by fine-screening on expert-annotated lesion regions",
