@@ -2200,7 +2200,15 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2605.24399",
         "bibtex": "@misc{wang2026conceptm3oeconceptguidedmultimodalmixture,\n      title={ConceptM$^3$oE: Concept-Guided Multimodal Mixture of Experts for Interpretable Computational Pathology}, \n      author={Xuan Wang and Zhongling Xu and Gopi Kannedhara and Joakim Nguyen and Jian Yu and Jinrui Fang and Abdurrahmaan Baghdadi and Tianlong Chen and Awais Naeem and Chandra Krishnan and Edward Castillo and Andrew H. Song and Ankita Shukla and Ying Ding and Nicholas Konz and Hairong Wang},\n      year={2026},\n      eprint={2605.24399},\n      archivePrefix={arXiv},\n      primaryClass={cs.AI},\n      url={https://arxiv.org/abs/2605.24399}, \n}",
         "paper_title": "ConceptM3oE: Concept-Guided Multimodal Mixture of Experts for Interpretable Computational Pathology",
-        "paper_author": "Wang"
+        "paper_author": "Wang",
+        "audit_objective": "Interaction-aware multimodal mixture-of-experts with concept bottlenecks and residual pathways (decomposes evidence into modality-specific, redundant and synergistic experts)",
+        "audit_domain": "Interpretable multimodal diagnosis for brain tumours; concept-bottleneck reasoning over WSI + pathology report + molecular measurements",
+        "audit_benchmark": "Institutional paediatric brain tumour cohort and a public glioma cohort; tumour subtype classification, with reasoning traces reviewed by an independent neuropathologist",
+        "audit_result": "Matches unconstrained models while producing neuropathologist-validated reasoning traces; in low-data regimes raises macro-F1 from 56.41% to 66.70% over non-concept baselines, with faster convergence",
+        "audit_organs": "Brain (paediatric brain tumours, glioma)",
+        "audit_downstream": "Tumour subtype classification with concept-level explanation",
+        "audit_cohorts": "Institutional paediatric brain tumour cohort; public glioma cohort",
+        "audit_omics": "Molecular measurements used as a third evidence modality alongside WSIs and pathology reports"
       },
       {
         "name": "DICE",
@@ -2213,7 +2221,14 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2606.30020",
         "bibtex": "@misc{tchokponhoue2026uncertaintyestimationpathologyfoundation,\n      title={Uncertainty Estimation in Pathology Foundation Models via Deep Mutual Learning}, \n      author={Gbègninougbo Aurel Davy Tchokponhoue and Sevda Öğüt and Ali Idri and Dorina Thanou and Pascal Frossard},\n      year={2026},\n      eprint={2606.30020},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2606.30020}, \n}",
         "paper_title": "Uncertainty Estimation in Pathology Foundation Models via Deep Mutual Learning",
-        "paper_author": "Tchokponhoue"
+        "paper_author": "Tchokponhoue",
+        "audit_objective": "Deep mutual learning across K frozen PFMs; ensemble disagreement as an uncertainty proxy, shown theoretically to upper-bound model uncertainty",
+        "audit_domain": "Uncertainty quantification and calibration for PFM-based WSI classification, in- and out-of-distribution",
+        "audit_benchmark": "PANDA (prostate ISUP grading, 6-class), CAMELYON16 and CAMELYON17 (breast lymph-node metastasis); ensembles Virchow2, UNI2-h, H-optimus-1, CONCH v1.5 and Hibou-L",
+        "audit_result": "76.6% F1 on PANDA vs 72.8% for the best single model, NLL 48.9 vs 58.0; strongest correct/incorrect separation (Cliffs delta = 0.65), and the only method whose validation-tuned rejection thresholds transfer to held-out test data",
+        "audit_organs": "Prostate; breast (lymph-node metastasis)",
+        "audit_downstream": "WSI classification; confidence calibration; patch-level abnormality localisation without localisation supervision",
+        "audit_cohorts": "PANDA; CAMELYON16; CAMELYON17 (multi-centre)"
       },
       {
         "name": "Mishra et al.",
@@ -2226,7 +2241,14 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2509.15482",
         "bibtex": "@misc{mishra2025comparingcomputationalpathologyfoundation,\n      title={Comparing Computational Pathology Foundation Models using Representational Similarity Analysis}, \n      author={Vaibhav Mishra and William Lotter},\n      year={2025},\n      eprint={2509.15482},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2509.15482}, \n}",
         "paper_title": "Comparing Computational Pathology Foundation Models using Representational Similarity Analysis",
-        "paper_author": "Mishra"
+        "paper_author": "Mishra",
+        "audit_objective": "Representational similarity analysis (borrowed from computational neuroscience) over frozen PFM embeddings",
+        "audit_domain": "Structure and variability of PFM representation spaces; how training paradigm shapes representations",
+        "audit_benchmark": "Six PFMs on TCGA H&E patches: vision-language (CONCH, PLIP, KEEP) vs self-distillation (UNI2, Virchow2, Prov-GigaPath); analyses slide- vs disease-dependence, stain-normalisation effects and intrinsic dimensionality",
+        "audit_result": "UNI2 and Virchow2 have the most distinct representational structures, Prov-GigaPath the highest average similarity; all models show high slide-dependence but low disease-dependence, and stain normalisation cuts slide-dependence by 5.5% (CONCH) to 20.5% (PLIP). Shared training paradigm does not imply higher similarity",
+        "audit_organs": "Pan-cancer (TCGA)",
+        "audit_downstream": "Representation-space analysis rather than task benchmarking; informs ensembling strategy and robustness to slide-specific features",
+        "audit_cohorts": "TCGA"
       },
       {
         "name": "Le et al.",
@@ -2239,7 +2261,14 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2407.10785v1",
         "bibtex": "@misc{le2024learningbiologicallyrelevantfeatures,\n      title={Learning biologically relevant features in a pathology foundation model using sparse autoencoders}, \n      author={Nhat Minh Le and Ciyue Shen and Neel Patel and Chintan Shah and Darpan Sanghavi and Blake Martin and Alfred Eng and Daniel Shenker and Harshith Padigela and Raymond Biju and Syed Ashar Javed and Jennifer Hipp and John Abel and Harsha Pokkalla and Sean Grullon and Dinkar Juyal},\n      year={2024},\n      eprint={2407.10785},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2407.10785}, \n}",
         "paper_title": "Interpretability analysis on a pathology foundation model reveals biologically relevant embeddings across modalities",
-        "paper_author": "Le"
+        "paper_author": "Le",
+        "audit_objective": "Mechanistic interpretability methods (as used for LLMs) applied to a ViT-Small pathology encoder",
+        "audit_domain": "First mechanistic-interpretability probe of a medical imaging foundation model; interpretable feature dimensions in embedding space",
+        "audit_benchmark": "Two datasets: pathology images alone, and pathology images paired with spatial transcriptomics",
+        "audit_result": "Recovers an interpretable representation of cell and tissue morphology alongside gene expression within the embedding space, showing individual feature dimensions carry biologically meaningful signal",
+        "audit_downstream": "Feature-dimension interpretability analysis across image and transcriptomic modalities",
+        "audit_omics": "Spatial transcriptomics (paired image–gene-expression dataset)",
+        "audit_cohorts": "One pathology-image dataset and one image + spatial-transcriptomics dataset"
       },
       {
         "name": "Vig et al.",
@@ -2247,12 +2276,19 @@ const modelData = [
         "date": "2026-01-29",
         "data": "",
         "idea": "Applies diffusion pseudotime to PFM embeddings; 5 models recover continuous cancer-progression trajectories, and trajectory fidelity predicts few-shot generalization",
-        "github": "",
+        "github": "https://github.com/pritika-vig/embeddings_disease_progression_analysis",
         "hf": "",
         "paper": "https://arxiv.org/abs/2601.21334",
         "bibtex": "@misc{vig2026pathologyfoundationmodelsencode,\n      title={Do Pathology Foundation Models Encode Disease Progression? A Pseudotime Analysis of Visual Representations},\n      author={Pritika Vig and Ren-Chin Wu and William Lotter},\n      year={2026},\n      eprint={2601.21334},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2601.21334},\n}",
         "paper_title": "Do Pathology Foundation Models Encode Disease Progression? A Pseudotime Analysis of Visual Representations",
-        "paper_author": "Vig"
+        "paper_author": "Vig",
+        "audit_objective": "Diffusion pseudotime (from single-cell transcriptomics) applied to frozen PFM embeddings to test for continuous progression structure",
+        "audit_domain": "Whether PFM latent spaces encode continuous disease progression, not just discrete class separation",
+        "audit_benchmark": "Six models (DINOv2 baseline, UNI2, Virchow2, Prov-GigaPath, CONCH, MUSK) across four cancer progressions: skin SCC, colorectal conventional and serrated pathways, and breast DCIS-to-invasive",
+        "audit_result": "All pathology-specific models recover trajectory orderings well above null; vision-only models score highest (tau > 0.78 on CRC-Serrated). Trajectory fidelity on reference diseases predicts few-shot classification on held-out diseases (rho = 0.92), making it a complementary measure of representation quality",
+        "audit_organs": "Skin, colorectum, breast",
+        "audit_downstream": "Trajectory-fidelity scoring; few-shot classification transfer; cell-type composition along inferred trajectories",
+        "audit_cohorts": "Four cancer-progression datasets (skin SCC, colorectal conventional and serrated, breast DCIS-to-invasive)"
       },
       {
         "name": "PICASSO",
@@ -2288,7 +2324,15 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2606.04764",
         "bibtex": "@misc{srikanthan2026foundationmodelsbiologyevaluating,\n      title={Do Foundation Models See Biology? Evaluating Attention Coherence with Spatial Transcriptomics in Glioblastoma},\n      author={Dilakshan Srikanthan and Amoon Jamzad and Paul Wilson and Nooshin Maghsoodi and Robert Policelli and Gabor Fichtinger and John F. Rudan and Parvin Mousavi},\n      year={2026},\n      eprint={2606.04764},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2606.04764},\n}",
         "paper_title": "Do Foundation Models See Biology? Evaluating Attention Coherence with Spatial Transcriptomics in Glioblastoma",
-        "paper_author": "Srikanthan"
+        "paper_author": "Srikanthan",
+        "audit_objective": "Hypothesis-free evaluation of attention-based MIL maps against co-registered spatial transcriptomics",
+        "audit_domain": "Whether PFM attention maps reflect genuine biology — framed as a prerequisite for clinical trust and regulatory approval",
+        "audit_benchmark": "Five PFMs (CONCH v1.5, UNI2, Virchow2, GigaPath, H-Optimus-1) plus a ResNet50 baseline; trained on CPTAC glioblastoma to predict five molecular alterations, externally validated on TCGA, attention scored against 87 transcriptional signatures using Visium data from 18 samples",
+        "audit_result": "Attention enrichment is ~5x stronger at pathway than gene level; spatially smooth attention maps do not guarantee biological coherence, and different encoders attend to distinct biological compartments",
+        "audit_organs": "Brain (glioblastoma)",
+        "audit_downstream": "Molecular-alteration prediction (5 targets); attention-coherence scoring against transcriptional signatures",
+        "audit_cohorts": "CPTAC (training), TCGA (external validation), 18 Visium spatial-transcriptomics samples",
+        "audit_omics": "Spatial transcriptomics (87 transcriptional signatures)"
       },
       {
         "name": "Ndubuisi et al.",
@@ -2301,20 +2345,36 @@ const modelData = [
         "paper": "https://arxiv.org/abs/2608.00105",
         "bibtex": "@misc{ndubuisi2026carriessignalpathologyfoundationmodel,\n      title={What Carries the Signal in Pathology Foundation-Model Atlases? A Patient-Level Controlled Benchmark in Breast Cancer},\n      author={Chimdi Walter Ndubuisi},\n      year={2026},\n      eprint={2608.00105},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2608.00105},\n}",
         "paper_title": "What Carries the Signal in Pathology Foundation-Model Atlases? A Patient-Level Controlled Benchmark in Breast Cancer",
-        "paper_author": "Ndubuisi"
+        "paper_author": "Ndubuisi",
+        "audit_objective": "Patient-level controlled benchmark: ridge regression on mean-pooled embeddings with GroupKFold by patient and all preprocessing fitted inside the fold",
+        "audit_domain": "Ablates which pipeline component actually carries molecular signal — embeddings vs tissue composition vs interpretable cell counts",
+        "audit_benchmark": "11 frozen backbones, four pre-specified gene programmes, 285 TCGA-BRCA patients with paired slides and RNA-seq",
+        "audit_result": "Held-out programme scores predicted at Spearman rho = 0.25–0.56, UNI2 strongest on all four (immune 0.556); some molecular signal is genuine but much is explained by interpretable morphology, and the geometric machinery contributes negligibly",
+        "audit_organs": "Breast (TCGA-BRCA)",
+        "audit_downstream": "Held-out gene-programme score prediction under patient-level cross-validation",
+        "audit_cohorts": "TCGA-BRCA (285 patients with paired slides and RNA-seq)",
+        "audit_omics": "Bulk RNA-seq gene programmes"
       },
       {
-        "name": "Cui et al.",
+        "name": "STpath",
         "year": 2026,
         "date": "2026-03-19",
         "data": "",
-        "idea": "Maps PFM embeddings to cell composition and gene-expression features via spatial transcriptomics, decoding latent features into interpretable biology",
-        "github": "",
+        "idea": "Translates opaque PFM embeddings into biology clinicians can act on: cancer-specific XGBoost heads map image-tile embeddings to cell-type composition and gene expression using matched spatial transcriptomics, so latent features become quantities that can be tested against clinical outcomes",
+        "github": "https://github.com/Sun-lab/STpath-CRC",
         "hf": "",
         "paper": "https://www.biorxiv.org/content/10.64898/2026.03.17.711896v1",
         "bibtex": "@article{Cui2026TranslatingHF,\n  author = {Saishi Cui and Zhining Sui and Ziyi Li and Kristina A. Matkowskyj and Ming Yu and William M. Grady and Wei Sun},\n  title = {Translating Histopathology Foundation Model Embeddings into Cellular and Molecular Features for Clinical Studies},\n  journal = {bioRxiv},\n  year = {2026},\n  doi = {10.64898/2026.03.17.711896},\n  url = {https://www.biorxiv.org/content/10.64898/2026.03.17.711896v1}\n}",
         "paper_title": "Translating Histopathology Foundation Model Embeddings into Cellular and Molecular Features for Clinical Studies",
-        "paper_author": "Cui"
+        "paper_author": "Cui",
+        "audit_objective": "Cancer-specific XGBoost regression heads over frozen PFM tile embeddings, supervised by matched spatially resolved transcriptomics",
+        "audit_domain": "Decoding PFM embeddings into interpretable cellular and molecular features for downstream clinical association studies",
+        "audit_benchmark": "Colorectal and breast cancer datasets; integrates embeddings from CONCH, UNI2-h, Prov-GigaPath, Virchow and Virchow2 plus a ResNet50 baseline",
+        "audit_result": "Accurately estimates major cell-type composition and the expression of a subset of genes, with further gains from combining embeddings across multiple foundation models; inferred features are usable in downstream outcome-association studies",
+        "audit_organs": "Colorectum; breast",
+        "audit_downstream": "Cell-type composition inference; gene-expression inference; clinical-outcome association analysis",
+        "audit_cohorts": "Fred Hutchinson Cancer Center; matched spatial-transcriptomics colorectal and breast cohorts",
+        "audit_omics": "Spatially resolved transcriptomics (cell-type deconvolution and gene expression)"
       }
     ]
   },
