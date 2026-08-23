@@ -1309,7 +1309,7 @@ const modelData = [
         "data": "1.3M paired H&E–spatial-omics patches",
         "idea": "Bridges the modality gap between histology and spatial omics by CLIP-style contrastive alignment of a DINOv2 vision encoder with a fine-tuned scGPT omics encoder, letting routine H&E be read directly as a spatial transcriptomic and proteomic landscape",
         "stains": "H&E (predicts spatial transcriptomics and proteomics)",
-        "github": "",
+        "github": "https://github.com/TencentAILabHealthcare/H2O",
         "hf": "",
         "paper": "https://www.biorxiv.org/content/10.64898/2026.04.21.717342v1",
         "bibtex": "@article{Gu2026H2O,\n  author = {Yuxuan Gu and Zhenhui Wu and Rui Yan and Zhuo Wang and Yi Li and Shan Lin and Yanfeng Cui and Han Lai and Xin Luo and S. Kevin Zhou and Zhiyuan Yuan and Jianhua Yao},\n  title = {H2O: A Foundation Model Bridging Histopathology to Spatial Multi-Omics Profiling},\n  journal = {bioRxiv},\n  year = {2026},\n  doi = {10.64898/2026.04.21.717342},\n  url = {https://www.biorxiv.org/content/10.64898/2026.04.21.717342v1}\n}",
