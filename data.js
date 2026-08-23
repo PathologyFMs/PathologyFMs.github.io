@@ -737,7 +737,7 @@ const modelData = [
         "variants": [
           {
             "name": "FEATHER-24K",
-            "note": "Released checkpoint pretrained on 24K WSIs (vs 3,944 in the paper); used in MOSAIC via TRIDENT"
+            "note": "Released checkpoint pretrained on 24K WSIs (vs 3,944 in the paper)"
           }
         ],
         "paper_title": "Do Multiple Instance Learning Models Transfer?",
