@@ -36,6 +36,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **GRACE** | 2026 | 48K WSIs | Gastric-specific pathology foundation model built by LoRA continued-pretraining of a general PFM on 25,719 gastric WSIs (107M patches); specializes for gastric diagnosis, grading and prognosis | [Paper](https://arxiv.org/abs/2606.04792) |
 | **BRAVE** | 2026 | 57,271 WSIs | Breast-adaptive pathology foundation model | [Paper](https://arxiv.org/abs/2605.08207) |
 | **Digepath** | 2026 | 210K WSIs | Subspecialty-specific (gastrointestinal) foundation model trained with a dual-phase iterative strategy: large-scale SSL pretraining followed by a fine-screening stage on expert-annotated regions, targeted at the sparsely distributed lesions that general pan-cancer encoders tend to miss | [Paper](https://www.nature.com/articles/s41746-026-02684-5) • [Model](https://huggingface.co/xtxx/Digepath) |
+| **PulmoFoundation** | 2026 | ~40K WSIs | Lung-subspecialty foundation model built by subspecialty-specific pretraining on top of Virchow2 with ~40,000 diagnostic H&E WSIs, covering pre-operative, intra-operative and post-operative care; evaluated on ~26,000 WSIs across 32 tasks, a registered prospective study (1,357 patients, 11 tasks, mean AUC 92.3%) and a crossover RCT with eight pathologists | [Paper](https://arxiv.org/abs/2605.25878) |
 
 ---
 
@@ -103,6 +104,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **Mascaret** | 2026 | --- | Robustness-tuned Midnight-12k | [Paper](https://arxiv.org/abs/2607.22861) • [Model](https://huggingface.co/wearewaiv/mascaret) |
 | **SmartStu** | 2026 | Breast (distilled) | Adversarial distillation of multiple teacher PFMs into a compact, debiased breast-cancer-specific student; mitigates site-specific and prevalence confounding | [Paper](https://arxiv.org/abs/2608.01356) • [Code](https://github.com/zwchen03/advDistall) |
 | **CellViT++** | 2025 | Cell segmentation (7 datasets) | Generalized cell segmentation/classification using ViT with foundation-model encoders; energy-efficient adaptation to unseen cell types with minimal data, zero-shot segmentation, and IF-generated training sets | [Paper](https://arxiv.org/abs/2501.05269) • [Code](https://github.com/TIO-IKIM/CellViT-plus-plus) |
+| **DistillPath** | 2026 | 6,000 public WSIs; distilled from released PFM teachers | Distills released pathology encoders (86M-1.1B params) into the existing 22M kaiko ViT-S/16 student using only the teachers' final class and patch tokens and 6,000 public slides - no DINO/iBOT pretraining heads or billion-tile corpus, so it applies to any encoder exposing backbone tokens; DistillPath-KS16-Virchow2 hits a 0.795 EVA mean, within 0.015 of Virchow2 at ~29x fewer parameters and >25x faster inference | [Paper](https://arxiv.org/abs/2608.17872) • [Code](https://github.com/RamonKaspar/DistillPath) • [Model](https://huggingface.co/collections/RamonK/distillpath) |
 
 ---
 

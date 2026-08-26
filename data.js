@@ -648,6 +648,29 @@ const modelData = [
         "audit_notes": "",
         "paper_title": "Subspecialty-specific foundation model for intelligent gastrointestinal pathology",
         "paper_author": "Zhu"
+      },
+      {
+        "name": "PulmoFoundation",
+        "year": 2026,
+        "date": "2026-05-25",
+        "data": "~40K WSIs",
+        "idea": "Lung-subspecialty foundation model built by subspecialty-specific pretraining on top of Virchow2 with ~40,000 diagnostic H&E WSIs, covering pre-operative, intra-operative and post-operative care; evaluated on ~26,000 WSIs across 32 tasks, a registered prospective study (1,357 patients, 11 tasks, mean AUC 92.3%) and a crossover RCT with eight pathologists",
+        "stains": "H&E",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2605.25878",
+        "bibtex": "@misc{guo2026clinicallyvalidatedfoundationmodel,\n      title={A Clinically Validated Foundation Model for Comprehensive Lung Pathology Interpretation}, \n      author={Zhengrui Guo and Zhengyu Zhang and Jiabo Ma and Yihui Wang and Fengtao Zhou and Yingxue Xu and Ling Liang and Chenglong Zhao and Qi Xie and Jinbang Li and Shujing Guo and Fangyi Han and Zhijian Cen and Ziyi Liu and Cheng Jin and Junlin Hou and Zhixuan Chen and Yu Cai and Lijuan Qu and Shifu Chen and Yueping Liu and Zhe Wang and Xiuming Zhang and Muyan Cai and Li Liang and Hao Chen},\n      year={2026},\n      eprint={2605.25878},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2605.25878}, \n}",
+        "audit_objective": "Subspecialty-specific continued pretraining of Virchow2 on lung pathology",
+        "audit_wsis": "~40,000 diagnostic H&E WSIs (pretraining); ~26,000 WSIs (evaluation)",
+        "audit_domain": "Lung pathology (subspecialty-specific rather than pan-cancer)",
+        "audit_benchmark": "32 clinically relevant tasks; registered prospective study of 1,357 patients across 11 diagnostic tasks; crossover RCT with 8 pathologists (4,928 case-reader pairs)",
+        "audit_result": "Prospective average AUC 92.3%; triage thresholds could remove second review for 68.8% of biopsies and 83.0% of frozen sections and defer 44.5% of IHC orders (PPV 1.000 / 0.991 / 0.966); reader accuracy 91.7% with AI vs 83.8% without, median diagnostic time -19.6%, inter-rater agreement kappa 0.56 -> 0.76",
+        "audit_organs": "Lung, 1 organ focus",
+        "audit_downstream": "Core diagnosis on biopsy, frozen-section and surgical-resection slides; molecular marker prediction; patient survival",
+        "audit_cohorts": "Multi-center, with prospective and randomized controlled trial validation",
+        "audit_notes": "",
+        "paper_title": "A Clinically Validated Foundation Model for Comprehensive Lung Pathology Interpretation",
+        "paper_author": "Guo"
       }
     ]
   },
@@ -1485,6 +1508,27 @@ const modelData = [
         "paper_title": "CellViT++: Energy-Efficient and Adaptive Cell Segmentation and Classification Using Foundation Models",
         "paper_author": "Hörst",
         "type": "Adaptive cell segmentation"
+      },
+      {
+        "name": "DistillPath",
+        "type": "Single-FM Distillation",
+        "year": 2026,
+        "date": "2026-08-18",
+        "data": "6,000 public WSIs; distilled from released PFM teachers",
+        "idea": "Distills released pathology encoders (86M-1.1B params) into the existing 22M kaiko ViT-S/16 student using only the teachers' final class and patch tokens and 6,000 public slides - no DINO/iBOT pretraining heads or billion-tile corpus, so it applies to any encoder exposing backbone tokens; DistillPath-KS16-Virchow2 hits a 0.795 EVA mean, within 0.015 of Virchow2 at ~29x fewer parameters and >25x faster inference",
+        "stains": "H&E",
+        "github": "https://github.com/RamonKaspar/DistillPath",
+        "hf": "https://huggingface.co/collections/RamonK/distillpath",
+        "paper": "https://arxiv.org/abs/2608.17872",
+        "bibtex": "@misc{kaspar2026distillpathefficient22mdistilled,\n      title={DistillPath: An Efficient 22M Distilled Pathology Encoder Approaching Large Foundation Model Performance}, \n      author={Ramon Kaspar and Andrey Ignatov and Valentina Boeva},\n      year={2026},\n      eprint={2608.17872},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2608.17872}, \n}",
+        "audit_objective": "Token-level distillation from frozen released PFM teachers (final class + patch tokens)",
+        "audit_wsis": "6,000 public WSIs",
+        "audit_organs": "Pan-cancer",
+        "audit_downstream": "EVA (7 tasks), HEST and PLISM benchmarks",
+        "audit_cohorts": "Public slide corpora",
+        "audit_notes": "Four teachers spanning 86M-1.1B parameters distilled into the same 22M ViT-S/16 student (384-d features); every variant improves the kaiko baseline on all three benchmarks and the strongest teacher is task-dependent. Scores above H0-mini and GPFM on the EVA aggregate, though the advantage is task-concentrated.",
+        "paper_title": "DistillPath: An Efficient 22M Distilled Pathology Encoder Approaching Large Foundation Model Performance",
+        "paper_author": "Kaspar"
       }
     ]
   },
