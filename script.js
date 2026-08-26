@@ -194,6 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (catLower.includes('slide-level')) return { text: 'multimodal', color: 'teal' };
         if (catLower.includes('vision-language')) return { text: 'vision-language', color: 'purple' };
         if (catLower.includes('generative')) return { text: 'generative', color: 'pink' };
+        if (catLower.includes('fusion')) return { text: 'fusion', color: 'teal' };
         if (catLower.includes('distillation')) return { text: 'distillation', color: 'gray' };
         if (catLower.includes('benchmarking')) return { text: 'benchmarking', color: 'orange' };
         if (catLower.includes('molecular')) return { text: 'molecular', color: 'green' };
@@ -413,11 +414,13 @@ document.addEventListener('DOMContentLoaded', () => {
         'Slide-Level & Patient-Level Foundation Models': '#14b8a6',
         'Vision-Language Foundation Models': '#a855f7',
         'Multimodal & Molecular Foundation Models': '#22c55e',
-        'Foundation Model Adaptation & Distillation': '#06b6d4',
-        'Multi-FM Integration & Distillation': '#6366f1',
+        'Task & Domain Adaptation': '#06b6d4',
+        'Compression & Distillation': '#6366f1',
+        'Multi-FM Fusion & Ensembling': '#8b5cf6',
         'Segmentation & Interactive Foundation Models': '#eab308',
         'Generative Foundation Models': '#ec4899',
-        'Foundation Model Benchmarking': '#f97316',
+        'General Benchmarking & Leaderboards': '#f97316',
+        'Organ- & Task-Specific Benchmarking': '#fb923c',
         'Interpretability and Analysis': '#d946ef',
         'Robustness and Generalization': '#ef4444',
         'Survey and Perspectives': '#94a3b8',
