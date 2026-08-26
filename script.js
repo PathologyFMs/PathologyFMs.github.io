@@ -269,10 +269,15 @@ document.addEventListener('DOMContentLoaded', () => {
             { key: 'audit_omics', label: 'Omics modality & scale', icon: 'ph-dna' },
             { key: 'audit_downstream', label: 'Downstream tasks', icon: 'ph-list-checks' }
         ];
+        // Facets carry these fields; the table below skips whatever lands here so the
+        // modal never states the same thing twice.
+        let dataFacetsHtml = '';
         let facetsHtml = '';
+        const shownAsFacet = new Set();
         facetDefs.forEach(facet => {
             if (isMeaningful(model[facet.key])) {
-                facetsHtml += `
+                shownAsFacet.add(facet.key);
+                dataFacetsHtml += `
                     <div class="facet">
                         <button class="facet-btn" type="button" aria-expanded="false">
                             <span class="facet-label"><i class="ph ${facet.icon}"></i> ${facet.label}</span>
@@ -318,34 +323,41 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>`;
         }
-        const facetsBlock = facetsHtml ? `<div class="modal-facets">${facetsHtml}</div>` : '';
+        // Builds the table rows, omitting any field already shown as a facet.
+        function buildRows(faceted) {
+            const unlessFaceted = key => (faceted.has(key) ? '' : model[key]);
+            const fields = [
+                { label: 'Pre-training objective', value: model.audit_objective },
+                { label: 'Tasks', value: model.audit_tasks || unlessFaceted('audit_downstream') },
+                { label: 'Domain / focus', value: model.audit_domain || unlessFaceted('audit_organs') },
+                { label: 'Benchmark / dataset', value: model.audit_benchmark },
+                { label: 'Headline result', value: model.audit_result },
+                { label: 'Pretraining WSIs', value: model.audit_wsis },
+                { label: 'Patches / tiles', value: model.audit_patches },
+                { label: 'Image-text pairs', value: model.audit_image_text },
+                { label: 'WSI-report pairs', value: model.audit_wsi_report },
+                { label: 'Image-omics pairs', value: model.audit_image_omics },
+                { label: 'Institution / data sources', value: unlessFaceted('audit_cohorts') },
+                { label: 'Scanners / vendors', value: unlessFaceted('audit_scanners') },
+                { label: 'Omics modality & scale', value: unlessFaceted('audit_omics') },
+                { label: 'Stain', value: unlessFaceted('stains') },
+                { label: 'Dataset notes', value: model.audit_notes }
+            ];
+            return fields.reduce((html, field) => isMeaningful(field.value)
+                ? html + `<tr><th>${field.label}</th><td>${formatField(field.value)}</td></tr>`
+                : html, '');
+        }
 
-        let rowsHtml = '';
+        let rowsHtml = buildRows(shownAsFacet);
+        // Sparse entries whose only fields are faceted ones would open to a modal of
+        // nothing but collapsed accordions; give those the table instead.
+        if (!rowsHtml && dataFacetsHtml) {
+            rowsHtml = buildRows(new Set());
+            dataFacetsHtml = '';
+        }
 
-        const fields = [
-            { label: 'Pre-training objective', value: model.audit_objective },
-            { label: 'Tasks', value: model.audit_tasks || model.audit_downstream },
-            { label: 'Domain / focus', value: model.audit_domain || model.audit_organs },
-            { label: 'Benchmark / dataset', value: model.audit_benchmark },
-            { label: 'Headline result', value: model.audit_result },
-            { label: 'Pretraining WSIs', value: model.audit_wsis },
-            { label: 'Patches / tiles', value: model.audit_patches },
-            { label: 'Image-text pairs', value: model.audit_image_text },
-            { label: 'WSI-report pairs', value: model.audit_wsi_report },
-            { label: 'Image-omics pairs', value: model.audit_image_omics },
-            { label: 'Institution / data sources', value: model.audit_cohorts },
-            { label: 'Scanners / vendors', value: model.audit_scanners },
-            { label: 'Omics modality & scale', value: model.audit_omics },
-            { label: 'Stain', value: model.stains },
-            { label: 'Dataset notes', value: model.audit_notes }
-        ];
-
-        fields.forEach(field => {
-            if (isMeaningful(field.value)) {
-                rowsHtml += `<tr><th>${field.label}</th><td>${formatField(field.value)}</td></tr>`;
-            }
-        });
-
+        const facetsHtmlAll = dataFacetsHtml + facetsHtml;
+        const facetsBlock = facetsHtmlAll ? `<div class="modal-facets">${facetsHtmlAll}</div>` : '';
         const tableBlock = rowsHtml ? `<table class="modal-table"><tbody>${rowsHtml}</tbody></table>` : '';
 
         // Resource links (Paper / Code / Model / Dataset / Website).
