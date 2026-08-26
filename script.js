@@ -634,7 +634,6 @@ document.addEventListener('DOMContentLoaded', () => {
             ['Tasks', m => m.audit_tasks || m.audit_downstream, 'ph-list-checks'],
             ['Domain / focus', m => m.audit_domain || m.audit_organs, 'ph-tree'],
             ['Benchmark / dataset', m => m.audit_benchmark, 'ph-ruler'],
-            ['Headline result', m => m.audit_result, 'ph-trophy'],
             ['Pretraining WSIs', m => m.audit_wsis, 'ph-images'],
             ['Patches / tiles', m => m.audit_patches, 'ph-squares-four'],
             ['Image–text pairs', m => m.audit_image_text, 'ph-chat-text'],
