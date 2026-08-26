@@ -1372,6 +1372,30 @@ const modelData = [
         "audit_notes": "",
         "paper_title": "Leveraging multi-modal foundation models for analysing spatial multi-omic and histopathology data",
         "paper_author": "Liu"
+      },
+      {
+        "name": "oFM",
+        "year": 2026,
+        "date": "2026-08-25",
+        "data": "1.67M cancer patients (clinical + DNA + RNA + H&E)",
+        "idea": "Longitudinal patient-state foundation model for precision oncology: encodes daily clinical and molecular episodes and integrates them over time together with H&E pathology into a single patient embedding, so cancer evolution and treatment history are modelled rather than a single timepoint; frozen embeddings beat expert-curated clinical/molecular features on prognosis and treatment-benefit ranking, and a mechanism-discovery framework links predicted outcomes to grounded biology via an evidence-based temporal graph",
+        "stains": "H&E",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2608.24688",
+        "bibtex": "@misc{vorontsov2026multimodalfoundationmodellongitudinal,\n      title={A Multimodal Foundation Model for Longitudinal Patient Representation and Scalable Insight Generation in Oncology}, \n      author={Eugene Vorontsov and Yi Kan Wang and Alican Bozkurt and Adam Casson and Ludmila Tydlitatova and Michal Zelechowski and Ezra E. W. Cohen and Jyoti D. Patel and Max Banaszak and Caitlin McWilliams and Shane Colley and Kate Sasser and Ryan Fukushima and Eric Lefkofsky and Razik Yousfi and Siqi Liu},\n      year={2026},\n      eprint={2608.24688},\n      archivePrefix={arXiv},\n      primaryClass={cs.LG},\n      url={https://arxiv.org/abs/2608.24688}, \n}",
+        "audit_objective": "Temporal integration of daily clinical and molecular episodes with pathology images into a patient-state embedding",
+        "audit_image_omics": "1.67M cancer patients with clinical trajectories plus DNA, RNA and H&E pathology; patient-level train/validation/test partitions with >1M patients for training",
+        "audit_domain": "Pan-cancer real-world oncology; longitudinal patient-level rather than slide-level representation",
+        "audit_benchmark": "Prognostic benchmarks (treatment response, progression-free survival, overall survival) and 11 comparative-treatment cohorts, against expert-curated clinical and molecular baseline features",
+        "audit_result": "Overall-survival AUC 0.774 vs 0.563 for baseline features; three-fold higher pooled scale-normalized treatment-benefit AUTOC with improved benefit ranking in 9 of 11 cohorts, plus stronger prognostic discrimination within both treatment arms",
+        "audit_organs": "Pan-cancer",
+        "audit_downstream": "Treatment-response prediction; progression-free and overall survival; comparative-treatment benefit estimation; mechanism discovery via an evidence-grounded temporal graph",
+        "audit_cohorts": "Real-world oncology cohort of 1.67 million cancer patients",
+        "audit_omics": "DNA and RNA",
+        "audit_notes": "",
+        "paper_title": "A Multimodal Foundation Model for Longitudinal Patient Representation and Scalable Insight Generation in Oncology",
+        "paper_author": "Vorontsov"
       }
     ]
   },
