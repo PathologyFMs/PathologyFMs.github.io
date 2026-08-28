@@ -1396,6 +1396,31 @@ const modelData = [
         "audit_notes": "",
         "paper_title": "A Multimodal Foundation Model for Longitudinal Patient Representation and Scalable Insight Generation in Oncology",
         "paper_author": "Vorontsov"
+      },
+      {
+        "name": "DeepSpot-M",
+        "year": 2026,
+        "date": "2026-06-22",
+        "data": "730K paired histology–transcriptome spot profiles (~500 samples, 14 cancers)",
+        "idea": "Reformulates spatial-expression prediction as a query over genes: genes are represented by embeddings drawn from foundation models spanning DNA, RNA, protein, single-cell and biomedical text, so the model covers the whole protein-coding transcriptome and predicts genes never seen in training instead of a fixed panel; transfers to held-out cancers, adapts to a new cohort or single-cell assay from one slide via test-time adaptation, and the same query interface supports transcriptome restoration, cross-species non-coding RNA inference, in silico variant-effect mapping and natural-language querying",
+        "stains": "H&E (predicts spatial transcriptomics)",
+        "github": "https://github.com/ratschlab/DeepSpotM",
+        "hf": "",
+        "dataset": "https://huggingface.co/datasets/ratschlab/TCGA_virtual_spatial_transcriptomics_atlas",
+        "paper": "https://www.medrxiv.org/content/10.64898/2026.06.19.26356060v1",
+        "bibtex": "@article{Nonchev2026DeepSpotM,\n  author = {Kalin Nonchev and Sebastian Dawo and Karina Silina and Viktor H. Koelzer and Gunnar R\\\"atsch},\n  title = {DeepSpot-M: a multimodal foundation model for transcriptome-wide virtual spatial transcriptomics from histology},\n  journal = {medRxiv},\n  year = {2026},\n  doi = {10.64898/2026.06.19.26356060},\n  url = {https://www.medrxiv.org/content/10.64898/2026.06.19.26356060v1}\n}",
+        "audit_objective": "Query-based multimodal regression: histology spot embeddings are matched against gene embeddings pooled from DNA, RNA, protein, single-cell and biomedical-text foundation models, so the gene axis is open-vocabulary rather than a fixed output head",
+        "audit_image_omics": "~730,000 paired histology–transcriptomic spot profiles from ~500 samples across 14 cancer types and 15 10x Visium datasets",
+        "audit_domain": "Pan-cancer virtual spatial transcriptomics from routine histology",
+        "audit_benchmark": "Held-out cancer types against specialised models trained on them; new cohorts and single-cell (Xenium) assays via one-slide test-time adaptation; TCGA application across 28,664 WSIs",
+        "audit_result": "Outperforms specialised models trained directly on the held-out cancers; produces a virtual atlas of 28,664 TCGA slides (17,372 fresh-frozen, 11,292 FFPE) from 10,865 patients across 32 cancer types, recovering a pan-cancer map of malignancy from histology alone",
+        "audit_organs": "32 cancer types (TCGA application); 14 cancer types in training",
+        "audit_downstream": "Transcriptome-wide spatial expression prediction including unseen genes; transcriptome restoration; cross-species non-coding RNA inference; in silico variant-effect mapping; natural-language gene querying",
+        "audit_cohorts": "15 10x Visium datasets from multiple institutions; TCGA; HEST-1k Xenium",
+        "audit_omics": "Spatial transcriptomics (protein-coding transcriptome-wide)",
+        "audit_notes": "",
+        "paper_title": "DeepSpot-M: a multimodal foundation model for transcriptome-wide virtual spatial transcriptomics from histology",
+        "paper_author": "Nonchev"
       }
     ]
   },
