@@ -1421,6 +1421,50 @@ const modelData = [
         "audit_notes": "",
         "paper_title": "DeepSpot-M: a multimodal foundation model for transcriptome-wide virtual spatial transcriptomics from histology",
         "paper_author": "Nonchev"
+      },
+      {
+        "name": "CytoFormer",
+        "year": 2026,
+        "date": "2026-08-17",
+        "data": "15.4M cells from 81 paired Xenium/H&E sections (16 organs)",
+        "idea": "Supervises morphology with molecules rather than pathologist annotations: imaging-based spatial transcriptomics profiles cells in situ on a section that is afterwards H&E-stained, so molecular identity and morphology are observed for the same physical cell; 81 paired Xenium sections across 16 organs yield 15.4M cells each with an H&E patch and one of 23 cell types, used to train a cell foundation model with a multi-task per-organ head",
+        "stains": "H&E (cell labels derived from paired Xenium spatial transcriptomics)",
+        "github": "https://github.com/zhihuanglab/CytoFormer",
+        "hf": "https://huggingface.co/zhihuanglab/CytoFormer",
+        "paper": "https://arxiv.org/abs/2608.16718",
+        "bibtex": "@misc{yao2026cytoformermolecularlysupervisedcell,\n      title={CytoFormer: A Molecularly Supervised Cell Foundation Model for Histopathology Cell Classification}, \n      author={Jialu Yao and Songhao Li and Alina Yu and Zhi Huang},\n      year={2026},\n      eprint={2608.16718},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2608.16718}, \n}",
+        "audit_objective": "Molecular supervision: per-cell labels derived from paired Xenium profiling via clustering, marker-gene annotation, organ-wise human review and QC, then multi-task per-organ classification",
+        "audit_image_omics": "81 paired Xenium/H&E sections spanning 16 organs; 15.4M cells, each a paired H&E patch with one of 23 cell types",
+        "audit_domain": "Cell-level analysis of routine H&E across 16 organs",
+        "audit_benchmark": "Spatially held-out tissue; four expert-annotated benchmarks against six pathology FMs with frozen encoders and a linear head; interactive active-learning setting",
+        "audit_result": "0.85 accuracy and 0.78 macro-F1 on spatially held-out tissue across all 16 organs; frozen features beat six PFMs on four expert-annotated benchmarks including organs and cell types absent from pretraining; in active learning it detects normal epithelium amid look-alike tumour at F1 0.82 from only a few annotations, 0.13 F1 ahead of the strongest baseline",
+        "audit_organs": "16 organs; 23 cell types",
+        "audit_downstream": "Cell-type classification; label-efficient active learning; reconstruction of tissue architecture on a held-out section",
+        "audit_cohorts": "81 paired Xenium sections",
+        "audit_omics": "Imaging-based spatial transcriptomics (Xenium)",
+        "audit_notes": "",
+        "paper_title": "CytoFormer: A Molecularly Supervised Cell Foundation Model for Histopathology Cell Classification",
+        "paper_author": "Yao"
+      },
+      {
+        "name": "TissueFormer",
+        "year": 2026,
+        "date": "2026-08-06",
+        "data": "17M+ image–expression pairs from 1.2K slides",
+        "idea": "Pretrains on paired histology and spatial transcriptomics with linear rather than quadratic attention complexity, so whole-slide context at single-cell resolution becomes tractable and both local and distal cell–cell interdependencies can be modelled; predicts spatial gene expression from histology at cellular resolution and scales to cell-, region- and slide-level diagnosis, generating testable hypotheses about disease mechanism and staging",
+        "stains": "H&E",
+        "github": "https://github.com/uhlerlab/TissueFormer",
+        "hf": "",
+        "paper": "https://www.biorxiv.org/content/10.64898/2026.07.31.741265v1",
+        "bibtex": "@article{Wu2026TissueFormer,\n  author = {Qitian Wu and Qiyu Gong and Luezhen Yuan and Zhiyi Li and Orr Ashenberg and Fei Chen and Ramnik Xavier and Caroline Uhler},\n  title = {Multi-Modal Foundation Model with Whole-Slide Attention Enables Transferrable Digital Pathology at Single-Cell Resolution},\n  journal = {bioRxiv},\n  year = {2026},\n  doi = {10.64898/2026.07.31.741265},\n  url = {https://www.biorxiv.org/content/10.64898/2026.07.31.741265v1}\n}",
+        "audit_objective": "Multimodal pretraining with linear-complexity whole-slide attention over paired histology and spatial transcriptomics",
+        "audit_image_omics": "Over 17 million image–expression pairs from ~1,200 tissue slides",
+        "audit_domain": "Single-cell-resolution digital pathology with long-range cell–cell dependency modelling",
+        "audit_downstream": "Spatial gene-expression prediction at cellular resolution; cell-, region- and slide-level diagnostic tasks; discovery of long- and short-range cell–cell interdependencies",
+        "audit_omics": "Spatial transcriptomics",
+        "audit_notes": "Mechanism and staging hypotheses demonstrated in lung fibrosis and breast cancer.",
+        "paper_title": "Multi-Modal Foundation Model with Whole-Slide Attention Enables Transferrable Digital Pathology at Single-Cell Resolution",
+        "paper_author": "Wu"
       }
     ]
   },
@@ -2261,6 +2305,26 @@ const modelData = [
         "audit_downstream": "19 encoders evaluated on spatial-domain identification from paired histology + spatial transcriptomics",
         "paper_title": "Benchmarking Pathology Foundation Models for Spatial Domain Understanding",
         "paper_author": "Zhao"
+      },
+      {
+        "name": "Skin FM Benchmark",
+        "year": 2025,
+        "date": "2025-06-23",
+        "data": "Slide (skin)",
+        "idea": "Evaluates PFMs as patch-level feature extractors inside MIL classifiers on AI4SkIN, a multi-center cohort of challenging cutaneous spindle cell neoplasm subtypes, and introduces the Foundation Model–Silhouette Index (FM-SI) to measure how consistent a model's representation stays under distribution shift; extracting less biased features improves classification, especially for similarity-based MIL classifiers",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2506.18668",
+        "bibtex": "@misc{meseguer2025benchmarkinghistopathologyfoundationmodels,\n      title={Benchmarking histopathology foundation models in a multi-center dataset for skin cancer subtyping}, \n      author={Pablo Meseguer and Rocío del Amor and Valery Naranjo},\n      year={2025},\n      eprint={2506.18668},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      doi={10.1007/978-3-031-98688-8_2},\n      url={https://arxiv.org/abs/2506.18668}, \n}",
+        "audit_domain": "Skin — cutaneous spindle cell neoplasm subtyping under multi-center distribution shift",
+        "audit_benchmark": "AI4SkIN multi-center cohort; PFMs compared as patch-level feature extractors within MIL frameworks; introduces the Foundation Model–Silhouette Index (FM-SI)",
+        "audit_result": "Less biased feature extractors classify better, with the largest gains for similarity-based MIL classifiers",
+        "audit_organs": "Skin",
+        "audit_downstream": "Weakly supervised slide-level subtyping of cutaneous spindle cell neoplasms",
+        "audit_cohorts": "AI4SkIN (multi-center)",
+        "audit_notes": "",
+        "paper_title": "Benchmarking histopathology foundation models in a multi-center dataset for skin cancer subtyping",
+        "paper_author": "Meseguer"
       }
     ]
   },
@@ -2677,6 +2741,54 @@ const modelData = [
         "audit_notes": "",
         "paper_title": "Registered multi-device/staining histology image dataset for domain-agnostic machine learning models",
         "paper_author": "Ochi"
+      },
+      {
+        "name": "Henriksen et al.",
+        "year": 2026,
+        "date": "2026-02-25",
+        "data": "",
+        "idea": "Adds robustness losses during downstream training so task-specific models built on frozen PFM features stop keying on pre-analytic and scanner-specific variation; thousands of models trained on features from 8 well-known PFMs over 27,042 WSIs from 6,155 patients, improving both robustness and accuracy without retraining the foundation models",
+        "audit_domain": "Pre-analytic and scanner-specific variation carried by PFM features into downstream predictions",
+        "audit_benchmark": "27,042 WSIs from 6,155 patients; thousands of downstream models trained on the features of 8 well-known pathology FMs",
+        "audit_result": "Substantial robustness improvement plus higher classification accuracy by focusing on biologically relevant features, achieved without retraining the foundation models themselves",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2602.22347",
+        "bibtex": "@misc{henriksen2026enablingclinicalusefoundation,\n      title={Enabling clinical use of foundation models for computational pathology}, \n      author={Audun L Henriksen and Ole-Johan Skrede and Lisa van der Schee and Enric Domingo and Karolina Cyll and Sepp de Raedt and Ilyá Kostolomov and Jennifer Hay and Wanja Kildal and Joakim Kalsnes and Robert W Williams and Manohar Pradhan and John Arne Nesheim and Hanne Askautrud and Maria Isaksen and Karmele Saez de Gordoa and Miriam Cuatrecasas and Joanne Edwards and TransSCOT group and Arild Nesbakken and Neil A Shepherd and Ian Tomlinson and Daniel-Christoph Wagner and Rachel Kerr and Tarjei Sveinsgjerd Hveem and Knut Liestøl and Yoshiaki Nakamura and Marco Novelli and Masaaki Miyo and Sebastian Försch and David N Church and Miangela M Lacle and David J Kerr and Andreas Kleppe},\n      year={2026},\n      eprint={2602.22347},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2602.22347}, \n}",
+        "paper_title": "Enabling clinical use of foundation models for computational pathology",
+        "paper_author": "Henriksen"
+      },
+      {
+        "name": "Bøe et al.",
+        "year": 2026,
+        "date": "2026-01-27",
+        "data": "",
+        "idea": "Trains a Weight-Decomposed Low-Rank Adaptation (DoRA) with strong augmentations on top of frozen PFMs to strip dataset-specific information from their features; across three histopathology datasets the base models drop on external data, and the adapter yields more robust cross-domain features",
+        "audit_domain": "Dataset-specific information encoded in PFM features and the external-data performance drop it causes",
+        "audit_benchmark": "Three histopathology datasets, internal versus external evaluation",
+        "audit_result": "DoRA adapters with strong data augmentation produce more robust features across domains",
+        "github": "https://github.com/dsb-ifi/DoRA-for-FM-robustness",
+        "hf": "",
+        "paper": "https://proceedings.mlr.press/v316/boe26a.html",
+        "bibtex": "@InProceedings{pmlr-v316-boe26a,\n  title = {Low-Rank Adaptations for increased Generalization in Foundation Model features},\n  author = {B{\\o}e, Vilde Schulerud and Kleppe, Andreas and Foersch, Sebastian and Wagner, Daniel-Christoph and Busund, Lill-Tove Rasmussen and Rivera, Ad{\\'i}n Ram{\\'i}rez},\n  booktitle = {Proceedings of the MICCAI Workshop on Computational Pathology},\n  pages = {234--247},\n  year = {2026},\n  volume = {316},\n  series = {Proceedings of Machine Learning Research},\n  publisher = {PMLR}\n}",
+        "paper_title": "Low-Rank Adaptations for increased Generalization in Foundation Model features",
+        "paper_author": "Bøe"
+      },
+      {
+        "name": "FeatMap",
+        "year": 2026,
+        "date": "2026-07-08",
+        "data": "",
+        "idea": "Treats acquisition signatures as geometric distortions between manifolds of similarly arranged embeddings and fits a single global affine transformation per foundation model to correct them directly in embedding space, using paired data that isolate the acquisition effect; input-level normalization fails to remove the signature and embedding-level methods adjust features untargeted, whereas this correction is targeted and reusable",
+        "audit_domain": "Acquisition signatures (scanner and hardware/technical differences) in medical FM embeddings, versus the biological and demographic signal that must survive harmonization",
+        "audit_benchmark": "Scanner harmonization and cross-foundation-model harmonization in digital pathology, plus field-strength harmonization in brain MRI",
+        "audit_result": "Improves cross-condition embedding similarity and reduces performance gaps without retraining, and suggests a route to aligning disparate embedding spaces",
+        "github": "",
+        "hf": "",
+        "paper": "https://www.biorxiv.org/content/10.64898/2026.07.02.736184v1",
+        "bibtex": "@article{Donle2026FeatMap,\n  author = {Leonhard Donle and Michael Phillips and Farieda Gaber and Siddhi Ramesh and Matteo Sacco and Sampsa Hautaniemi and Anni Virtanen and Keno Bressem and Lisa Adams and Kelsey Goon and Elena Nevins and Ryan A. Robinett and Sara Kochanny and Sasha Hassan and James Dolezal and Alexander T. Pearson and Ernst Lengyel},\n  title = {FEATMAP: Targeted Correction of Acquisition Signatures Harmonizes Medical Foundation Model Embeddings and Enables Robust Task Generalization},\n  journal = {bioRxiv},\n  year = {2026},\n  doi = {10.64898/2026.07.02.736184},\n  url = {https://www.biorxiv.org/content/10.64898/2026.07.02.736184v1}\n}",
+        "paper_title": "FEATMAP: Targeted Correction of Acquisition Signatures Harmonizes Medical Foundation Model Embeddings and Enables Robust Task Generalization",
+        "paper_author": "Donle"
       }
     ]
   },
@@ -2778,6 +2890,32 @@ const modelData = [
         "paper_author": "Tizhoosh",
         "tag": "perspective",
         "tag_color": "purple"
+      },
+      {
+        "name": "Sali et al.",
+        "year": 2026,
+        "date": "2026-05-08",
+        "data": "",
+        "idea": "Narrative review of pathology foundation models in oncology: development and methodological foundations, model types and how their capabilities differ from conventional task-specific pathology AI, the transition toward agentic AI systems, and the regulatory and governance frameworks around validation, accountability, transparency and oversight",
+        "github": "",
+        "hf": "",
+        "paper": "https://doi.org/10.1136/bmjonc-2026-001102",
+        "bibtex": "@article{Sali_2026, title={Foundation models in computational pathology: methods, applications and clinical implications}, volume={5}, ISSN={2752-7948}, url={http://dx.doi.org/10.1136/bmjonc-2026-001102}, DOI={10.1136/bmjonc-2026-001102}, number={1}, journal={BMJ Oncology}, publisher={BMJ}, author={Sali, Rasoul and Aschenaki, Yohannes and Leveillee, Reid and Baba, Firas and Tessema, Leul and Dixon, Christopher and Bachhamba, Karan and Zhang, David Y}, year={2026}, month=May, pages={e001102} }",
+        "paper_title": "Foundation models in computational pathology: methods, applications and clinical implications",
+        "paper_author": "Sali"
+      },
+      {
+        "name": "Chen et al.",
+        "year": 2026,
+        "date": "2026-06-15",
+        "data": "",
+        "idea": "Systematic review of 42 studies on foundation-model-driven AI agents in pathology imaging, explicitly separating foundation models from agents and assessing technical progress, clinical validation and workflow integration; FMs reach AUC 0.85–0.97 on diagnostic tasks, but only 6 studies (14.3%) are multicenter and fewer than 5% prospective, with data heterogeneity, limited explainability, unvalidated workflows and regulatory gaps as the four barriers",
+        "github": "",
+        "hf": "",
+        "paper": "https://doi.org/10.1007/s10278-026-02034-7",
+        "bibtex": "@article{Chen_2026, title={Foundation Models and AI Agents in Digital Pathology Imaging: A Systematic Review of Integration into the Clinical Workflow and Implementation Challenges}, ISSN={2948-2933}, url={http://dx.doi.org/10.1007/s10278-026-02034-7}, DOI={10.1007/s10278-026-02034-7}, journal={Journal of Imaging Informatics in Medicine}, publisher={Springer Science and Business Media LLC}, author={Chen, Yuxuan and Qin, Xin and Chen, Sheng}, year={2026}, month=June }",
+        "paper_title": "Foundation Models and AI Agents in Digital Pathology Imaging: A Systematic Review of Integration into the Clinical Workflow and Implementation Challenges",
+        "paper_author": "Chen"
       }
     ]
   }
