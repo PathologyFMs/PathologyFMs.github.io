@@ -2837,7 +2837,7 @@ const modelData = [
       },
       {
         "name": "Li et al.",
-        "year": 2025,
+        "year": 2026,
         "date": "2026-07-02",
         "data": "",
         "idea": "Reviews computational-pathology foundation models along three axes — datasets, adaptation strategies and evaluation tasks — splitting the field into uni-modal and multi-modal frameworks and analysing the key techniques (contrastive learning, multi-modal integration) behind them; names limited data accessibility, high cross-dataset variability, the need for domain-specific adaptation and the absence of standardized evaluation benchmarks as the core obstacles, then sets out future directions from four perspectives",
