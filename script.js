@@ -11,27 +11,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModal = document.getElementById('closeModal');
 
     // Close Modal Logic
+    let lastFocused = null;
     function hideModal() {
         modal.style.display = "none";
         modal.setAttribute('aria-hidden', 'true');
+        if (lastFocused && lastFocused.focus) lastFocused.focus();
+        lastFocused = null;
     }
     if (closeModal) {
-        closeModal.onclick = hideModal;
+        closeModal.addEventListener('click', hideModal);
     }
-    window.onclick = function(event) {
+    window.addEventListener('click', function(event) {
         if (event.target == modal) {
             hideModal();
         }
-    }
+    });
+    const FOCUSABLE = 'a[href], button:not([disabled]), input, select, textarea, [tabindex]:not([tabindex="-1"])';
     document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape' && modal.style.display === 'block') {
-            hideModal();
-        }
+        if (modal.style.display !== 'block') return;
+        if (event.key === 'Escape') { hideModal(); return; }
+        // Keep Tab inside the dialog while it is open.
+        if (event.key !== 'Tab') return;
+        const items = [...modal.querySelectorAll(FOCUSABLE)].filter(el => el.offsetParent !== null);
+        if (!items.length) return;
+        const first = items[0], last = items[items.length - 1];
+        if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+        else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
     });
 
     // View state
     let currentView = 'table';
     let spiralYear = 'all';
+    // The tree view runs a d3 force simulation; render() replaces the container
+    // wholesale, so the old one has to be stopped or it keeps ticking on
+    // detached nodes (one orphan per keystroke while searching in tree view).
+    let treeSim = null;
     const gridBtn = document.getElementById('gridBtn');
     const tableBtn = document.getElementById('tableBtn');
     const timelineBtn = document.getElementById('timelineBtn');
@@ -407,8 +421,10 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
+        lastFocused = document.activeElement;
         modal.style.display = "block";
         modal.setAttribute('aria-hidden', 'false');
+        if (closeModal) closeModal.focus();
     }
 
     // Render Data
@@ -714,6 +730,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .force('center', d3.forceCenter(width / 2, height / 2))
             .force('collide', d3.forceCollide().radius(collideR).strength(0.9))
             .on('tick', ticked);
+        treeSim = sim;
 
         const spreadInput = wrap.querySelector('#treeSpread');
         if (spreadInput) spreadInput.addEventListener('input', () => {
@@ -919,6 +936,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function render(data) {
+        if (treeSim) { treeSim.stop(); treeSim = null; }
         container.innerHTML = '';
         if (currentView === 'timeline') { renderTimeline(data); return; }
         if (currentView === 'swimlane') { renderSwimlane(data); return; }
@@ -1101,7 +1119,13 @@ document.addEventListener('DOMContentLoaded', () => {
         else themeIcon.classList.replace('ph-moon', 'ph-sun');
     });
 
-    searchInput.addEventListener('input', handleFilters);
+    // Debounced: every keystroke otherwise re-renders all 145 entries (and, in
+    // tree view, rebuilds the force simulation).
+    let searchTimer;
+    searchInput.addEventListener('input', () => {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(handleFilters, 120);
+    });
     categoryFilter.addEventListener('change', handleFilters);
 
     // Top BibTeX button: copy the citation for this website/repository itself.
@@ -1163,7 +1187,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const close = () => { ov.classList.remove('open'); document.body.style.overflow = ''; };
                 ov.addEventListener('click', e => { if (e.target === ov) close(); });
                 ov.querySelector('.close-contrib').addEventListener('click', close);
-                document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+                document.addEventListener('keydown', e => { if (e.key === 'Escape' && ov.classList.contains('open')) close(); });
             }
             ov.classList.add('open');
             document.body.style.overflow = 'hidden';

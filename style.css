@@ -301,7 +301,7 @@ body.light-mode .models-table tbody tr:hover {
 /* Table Content */
 .model-name {
     font-family: var(--font-heading);
-    font-size: 1.15rem;
+    font-size: 1.4rem;
     font-weight: 600;
     color: var(--text-primary);
     margin-bottom: 0.25rem;
@@ -533,13 +533,6 @@ footer {
     margin-bottom: 1rem;
 }
 
-.model-name {
-    font-family: var(--font-heading);
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--text-primary);
-}
-
 .model-info {
     display: flex;
     flex-direction: column;
@@ -547,64 +540,6 @@ footer {
 }
 
 /* Tag styling */
-.tag {
-    display: inline-block;
-    padding: 0.25rem 0.8rem;
-    border-radius: 9999px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    margin-top: 0.4rem;
-    letter-spacing: 0.03em;
-    text-transform: lowercase;
-}
-
-.tag-blue {
-    background-color: rgba(59, 130, 246, 0.15);
-    color: #3b82f6;
-}
-body.light-mode .tag-blue { color: #2563eb; }
-
-.tag-purple {
-    background-color: rgba(168, 85, 247, 0.15);
-    color: #a855f7;
-}
-body.light-mode .tag-purple { color: #9333ea; }
-
-.tag-teal {
-    background-color: rgba(20, 184, 166, 0.15);
-    color: #14b8a6;
-}
-body.light-mode .tag-teal { color: #0d9488; }
-
-.tag-pink {
-    background-color: rgba(236, 72, 153, 0.15);
-    color: #ec4899;
-}
-body.light-mode .tag-pink { color: #db2777; }
-
-.tag-gray {
-    background-color: rgba(156, 163, 175, 0.15);
-    color: #9ca3af;
-}
-body.light-mode .tag-gray { color: #4b5563; }
-
-.tag-yellow {
-    background-color: rgba(234, 179, 8, 0.15);
-    color: #eab308;
-}
-body.light-mode .tag-yellow { color: #ca8a04; }
-
-.tag-orange {
-    background-color: rgba(249, 115, 22, 0.15);
-    color: #fb923c;
-}
-body.light-mode .tag-orange { color: #ea580c; }
-
-.tag-green {
-    background-color: rgba(34, 197, 94, 0.15);
-    color: #4ade80;
-}
-body.light-mode .tag-green { color: #16a34a; }
 
 .model-year {
     background: rgba(156, 163, 175, 0.1);
