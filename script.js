@@ -228,10 +228,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }).join('');
     }
 
-    // A field is "meaningful" only if it isn't blank, "Not found", or "N/A".
+    // A field is "meaningful" only if it isn't blank, a dash placeholder,
+    // "Not found", or "N/A".
     function isMeaningful(text) {
         if (!text) return false;
         const clean = text.replace(/\*/g, '').trim().toLowerCase();
+        if (/^-{1,3}$/.test(clean)) return false;
         return clean !== '' && clean !== 'not found' && clean !== 'n/a';
     }
 
@@ -408,7 +410,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Render Data
-    // Distinct per-category palette for the spiral timeline (12 categories).
+    // Distinct per-category palette for the spiral timeline (14 categories).
     const SPIRAL_COLORS = {
         'Tile-Level Vision Foundation Models': '#3b82f6',
         'Slide-Level & Patient-Level Foundation Models': '#14b8a6',
