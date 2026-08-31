@@ -21,7 +21,9 @@ const modelData = [
         "audit_cohorts": "Pretraining sources TCGA + PAIP",
         "audit_notes": "",
         "paper_title": "Transformer-based unsupervised contrastive learning for histopathological image classification",
-        "paper_author": "Wang"
+        "paper_author": "Wang",
+        "audit_benchmark": "Five downstream task families over nine public datasets: patch retrieval, patch classification, weakly supervised WSI classification, mitosis detection and colorectal adenocarcinoma gland segmentation",
+        "audit_result": "State-of-the-art performance on each of the nine datasets, with representations reported as more robust and transferable than competing methods (the abstract gives no per-dataset figures)"
       },
       {
         "name": "RetCCL",
@@ -42,7 +44,9 @@ const modelData = [
         "audit_cohorts": "TCGA",
         "audit_notes": "Clustering-guided contrastive learning (ResNet50) for WSI retrieval; companion feature extractor to CTransPath.",
         "paper_title": "RetCCL: Clustering-guided contrastive learning for whole-slide image retrieval",
-        "paper_author": "Wang"
+        "paper_author": "Wang",
+        "audit_benchmark": "Anatomical-site retrieval and cancer-subtype retrieval over 22,000+ slides, plus patch retrieval on TissueNet",
+        "audit_result": "About +10% mMV@10 on anatomical-site retrieval and +24% mMV@5 on TissueNet over ImageNet-pretrained features"
       },
       {
         "name": "REMEDIS",
@@ -63,7 +67,9 @@ const modelData = [
         "audit_cohorts": "TCGA for pathology SSL",
         "audit_notes": "",
         "paper_title": "Robust and data-efficient generalization of self-supervised machine learning for diagnostic imaging",
-        "paper_author": "Azizi"
+        "paper_author": "Azizi",
+        "audit_benchmark": "A range of medical imaging tasks across three simulated realistic deployment scenarios using retrospective data",
+        "audit_result": "Up to 11.5% relative improvement in diagnostic accuracy over a strong supervised baseline, and matches supervised baselines using between 1% and 33% of the retraining data depending on task"
       },
       {
         "name": "Lunit",
@@ -84,7 +90,9 @@ const modelData = [
         "audit_cohorts": "2 pretraining sources: TCGA 20,994 WSIs + internal TULIP 15,672",
         "audit_notes": "",
         "paper_title": "Benchmarking Self-Supervised Learning on Diverse Pathology Datasets",
-        "paper_author": "Kang"
+        "paper_author": "Kang",
+        "audit_benchmark": "Four representative SSL methods (MoCo v2, SwAV, Barlow Twins, DINO) compared across diverse downstream tasks, including nuclei instance segmentation",
+        "audit_result": "Large-scale domain-aligned pathology pretraining consistently beats ImageNet pretraining under linear probing, fine-tuning and low-label regimes, with large and consistent gains on nuclei instance segmentation"
       },
       {
         "name": "Phikon",
@@ -114,7 +122,9 @@ const modelData = [
             "paper": "https://arxiv.org/abs/2409.09173",
             "note": "ViT-L/16, 0.3B params; 456M tiles from 60K slides (PANCAN-XL: TCGA+CPTAC+GTEx). Scales up Phikon (40M -> 456M images)."
           }
-        ]
+        ],
+        "audit_benchmark": "17 downstream tasks over seven cancer indications, at both slide and patch level",
+        "audit_result": "In-domain iBOT pretraining beats both ImageNet pretraining and MoCo v2 contrastive pretraining; the ViT-Base model (80M params, >40M tiles from 16 cancer types) is state of the art on most weakly supervised WSI classification tasks"
       },
       {
         "name": "BROW",
@@ -159,7 +169,9 @@ const modelData = [
         "audit_notes": "Google HAI-DEF patch encoder (ViT-S, 384-d embeddings) via Masked Siamese Networks; 60M TCGA H&E patches across 3 magnifications.",
         "paper_title": "Domain-specific optimization and diverse evaluation of self-supervised models for histopathology",
         "paper_author": "Lai",
-        "website": "https://developers.google.com/health-ai-developer-foundations/path-foundation"
+        "website": "https://developers.google.com/health-ai-developer-foundations/path-foundation",
+        "audit_benchmark": "Benchmark tasks spanning 17 unique tissue types and 12 cancer types across different optimal magnifications and task types, plus held-out patch-level and weakly supervised tasks",
+        "audit_result": "Standard SSL methods applied carefully to histopathology are performant across the benchmark, and domain-specific methodological changes add further gains (no per-task figures in the abstract)"
       },
       {
         "name": "PathoDuet",
@@ -180,7 +192,9 @@ const modelData = [
         "audit_cohorts": "TCGA, HyReCo, BCI and downstream public datasets",
         "audit_notes": "",
         "paper_title": "PathoDuet: Foundation Models for Pathological Slide Analysis of H&E and IHC Stains",
-        "paper_author": "Hua"
+        "paper_author": "Hua",
+        "audit_benchmark": "Patch-level colorectal cancer subtyping and WSI-level classification for H&E, plus IHC marker expression-level prediction, tumour identification and slide-level qualitative analysis for IHC",
+        "audit_result": "Superior to the compared models on most tasks, supporting the cross-scale and cross-stain pretext objectives (the abstract gives no numeric comparisons)"
       },
       {
         "name": "RudolfV",
@@ -202,7 +216,9 @@ const modelData = [
         "audit_scanners": "6 scanner types, incl. Roche Ventana DP600, Leica Aperio GT450, 3DHISTECH Pannoramic 1000 (also Ventana DP200, Akoya Vectra Polaris)",
         "audit_notes": "",
         "paper_title": "RudolfV: A Foundation Model by Pathologists for Pathologists",
-        "paper_author": "Dippel"
+        "paper_author": "Dippel",
+        "audit_benchmark": "Benchmarks covering tumour-microenvironment profiling, biomarker evaluation and reference case search",
+        "audit_result": "Surpasses the then state-of-the-art foundation models across these benchmarks, from a corpus of >15 laboratories, 58 tissue types and 129 histochemical/IHC staining modalities (no numeric figures in the abstract)"
       },
       {
         "name": "PLUTO",
@@ -224,7 +240,9 @@ const modelData = [
         "audit_scanners": "11 scanners across 5 vendors — Aperio/Leica (GT 450, AT2, NOS, AT Turbo), Philips (UFS), Ventana/Roche (DP 200), Hamamatsu (S360, XR C12000, S210, 2.0-HT), 3DHISTECH (Pannoramic Scan II)",
         "audit_notes": "",
         "paper_title": "PLUTO: Pathology-Universal Transformer",
-        "paper_author": "Juyal"
+        "paper_author": "Juyal",
+        "audit_benchmark": "External and internal benchmarks spanning instance segmentation, tile classification and slide-level prediction across tissue types, resolutions, stains and scanners",
+        "audit_result": "Matches or outperforms task-specific baselines and pathology FMs that use orders-of-magnitude larger datasets and model sizes"
       },
       {
         "name": "UNI",
@@ -261,7 +279,9 @@ const modelData = [
             "paper": "",
             "note": "ViT-g preview variant of UNI2 (gated)."
           }
-        ]
+        ],
+        "audit_benchmark": "34 representative computational-pathology tasks, including classification across up to 108 cancer types",
+        "audit_result": "Outperforms prior encoders across the 34 tasks and enables capabilities the abstract highlights as new — resolution-agnostic tissue classification and few-shot class prototypes"
       },
       {
         "name": "Virchow",
@@ -283,7 +303,9 @@ const modelData = [
         "audit_scanners": "Leica scanners (20× / 0.5 µm/px); specific models and scanner count not stated in the paper",
         "audit_notes": "",
         "paper_title": "A foundation model for clinical-grade computational pathology and rare cancers detection",
-        "paper_author": "Vorontsov"
+        "paper_author": "Vorontsov",
+        "audit_benchmark": "Pan-cancer detection across nine common and seven rare cancers, plus biomarker prediction and cell identification",
+        "audit_result": "0.95 specimen-level AUC across the nine common and seven rare cancers"
       },
       {
         "name": "Virchow2",
@@ -313,7 +335,9 @@ const modelData = [
             "paper": "",
             "note": "ViT-G/14, 1.9B params - the giant variant of Virchow2 (gated)."
           }
-        ]
+        ],
+        "audit_benchmark": "12 tile-level tasks against the top competing models",
+        "audit_result": "State of the art across the 12 tile-level benchmarks; the study's conclusion is that data diversity and domain-specific methods can beat pure parameter scaling, with the best results from combining all three (released as Virchow2 632M, Virchow2G 1.9B and Virchow2G Mini 22M)"
       },
       {
         "name": "Hibou",
@@ -343,7 +367,9 @@ const modelData = [
             "paper": "",
             "note": "ViT-B/14, 85.7M params. Compact base variant of the Hibou family (vs Hibou-L)."
           }
-        ]
+        ],
+        "audit_benchmark": "Patch-level and slide-level benchmark datasets",
+        "audit_result": "Hibou-L achieves the highest average accuracy across the benchmark datasets (no per-benchmark figures in the abstract)"
       },
       {
         "name": "BEPH",
@@ -364,7 +390,9 @@ const modelData = [
         "audit_cohorts": "TCGA (all pretraining via GDC); validation on public datasets (e.g., BreakHis)",
         "audit_notes": "",
         "paper_title": "A foundation model for generalizable cancer diagnosis and survival prediction from histopathological images",
-        "paper_author": "Yang"
+        "paper_author": "Yang",
+        "audit_benchmark": "Patch-level cancer diagnosis, WSI-level cancer classification and survival prediction across multiple cancer subtypes",
+        "audit_result": "Reported as generalizing across all three task families from 11M unlabelled histopathology images; the abstract states no numeric metrics"
       },
       {
         "name": "Kaiko",
@@ -385,7 +413,9 @@ const modelData = [
         "audit_cohorts": "TCGA",
         "audit_notes": "kaiko.ai ViT-S/B/L tile encoders via DINO/DINOv2 on TCGA; released with the eva benchmark. Predecessor to Midnight.",
         "paper_title": "Towards Large-Scale Training of Pathology Foundation Models",
-        "paper_author": "kaiko.ai"
+        "paper_author": "kaiko.ai",
+        "audit_benchmark": "Patch-level downstream tasks from breast cancer subtyping to colorectal nuclear segmentation, run through the released open-source evaluation framework (eva)",
+        "audit_result": "State-of-the-art performance on the patch-level tasks; the paper's other contribution is the evaluation framework itself for consistent FM comparison"
       },
       {
         "name": "PathDino",
@@ -406,7 +436,9 @@ const modelData = [
         "audit_cohorts": "TCGA (11,765 diagnostic WSIs, pretraining); evaluated on internal cohorts + 12 public datasets",
         "audit_notes": "Compact ViT (~9M params, 5 transformer blocks) with rotation-agnostic SSL (HistoRotate) and Fast Patch Selection (FPS).",
         "paper_title": "Rotation-Agnostic Image Representation Learning for Digital Pathology",
-        "paper_author": "Alfasly"
+        "paper_author": "Alfasly",
+        "audit_benchmark": "12 datasets — internal cohorts across breast, liver, skin and colorectal, plus PANDA, CAMELYON16, BRACS, DigestPath, Kather, PanNuke and WSSS4LUAD",
+        "audit_result": "Average +8.5% patch-level majority-vote performance, outperforming larger histopathology-specific vision transformers from a ~9M-parameter model trained on 6M TCGA patches"
       },
       {
         "name": "Atlas",
@@ -427,7 +459,9 @@ const modelData = [
         "audit_cohorts": "Mayo Clinic + Charite (2 institutions); 490K cases -> 1.2M WSIs",
         "audit_notes": "",
         "paper_title": "Atlas: A Novel Pathology Foundation Model by Mayo Clinic, Charit\\'e, and Aignostics",
-        "paper_author": "Alber"
+        "paper_author": "Alber",
+        "audit_benchmark": "Twenty-one public benchmark datasets",
+        "audit_result": "State of the art across all twenty-one, despite being neither the largest model by parameter count nor by training-set size"
       },
       {
         "name": "Midnight",
@@ -448,7 +482,9 @@ const modelData = [
         "audit_cohorts": "TCGA + NKI; NKI includes 10,141 patients",
         "audit_notes": "",
         "paper_title": "Training state-of-the-art pathology foundation models with orders of magnitude less data",
-        "paper_author": "Karasikov"
+        "paper_author": "Karasikov",
+        "audit_benchmark": "Public downstream benchmarks, compared against Virchow2 as the strongest published FM at the time",
+        "audit_result": "Midnight-12k, trained on only ~12K public TCGA WSIs, outperforms most existing FMs and on average matches Virchow2 — the central claim being comparable or better results with up to two orders of magnitude fewer WSIs"
       },
       {
         "name": "OpenMidnight",
@@ -466,7 +502,9 @@ const modelData = [
         "audit_cohorts": "TCGA (public); developed by MedARC + Sophont",
         "audit_notes": "Open reproduction of kaiko.ai Midnight; ViT-G/14 (~1.1B params) with 4 register tokens; trained for ~$1.6k and matches SOTA with far less data; fully open weights and reproducible code",
         "paper_title": "OpenMidnight: How to Train a State-of-the-Art Pathology Foundation Model with $1.6k",
-        "paper_author": ""
+        "paper_author": "",
+        "audit_benchmark": "kaiko.ai's eva benchmark suite and the Mahmood Lab HEST benchmark, run via the released evaluation scripts",
+        "audit_result": "Reported to train faster with improved average benchmark performance versus the original Midnight-12k (~3 days on 1x8xH100); the release publishes reproducible evaluation scripts rather than a fixed score table"
       },
       {
         "name": "H-optimus-0",
@@ -494,7 +532,9 @@ const modelData = [
             "paper": "",
             "note": "1.1B ViT-g; billions of tiles from 1M+ slides, 800K+ patients. Successor to H-optimus-0."
           }
-        ]
+        ],
+        "audit_benchmark": "HEST and EVA public benchmarks plus the PLISM staining/scanning robustness dataset",
+        "audit_result": "The distilled H0-mini places 3rd on HEST and 5th on EVA while cutting parameters by orders of magnitude, and is markedly more robust to staining and scanning variation than other state-of-the-art models"
       },
       {
         "name": "PathOrchestra",
@@ -514,7 +554,9 @@ const modelData = [
         "audit_cohorts": "Air Force Military Medical Hospital + Anhui Provincial Hospital (internal); eval incl. Radboud & Karolinska (PANDA), Helsinki University Hospital",
         "audit_notes": "",
         "paper_title": "PathOrchestra: A Comprehensive Foundation Model for Computational Pathology with Over 100 Diverse Clinical-Grade Tasks",
-        "paper_author": "Yan"
+        "paper_author": "Yan",
+        "audit_benchmark": "112 clinical tasks over 61 private and 51 public datasets — 27,755 WSIs and 9,415,729 ROIs across 20 tissue and organ types",
+        "audit_result": "Accuracy above 0.950 on 47 of the 112 tasks, including pan-cancer classification, lymphoma subtype diagnosis and bladder cancer screening; first model to generate structured reports for colorectal cancer and lymphoma"
       },
       {
         "name": "GenBio-PathFM",
@@ -534,7 +576,9 @@ const modelData = [
         "audit_cohorts": "Public-only training",
         "audit_notes": "1.1B-parameter model trained exclusively on public data — the strongest open-weight FM to date and the only SOTA model on public-only data. JEDI = DINO (stage 1) + JEPA (stage 2); adding the JEPA stage lifts PathoROB 0.838→0.888 and HEST 0.410→0.420. GenBio AI.",
         "paper_title": "GenBio-PathFM: A State-of-the-Art Foundation Model for Histopathology",
-        "paper_author": "Kapse"
+        "paper_author": "Kapse",
+        "audit_benchmark": "The THUNDER, HEST and PathoROB benchmarks",
+        "audit_result": "State-of-the-art accuracy and robustness across all three, presented as the strongest open-weight model to date and the only state-of-the-art model trained exclusively on public data"
       },
       {
         "name": "RudolfV2",
@@ -562,7 +606,9 @@ const modelData = [
         ],
         "paper_title": "RudolfV 2: A Family of Robust and Efficient Open-Weights Pathology Foundation Models",
         "paper_author": "Milbich",
-        "stains": "H&E, IHC and special stains"
+        "stains": "H&E, IHC and special stains",
+        "audit_benchmark": "Representative public benchmarks — a performance average over eva morphology-prediction tasks and HEST molecular-prediction tasks",
+        "audit_result": "RudolfV 2 scores 0.626, the best openly available model, ahead of UNI2-H (0.618), H-Optimus-0 (0.606), Midnight-0k (0.605), Virchow2 (0.602), Prov-GigaPath (0.594), UNI (0.586) and Phikon-v2 (0.570), and approaching the closed Atlas 2; the distilled 2-B (0.618) and 2-S (0.605) match far larger models while processing a 224x224 image 2.5x and 6.5x faster"
       },
       {
         "name": "Atlas 2",
@@ -583,7 +629,9 @@ const modelData = [
         "audit_cohorts": "Charité – Universitätsmedizin Berlin + LMU Munich + Mayo Clinic (5.5M WSIs)",
         "audit_notes": "",
         "paper_title": "Atlas 2 -- Foundation models for clinical deployment",
-        "paper_author": "Alber"
+        "paper_author": "Alber",
+        "audit_benchmark": "Eighty public benchmarks",
+        "audit_result": "State-of-the-art prediction performance, robustness and resource efficiency across the eighty benchmarks (the abstract reports no per-benchmark numbers)"
       },
       {
         "name": "GRACE",
@@ -605,7 +653,9 @@ const modelData = [
         "audit_scanners": "Multiple vendors: Leica Aperio, 3DHISTECH, KFBIO, TEKSQRAY (formats SDPC / KFB / SVS / MRXS / TIF)",
         "audit_notes": "",
         "paper_title": "A Pathology Foundation Model for Gastric Cancer with Real-World Validation",
-        "paper_author": "Liang"
+        "paper_author": "Liang",
+        "audit_benchmark": "28 clinically relevant tasks over 48,364 WSIs from 37,493 patients across multiple centres, plus a pathologist-AI collaboration study",
+        "audit_result": "Macro-AUC 0.9188 overall — 0.9322 precancerous lesion diagnosis, 0.9119 tumour assessment, 0.8682 molecular profiling; streamlines malignancy review for up to 69.6% of cases, triages 46.8% of MMR-IHC follow-up requests, and lifts pathologist accuracy from 82.0% to 89.9% (OR 1.987) while cutting diagnostic time 14.9%"
       },
       {
         "name": "BRAVE",
@@ -624,7 +674,9 @@ const modelData = [
         "audit_downstream": "34 tasks in 82 cohorts",
         "audit_cohorts": "32 sources across Asia, Europe and North America",
         "paper_title": "A Breast Vision Pathology Foundation Model for Real-world Clinical Utility",
-        "paper_author": "Xu"
+        "paper_author": "Xu",
+        "audit_benchmark": "34 tasks across 82 cohorts drawn from 101,638 breast WSIs from 32 sources in Asia, Europe and North America, spanning retrospective benchmarking, clinical-impact simulation, prospective observational validation and crossover pathologist-AI studies",
+        "audit_result": "Excludes 76.9% of negative biopsies (NPV 0.953) and 70.1% of negative frozen sections (NPV 0.973), triages 78.8% of post-operative subtyping as clear-cut; AI assistance lifts reader balanced accuracy from 88.5% to 95.1% (OR 3.14, P<0.001); BRAVE score independently predicts disease-free (adjusted HR 4.79) and overall survival (adjusted HR 8.14, P<0.001)"
       },
       {
         "name": "Digepath",
