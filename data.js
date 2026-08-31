@@ -697,7 +697,9 @@ const modelData = [
         "audit_cohorts": "TCGA",
         "audit_notes": "Early hierarchical WSI foundation model; two-stage DINO on 256px and 4096px views (ViT-256 + ViT-4096).",
         "paper_title": "Scaling Vision Transformers to Gigapixel Images via Hierarchical Self-Supervised Learning",
-        "paper_author": "Chen"
+        "paper_author": "Chen",
+        "audit_benchmark": "9 slide-level tasks across 33 cancer types (TCGA), covering cancer subtyping and survival prediction",
+        "audit_result": "Outperforms the prior state of the art on slide-level subtyping and survival prediction, showing self-supervised ViTs can encode the hierarchical structure of the tumour microenvironment (the abstract reports no per-task figures)"
       },
       {
         "name": "Prov-GigaPath",
@@ -719,7 +721,9 @@ const modelData = [
         "audit_notes": "",
         "paper_title": "A whole-slide foundation model for digital pathology from real-world data",
         "paper_author": "Xu",
-        "audit_wsi_report": "17,383 WSI–report pairs (only in the optional vision-language alignment experiment; reports cleaned with GPT-3.5, aligned via OpenCLIP with a PubMedBERT text encoder)"
+        "audit_wsi_report": "17,383 WSI–report pairs (only in the optional vision-language alignment experiment; reports cleaned with GPT-3.5, aligned via OpenCLIP with a PubMedBERT text encoder)",
+        "audit_benchmark": "26 benchmarks — 9 cancer-subtyping tasks and 17 pathomics tasks — on Providence and TCGA data",
+        "audit_result": "State of the art on 25 of 26 tasks, with a significant improvement over the second-best method on 18 of them"
       },
       {
         "name": "CHIEF",
@@ -739,7 +743,9 @@ const modelData = [
         "audit_cohorts": "Validation: 32 independent slide sets from 24 hospitals/cohorts",
         "audit_notes": "Pretrained weights are distributed as a Docker image (chiefcontainer/chief) and via Google Drive rather than Hugging Face.",
         "paper_title": "A pathology foundation model for cancer diagnosis and prognosis prediction",
-        "paper_author": "Wang"
+        "paper_author": "Wang",
+        "audit_benchmark": "External validation on 19,491 WSIs from 32 independent slide sets collected across 24 hospitals and cohorts internationally",
+        "audit_result": "Outperformed state-of-the-art deep-learning methods by up to 36.1%"
       },
       {
         "name": "Feather",
@@ -765,7 +771,9 @@ const modelData = [
           }
         ],
         "paper_title": "Do Multiple Instance Learning Models Transfer?",
-        "paper_author": "Shao"
+        "paper_author": "Shao",
+        "audit_benchmark": "11 models over 21 pretraining tasks for morphological and molecular subtype prediction",
+        "audit_result": "Pretrained MIL aggregators consistently beat training from scratch, even when the source organ differs; pancancer pretraining generalises across organs and tasks and outperforms slide foundation models while using substantially less pretraining data"
       },
       {
         "name": "EXAONE Path 2.0",
@@ -786,7 +794,9 @@ const modelData = [
         "audit_cohorts": "Private: Korean + 2 US hospitals; Public: CPTAC (BRCA, CCRCC, COAD)",
         "audit_notes": "",
         "paper_title": "EXAONE Path 2.0: Pathology Foundation Model with End-to-End Supervision",
-        "paper_author": "Pyeon"
+        "paper_author": "Pyeon",
+        "audit_benchmark": "10 biomarker-prediction tasks",
+        "audit_result": "State-of-the-art average performance across the 10 biomarker tasks from only ~37K training WSIs, which the authors present as the data-efficiency result"
       },
       {
         "name": "MOOZY",
@@ -807,7 +817,9 @@ const modelData = [
         "audit_notes": "",
         "paper_title": "MOOZY: A Patient-First Foundation Model for Computational Pathology",
         "paper_author": "Kotp",
-        "website": "https://atlasanalyticslab.github.io/MOOZY/"
+        "website": "https://atlasanalyticslab.github.io/MOOZY/",
+        "audit_benchmark": "333 tasks from 56 public datasets (205 classification and 128 survival across four endpoints), with sixteen held-out tasks used for evaluation",
+        "audit_result": "Beats PRISM by +4.19% macro-weighted F1, +7.93% balanced accuracy and +6.95% macro-weighted ROC-AUC, at 85.77M parameters — 14x smaller than GigaPath"
       },
       {
         "name": "GigaPath-Flash",
@@ -827,7 +839,9 @@ const modelData = [
         "audit_cohorts": "Providence Health System — real-world clinical cohort (same source as Prov-GigaPath)",
         "audit_notes": "22M ViT-S + 21M LongNet (~43M); tile encoder distilled from GigaPath; open-weight Apache-2.0. Providence pretraining size not disclosed.",
         "paper_title": "GigaPath-Flash and GigaTIME-Flash: Efficient Pathology Foundation Models for Whole-Slide and Tumor Microenvironment Analysis",
-        "paper_author": "Usuyama"
+        "paper_author": "Usuyama",
+        "audit_benchmark": "Slide-level benchmarks measured against the full GigaPath teacher",
+        "audit_result": "Reaches 97% of GigaPath's average slide-level performance with 50x less compute, from a 22M-parameter tile encoder plus a 21M-parameter slide encoder"
       },
       {
         "name": "WSI-Concepts",
@@ -849,7 +863,9 @@ const modelData = [
         "audit_cohorts": "TCGA (primary training) + PLCO prostate; CPTAC held out for testing",
         "audit_notes": "Supervised, end-to-end multitask slide-level foundation model (Fraunhofer MEVIS); combines subtyping, risk and mutation prediction in one model.",
         "paper_title": "Whole Slide Concepts: A Supervised Foundation Model For Pathological Images",
-        "paper_author": "Nicke"
+        "paper_author": "Nicke",
+        "audit_benchmark": "Seven benchmark tasks spanning cancer subtyping, risk estimation and genetic-mutation prediction",
+        "audit_result": "Outperforms self-supervised models on all seven tasks while training consumed 5% of the computational resources"
       }
     ]
   },
@@ -875,7 +891,9 @@ const modelData = [
         "paper_author": "Huang",
         "tag": "patch-level",
         "tag_color": "teal",
-        "audit_image_text": "208,414 image–text pairs"
+        "audit_image_text": "208,414 image–text pairs",
+        "audit_benchmark": "Zero-shot classification on four external datasets, plus supervised classifiers trained on the learned features",
+        "audit_result": "Zero-shot F1 of 0.565–0.832 versus 0.030–0.481 for the previous contrastive language–image model; supervised classifiers on PLIP features gain 2.5% F1"
       },
       {
         "name": "QuiltNet",
@@ -896,7 +914,9 @@ const modelData = [
         "paper_author": "Ikezogwo",
         "tag": "patch-level",
         "tag_color": "teal",
-        "audit_image_text": "1,087,532 image-text pairs (Quilt-1M): Quilt 419,780 images / 768,826 captions from 1,087h of YouTube video, plus Twitter/PubMed/LAION"
+        "audit_image_text": "1,087,532 image-text pairs (Quilt-1M): Quilt 419,780 images / 768,826 captions from 1,087h of YouTube video, plus Twitter/PubMed/LAION",
+        "audit_benchmark": "13 patch-level datasets spanning 8 sub-pathologies, plus cross-modal retrieval",
+        "audit_result": "Outperforms the state of the art on both zero-shot and linear-probing classification of unseen histopathology images"
       },
       {
         "name": "CONCH",
@@ -924,7 +944,9 @@ const modelData = [
             "note": "ViT-L/16 vision encoder (CONCH restored from UNI checkpoint + CoCa fine-tuning); used as TITAN's patch encoder."
           }
         ],
-        "audit_image_text": ">1.17M image–caption pairs"
+        "audit_image_text": ">1.17M image–caption pairs",
+        "audit_benchmark": "14 diverse benchmarks covering histology image classification, segmentation, captioning, and text-to-image and image-to-text retrieval",
+        "audit_result": "State-of-the-art performance across all four task families"
       },
       {
         "name": "PRISM",
@@ -944,7 +966,9 @@ const modelData = [
         "audit_notes": "",
         "paper_title": "PRISM: A Multi-Modal Generative Foundation Model for Slide-Level Histopathology",
         "paper_author": "Shaikovski",
-        "audit_wsi_report": "195K clinical reports (no explicit one-to-one WSI-report count)"
+        "audit_wsi_report": "195K clinical reports (no explicit one-to-one WSI-report count)",
+        "audit_benchmark": "Zero-shot cancer detection and subtyping from text prompts, linear probing on slide embeddings, and biomarker prediction via slide-encoder fine-tuning",
+        "audit_result": "Zero-shot performance approaches and surpasses a supervised aggregator; linear classifiers on PRISM embeddings beat supervised aggregators; an aggregator initialised from PRISM and trained on 10% of the data outperforms a supervised baseline using all of it"
       },
       {
         "name": "MUSK",
@@ -963,7 +987,9 @@ const modelData = [
         "audit_notes": "",
         "paper_title": "A vision–language foundation model for precision oncology",
         "paper_author": "Xiang",
-        "audit_image_text": "1M image–text pairs in alignment stage"
+        "audit_image_text": "1M image–text pairs in alignment stage",
+        "audit_benchmark": "23 patch- and slide-level benchmarks — image-to-text and text-to-image retrieval, visual question answering, image classification and molecular-biomarker prediction — plus melanoma relapse, pan-cancer prognosis and immunotherapy-response prediction",
+        "audit_result": "Superior performance across all 23 patch- and slide-level benchmarks, including the outcome-prediction tasks"
       },
       {
         "name": "TITAN",
@@ -985,7 +1011,9 @@ const modelData = [
         "paper_title": "A multimodal whole-slide foundation model for pathology",
         "paper_author": "Ding",
         "audit_image_text": "423,122 synthetic image/ROI–caption examples",
-        "audit_wsi_report": ">182K pathology reports (slide-report cardinality unspecified)"
+        "audit_wsi_report": ">182K pathology reports (slide-report cardinality unspecified)",
+        "audit_benchmark": "Linear probing, few-shot and zero-shot classification, rare-cancer retrieval, cross-modal retrieval and pathology report generation",
+        "audit_result": "Outperforms both ROI-level and slide-level foundation models in every evaluated machine-learning setting"
       },
       {
         "name": "CPath-Omni",
@@ -1006,7 +1034,9 @@ const modelData = [
         "paper_title": "CPath-Omni: A Unified Multimodal Foundation Model for Patch and Whole Slide Image Analysis in Computational Pathology",
         "paper_author": "Sun",
         "audit_image_text": "700,145 image-caption pairs (PathCap 218,630 + Quilt-1M 388,932 + OpenPath 92,583)",
-        "audit_wsi_report": "5,850 cleaned WSI reports + 7,312 WSI-level captioning examples (HistGen)"
+        "audit_wsi_report": "5,850 cleaned WSI reports + 7,312 WSI-level captioning examples (HistGen)",
+        "audit_benchmark": "Seven tasks across 42 datasets — patch and WSI classification, visual question answering, captioning and visual referring prompting",
+        "audit_result": "State of the art on 39 of 42 datasets, matching or beating task-specific models trained individually; the CPath-CLIP visual processor is state of the art on 9 zero-shot and 4 few-shot datasets"
       },
       {
         "name": "KEEP",
@@ -1026,7 +1056,9 @@ const modelData = [
         "audit_notes": "Published in Cancer Cell (2026).",
         "paper_title": "Knowledge-enhanced Pretraining for Vision-language Pathology Foundation Model on Cancer Diagnosis",
         "paper_author": "Zhou",
-        "audit_image_text": "143K knowledge-grouped semantic groups from millions of OpenPath + Quilt-1M image-text pairs"
+        "audit_image_text": "143K knowledge-grouped semantic groups from millions of OpenPath + Quilt-1M image-text pairs",
+        "audit_benchmark": "18 public benchmarks (>14,000 WSIs) plus 4 institutional rare-cancer datasets (926 cases)",
+        "audit_result": "Consistently outperforms existing foundation models, with the largest gains on rare subtypes"
       },
       {
         "name": "PRISM2",
@@ -1047,7 +1079,9 @@ const modelData = [
         "audit_notes": "",
         "paper_title": "PRISM2: Unlocking Multi-Modal General Pathology AI with Clinical Dialogue",
         "paper_author": "Vorontsov",
-        "audit_wsi_report": "~2.3M WSIs from ~700K report-bearing specimens (several slides per specimen, so distinct reports ≪ WSIs)"
+        "audit_wsi_report": "~2.3M WSIs from ~700K report-bearing specimens (several slides per specimen, so distinct reports ≪ WSIs)",
+        "audit_benchmark": "Cancer detection benchmarked against clinical-grade products, a broader downstream task suite, and survival prediction with task-specific fine-tuning",
+        "audit_result": "Matches or exceeds the cancer-detection performance of clinical-grade products with no additional training, takes top performance on the wider task suite, and fine-tuning on a large dataset beats task-specific survival models"
       }
     ]
   },
