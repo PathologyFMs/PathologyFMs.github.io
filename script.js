@@ -237,10 +237,12 @@ document.addEventListener('DOMContentLoaded', () => {
         return clean !== '' && clean !== 'not found' && clean !== 'n/a';
     }
 
-    // Prefer the richer audit value when it carries real information,
-    // otherwise fall back to the concise summary field.
-    function preferAudit(auditVal, fallback) {
-        if (isMeaningful(auditVal)) return formatField(auditVal);
+    // Show the primary field, falling back to the audit field only when the
+    // primary one is empty. The column headings name the primary field, and
+    // the audit values get their own labelled rows in the modal — so reading
+    // audit text into a "Key Idea" cell would both mislabel it and repeat it.
+    function preferAudit(primary, fallback) {
+        if (isMeaningful(primary)) return formatField(primary);
         if (isMeaningful(fallback)) return formatField(fallback);
         return '';
     }
@@ -564,7 +566,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (m.website) links += `<a href="${m.website}" target="_blank" class="icon-link website" title="Website"><i class="ph ph-globe"></i></a>`;
             card.innerHTML = `<div class="sc-head"><span class="sc-dot" style="background:${spiralColor(it.category)}"></span><strong>${m.name}</strong></div>
                 <div class="sc-date">${formatDate(m.date) || m.year} · ${it.category}</div>
-                <div class="sc-idea">${preferAudit(m.audit_notes, m.idea)}</div>
+                <div class="sc-idea">${preferAudit(m.idea, m.audit_notes)}</div>
                 <div class="sc-links">${links}<button class="sc-details" type="button">Details</button></div>`;
             card.hidden = false;
             card.querySelector('.sc-details').addEventListener('click', () => openModal(m));
@@ -991,7 +993,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </td>
                         <td><span class="year-badge">${model.year}</span></td>
-                        <td class="idea-col">${preferAudit(model.audit_notes, model.idea)}</td>
+                        <td class="idea-col">${preferAudit(model.idea, model.audit_notes)}</td>
                         <td><div class="links-col">${linksHTML}${variantChips(model)}</div></td>
                     `;
 
@@ -1024,11 +1026,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                             <div class="model-year">${model.year}</div>
                         </div>
-                        <div class="model-idea">${preferAudit(model.audit_notes, model.idea)}</div>
-                        <div class="model-data">
+                        <div class="model-idea">${preferAudit(model.idea, model.audit_notes)}</div>
+                        ${preferAudit(model.data, model.audit_wsis) ? `<div class="model-data">
                             <i class="ph ph-database"></i>
-                            <span>${preferAudit(model.audit_wsis, model.data)}</span>
-                        </div>
+                            <span>${preferAudit(model.data, model.audit_wsis)}</span>
+                        </div>` : ''}
                         <div class="card-links">
                             ${linksHTML}
                         </div>
