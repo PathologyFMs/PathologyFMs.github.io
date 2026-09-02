@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function parseScale(str) {
         if (!str) return null;
         const s = String(str).replace(/,/g, '');
-        // Adaptation / integration entries with no from-scratch corpus state so — no pre-training scale.
+        // Adaptation / integration entries with no from-scratch corpus state so, giving no pre-training scale.
         if (/no new|not disclosed|no standalone|no from-scratch|no fixed|not a (pretrain|from-scratch)|image-text pairs, not/i.test(s)) return null;
         // Prefer a number explicitly labelled as WSIs/slides (skips tile counts and model-name numbers like "Phikon-v2" / "Midnight-12k").
         let mm = s.match(/([\d.]+)\s*([kKmM])?[^\d]{0,18}?(?:WSI|slide|whole[- ]?slide)/i);
@@ -253,7 +253,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Show the primary field, falling back to the audit field only when the
     // primary one is empty. The column headings name the primary field, and
-    // the audit values get their own labelled rows in the modal — so reading
+    // the audit values get their own labelled rows in the modal, so reading
     // audit text into a "Key Idea" cell would both mislabel it and repeat it.
     function preferAudit(primary, fallback) {
         if (isMeaningful(primary)) return formatField(primary);
@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 subtitleHtml += model.paper_title;
             }
             if (model.paper_author) {
-                subtitleHtml += (subtitleHtml ? ' — ' : '') + model.paper_author + ' et al.';
+                subtitleHtml += (subtitleHtml ? ' · ' : '') + model.paper_author + ' et al.';
             }
             modalSubtitle.textContent = subtitleHtml;
             modalSubtitle.style.display = 'block';
@@ -455,7 +455,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return `${months[mo - 1]} ${d}, ${y}`;
     }
 
-    // Timeline view: an Archimedean spiral — one full revolution per year, so
+    // Timeline view: an Archimedean spiral: one full revolution per year, so
     // same-month entries align radially and the field's growth reads outward.
     function renderTimeline(data) {
         const allItems = [];
@@ -693,7 +693,7 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
         if (typeof d3 === 'undefined') {
-            container.innerHTML = `<div class="empty-state"><i class="ph ph-tree-structure" style="font-size:3rem;opacity:.5"></i><h3>Graph library unavailable</h3><p>The force-directed view needs D3 (loaded from a CDN) — check your connection.</p></div>`;
+            container.innerHTML = `<div class="empty-state"><i class="ph ph-tree-structure" style="font-size:3rem;opacity:.5"></i><h3>Graph library unavailable</h3><p>The force-directed view needs D3 (loaded from a CDN); check your connection.</p></div>`;
             return;
         }
         const ROOT_LABEL = 'Pathology FMs';
@@ -1167,12 +1167,12 @@ document.addEventListener('DOMContentLoaded', () => {
                     '<div class="contrib-panel">' +
                         '<div class="contrib-head"><h3><i class="ph ph-git-pull-request"></i> Contribute a paper</h3><button class="close-contrib" aria-label="Close">&times;</button></div>' +
                         '<div class="contrib-body">' +
-                            '<p>The whole catalog is generated from a single file, <code>data.js</code> — each entry is one object inside its category\'s array. Adding a paper is a small edit plus a pull request:</p>' +
+                            '<p>The whole catalog is generated from a single file, <code>data.js</code>: each entry is one object inside its category\'s array. Adding a paper is a small edit plus a pull request:</p>' +
                             '<ol class="contrib-steps">' +
                                 '<li><strong>Open <code>data.js</code></strong> and find the category array your paper belongs to.</li>' +
-                                '<li><strong>Add an entry</strong> in the existing format (example below). Only <code>name</code>, <code>year</code>, <code>idea</code> and <code>paper</code> are required — everything else is optional.</li>' +
+                                '<li><strong>Add an entry</strong> in the existing format (example below). Only <code>name</code>, <code>year</code>, <code>idea</code> and <code>paper</code> are required; everything else is optional.</li>' +
                                 '<li><strong>(Optional)</strong> run <code>node sync.js</code> to regenerate <code>README.md</code> and <code>references.bib</code>.</li>' +
-                                '<li><strong>Open a pull request</strong> — done. The site rebuilds itself from <code>data.js</code>.</li>' +
+                                '<li><strong>Open a pull request</strong>. Done: The site rebuilds itself from <code>data.js</code>.</li>' +
                             '</ol>' +
                             '<pre class="contrib-code">' + example.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>' +
                             '<div class="contrib-actions">' +

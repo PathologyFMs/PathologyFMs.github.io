@@ -55,7 +55,7 @@ modelData.forEach(cat => {
     } else if (isPaperList) {
         md += "| Paper | Year | Focus | Resources |\n|---|---|---|---|\n";
         cat.models.forEach(m => {
-            const title = m.paper_title ? ` — *${m.paper_title}*` : "";
+            const title = m.paper_title ? ` · *${m.paper_title}*` : "";
             md += `| **${m.name}**${title} | ${m.year} | ${m.idea} | ${resources(m)} |\n`;
         });
     } else {

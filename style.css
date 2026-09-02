@@ -1364,7 +1364,7 @@ th.expand-col, td.expand-col {
 .swim-item:hover .swim-leader { opacity: 0.85; stroke-width: 1.5; }
 
 /* ==========================================================================
-   Timeline View — Spiral (one revolution per year)
+   Timeline View: Spiral (one revolution per year)
    ========================================================================== */
 .spiral-wrap {
     position: relative;
