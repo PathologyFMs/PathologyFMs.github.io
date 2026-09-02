@@ -2312,7 +2312,8 @@ const modelData = [
         "audit_omics": "Spatial transcriptomics",
         "audit_notes": "Published at NeurIPS 2024 (Datasets & Benchmarks). Cited as an evaluation suite by ten other entries in this catalog.",
         "paper_title": "HEST-1k: A Dataset for Spatial Transcriptomics and Histology Image Analysis",
-        "paper_author": "Jaume"
+        "paper_author": "Jaume",
+        "dataset": "https://huggingface.co/datasets/MahmoodLab/hest"
       },
       {
         "name": "THUNDER",
