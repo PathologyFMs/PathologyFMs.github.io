@@ -12,7 +12,7 @@ const modelData = [
         "github": "https://github.com/Xiyue-Wang/TransPath",
         "hf": "https://drive.google.com/file/d/1DoDx_70_TLj98gTf6YTXnu4tFhsFocDX/view",
         "paper": "https://www.sciencedirect.com/science/article/pii/S1361841522002043",
-        "bibtex": "@Article{Wang2022TransformerbasedUC,\n author = {Xiyue Wang and Sen Yang and Jun Zhang and Minghui Wang and Jing Zhang and Wei Yang and Junzhou Huang and Xiao Han},\n booktitle = {Medical Image Anal.},\n journal = {Medical image analysis},\n pages = {\n          102559\n        },\n title = {Transformer-based unsupervised contrastive learning for histopathological image classification},\n volume = {81},\n year = {2022}\n}",
+        "bibtex": "@Article{Wang2022TransformerbasedUC,\n author = {Xiyue Wang and Sen Yang and Jun Zhang and Minghui Wang and Jing Zhang and Wei Yang and Junzhou Huang and Xiao Han},\n booktitle = {Medical Image Anal.},\n journal = {Medical image analysis},\n pages = {\n          102559\n        },\n title = {Transformer-based unsupervised contrastive learning for histopathological image classification},\n volume = {81},\n year = {2022},\n doi = {10.1016/j.media.2022.102559}\n}",
         "audit_objective": "SRCL (semantically-relevant contrastive learning; MoCo v3-based)",
         "audit_wsis": "34,677 WSIs (32,220 TCGA + 2,457 PAIP)",
         "audit_patches": "~15M patches",
@@ -2892,8 +2892,8 @@ const modelData = [
         "github": "",
         "hf": "",
         "paper": "https://arxiv.org/abs/2607.25497",
-        "bibtex": "@misc{grisi2026countsdistributionalrobustnessmargin,\n      title={Beyond Counts: A Distributional Robustness Margin For Pathology Foundation Models},\n      author={Clément Grisi and Jeroen van der Laak and Geert Litjens},\n      year={2026},\n      eprint={2607.25497},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2607.25497},\n}",
-        "paper_title": "Beyond Counts: A Distributional Robustness Margin For Pathology Foundation Models",
+        "bibtex": "@misc{grisi2026countsdistributionalrobustnessmargin,\n      title={A Distributional Robustness Margin For Pathology Foundation Models},\n      author={Clément Grisi and Jeroen van der Laak and Geert Litjens},\n      year={2026},\n      eprint={2607.25497},\n      archivePrefix={arXiv},\n      primaryClass={cs.CV},\n      url={https://arxiv.org/abs/2607.25497},\n}",
+        "paper_title": "A Distributional Robustness Margin For Pathology Foundation Models",
         "paper_author": "Grisi"
       },
       {
