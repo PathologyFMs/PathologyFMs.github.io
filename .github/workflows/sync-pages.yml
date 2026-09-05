@@ -1,0 +1,52 @@
+name: Sync to Organization Pages
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Configure mirrored site URL
+        run: |
+          python3 <<'PY'
+          from pathlib import Path
+
+          path = Path("index.html")
+          text = path.read_text()
+
+          text = text.replace(
+              "https://dibalokechanda.github.io/PFMs/",
+              "https://PathologyFMs.github.io/"
+          )
+
+          path.write_text(text)
+          print("Updated public site URLs for PathologyFMs GitHub Pages.")
+          PY
+
+      - name: Commit Pages-specific configuration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add index.html
+
+          git diff --cached --quiet || \
+            git commit -m "Configure PathologyFMs Pages URL"
+
+      - name: Push to organization Pages repository
+        env:
+          TOKEN: ${{ secrets.PAGES_SYNC_TOKEN }}
+        run: |
+          git remote remove pages 2>/dev/null || true
+          git remote add pages "https://x-access-token:${TOKEN}@github.com/PathologyFMs/PathologyFMs.github.io.git"
+          git push pages HEAD:main --force
