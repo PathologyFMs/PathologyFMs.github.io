@@ -1,9 +1,11 @@
-name: Sync to Organization Pages
+name: Sync to PathologyFMs GitHub Pages
 
 on:
   push:
     branches:
       - main
+
+  workflow_dispatch:
 
 jobs:
   sync:
@@ -16,37 +18,62 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Configure mirrored site URL
+      - name: Configure organization Pages URLs
         run: |
           python3 <<'PY'
           from pathlib import Path
 
           path = Path("index.html")
+
+          if not path.exists():
+              raise SystemExit("index.html was not found")
+
           text = path.read_text()
 
-          text = text.replace(
-              "https://dibalokechanda.github.io/PFMs/",
-              "https://PathologyFMs.github.io/"
-          )
+          old_url = "https://dibalokechanda.github.io/PFMs/"
+          new_url = "https://PathologyFMs.github.io/"
 
-          path.write_text(text)
-          print("Updated public site URLs for PathologyFMs GitHub Pages.")
+          if old_url in text:
+              text = text.replace(old_url, new_url)
+              path.write_text(text)
+              print(f"Replaced {old_url} with {new_url}")
+          else:
+              print("Original GitHub Pages URL was not found in index.html.")
+              print("Continuing without modifying index.html.")
           PY
 
-      - name: Commit Pages-specific configuration
+      - name: Commit organization-specific URL changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
           git add index.html
 
-          git diff --cached --quiet || \
-            git commit -m "Configure PathologyFMs Pages URL"
+          if git diff --cached --quiet; then
+            echo "No organization-specific changes to commit."
+          else
+            git commit -m "Configure PathologyFMs GitHub Pages URL"
+          fi
 
-      - name: Push to organization Pages repository
+      - name: Verify sync token is available
+        env:
+          TOKEN: ${{ secrets.PAGES_SYNC_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "ERROR: PAGES_SYNC_TOKEN is empty or unavailable."
+            exit 1
+          fi
+
+          echo "PAGES_SYNC_TOKEN is available."
+          echo "Token length: ${#TOKEN}"
+
+      - name: Push to PathologyFMs Pages repository
         env:
           TOKEN: ${{ secrets.PAGES_SYNC_TOKEN }}
         run: |
           git remote remove pages 2>/dev/null || true
-          git remote add pages "https://x-access-token:${TOKEN}@github.com/PathologyFMs/PathologyFMs.github.io.git"
+
+          git remote add pages \
+            "https://x-access-token:${TOKEN}@github.com/PathologyFMs/PathologyFMs.github.io.git"
+
           git push pages HEAD:main --force
