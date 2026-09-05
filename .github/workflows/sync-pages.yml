@@ -9,6 +9,11 @@ on:
 
 jobs:
   sync:
+    # CRITICAL:
+    # The workflow is mirrored into PathologyFMs.github.io.
+    # Do not allow it to run there.
+    if: github.repository == 'dibalokechanda/PFMs'
+
     runs-on: ubuntu-latest
 
     steps:
@@ -38,7 +43,7 @@ jobs:
               path.write_text(text)
               print(f"Replaced {old_url} with {new_url}")
           else:
-              print("Original GitHub Pages URL was not found in index.html.")
+              print("Original GitHub Pages URL not found.")
               print("Continuing without modifying index.html.")
           PY
 
@@ -61,6 +66,7 @@ jobs:
         run: |
           if [ -z "$TOKEN" ]; then
             echo "ERROR: PAGES_SYNC_TOKEN is empty or unavailable."
+            echo "This workflow must run from dibalokechanda/PFMs."
             exit 1
           fi
 
