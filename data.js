@@ -724,6 +724,31 @@ const modelData = [
         "audit_notes": "",
         "paper_title": "A Clinically Validated Foundation Model for Comprehensive Lung Pathology Interpretation",
         "paper_author": "Guo"
+      },
+      {
+        "name": "CanvOI",
+        "year": 2024,
+        "date": "2024-09-04",
+        "data": "632K tissue samples, 70M tiles",
+        "idea": "Scales compute per tile rather than parameters or data: a 1.1B ViT-g/10 trained with DINOv2 on 380x380 tiles cut into 10x10 patches, instead of the usual 224x224 tiles with 14x14 patches, spending about 3,800 GFLOPs per tile (roughly 6x H-optimus-0) so MIL aggregators receive richer embeddings; pretrained on 632K mostly H&E tissue samples from 100+ sites across 40+ organs, with its advantage growing as labeled data shrinks",
+        "stains": "H&E",
+        "github": "",
+        "hf": "",
+        "website": "https://imagene-ai.com/publication/canvoi-an-oncology-intelligence-foundation-model-scaling-flops-differently/",
+        "paper": "https://arxiv.org/abs/2409.02885",
+        "bibtex": "@misc{zalach2024canvoioncologyintelligencefoundation,\n      title={CanvOI, an Oncology Intelligence Foundation Model: Scaling FLOPS Differently}, \n      author={Jonathan Zalach and Inbal Gazy and Assaf Avinoam and Ron Sinai and Eran Shmuel and Inbar Gilboa and Christine Swisher and Naim Matasci and Reva Basho and David B. Agus},\n      year={2024},\n      eprint={2409.02885},\n      archivePrefix={arXiv},\n      primaryClass={eess.IV},\n      url={https://arxiv.org/abs/2409.02885}, \n}",
+        "audit_objective": "DINOv2 self-distillation on a ViT-g/10 (1.1B params); trained at 224x224, then fine-tuned at 380x380",
+        "audit_wsis": "632,608 tissue samples (almost exclusively H&E); over 90% internal, the rest from TCGA, CPTAC, GTEx, CMB and CAMELYON17",
+        "audit_patches": "70,217,688 tiles at 20x (0.5 µm/px)",
+        "audit_organs": "40+ major organs and tissue types",
+        "audit_downstream": "Weakly supervised slide classification with AB-MIL: breast lesion type and subtype (BRACS), colorectal lesion type (HunCRC), NSCLC histological subtype and biopsy site (internal); labeled-data reduction to 50%, 30% and 10%",
+        "audit_benchmark": "Five slide-level tasks: BRACS 3-class and 7-class, HunCRC 4-class, and two internal NSCLC tasks over 1,079 WSIs from three sites unseen in pretraining (leave-one-site-out); compared against H-optimus-0, Prov-GigaPath, Virchow and Hibou-L",
+        "audit_result": "Average AUC 0.905 versus 0.890 for H-optimus-0, 0.887 Prov-GigaPath, 0.881 Virchow and 0.831 Hibou-L (a 1.5-7.4% gain), best on at least four of five tasks; the lead widens as labels shrink, holding AUC 0.83 on the NSCLC tasks with only 10% of slides (about 100)",
+        "audit_cohorts": "100+ international source sites; the internal NSCLC evaluation uses three sites excluded from pretraining",
+        "audit_scanners": "Evaluation data: Leica Aperio AT2 and GT 450 (internal NSCLC), Aperio AT2 (BRACS), 3DHistech Pannoramic 1000 (HunCRC)",
+        "audit_notes": "Weights are not publicly released; the model is offered through Imagene's OI Suite. Imagene has announced a next version trained on more than 3.5M histopathology images spanning 40+ organs, 150+ indications and 200+ IHC biomarkers from 10 global sites and four scanner vendors, reporting up to 20% higher performance in 20 to 100 sample cohorts on internal benchmarks. Those figures are company-reported and not yet peer-reviewed.",
+        "paper_title": "CanvOI, an Oncology Intelligence Foundation Model: Scaling FLOPS Differently",
+        "paper_author": "Zalach"
       }
     ]
   },
