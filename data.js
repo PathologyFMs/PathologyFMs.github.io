@@ -749,6 +749,23 @@ const modelData = [
         "audit_notes": "Weights are not publicly released; the model is offered through Imagene's OI Suite. Imagene has announced a next version trained on more than 3.5M histopathology images spanning 40+ organs, 150+ indications and 200+ IHC biomarkers from 10 global sites and four scanner vendors, reporting up to 20% higher performance in 20 to 100 sample cohorts on internal benchmarks. Those figures are company-reported and not yet peer-reviewed.",
         "paper_title": "CanvOI, an Oncology Intelligence Foundation Model: Scaling FLOPS Differently",
         "paper_author": "Zalach"
+      },
+      {
+        "name": "BM1b",
+        "year": 2026,
+        "date": "2026-09-08",
+        "data": "Bone marrow (scale not yet public)",
+        "idea": "Bone marrow foundation model accepted at the ECCV 2026 MedFM-Bench workshop. Going by its title, it scales data-efficiently by pairing domain-specific self-supervised pretraining with a dense representation objective meant to preserve cell morphology. Only the title has been released so far, so architecture, data and results are not yet recorded here",
+        "stains": "",
+        "github": "",
+        "hf": "",
+        "website": "https://medfmb.github.io/",
+        "paper": "https://medfmb.github.io/",
+        "bibtex": "@inproceedings{bm1b2026,\n  title = {BM1b: Data-Efficient Scaling of Bone Marrow Foundation Models through Domain-Specific Self-Supervised Learning and Dense Morphology-Preserving Representation Learning},\n  booktitle = {ECCV 2026 Workshop on Medical Foundation Models and Benchmarks (MedFM-Bench)},\n  year = {2026},\n  url = {https://medfmb.github.io/},\n  note = {Accepted workshop paper; author list and proceedings details not yet public}\n}",
+        "audit_domain": "Bone marrow (hematopathology)",
+        "audit_notes": "Placeholder built from the only public record found: the MedFM-Bench accepted-papers list (workshop held 8 September 2026). Not found on arXiv, OpenReview, Hugging Face or GitHub as of 14 September 2026; Semantic Scholar could not be queried. Replace the paper link, add authors and BibTeX, and fill the evaluation fields once the paper or proceedings appear.",
+        "paper_title": "BM1b: Data-Efficient Scaling of Bone Marrow Foundation Models through Domain-Specific Self-Supervised Learning and Dense Morphology-Preserving Representation Learning",
+        "paper_author": ""
       }
     ]
   },
