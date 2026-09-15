@@ -2747,6 +2747,26 @@ const modelData = [
         "audit_downstream": "Cell-type composition inference; gene-expression inference; clinical-outcome association analysis",
         "audit_cohorts": "Fred Hutchinson Cancer Center; matched spatial-transcriptomics colorectal and breast cohorts",
         "audit_omics": "Spatially resolved transcriptomics (cell-type deconvolution and gene expression)"
+      },
+      {
+        "name": "PATH-DISSECT",
+        "year": 2026,
+        "date": "2026-08-07",
+        "data": "",
+        "idea": "Moves sparse-autoencoder interpretability of pathology FMs from describing what a model encodes to testing what a classifier actually uses: SAEs trained at multiple ViT blocks of frozen UNI and Virchow2 find class-associated features, validate them by alignment, purity and specificity, then causally ablate them in the forward pass to measure how much a frozen linear probe depends on each. This gives a layer-wise account of where concepts first become cleanly detectable versus where the probe is most sensitive to losing them, and the same features localize an injected spurious cue and reduce the classifier's reliance on it",
+        "github": "",
+        "hf": "",
+        "paper": "https://openreview.net/forum?id=bThncw9zMO",
+        "bibtex": "@inproceedings{parvatikar2026pathdissect,\n  title={{PATH}-{DISSECT}: Interpreting Concept Representation and Classifier Reliance in Pathology Foundation Models with Sparse Autoencoders},\n  author={Mayur Parvatikar and Xingjian Li and Min Xu},\n  booktitle={The 1st MICCAI Workshop on Mechanistic Interpretability for Medical Foundational Models},\n  year={2026},\n  url={https://openreview.net/forum?id=bThncw9zMO}\n}",
+        "audit_objective": "Sparse autoencoders trained on frozen FM activations at multiple ViT blocks, combined with causal intervention on the representation during the forward pass",
+        "audit_domain": "Whether concepts in pathology FMs are merely represented or actually relied on by a downstream classifier, resolved by network depth",
+        "audit_benchmark": "UNI and Virchow2 encoders on colorectal and breast tissue patches; concepts validated by alignment, purity and specificity; reliance measured by ablation against a frozen linear probe; an injected spurious-cue experiment",
+        "audit_result": "A depth-resolved account separating concept representation from use, showing where validated concepts first become cleanly detectable and where the probe is most sensitive to removing them; discovered features localize an injected shortcut and mitigate the classifier's reliance on it (the abstract reports no numeric figures)",
+        "audit_organs": "Colorectal and breast",
+        "audit_downstream": "Concept discovery and validation; classifier-reliance measurement by causal intervention; spurious-cue localization and mitigation",
+        "audit_notes": "Main Track paper at the 1st MICCAI 2026 Workshop on Mechanistic Interpretability for Medical Foundation Models (MI4MedFM); the OpenReview venue was still marked provisional as of 15 September 2026. The PDF sits behind OpenReview's bot verification, so this entry is built from the OpenReview abstract, TLDR and metadata. The official BibTeX reads 'The Ist MICCAI Workshop'; corrected here to '1st'.",
+        "paper_title": "PATH-DISSECT: Interpreting Concept Representation and Classifier Reliance in Pathology Foundation Models with Sparse Autoencoders",
+        "paper_author": "Parvatikar"
       }
     ]
   },
