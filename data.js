@@ -759,8 +759,6 @@ const modelData = [
         "stains": "H&E",
         "github": "",
         "hf": "",
-        "website": "https://medfmb.github.io/",
-        "paper": "https://medfmb.github.io/",
         "bibtex": "@inproceedings{sapkota2026bm1b,\n  title = {BM1b: Data-Efficient Scaling of Bone Marrow Foundation Models through Domain-Specific Self-Supervised Learning and Dense Morphology-Preserving Representation Learning},\n  author = {Nishchal Sapkota and Reyhan K. Keser and Yanglan Ou and Steven S. Huang and Dong Chen and Eric D. Hsi and Jansen N. Seheult and Wenchao Han},\n  booktitle = {ECCV 2026 Workshop on Medical Foundation Models and Benchmarks (MedFM-Bench)},\n  year = {2026},\n  url = {https://medfmb.github.io/},\n  note = {Accepted workshop paper; proceedings details not yet public}\n}",
         "audit_domain": "Bone marrow pathology, where diagnosis needs both low-magnification architecture (cellularity, fibrosis, patterns of involvement) and high-magnification cytology (blasts, dysplasia, megakaryocytes)",
         "audit_notes": "ViT-G/14 (1.1B params) with 40 blocks, width 1536, SwiGLU FFNs and 8 register tokens, trained on 32 NVIDIA H200 GPUs at batch size 2,688; most downstream tasks peaked within the first 15K regularization iterations. Sapkota and Keser are co-first authors and Han is the senior author, all at the Department of Laboratory Medicine and Pathology, Mayo Clinic, Rochester. No public preprint was found as of 14 September 2026, so the paper link points to the workshop's accepted-papers page.",
