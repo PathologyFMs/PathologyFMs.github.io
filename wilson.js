@@ -1,8 +1,8 @@
 // Supplemental catalog entry for WILSON.
-// Loaded after data.js and inserted into the Vision-Language Foundation Models category.
+// Loaded after data.js and inserted into the Slide-Level & Patient-Level Foundation Models category.
 (() => {
   const category = modelData.find(
-    (section) => section.category === "Vision-Language Foundation Models"
+    (section) => section.category === "Slide-Level & Patient-Level Foundation Models"
   );
 
   const entryName = "WILSON";
