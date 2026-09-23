@@ -5,7 +5,7 @@
     (section) => section.category === "Robustness and Generalization"
   );
 
-  const entryName = "How Fair are Foundation Models?";
+  const entryName = "Shafique et al.";
   if (!category || category.models.some((model) => model.name === entryName)) {
     return;
   }
@@ -19,6 +19,7 @@
     "stains": "H&E",
     "github": "",
     "hf": "",
+    "website": "https://link.springer.com/chapter/10.1007/978-3-032-05870-6_4#auth-Abubakr-Shafique",
     "paper": "https://doi.org/10.1007/978-3-032-05870-6_4",
     "bibtex": "@inproceedings{shafique2026fairfoundationmodels,\n  author={Abubakr Shafique and Amanda Dy and Xiaoli Qin and Najd Alshamlan and Susan J. Done and Dimitrios Androutsos and April Khademi},\n  title={How Fair are Foundation Models? Exploring the Role of Covariate Bias in Histopathology},\n  booktitle={Fairness of AI in Medical Imaging},\n  series={Lecture Notes in Computer Science},\n  volume={15976},\n  pages={32--42},\n  publisher={Springer Nature Switzerland},\n  year={2026},\n  doi={10.1007/978-3-032-05870-6_4}\n}",
     "audit_objective": "Quantify scanner-induced covariate bias as representation shift in zero-shot frozen-model embeddings from biologically identical, spatially co-registered tissue regions",
