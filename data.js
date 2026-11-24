@@ -839,6 +839,28 @@ const modelData = [
         ],
         "audit_benchmark": "Eight non-H&E classification tasks: 3 private IHC slide tasks (6 MIL aggregators on NTUH-Ki67-Liver; ABMIL on P53/MLH1-UCEC), 2 public IHC ROI tasks (BCI/MIST; linear and MLP probes), and 3 private special-stain glomerular ROI tasks; additional retrieval, few-ratio learning and 3 H&E transfer tasks",
         "audit_result": "StainNet-Base mean balanced accuracy 0.8930 across six MIL methods on NTUH-Ki67-Liver. BCI balanced accuracy 0.744 with linear and 0.896 with MLP probes; MIST 0.822/0.921. Special-stain linear-probe balanced accuracy: Masson 0.505, PAS 0.669, PASM 0.475. H&E transfer remains weaker than UNI: PANDA-Karolinska ABMIL balanced accuracy 0.322 versus UNI 0.535."
+      },
+      {
+        "name": "SP22M",
+        "year": 2024,
+        "data": "423K+ Mount Sinai WSIs; ~1.6B training tiles",
+        "idea": "Compact Mount Sinai pathology tile encoder (ViT-S/16, 22M parameters) pretrained with DINO self-distillation on a large clinical Mount Sinai Health System corpus. Its frozen features support slide-level cancer detection and biomarker prediction through multiple-instance learning; weights are available for non-commercial use.",
+        "github": "https://github.com/sinai-computational-pathology/SSL_tile_benchmarks",
+        "hf": "https://huggingface.co/MountSinaiCompPath/SP22M",
+        "paper": "https://arxiv.org/abs/2407.06508v3",
+        "website": "https://doi.org/10.1038/s41467-025-58796-1",
+        "bibtex": "@article{Campanella_2025, title={A clinical benchmark of public self-supervised pathology foundation models}, volume={16}, ISSN={2041-1723}, url={http://dx.doi.org/10.1038/s41467-025-58796-1}, DOI={10.1038/s41467-025-58796-1}, number={1}, journal={Nature Communications}, publisher={Springer Science and Business Media LLC}, author={Campanella, Gabriele and Chen, Shengjia and Singh, Manbir and Verma, Ruchika and Muehlstedt, Silke and Zeng, Jennifer and Stock, Aryeh and Croken, Matt and Veremis, Brandon and Elmas, Abdulkadir and Shujski, Ivan and Neittaanmäki, Noora and Huang, Kuan-lin and Kwan, Ricky and Houldsworth, Jane and Schoenfeld, Adam J. and Vanderbilt, Chad}, year={2025}, month=Apr }",
+        "audit_objective": "DINO self-supervised teacher-student distillation with a ViT-S/16 backbone (22M parameters)",
+        "audit_wsis": "423K+ clinical WSIs from Mount Sinai Health System (MSHS); the official benchmark repository reports approximately 423K slides",
+        "audit_patches": "Approximately 1.6B tiles reported in the official Mount Sinai benchmark repository",
+        "audit_domain": "Clinical histopathology tile representation learning for slide-level detection and biomarker tasks",
+        "audit_downstream": "Cancer/disease detection and biomarker prediction using slide-level aggregation of tile embeddings",
+        "audit_cohorts": "Pretraining: Mount Sinai Health System. Clinical benchmark evaluation spans Mount Sinai, Memorial Sloan Kettering Cancer Center and Sahlgrenska University Hospital.",
+        "audit_benchmark": "Sinai SSL clinical benchmark: multi-organ detection and biomarker tasks; Histoboard model-comparison snapshot",
+        "audit_result": "Sinai SSL rank 8/11 in the supplied Histoboard snapshot; rankings depend on the benchmark version and included models. The official Mount Sinai repository's 26 November 2024 leaderboard reports SP22M overall mean AUC 0.976 on detection tasks and 0.737 on biomarker tasks across 20 Monte Carlo cross-validation splits.",
+        "audit_notes": "Release metadata specifies July 2024 (month precision; no exact release day is asserted). Non-commercial weights per the Histoboard model metadata supplied for this entry. The requested paper link points to arXiv v3; that clinical benchmark study was subsequently published in Nature Communications in April 2025, DOI 10.1038/s41467-025-58796-1. This is the SP22M encoder entry; the separate Clinical Benchmark entry remains under General Benchmarking & Leaderboards. Architecture, parameter count, release month and snapshot rank come from the supplied Histoboard metadata; the official Mount Sinai repository corroborates DINO, 22M parameters, training scale and the weight link.",
+        "paper_title": "A clinical benchmark of public self-supervised pathology foundation models",
+        "paper_author": "Campanella"
       }
     ]
   },
