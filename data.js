@@ -2539,6 +2539,29 @@ const modelData = [
         "audit_notes": "Year and citation follow the official repository's project citation (2025); an exact release date is not specified. Benchmark, model and task coverage evolves, so no fixed counts are asserted here. Results come from official benchmark sources and papers with differing tasks and evaluation protocols; cite the original benchmark papers when using their results.",
         "paper_title": "Histoboard: A Unified Dashboard for Pathology Foundation Model Benchmarks",
         "paper_author": "Filiot"
+      },
+      {
+        "name": "Nanopath",
+        "year": 2026,
+        "date": "2026-11-04",
+        "data": "Single-GPU experimentation; ≤1M TCGA tile presentations and ≤10^18 training FLOPs per run",
+        "idea": "Open training framework and benchmark for rapid, budget-controlled pathology foundation-model experiments on a single H100 GPU. Fixes data/compute budgets and downstream probes while allowing changes to architecture, objectives, sampling and feature learning; training typically takes a little over an hour and evaluation at most 25 minutes, with reproducible runs shared through the Labless experiment ledger.",
+        "github": "https://github.com/MedARC-AI/nanopath",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2611.10014",
+        "website": "https://labless.dev/nano-projects/nanopath-v3",
+        "bibtex": "@misc{scotti2026nanopath,\n  title={Nanopath: Fast, Fair, Open Experimentation for Pathology Foundation Models},\n  author={Paul S. Scotti and Hassan Muhammad and Ryan Kim and Nima Ashjaee and Ratna Sagari Grandhi and Saman Rahbar and Raymond Biju and Anish Dulal and Chao Feng and Connor Lane and Benjamin Warner and Tanishq Mathew Abraham},\n  year={2026},\n  eprint={2611.10014},\n  archivePrefix={arXiv},\n  primaryClass={cs.CV},\n  url={https://arxiv.org/abs/2611.10014},\n  note={NeurIPS 2026 workshop: AI at Scale for Clinical Impact: Cancer Pathology Foundation Models}\n}",
+        "audit_objective": "Controlled experimentation with ≤1M TCGA tile presentations and ≤10^18 training FLOPs per run; fixed downstream evaluation. Natural-image initialization/teachers are allowed, but pathology-pretrained initialization or teachers are prohibited. Reference recipes include DINO/iBOT and JEPA-style learning on a roughly 22M-parameter ViT-S/14.",
+        "audit_wsis": "The distributed pretraining pool comes from 11,368 TCGA diagnostic FFPE WSIs; valid experiments use TCGA pathology images only.",
+        "audit_patches": "4M available 224×224 tiles, but each run may consume at most 1M tile presentations. Repeated exposure counts again; multiple crops/views derived from one dataloader emission count as one presentation. The available pool is not the per-run training budget.",
+        "audit_domain": "Low-cost, reproducible research on pathology encoder training recipes and frozen-representation evaluation",
+        "audit_downstream": "Tile classification, segmentation, slide-level progression and mutation prediction, survival analysis, and acquisition robustness; compare experimental training recipes under common budgets",
+        "audit_cohorts": "Pretraining: TCGA. The paper's optimized suite includes BACH/BRACS/BreaKHis/CRC/ESCA/MHIST/PCam/SPIDER/WILDS classification, PanNuke/SegPath segmentation, UCLA Lung progression, SurGen RAS mutation, LEOPARD/CPTAC survival and non-TCGA PathoROB robustness cohorts.",
+        "audit_benchmark": "Fast fixed probes across six task families, compared against combined THUNDER, HEST and 38 CPTAC patient-level classification tasks from 11 cohorts using PathoBench protocols; comparison panel: six Nanopath checkpoints and 14 reference encoders.",
+        "audit_result": "The paper's optimized nanopath-evals final score correlates with combined THUNDER, HEST and CPTAC at Pearson r=0.927/0.929/0.814 and Kendall tau=0.800/0.789/0.684. Best Nanopath scores are 0.710/0.362/0.657 versus best reference-encoder scores 0.761/0.420/0.685 on those respective targets; selected small-model task wins do not imply overall superiority.",
+        "audit_notes": "Based on arXiv v1 dated 4 November 2026; the framework was publicly released in June 2026. This entry describes a framework/benchmark, not one fixed encoder. Maintainer-validated runs must reproduce within two hours and evaluate within 25 minutes on one 80GB H100; preprocessing is excluded from the training budget. The paper's optimized evaluation was designed after inspecting the external comparisons, so its correlations are retrospective; the authors note adaptive overfitting, possible TCGA overlap, related checkpoints and unresolved patient independence in UCLA folds. The official repository now documents nanopath-evals v3 with a fixed feature readout and revised task weights; the linked Labless v3 ledger should not be compared directly with the paper's earlier score snapshots.",
+        "paper_title": "Nanopath: Fast, Fair, Open Experimentation for Pathology Foundation Models",
+        "paper_author": "Scotti"
       }
     ]
   },
