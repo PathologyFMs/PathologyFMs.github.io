@@ -3217,6 +3217,31 @@ const modelData = [
         "bibtex": "@article{Donle2026FeatMap,\n  author = {Leonhard Donle and Michael Phillips and Farieda Gaber and Siddhi Ramesh and Matteo Sacco and Sampsa Hautaniemi and Anni Virtanen and Keno Bressem and Lisa Adams and Kelsey Goon and Elena Nevins and Ryan A. Robinett and Sara Kochanny and Sasha Hassan and James Dolezal and Alexander T. Pearson and Ernst Lengyel},\n  title = {FEATMAP: Targeted Correction of Acquisition Signatures Harmonizes Medical Foundation Model Embeddings and Enables Robust Task Generalization},\n  journal = {bioRxiv},\n  year = {2026},\n  doi = {10.64898/2026.07.02.736184},\n  url = {https://www.biorxiv.org/content/10.64898/2026.07.02.736184v1}\n}",
         "paper_title": "FEATMAP: Targeted Correction of Acquisition Signatures Harmonizes Medical Foundation Model Embeddings and Enables Robust Task Generalization",
         "paper_author": "Donle"
+      },
+      {
+        "name": "SPECTRA",
+        "year": 2026,
+        "date": "2026-11-06",
+        "data": "PLISM matched scanner/stain adaptation; 7 backbones × 3 seeds",
+        "idea": "Label-free contrastive LoRA fine-tuning aligns spatially corresponding tissue regions across scanner and H&E staining conditions while using other locations within a candidate condition as negatives. Adapts seven pathology foundation backbones with under 5% adapter parameters, improving acquisition robustness, held-out PLISM retrieval, HEST and CPTAC results, with mixed effects on THUNDER segmentation and calibration.",
+        "stains": "H&E (13 PLISM staining protocols)",
+        "github": "https://github.com/MedARC-AI/SPECTRA",
+        "hf": "https://huggingface.co/collections/medarc/spectra-adapters-models",
+        "paper": "https://arxiv.org/abs/2611.10093",
+        "bibtex": "@misc{kim2026spectra,\n  title={Contrastive fine-tuning against stain and scanner bias improves robustness and downstream performance across pathology foundation models},\n  author={Ryan Kim and Hassan Muhammad and Anish Dulal and Paul S. Scotti and Tanishq Mathew Abraham},\n  year={2026},\n  eprint={2611.10093},\n  archivePrefix={arXiv},\n  primaryClass={cs.CV},\n  url={https://arxiv.org/abs/2611.10093}\n}",
+        "audit_objective": "Rank-32 LoRA adapters in attention and MLP blocks; equally weighted CLS-token and GeM-pooled patch-token InfoNCE objectives with pseudo-tissue reweighting. Frozen base weights; adapters, projection heads and GeM exponent train on PLISM only. Heads and GeM exponent are discarded and adapters merged for evaluation.",
+        "audit_wsis": "PLISM-wsi: 91 spatially registered WSI conditions from 13 H&E protocols × 7 scanners, covering 46 human tissue types in a tissue microarray",
+        "audit_patches": "Owkin's re-registered release supplies 16,278 matching 224×224 tile locations per condition. Training uses 50 conditions (5 scanners × 10 stains); 41 other conditions include a held-out scanner or stain. Each training step samples 2 conditions × 900 locations = 1,800 images.",
+        "audit_organs": "46 human tissue types in the PLISM tissue microarray",
+        "audit_downstream": "Acquisition/center robustness; cross-scanner and cross-stain tile retrieval; spatial gene-expression prediction; slide-level clinical classification; tile classification, segmentation, calibration and adversarial stress testing",
+        "audit_cohorts": "Adapter training: PLISM-wsi only. Evaluation/checkpoint selection: PathoROB TCGA 2×2, Camelyon and Tolkach-ESCA. Other evaluations: held-out PLISM acquisition conditions, HEST, THUNDER and 38 CPTAC classification tasks.",
+        "audit_scanners": "PLISM includes seven WSI scanners. GT450 and S210 are held out, along with stain protocols HRH, KR and MY; the remaining five scanners and ten protocols supply training conditions.",
+        "audit_domain": "Task-agnostic post-training against scanner, stain and acquisition-center bias in pathology foundation-model representations",
+        "audit_benchmark": "Seven backbones × three seeds: Phikon-v2, Midnight-12k, Virchow2, H-optimus-0, UNI2-h, Virchow and OpenMidnight 1.1; paired base/adapted comparisons on PathoROB, PLISM retrieval, HEST, CPTAC and THUNDER",
+        "audit_result": "Across seven backbones, PathoROB mean RI increases by 0.048–0.366, HEST mean Pearson r by 0.0022–0.0170 and CPTAC macro-OvR AUC by 0.0090–0.0379. Phikon-v2 RI rises from 0.470 to 0.836. Held-out PLISM top-1 retrieval (256 candidates) reaches 0.991–0.997 across scanners and 0.883–0.931 across stains. THUNDER classification gains are common, but segmentation and calibration results are mixed.",
+        "audit_notes": "Based on the supplied arXiv v1 dated 6 November 2026. This is an adaptation method, not a newly pretrained backbone. LoRA adapters constitute 2.7–4.4% of backbone parameters; the recipe runs 500 steps, but all 21 selected checkpoints fall at steps 100–200. PathoROB is used for checkpoint selection, so its reported gains are not an independent held-out estimate and may be optimistic. PLISM comes from one institution; held-out acquisition conditions share tissue locations with training, and cross-stain positives come from adjacent serial sections rather than identical cells. Ablations use one seed and do not establish every design choice's benefit. The paper releases code and links selected adapters/weights; the entry's metrics follow the supplied paper rather than potentially differing repository snapshots.",
+        "paper_title": "Contrastive fine-tuning against stain and scanner bias improves robustness and downstream performance across pathology foundation models",
+        "paper_author": "Kim"
       }
     ]
   },
