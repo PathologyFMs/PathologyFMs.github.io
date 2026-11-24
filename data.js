@@ -2997,14 +2997,26 @@ const modelData = [
       {
         "name": "SCALE",
         "year": 2026,
-        "data": "",
-        "idea": "Studies whole-slide counterfactual explanations in cancer histopathology.",
+        "data": "141.1M UNI2-h tile features from 10,484 TCGA training WSIs",
+        "idea": "Scalable Counterfactuals through Attention-guided Latent Editing in Pathology combines sparse-autoencoder concepts from frozen UNI2-h features, MIL attention for selecting intervention regions, and feature-conditioned diffusion generation. Progressive overlapping windows propagate concept-guided morphological edits from local regions to whole slides, which are re-encoded to measure changes in the original model prediction.",
         "github": "",
         "hf": "",
         "paper": "https://arxiv.org/abs/2611.18729v3",
-        "bibtex": "@misc{scale2026,\n  title={SCALE: Towards Whole-Slide Counterfactual Explanations in Cancer Histopathology},\n  year={2026},\n  eprint={2611.18729},\n  archivePrefix={arXiv},\n  url={https://arxiv.org/abs/2611.18729v3},\n  note={Version 3}\n}",
-        "audit_domain": "Whole-slide counterfactual explainability in cancer histopathology",
-        "paper_title": "SCALE: Towards Whole-Slide Counterfactual Explanations in Cancer Histopathology"
+        "bibtex": "@misc{qin2026scale,\n  title={SCALE: Towards Whole-Slide Counterfactual Explanations in Cancer Histopathology},\n  author={Weiyi Qin and Yingci Liu-Swetz and Shiwei Tan and Yi Wang and Mohammad Alexanderani and Dimitrios Korentzelos and Peizi Li and Soo Yeon Sohn and Xintong Wang and Hao Peng and Yue Guo and Yuzhe Yang and Han Zhao and Hao Wang},\n  year={2026},\n  eprint={2611.18729},\n  archivePrefix={arXiv},\n  primaryClass={cs.CV},\n  url={https://arxiv.org/abs/2611.18729v3},\n  note={Version 3, 22 November 2026}\n}",
+        "audit_domain": "Concept-guided whole-slide counterfactual explainability in cancer histopathology",
+        "paper_title": "SCALE: Towards Whole-Slide Counterfactual Explanations in Cancer Histopathology",
+        "date": "2026-11-22",
+        "stains": "H&E",
+        "audit_objective": "An L1-sparse reconstruction autoencoder maps frozen 1,536-D UNI2-h features to 12,288 non-negative latent concepts. Target-associated concept prototypes steer features; MIL attention selects locations and a frozen feature-conditioned pathology diffusion generator renders the edits. Generated tiles are re-encoded and evaluated by the same slide predictor.",
+        "audit_wsis": "SAE training: 10,484 diagnostic WSIs from 8,641 patients across 32 TCGA cohorts and 25 anatomical sites. Held-out test: 1,109 WSIs from 905 patients. Partitions are patient-disjoint.",
+        "audit_patches": "141,085,065 training tiles and 15,179,191 held-out tiles; non-overlapping 256×256 H&E tiles at 20×. These train/evaluate the concept representation, not a new pathology foundation encoder.",
+        "audit_organs": "Pan-cancer SAE training; counterfactual evaluation covers breast, colorectal, kidney, lung, head-and-neck and prostate cancer.",
+        "audit_downstream": "Whole-slide model explanations for normal-to-tumor transitions, HPV-associated morphology and prostate Gleason growth-pattern changes; morphological plausibility and target-consistency assessment.",
+        "audit_cohorts": "TCGA; counterfactual response evaluation on 134 distinct WSIs from 101 cases. Blinded reader study: six board-certified pathologists, 30 unique cases, two readers per case.",
+        "audit_benchmark": "Nine intervention directions: BRCA/COAD/KIRC/LUAD normal-to-tumor, HNSCC HPV-positive↔HPV-negative, and PRAD GP1–3→GP4, GP4→GP5, GP1–3→GP5. Baselines include single-neuron SAE steering and independent-window editing.",
+        "audit_result": "Blinded morphological-plausibility strict win rate 91.7% (55/60 reader-case assessments) over both evaluated baselines. Target consistency favored edited over source tissue in 96.7% (58/60 assessments). These are reader-assessment rates across 30 unique cases, not diagnostic accuracy. Target-class probabilities generally increase with editing extent across nine directions, with task-dependent trajectories.",
+        "audit_notes": "Based on the supplied arXiv v3 dated 22 November 2026. UNI2-h and the feature-conditioned diffusion generator remain frozen; the cited generator is PixCell. Overlapping 1024×1024 windows support 2048×2048 region evaluation and progressive whole-slide editing; complete-WSI demonstrations include COAD. Concept prototypes and SAE training use only the training partition. Counterfactual means a model-explanation intervention, not a formal causal counterfactual. Control is tile-level rather than at individual gland/cell resolution, and editable morphology depends on the underlying foundation-model representation. Reader-study findings cover selected tasks and do not establish clinical diagnostic validity. No project-code or checkpoint URL is specified in the supplied PDF.",
+        "paper_author": "Qin"
       }
     ]
   },
