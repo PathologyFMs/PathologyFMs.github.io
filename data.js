@@ -3290,6 +3290,30 @@ const modelData = [
         "audit_notes": "Based on the supplied arXiv v1 dated 6 November 2026. This is an adaptation method, not a newly pretrained backbone. LoRA adapters constitute 2.7–4.4% of backbone parameters; the recipe runs 500 steps, but all 21 selected checkpoints fall at steps 100–200. PathoROB is used for checkpoint selection, so its reported gains are not an independent held-out estimate and may be optimistic. PLISM comes from one institution; held-out acquisition conditions share tissue locations with training, and cross-stain positives come from adjacent serial sections rather than identical cells. Ablations use one seed and do not establish every design choice's benefit. The paper releases code and links selected adapters/weights; the entry's metrics follow the supplied paper rather than potentially differing repository snapshots.",
         "paper_title": "Contrastive fine-tuning against stain and scanner bias improves robustness and downstream performance across pathology foundation models",
         "paper_author": "Kim"
+      },
+      {
+        "name": "MOSAIC",
+        "year": 2026,
+        "date": "2026-09-29",
+        "data": "17 models; 6 cohorts; 13,800 similarity triplets",
+        "idea": "Cross-domain relative-similarity benchmark tests whether a model prefers same-class tissue from another slide or institution over different-class tissue sharing the reference's acquisition context. Compares pathology encoders, general visual encoders and zero-shot multimodal LLM judges, exposing acquisition shortcuts that within-domain classification can miss.",
+        "stains": "H&E",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2609.32876",
+        "bibtex": "@misc{zhang2026mosaic,\n  title={Multimodal LLMs Outperform Pathology Foundation Models in Cross-Domain Histological Similarity},\n  author={Yishu Zhang and Yun Li and Daiwei Zhang},\n  year={2026},\n  eprint={2609.32876},\n  archivePrefix={arXiv},\n  primaryClass={cs.CV},\n  url={https://arxiv.org/abs/2609.32876},\n  note={Version 2, 29 September 2026}\n}",
+        "audit_objective": "Evaluation-only relative similarity: given reference/positive/negative tiles, test whether same-class cross-domain tissue outranks a different-class same-context candidate. Embedding models use feature similarity; multimodal LLMs make zero-shot comparative judgments. Random candidate ordering yields 50% chance accuracy.",
+        "audit_wsis": "Selected cohorts: HER2ST 8 slides, CCTGS 39, TIGER 40, CAMELYON16 40, TCGA-LUSC 30 and BEETLE 40",
+        "audit_patches": "512×512 tiles with stride 256 after Otsu masking and ≥1% foreground filtering. MOSAIC contains 13,800 comparison triplets, including 8,400 cross-domain comparisons: 6,200 cross-slide and 2,200 cross-institution.",
+        "audit_organs": "Breast, colorectum and lung; component cohorts contain 2–6 tissue classes",
+        "audit_downstream": "Cross-slide/cross-institution tissue-similarity ranking; assessment of acquisition bias relevant to retrieval, harmonization and multi-site quality control",
+        "audit_cohorts": "Cross-slide: HER2ST, CCTGS and TIGER. Cross-institution: CAMELYON16, TCGA-LUSC and BEETLE, spanning nine reported institutions/tissue-source sites.",
+        "audit_domain": "Biological similarity versus slide- and institution-specific acquisition context",
+        "audit_benchmark": "17 models: 5 pathology encoders (UNI2H, H-optimus-0, Midnight, CONCH v1.5, Virchow2), 6 general visual encoders, and 6 multimodal LLMs; includes within-domain controls, prompt ablations, and confidence intervals/pairwise tests on HER2ST and CAMELYON16.",
+        "audit_result": "On CAMELYON16 cross-institution comparisons, Gemini 3.1 Flash Lite reaches 73.0% accuracy versus the best pathology encoder Midnight at 64.0% (reported McNemar p<0.001). On TCGA-LUSC, Qwen3.5 reaches 59% versus the best pathology encoder Virchow2 at 44% (rounded table values). Pathology encoders lead within-slide HER2ST performance, while selected LLMs are stronger across domains; the claim concerns relative-similarity judgments rather than general diagnostic accuracy.",
+        "audit_notes": "Based on supplied arXiv v2 dated 29 September 2026. MOSAIC expands to Model Similarity Assessment across Institutions and Cohorts; it is distinct from the spatial-omics MOSAIC resource referenced elsewhere in this catalog. This work introduces an evaluation benchmark, not a new encoder. Tissue-class labels define biological similarity rather than expert perceptual triplet annotations. Evidence is restricted to H&E and the selected cohorts; LLM results depend on the comparison prompt and valid-response handling. The abstract/checklist state that code and data will be released upon acceptance; no project repository or benchmark download URL is supplied.",
+        "paper_title": "Multimodal LLMs Outperform Pathology Foundation Models in Cross-Domain Histological Similarity",
+        "paper_author": "Zhang"
       }
     ]
   },
