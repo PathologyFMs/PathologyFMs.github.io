@@ -2499,6 +2499,24 @@ const modelData = [
         "audit_notes": "Cited as an evaluation suite by four other entries in this catalog.",
         "paper_title": "THUNDER: Tile-level Histopathology image UNDERstanding benchmark",
         "paper_author": "Marza"
+      },
+      {
+        "name": "Histoboard",
+        "year": 2025,
+        "data": "Cross-benchmark leaderboard: slide, patch, segmentation and robustness",
+        "idea": "Centralized dashboard aggregating pathology foundation model results from official benchmarks and papers. Provides per-task rankings, head-to-head model comparisons, model profiles, scaling-law views and a release timeline across classification, segmentation, spatial transcriptomics, robustness and survival benchmarks.",
+        "github": "https://github.com/wearewaiv/histoboard",
+        "hf": "",
+        "paper": "",
+        "website": "https://wearewaiv.github.io/histoboard/",
+        "bibtex": "@misc{histoboard2025,\n  title={Histoboard: A Unified Dashboard for Pathology Foundation Model Benchmarks},\n  author={Alexandre Filiot},\n  year={2025},\n  url={https://wearewaiv.github.io/histoboard/}\n}",
+        "audit_domain": "Cross-benchmark comparison and selection of pathology foundation models",
+        "audit_downstream": "Explore benchmark/task rankings, compare 2–5 models head-to-head with win/tie/loss statistics, inspect model profiles and examine model-size/performance scaling",
+        "audit_benchmark": "Aggregates official results from EVA, PathBench, Stanford PathBench, HEST, Patho-Bench, Sinai, STAMP, THUNDER, PathoROB, Plismbench, PFM-DenseBench, BC Survival and CRoMa",
+        "audit_result": "Makes published benchmark results searchable and comparable through a unified leaderboard and model-comparison dashboard; it reports results from source benchmarks rather than a new model or a single new evaluation cohort.",
+        "audit_notes": "Year and citation follow the official repository's project citation (2025); an exact release date is not specified. Benchmark, model and task coverage evolves, so no fixed counts are asserted here. Results come from official benchmark sources and papers with differing tasks and evaluation protocols; cite the original benchmark papers when using their results.",
+        "paper_title": "Histoboard: A Unified Dashboard for Pathology Foundation Model Benchmarks",
+        "paper_author": "Filiot"
       }
     ]
   },
