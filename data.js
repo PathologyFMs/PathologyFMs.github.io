@@ -2993,6 +2993,18 @@ const modelData = [
         "audit_notes": "Main Track paper at the 1st MICCAI 2026 Workshop on Mechanistic Interpretability for Medical Foundation Models (MI4MedFM); the OpenReview venue was still marked provisional as of 15 September 2026. The PDF sits behind OpenReview's bot verification, so this entry is built from the OpenReview abstract, TLDR and metadata. The official BibTeX reads 'The Ist MICCAI Workshop'; corrected here to '1st'.",
         "paper_title": "PATH-DISSECT: Interpreting Concept Representation and Classifier Reliance in Pathology Foundation Models with Sparse Autoencoders",
         "paper_author": "Parvatikar"
+      },
+      {
+        "name": "SCALE",
+        "year": 2026,
+        "data": "",
+        "idea": "Studies whole-slide counterfactual explanations in cancer histopathology.",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2611.18729v3",
+        "bibtex": "@misc{scale2026,\n  title={SCALE: Towards Whole-Slide Counterfactual Explanations in Cancer Histopathology},\n  year={2026},\n  eprint={2611.18729},\n  archivePrefix={arXiv},\n  url={https://arxiv.org/abs/2611.18729v3},\n  note={Version 3}\n}",
+        "audit_domain": "Whole-slide counterfactual explainability in cancer histopathology",
+        "paper_title": "SCALE: Towards Whole-Slide Counterfactual Explanations in Cancer Histopathology"
       }
     ]
   },
