@@ -2005,6 +2005,31 @@ const modelData = [
         "audit_notes": "",
         "paper_title": "A Deployment-Friendly Foundational Framework for Efficient Computational Pathology",
         "paper_author": "Cai"
+      },
+      {
+        "name": "LaGuadia",
+        "year": 2026,
+        "date": "2026-07-13",
+        "data": "~28M H&E patches; 1,910 TCGA WSIs and 1,801 reports",
+        "idea": "Language-guided adaptive multi-teacher distillation compresses GigaPath, UNI and Virchow2 into an approximately 87M-parameter ViT-B student using LoRA. Report-derived visual keywords and a MedSigLIP meta-teacher guide per-patch teacher weights, replacing uniform teacher averaging with clinical semantic agreement for captioning, VQA and slide-level prediction.",
+        "stains": "H&E",
+        "github": "https://github.com/hvcl/LaGuadia",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2607.11257",
+        "bibtex": "@misc{kim2026laguadia,\n  title={LaGuadia: Language-Guided Adaptive Distillation from Pathology Foundation Models},\n  author={Gangsu Kim and Won-Ki Jeong},\n  year={2026},\n  eprint={2607.11257},\n  archivePrefix={arXiv},\n  primaryClass={cs.CV},\n  url={https://arxiv.org/abs/2607.11257}\n}",
+        "audit_objective": "Three stages: GPT-5-mini extracts H&E-observable report keywords; frozen visual teachers are projected into a keyword-aligned space using MedSigLIP pseudo-targets and SigLIP alignment; semantic-agreement weights drive cosine-similarity distillation of teacher CLS tokens into a DINOv3-initialized ViT-B student with LoRA.",
+        "audit_wsis": "1,910 TCGA WSIs with 1,801 corresponding pathology reports across BRCA, STAD and THCA",
+        "audit_patches": "Approximately 28M 224×224 patches extracted at 20× using CLAM tissue preprocessing",
+        "audit_organs": "Breast (BRCA), stomach (STAD) and thyroid (THCA)",
+        "audit_image_text": "Report-derived clinical keyword supervision from 1,801 reports; MedSigLIP selects patch-level keyword pseudo-targets, including a No Tumor Present option. This is not a claim of 28M independently annotated patch-caption pairs.",
+        "audit_domain": "Language-guided adaptation and compression of multiple pathology teacher encoders into a compact student",
+        "audit_downstream": "WSI captioning with HistoGPT; visual question answering; ABMIL/MIL-LAB slide-level classification and survival analysis, including breast subtyping, gastric LAUREN/N-stage prediction and thyroid progression",
+        "audit_cohorts": "TCGA-BRCA, TCGA-STAD and TCGA-THCA; captioning on PathText, VQA on WSI-VQA (BRCA) and WSI-Bench (STAD/THCA); slide-level five-fold cross-validation",
+        "audit_benchmark": "Seven comparator encoders: GigaPath, MUSK, Virchow2, MedSigLIP, UNI, GPFM and H0-mini. Text metrics: METEOR, BLEU-4, ROUGE-L and Fact_ent; classification uses weighted F1 and survival uses C-index.",
+        "audit_result": "Paper-reported OVR composites: captioning 0.2461, VQA 0.4184 (Virchow2 0.4182), and MIL 0.6538 (best comparator Virchow2 0.6201). VQA Fact_ent is 0.9268 on BRCA and 0.4737 on STAD. In the THCA ablation, language guidance raises survival C-index from 0.5180 with uniform KD to 0.5843. OVR values combine task-specific metrics and should not be read as a single accuracy measure.",
+        "audit_notes": "Based on arXiv v1 dated 13 July 2026. Classified under Compression & Distillation because its central contribution is a compact student learned from multiple teachers; LoRA supplies parameter-efficient adaptation. The abstract/results report 87M parameters, while Methods describes the ViT-B backbone as 86M. Frozen teachers are GigaPath, UNI and Virchow2; MedSigLIP provides semantic guidance. Training uses one RTX A6000 48GB GPU; Stage 2 runs 10 epochs and Stage 3 150K iterations. The keyword bank uses train/validation splits, but the authors explicitly leave per-fold distillation as future work to reduce possible cross-fold leakage. Evidence is limited to three TCGA cohorts and CLS-token distillation. The official repository advertises MICCAI 2026 and provides training code; no standalone checkpoint link is specified in the supplied paper or repository README.",
+        "paper_title": "LaGuadia: Language-Guided Adaptive Distillation from Pathology Foundation Models",
+        "paper_author": "Kim"
       }
     ]
   },
@@ -2193,6 +2218,29 @@ const modelData = [
         "audit_notes": "Multi-FM integration model: learns a unified slide-level representation from several frozen tile-FM encoders rather than pretraining its own; developed on the CHTN cohort and externally validated on TCGA.",
         "paper_title": "Unified Multi-Foundation-Model Slide Representation for Pan-Cancer Recognition and Text-Guided Tumor Localization",
         "paper_author": "Wang"
+      },
+      {
+        "name": "FFM-CP",
+        "year": 2026,
+        "date": "2026-11-09",
+        "data": "Few-shot fusion: 6 datasets, 4/8/16 support tiles per class",
+        "idea": "Few-shot cross-backbone fusion keeps multiple vision-language encoders frozen and aligns their heterogeneous feature spaces with support-set Orthogonal Procrustes maps. A unified graph jointly refines support images and visual/text prototypes, then text-prototype and case-retrieval branches combine predictions across all ordered backbone pairs.",
+        "stains": "H&E",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2609.27710",
+        "bibtex": "@misc{nguyen2026ffmcp,\n  title={FFM-CP: Cross-Backbone Fusion of Vision-Language Foundation Models for Few-Shot Computational Pathology},\n  author={Anh-Tien Nguyen and Trung Dang and Nghiem Tuong Diep and Bui Ngoc Han Nguyen and Tan-Ha Mai and Miriam Cindy Maurer and Phuong Hoa Nguyen and Thi Thuy Uyen Nguyen and Youngjun Park and Daniel Sonntag and Duy Minh Ho Nguyen and Anne-Christin Hauschild},\n  year={2026},\n  eprint={2609.27710},\n  archivePrefix={arXiv},\n  primaryClass={cs.CV},\n  url={https://arxiv.org/abs/2609.27710},\n  note={Version 3, 9 November 2026}\n}",
+        "audit_objective": "Closed-form support-image Orthogonal Procrustes alignment; a seven-relation heterogeneous graph refines support features and visual/text class prototypes. Two prediction branches learn fusion over all M² ordered query/evidence backbone pairs; pretrained encoders remain frozen.",
+        "audit_patches": "K=4, 8 or 16 labeled support tiles per class; validation uses min(K,4) tiles per class from a separate partition. No separate large-scale pretraining or distillation corpus is introduced.",
+        "audit_organs": "Lung, skin, colorectum and breast",
+        "audit_downstream": "Few-shot histopathology tile classification: tissue-type recognition and diagnostic subtyping",
+        "audit_cohorts": "Six public datasets: LungHist700, HeidelbergSkin, Kather2016, LubLung, BRACS and BACH. Disjoint train/validation/test partitions; BRACS uses its official test set. Each experiment is repeated across five random seeds.",
+        "audit_domain": "Support-set-driven fusion of heterogeneous vision-language foundation models for few-shot computational pathology",
+        "audit_benchmark": "Five frozen VLMs: KEEP, MUSK, QuiltNet, PLIP and BiomedCLIP. Three fusion sets: KEEP+QuiltNet+PLIP, KEEP+PLIP+BiomedCLIP, and MUSK+QuiltNet+PLIP. Baselines are individually adapted constituents under the same single-model pipeline; primary comparison uses mean macro-F1.",
+        "audit_result": "Higher mean macro-F1 than the strongest individually adapted constituent of each fused set in 50/54 dataset×shot×fusion-set comparisons, including all cases at 8 and 16 shots. Average gains rise from 2.35 percentage points at 4 shots to 3.73 at 16 shots. At 16 shots, KEEP+PLIP+BiomedCLIP averages 83.63% macro-F1 across six datasets versus KEEP's 79.91%. Fusion does not improve every 4-shot setting.",
+        "audit_notes": "Based on supplied arXiv v3 dated 9 November 2026. This is a multi-model fusion/adaptation framework, not a newly pretrained VLM or a distilled single student. Alignment preserves within-model geometry without training an extra alignment network. Reported gains are relative to the strongest member within each particular fusion set, not necessarily the best model outside that set. The evidence covers six public tile-classification datasets; whole-slide and cross-institution validation remain future work. M² cross-backbone pairs increase fusion cost, global orthogonal alignment may miss nonlinear discrepancies, and representative support examples matter. Four-shot BACH and some other low-shot cases show macro-F1 declines. No project repository or checkpoint URL is specified in the supplied PDF.",
+        "paper_title": "FFM-CP: Cross-Backbone Fusion of Vision-Language Foundation Models for Few-Shot Computational Pathology",
+        "paper_author": "Nguyen"
       }
     ]
   },
