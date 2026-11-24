@@ -798,6 +798,47 @@ const modelData = [
         "paper_author": "Li",
         "audit_benchmark": "Six public benchmark frameworks, 71 reported metrics: PathoROB (3), PLISM (4), EVA (10), THUNDER (6), HEST (9), and Patho-Bench (39). Baseline scores for the first five frameworks come from their published results via Histoboard; all compared models were rerun for the same 39 Patho-Bench tasks.",
         "audit_result": "PathoROB mean Robustness Index 0.892 (Virchow2: 0.861); PLISM mean metric 0.607 (H-Optimus-0: 0.480). Patho-Bench mean task score 0.673 (UNI2: 0.665), best on 15/39 tasks. Best equal-weighted average rank across six frameworks: 2.61. EVA mean score 0.780; HEST mean Pearson r=0.404. THUNDER calibration ECE 4.1% and adversarial F1 drop 44.5%, both seventh of eight."
+      },
+      {
+        "name": "StainNet",
+        "year": 2026,
+        "date": "2026-05-05",
+        "data": "1,418,938 IHC/special-stain patches from 20,231 WSIs",
+        "idea": "Non-H&E tile-encoder family using DINO self-distillation on HISTAI immunohistochemistry and special stains. ImageNet-initialized ViT-S/16 (22M) and ViT-B/16 (86M) learn stain-specific representations for ROI classification, retrieval and slide-level MIL, addressing the limited transfer of predominantly H&E-pretrained encoders to IHC and special-stain tasks.",
+        "stains": "IHC + special stains (331 IHC types and 12 special-stain types reported)",
+        "tag": "non-H&E",
+        "tag_color": "blue",
+        "github": "https://github.com/WonderLandxD/StainNet",
+        "hf": "https://huggingface.co/JWonderLand/StainNet-Base",
+        "paper": "https://proceedings.mlr.press/v315/li26c.html",
+        "bibtex": "@inproceedings{pmlr-v315-li26c,\n  title={StainNet: Scaling Self-Supervised Foundation Models on Immunohistochemistry and Special Stains for Computational Pathology},\n  author={Jiawen Li and Jiali Hu and Xitong Ling and Yongqiang Lv and Yuxuan Chen and Yizhi Wang and Tian Guan and Yifei Liu and Yonghong He},\n  booktitle={Proceedings of The 9th International Conference on Medical Imaging with Deep Learning},\n  pages={544--569},\n  year={2026},\n  volume={315},\n  series={Proceedings of Machine Learning Research},\n  publisher={PMLR},\n  url={https://proceedings.mlr.press/v315/li26c.html}\n}",
+        "audit_objective": "DINO teacher-student self-distillation with EMA teacher, multi-crop augmentation, centering and sharpening; ImageNet-initialized ViT-Small/16 and ViT-Base/16 trained for 100 epochs with AdamW and batch size 256",
+        "audit_wsis": "20,231 non-H&E WSIs from HISTAI, retained from 20,265 candidate slides after excluding 34 with no extractable foreground tissue",
+        "audit_patches": "1,418,938 non-overlapping 224×224 tissue patches; up to 100 randomly selected patches per WSI, or all patches when fewer than 100 are available",
+        "audit_organs": "The supplied paper does not give a comprehensive pretraining organ inventory. Non-H&E downstream tasks cover liver, endometrium, breast IHC and kidney glomeruli; H&E transfer tests cover colorectal tissue and prostate slides.",
+        "audit_downstream": "IHC ROI classification with linear/MLP probes; special-stain glomerular classification; slide-level IHC classification with MIL; few-label learning; image retrieval; supplementary H&E ROI/slide classification",
+        "audit_cohorts": "Pretraining: public HISTAI. Non-H&E evaluation: private NTUH-Ki67-Liver, P53-UCEC and MLH1-UCEC slides from the Affiliated Hospital of Nantong University; public BCI/MIST IHC ROIs; private Glomerulus-Masson/PAS/PASM ROIs. H&E tests: CRC-100K, KatherMS and PANDA-Karolinska.",
+        "audit_scanners": "The three private IHC slide-level cohorts were scanned with the SQS-120P system from Shenzhen Shengqiang Technology; this is downstream-cohort metadata, not a pretraining-scanner inventory.",
+        "audit_domain": "IHC and special-stain histopathology representation learning rather than primarily H&E",
+        "audit_notes": "MIDL 2026 full paper, PMLR volume 315, pages 544–569, published 5 May 2026. StainNet-Small has 22M parameters and 384-D features; StainNet-Base has 86M parameters and 768-D features. The first three authors contributed equally. Appendix A reports 331 IHC and 12 special-stain types but notes ambiguous clone names and incomplete stain annotations in HISTAI, so this taxonomy is approximate. StainNet-Base is strongest overall on the three reported IHC slide tasks but does not lead every metric or special-stain dataset. On H&E tasks, it does not improve consistently over Small, and UNI performs better, particularly on PANDA-Karolinska.",
+        "paper_title": "StainNet: Scaling Self-Supervised Foundation Models on Immunohistochemistry and Special Stains for Computational Pathology",
+        "paper_author": "Li",
+        "variants": [
+          {
+            "name": "StainNet-Small",
+            "year": 2026,
+            "hf": "https://huggingface.co/JWonderLand/StainNet",
+            "note": "ImageNet-initialized ViT-S/16, 22M parameters, 384-D features; DINO-pretrained on HISTAI IHC and special stains."
+          },
+          {
+            "name": "StainNet-Base",
+            "year": 2026,
+            "hf": "https://huggingface.co/JWonderLand/StainNet-Base",
+            "note": "ImageNet-initialized ViT-B/16, 86M parameters, 768-D features; DINO-pretrained on the same non-H&E corpus."
+          }
+        ],
+        "audit_benchmark": "Eight non-H&E classification tasks: 3 private IHC slide tasks (6 MIL aggregators on NTUH-Ki67-Liver; ABMIL on P53/MLH1-UCEC), 2 public IHC ROI tasks (BCI/MIST; linear and MLP probes), and 3 private special-stain glomerular ROI tasks; additional retrieval, few-ratio learning and 3 H&E transfer tasks",
+        "audit_result": "StainNet-Base mean balanced accuracy 0.8930 across six MIL methods on NTUH-Ki67-Liver. BCI balanced accuracy 0.744 with linear and 0.896 with MLP probes; MIST 0.822/0.921. Special-stain linear-probe balanced accuracy: Masson 0.505, PAS 0.669, PASM 0.475. H&E transfer remains weaker than UNI: PANDA-Karolinska ABMIL balanced accuracy 0.322 versus UNI 0.535."
       }
     ]
   },
