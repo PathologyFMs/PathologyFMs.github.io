@@ -2030,6 +2030,28 @@ const modelData = [
         "audit_notes": "Based on arXiv v1 dated 13 July 2026. Classified under Compression & Distillation because its central contribution is a compact student learned from multiple teachers; LoRA supplies parameter-efficient adaptation. The abstract/results report 87M parameters, while Methods describes the ViT-B backbone as 86M. Frozen teachers are GigaPath, UNI and Virchow2; MedSigLIP provides semantic guidance. Training uses one RTX A6000 48GB GPU; Stage 2 runs 10 epochs and Stage 3 150K iterations. The keyword bank uses train/validation splits, but the authors explicitly leave per-fold distillation as future work to reduce possible cross-fold leakage. Evidence is limited to three TCGA cohorts and CLS-token distillation. The official repository advertises MICCAI 2026 and provides training code; no standalone checkpoint link is specified in the supplied paper or repository README.",
         "paper_title": "LaGuadia: Language-Guided Adaptive Distillation from Pathology Foundation Models",
         "paper_author": "Kim"
+      },
+      {
+        "name": "TAP-Path",
+        "year": 2026,
+        "date": "2026-09-03",
+        "data": "Virchow2 pruning; 25,495 TCGA image-level records",
+        "idea": "Task-adaptive compression directly restructures Virchow2 through validation-driven block selection and physical removal, then prunes input-dependent patch tokens and recovers multi-depth features through a lightweight gated task head. Retains 24/32 blocks and 70% of patch tokens after pruning, reducing encoder parameters by 24.96% and analytical encoder FLOPs by 35.20% without distilling a separate student.",
+        "stains": "H&E",
+        "github": "",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2609.04071",
+        "bibtex": "@misc{hasan2026tappath,\n  title={TAP-Path: Task-Adaptive Structural and Token Pruning for Efficient and Trustworthy Pathology Foundation Models},\n  author={Mehedi Hasan and Ashfak Yeafi and Md Khairul Islam},\n  year={2026},\n  eprint={2609.04071},\n  archivePrefix={arXiv},\n  primaryClass={cs.CV},\n  url={https://arxiv.org/abs/2609.04071}\n}",
+        "audit_objective": "Validation-driven transformer-block selection and physical encoder reconstruction; input-adaptive patch-token pruning; four-depth feature recovery and learned gated fusion into a task-specific classification head. Compression acts on the pretrained Virchow2 hierarchy rather than training a student by knowledge distillation.",
+        "audit_patches": "Each image-level record uses a deterministic 12-region protocol, with selected regions resized to 224×224 pixels. The reported 25,495 internal records are image-level records, not a stated count of unique pretraining WSIs.",
+        "audit_downstream": "32-class histopathology classification; calibration and probabilistic quality; confidence-based failure detection; rare-class analysis and selective prediction; frozen external transfer to two CPTAC cancer classes",
+        "audit_cohorts": "Internal TCGA-derived benchmark: 17,769 training, 3,867 validation and 3,859 test images. External CPTAC: 209 CCRCC and 224 UCEC images/WSIs, 433 total; no external adaptation or threshold tuning.",
+        "audit_domain": "Task-specific structural/token compression of pathology foundation encoders for efficient downstream deployment",
+        "audit_benchmark": "Same-task internal comparisons include full Virchow2, UNI2-h, Hibou-B and CONCH. Three task-head optimization seeds for the locked TAP-Path configuration; external balanced accuracy is computed only over the two present classes.",
+        "audit_result": "Encoder parameters 631.24M→473.70M (−24.96%); analytical encoder FLOPs 340.13G→220.40G (−35.20%). Internal test accuracy 87.98±0.067%, balanced accuracy 81.26±0.49%, macro-F1 82.38±0.48%; full Virchow2 accuracy 86.89% and UNI2-h 87.67%. Brier score 0.1800±0.0005 and failure-detection AUROC 0.9047±0.0060. External CPTAC accuracy 91.22±0.83% and present-class balanced accuracy 91.10±0.81%.",
+        "audit_notes": "Based on arXiv v1 dated 3 September 2026. The encoder has 473.70M parameters; the complete deployed system has 479.40M including its task components. This is compression, not a new from-scratch foundation encoder or a distilled student. Architecture and operating configuration are locked using training/validation data before internal/external testing. Internal partitions are reported at image level. The 32-class internal task and two-class external evaluation are different settings; higher external raw accuracy does not establish universal 32-class transfer, and Hibou-B has higher raw CPTAC accuracy in the paper. Analytical FLOPs exclude end-to-end WSI loading, tissue detection, patch extraction and storage I/O. The reported 31.85 ms image-level latency is hardware/protocol-specific. Reliability metrics do not establish prospective clinical safety. No project repository or checkpoint URL is provided in the supplied PDF.",
+        "paper_title": "TAP-Path: Task-Adaptive Structural and Token Pruning for Efficient and Trustworthy Pathology Foundation Models",
+        "paper_author": "Hasan"
       }
     ]
   },
