@@ -930,6 +930,45 @@ const modelData = [
         "paper_author": "Wu",
         "audit_benchmark": "Spatial gene-expression prediction at cellular resolution plus cell-, region- and slide-level diagnostic tasks, with case studies in lung fibrosis and breast cancer",
         "audit_result": "Predicts spatial gene expression from histology at cellular resolution and scales to diagnosis at all three levels, identifying long- and short-range cell-cell interdependencies; the preprint's abstract reports no aggregate figures"
+      },
+      {
+        "name": "C-LiTE",
+        "year": 2026,
+        "date": "2026-11-21",
+        "data": "60M TCGA cell crops; 19 cancer types, 16 tissues",
+        "idea": "Compact ViT-5-S cell encoder trained with DINO and iBOT on native 64×64-pixel H&E crops. Pseudoinverse-initialized 4×4 patch embeddings produce a 16×16 token grid without upsampling; two variants use UNI2- or Virchow2-distilled initialization.",
+        "stains": "H&E",
+        "github": "https://github.com/eshasadia/C-LiTE",
+        "hf": "https://huggingface.co/eshasadia/C-LiTE",
+        "dataset": "https://www.ebi.ac.uk/biostudies/studies/S-BSST3558",
+        "paper": "https://arxiv.org/abs/2611.26316",
+        "bibtex": "@misc{nasir2026clitelightweightfoundationmodel,\n  title={C-LiTE: A Lightweight Foundation Model for Cellular feature learning in Histopathology},\n  author={Esha Sadia Nasir and Jiaqi Lv and Gozde N. Gunesli and Shan E Ahmed Raza},\n  year={2026},\n  eprint={2611.26316},\n  archivePrefix={arXiv},\n  primaryClass={cs.CV},\n  url={https://arxiv.org/abs/2611.26316},\n  note={Version 2, 21 November 2026}\n}",
+        "audit_objective": "DINO image-level self-distillation and iBOT masked-patch prediction, using two global cell views without local crops. PI-PatchEmbed transfers pretrained ViT-5-S patch kernels from 16×16 to 4×4 using a Moore–Penrose pseudoinverse.",
+        "audit_patches": "60M cell-centred 64×64-pixel crops at 0.5 µm/pixel (~20×), extracted around HoVer-Net nuclear centroids and sampled equally across 19 TCGA cancer types. Distilled initializations use a 19M-cell subset.",
+        "audit_organs": "19 cancer types across 16 tissue types, including breast, lung, kidney, colon, uterus, liver, prostate, thyroid and bladder.",
+        "audit_domain": "Cell-level H&E representations; ViT-5-S with 384-D CLS embeddings, four register tokens and approximately 22M parameters (22.5M in the efficiency table).",
+        "audit_downstream": "Frozen-feature linear probing for mitosis recognition, nucleus/cell-type classification, hierarchical cell classification and immune-cell phenotyping.",
+        "audit_cohorts": "TCGA pretraining slides retrieved through NCI Imaging Data Commons; the public cell-crop corpus is released as BioStudies S-BSST3558.",
+        "audit_benchmark": "Seven public datasets: MIDOG 2025, NuCLS, PanNuke, CoNIC, MONKEY, Immunocto and PUMA. Comparisons include CytoFormer, LEMON, DinoBloom, UNI2, Virchow2 and other frozen encoders.",
+        "audit_result": "Mean macro-F1: C-LiTE 0.670, UNI2-distilled variant 0.675 and Virchow2-distilled variant 0.655, versus CytoFormer 0.682. On one A100 at native resolutions and each model’s largest fitting batch, C-LiTE uses 16.2× fewer FLOPs and achieves 21.1× higher throughput than CytoFormer (1,039 vs 49 cells/s).",
+        "variants": [
+          {
+            "name": "C-LiTE*U",
+            "year": 2026,
+            "hf": "https://huggingface.co/eshasadia/C-LiTE",
+            "paper": "https://arxiv.org/abs/2611.26316",
+            "note": "UNI2-distilled initialization on 19M cells, followed by cell-level self-supervised pretraining; mean macro-F1 0.675 across seven datasets."
+          },
+          {
+            "name": "C-LiTE*V",
+            "year": 2026,
+            "hf": "https://huggingface.co/eshasadia/C-LiTE",
+            "paper": "https://arxiv.org/abs/2611.26316",
+            "note": "Virchow2-distilled initialization on 19M cells, followed by cell-level self-supervised pretraining; mean macro-F1 0.655 across seven datasets."
+          }
+        ],
+        "paper_title": "C-LiTE: A Lightweight Foundation Model for Cellular feature learning in Histopathology",
+        "paper_author": "Nasir"
       }
     ]
   },
