@@ -1873,6 +1873,39 @@ const modelData = [
         "paper_title": "CellViT++: Energy-Efficient and Adaptive Cell Segmentation and Classification Using Foundation Models",
         "paper_author": "Hörst",
         "type": "Adaptive cell segmentation"
+      },
+      {
+        "name": "CorePath",
+        "year": 2026,
+        "date": "2026-09-22",
+        "data": "7,901 breast CNB WSI–report pairs from two centers",
+        "idea": "Breast core-needle-biopsy specialization of PRISM through parameter-efficient adapters confined to its Perceiver slide encoder, with language components frozen. CorePath-CRG adds conformal diagnostic filtering and Learn-Then-Test report-release thresholds, using selective narratives, diagnostic fallback or deferral to manage uncertainty.",
+        "stains": "H&E",
+        "github": "https://github.com/danninglee/CorePath",
+        "hf": "",
+        "paper": "https://arxiv.org/abs/2608.03079",
+        "bibtex": "@misc{yin2026corepath,\n  title={CorePath: A Breast-Specialized Pathology Foundation Model for Core Needle Biopsy Diagnosis and Risk-Controlled Report Generation},\n  author={Ting Yin and Danning Li and Chen Shu and Xiaoxia Yao and Boyu Fu and Yujing Chang and Tianyu Shi and Mengna Feng and Jie Chen and Jing Fu and Xiuli Xiao and Tianlin Li and Mumin Shao and Jiaxin Bi and Wenchuan Zhang and Xiaoyan Wu and Xiao Han and Zhang Zhang and Yuhao Yi and Hong Bu},\n  year={2026},\n  eprint={2608.03079},\n  archivePrefix={arXiv},\n  primaryClass={cs.CV},\n  url={https://arxiv.org/abs/2608.03079},\n  note={Version 2, 22 September 2026}\n}",
+        "audit_objective": "Supervised multimodal adaptation of PRISM on paired breast CNB slides and reports. Bottleneck adapters (dimension 8) update selected Perceiver feed-forward sublayers; other PRISM parameters and language components remain frozen. CorePath-CRG combines conformal filtering with LTT-calibrated selective report release.",
+        "audit_wsis": "7,901 development WSIs from WCH-1 (5,720) and SPH-1 (2,181). The full retrospective private collection contains 10,946 H&E breast CNB slides across six hospitals; development slides/patients do not overlap evaluation or calibration cohorts.",
+        "audit_patches": "Virchow patch features feed the PRISM/CorePath slide encoder; the paper does not report a total patch count.",
+        "audit_image_text": "7,901 one-to-one WSI–diagnostic-report pairs for adaptation. Chinese reports were processed with DeepSeek-R1-Distill-Qwen-32B for structured labels and OpenBioLLM-70B for English report supervision, with manual review when needed.",
+        "audit_organs": "Breast; core needle biopsies",
+        "audit_domain": "Breast-specific slide-level vision-language adaptation for CNB diagnosis and uncertainty-aware report generation",
+        "audit_downstream": "Cancer detection, noncancer/in situ/invasive assessment, five-class CNB histological subtyping, public breast-pathology classification and selective pathology report generation",
+        "audit_cohorts": "Private evaluation/calibration: SPH-2, SWH, WCH-2, WTH, SJH and SZH. SPH-2 supplies conformal/report-release calibration; report quality is evaluated at SWH/WCH-2/WTH/SJH. Public benchmarks: BCNB and BRACS.",
+        "audit_benchmark": "Comparisons include PRISM and TITAN; six CNB evaluation cohorts plus BCNB invasive carcinoma subtyping and BRACS lesion/fine-grained classification. Report evaluation includes non-breast hallucinations, quantitative text metrics and pathologist-validated LLM evaluation scores.",
+        "audit_result": "Private five-class CNB weighted AUCs 0.9526–0.9735. Public weighted AUCs: BCNB invasive carcinoma subtyping 0.7780; BRACS lesion stratification 0.8178 and fine-grained classification 0.8252. CorePath reduces observed non-breast hallucinations from PRISM's 30.1% to 2.8%. CorePath-CRG has zero observed non-breast hallucinations among released outputs; this is a selective-release result, not a claim of error-free reporting on every case.",
+        "audit_notes": "Based on supplied arXiv v2 dated 22 September 2026; Yin and Li contributed equally. This is domain adaptation of a pretrained multimodal slide model, not a new from-scratch encoder. CorePath-CRG uses a reference-based Judge Score only during calibration; inference uses fixed thresholds and available diagnostic evidence. When narrative release fails, retained subtype or binary status can be returned; otherwise cases are deferred as Unknown. Conformal/LTT guarantees depend on calibration/test exchangeability and can weaken under distribution shift or post-calibration model/prompt changes. The retrospective study uses fine-tuning data from only two centers. Non-breast hallucination analysis does not capture all unsupported grades, biomarkers, laterality or subtle morphology errors, and prospective clinical validation remains necessary. Private slides/reports are not public; the paper schedules code and trained weights for release through the linked repository upon acceptance.",
+        "variants": [
+          {
+            "name": "CorePath-CRG",
+            "year": 2026,
+            "paper": "https://arxiv.org/abs/2608.03079",
+            "note": "Conformalized Report Generation extension: conformal diagnostic filtering, LTT threshold calibration, selective narrative release, diagnostic fallback and deferral; not a separately pretrained encoder."
+          }
+        ],
+        "paper_title": "CorePath: A Breast-Specialized Pathology Foundation Model for Core Needle Biopsy Diagnosis and Risk-Controlled Report Generation",
+        "paper_author": "Yin"
       }
     ]
   },
