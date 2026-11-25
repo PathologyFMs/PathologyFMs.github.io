@@ -205,6 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function getFamilyInfo(category) {
         const catLower = category.toLowerCase();
         if (catLower.includes('tile-level')) return { text: 'vision SSL', color: 'blue' };
+        if (catLower.includes('cell-level')) return { text: 'cell-level', color: 'green' };
         if (catLower.includes('slide-level')) return { text: 'slide encoder', color: 'teal' };
         if (catLower.includes('patient-level')) return { text: 'patient / longitudinal', color: 'pink' };
         if (catLower.includes('vision-language')) return { text: 'vision-language', color: 'purple' };
@@ -432,6 +433,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Distinct per-category palette for timelines and tree views.
     const SPIRAL_COLORS = {
         'Tile-Level Vision Foundation Models': '#3b82f6',
+        'Cell-Level Histopathology Foundation Models': '#84cc16',
         'Slide-Level Foundation Models': '#14b8a6',
         'Patient-Level & Longitudinal Foundation Models': '#f472b6',
         'Vision-Language Foundation Models': '#a855f7',
