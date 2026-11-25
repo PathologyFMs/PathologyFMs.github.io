@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dibalokechanda.github.io/PFMs/sitemap.xml
+Sitemap: https://PathologyFMs.github.io/sitemap.xml
