@@ -1140,6 +1140,28 @@ const modelData = [
         "paper_author": "Nicke",
         "audit_benchmark": "Seven benchmark tasks spanning cancer subtyping, risk estimation and genetic-mutation prediction",
         "audit_result": "Outperforms self-supervised models on all seven tasks while training consumed 5% of the computational resources"
+      },
+      {
+        "name": "PathTokScale",
+        "year": 2026,
+        "data": "~30K WSIs (HistAI + private); ~2B retained tokens",
+        "idea": "Slide-level DINOv2 pretraining that scales spatial tokens from frozen tile encoders. TokRet greedily retains diverse tokens (~10%), and a six-layer transformer with block-sparse attention and 2D RoPE learns regional and slide representations beyond CLS-only features.",
+        "stains": "H&E",
+        "github": "",
+        "hf": "",
+        "paper": "https://eccv.ecva.net/virtual/2026/poster/3938",
+        "bibtex": "@inproceedings{li2026pathtokscale,\n  title={Scaling Whole-Slide Pathology Foundation Model Pretraining with Billions Off-the-Shelf Tokens},\n  author={Honglin Li and Zhongyi Shui and Chenglu Zhu and Lin Yang},\n  booktitle={European Conference on Computer Vision (ECCV)},\n  year={2026},\n  url={https://eccv.ecva.net/virtual/2026/poster/3938}\n}",
+        "audit_objective": "DINOv2 student–momentum-teacher self-distillation with token-space augmentations. TokRet uses greedy max–min cosine-distance selection without extra training; tile features come from frozen UNI-1 or CONCH-1.5 encoders.",
+        "audit_wsis": "Approximately 30,000 WSIs: HistAI diagnostic slides plus about 10,000 private slides.",
+        "audit_patches": "98,318 regions of 7168×7168 pixels, tiled at 448×448. Retaining about 10% of spatial tokens gives approximately 20,480 tokens per region and 2B tokens overall.",
+        "audit_organs": "Reported downstream cohorts cover breast, lung, colorectal, bladder, uterine and kidney cancers.",
+        "audit_domain": "Slide-level vision representations using a six-layer long-context transformer, block-sparse attention (512-token blocks; top four blocks per query) and 2D rotary positional embeddings.",
+        "audit_downstream": "Three-class breast lesion subtyping, estrogen-receptor prediction, TP53 mutation prediction and disease-specific survival prediction.",
+        "audit_cohorts": "BRACS (547 WSIs), BCNB (1,038), TCGA-LUAD (469); survival cohorts TCGA-BRCA, CRC, BLCA, UCEC and KIRC.",
+        "audit_benchmark": "MIL and foundation-model comparisons include ABMIL, TransMIL, CHIEF, GigaPath, TITAN and UNI-2+ABMIL. Survival evaluation uses five-fold cross-validation and C-index.",
+        "audit_result": "UNI-1 features: BRACS F1 0.779 and AUC 0.914. CONCH-1.5 features: LUAD TP53 F1 0.725 and AUC 0.771. Mean five-cohort survival C-index is 0.716 (UNI-1) or 0.731 (CONCH-1.5), compared with TITAN at 0.729.",
+        "paper_title": "Scaling Whole-Slide Pathology Foundation Model Pretraining with Billions Off-the-Shelf Tokens",
+        "paper_author": "Li"
       }
     ]
   },

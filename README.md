@@ -67,6 +67,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 | **EXAONE Path 2.0** | 2025 | 37K WSIs | End-to-end hierarchical training with direct slide-level supervision on 37,195 FFPE H&E WSIs across 33 cancer types and 12 organ systems, so tile and slide representations are learned jointly instead of in separate frozen stages | [Paper](https://arxiv.org/abs/2507.06639) |
 | **GigaPath-Flash** | 2026 | Real-world Providence cohort | Efficient 43M ViT-S+LongNet whole-slide foundation model | [Paper](https://arxiv.org/abs/2607.18218) • [Model](https://huggingface.co/prov-gigapath/prov-gigapath-flash) |
 | **WSI-Concepts** | 2026 | Supervised slide-level (multitask) | Supervised, end-to-end multitask slide foundation model unifying cancer subtyping, risk estimation and mutation prediction from slide-level labels | [Paper](https://arxiv.org/abs/2507.05742) |
+| **PathTokScale** | 2026 | ~30K WSIs (HistAI + private); ~2B retained tokens | Slide-level DINOv2 pretraining that scales spatial tokens from frozen tile encoders. TokRet greedily retains diverse tokens (~10%), and a six-layer transformer with block-sparse attention and 2D RoPE learns regional and slide representations beyond CLS-only features. | [Paper](https://eccv.ecva.net/virtual/2026/poster/3938) |
 
 ---
 

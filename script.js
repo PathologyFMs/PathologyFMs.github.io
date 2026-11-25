@@ -473,15 +473,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>`;
             return;
         }
-        allItems.sort((a, b) => (a.m.date || '').localeCompare(b.m.date || ''));
+        // Place entries with year-only metadata in the correct year, keeping labels at year precision.
+        const timelineDate = m => m.date || (m.year + '-01-01');
+        allItems.sort((a, b) => timelineDate(a.m).localeCompare(timelineDate(b.m)));
 
         // Year tabs: filter the spiral to a single year (or All).
-        const allYears = [...new Set(allItems.map(it => (it.m.date || (it.m.year + '')).slice(0, 4)).filter(Boolean))].sort();
+        const allYears = [...new Set(allItems.map(it => timelineDate(it.m).slice(0, 4)).filter(Boolean))].sort();
         if (spiralYear !== 'all' && !allYears.includes(spiralYear)) spiralYear = 'all';
         const tabs = `<button class="spiral-tab${spiralYear === 'all' ? ' active' : ''}" data-year="all">All</button>` +
             allYears.map(y => `<button class="spiral-tab${spiralYear === y ? ' active' : ''}" data-year="${y}">${y}</button>`).join('');
         const wireTabs = () => container.querySelectorAll('.spiral-tab').forEach(b => b.addEventListener('click', () => { spiralYear = b.dataset.year; handleFilters(); }));
-        const items = spiralYear === 'all' ? allItems : allItems.filter(it => (it.m.date || '').slice(0, 4) === spiralYear);
+        const items = spiralYear === 'all' ? allItems : allItems.filter(it => timelineDate(it.m).slice(0, 4) === spiralYear);
         if (!items.length) {
             container.innerHTML = `<div class="spiral-wrap"><div class="spiral-tabs">${tabs}</div>
                 <div class="empty-state"><i class="ph ph-ghost" style="font-size:2.5rem;opacity:.5"></i><h3>Nothing in ${spiralYear}</h3></div></div>`;
@@ -490,9 +492,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Map an ISO date to spiral parameter t (in years from the earliest year present).
-        const baseYear = Math.min(...items.map(it => +(it.m.date || (it.m.year + '-01-01')).slice(0, 4)));
+        const baseYear = Math.min(...items.map(it => +timelineDate(it.m).slice(0, 4)));
         const toT = iso => { const [y, mo, d] = (iso || (baseYear + '-01-01')).split('-').map(Number); return (y - baseYear) + (((mo - 1) * 30.44 + (d - 1)) / 365); };
-        const ts = items.map(it => toT(it.m.date));
+        const ts = items.map(it => toT(timelineDate(it.m)));
         const tMax = Math.max(...ts);
 
         const single = spiralYear !== 'all';   // single-year view: bigger, more open loop with larger dots
@@ -532,7 +534,7 @@ document.addEventListener('DOMContentLoaded', () => {
         for (let t = 0; t <= tMax + 0.001; t += 0.006) { const [x, y] = p0(t); dPath += (dPath ? 'L' : 'M') + (x + c).toFixed(1) + ',' + (y + c).toFixed(1); }
 
         // Year ticks/labels at the top of each year's loop (January = 12 o'clock).
-        const years = [...new Set(items.map(it => (it.m.date || '').slice(0, 4)).filter(Boolean))];
+        const years = [...new Set(items.map(it => timelineDate(it.m).slice(0, 4)).filter(Boolean))];
         let yearMarks = '';
         years.forEach(ys => { const [x, y] = p0(toT(ys + '-01-01')); yearMarks += `<circle cx="${(x + c).toFixed(1)}" cy="${(y + c).toFixed(1)}" r="2.5" class="spiral-yeartick"/><text x="${(x + c).toFixed(1)}" y="${(y + c - 10).toFixed(1)}" class="spiral-yearlabel" text-anchor="middle">${ys}</text>`; });
 
