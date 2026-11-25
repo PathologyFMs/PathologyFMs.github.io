@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pathology Foundation Models | Curated Catalog</title>
-    <meta name="description" content="A curated up-to-date catalog of 100+ pathology foundation models for computational pathology: tile & slide vision encoders, vision-language, multimodal, and generative models, with papers, code, and benchmarks.">
+    <meta name="description" content="A curated catalog of 179 pathology models, benchmarks and papers across 17 categories, with training details, citations, code and model weights.">
     <meta name="keywords" content="pathology foundation models, computational pathology, digital pathology, histopathology, whole slide image, WSI, vision-language model, multimodal foundation model, self-supervised learning, UNI, Virchow, CONCH, TITAN, H-optimus, deep learning pathology">
     <meta name="author" content="Dibaloke Chanda">
     <meta name="robots" content="index, follow">
@@ -16,9 +16,9 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Pathology Foundation Models">
     <meta property="og:title" content="Pathology Foundation Models · Curated Catalog">
-    <meta property="og:description" content="A curated, up-to-date catalog of 100+ pathology foundation models: tile & slide encoders, vision-language, multimodal, generative, with papers, code, and benchmarks.">
+    <meta property="og:description" content="A curated catalog of 179 pathology models, benchmarks and papers across 17 categories, with training details, citations, code and model weights.">
     <meta property="og:url" content="https://dibalokechanda.github.io/PFMs/">
-    <meta property="og:image" content="https://dibalokechanda.github.io/PFMs/og-image.png">
+    <meta property="og:image" content="https://dibalokechanda.github.io/PFMs/og-image.png?v=c9b0e8599d23">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Pathology Foundation Models, a curated catalog of computational pathology models">
@@ -26,8 +26,8 @@
     <!-- Twitter / X -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Pathology Foundation Models · Curated Catalog">
-    <meta name="twitter:description" content="A curated, up-to-date catalog of 100+ pathology foundation models: tile & slide encoders, vision-language, multimodal, generative, with papers, code, and benchmarks.">
-    <meta name="twitter:image" content="https://dibalokechanda.github.io/PFMs/og-image.png">
+    <meta name="twitter:description" content="A curated catalog of 179 pathology models, benchmarks and papers across 17 categories, with training details, citations, code and model weights.">
+    <meta name="twitter:image" content="https://dibalokechanda.github.io/PFMs/og-image.png?v=c9b0e8599d23">
 
     <!-- Structured data -->
     <script type="application/ld+json">
@@ -46,7 +46,7 @@
         {
           "@type": "Dataset",
           "name": "Pathology Foundation Models · Curated Catalog",
-          "description": "A curated, up-to-date catalog of 100+ pathology foundation models for computational pathology, spanning tile- and slide-level vision encoders, vision-language, multimodal & molecular, generative, and benchmarking models, with links to papers, code, and model weights.",
+          "description": "A curated catalog of 179 pathology models, benchmarks and papers across 17 categories, with training details, citations, code and model weights.",
           "url": "https://dibalokechanda.github.io/PFMs/",
           "keywords": ["pathology foundation models", "computational pathology", "digital pathology", "histopathology", "whole slide image", "vision-language model", "multimodal foundation model", "self-supervised learning"],
           "isAccessibleForFree": true,
@@ -70,11 +70,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
     
     <!-- Phosphor Icons -->
-    <script src="https://unpkg.com/@phosphor-icons/web@2.1.2"></script>
-    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="vendor/phosphor-2.1.2/style.css">
+    <script src="vendor/d3.v7.9.2.min.js"></script>
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css?v=3">
+    <link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
     <div class="bg-glow"></div>
@@ -83,16 +83,16 @@
     <header>
         <div class="container" style="position: relative;">
             <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">
-                <i class="ph ph-sun" id="themeIcon"></i>
+                <i aria-hidden="true" class="ph ph-sun" id="themeIcon"></i>
             </button>
             <h1 class="gradient-text">Pathology Foundation Models</h1>
             <p class="subtitle">A comprehensive summary of state-of-the-art models mapping the latent space of pathology.</p>
             
             <div class="header-actions" style="margin-top: 1.5rem; display: flex; justify-content: center; gap: 1rem;">
-                <button id="contributeBtn" class="action-btn action-btn-primary" title="How to add a paper"><i class="ph ph-git-pull-request"></i> Contribute</button>
-                <a href="https://github.com/dibalokechanda/PFMs" class="action-btn" target="_blank"><i class="ph ph-github-logo"></i> GitHub</a>
-                <button id="bibtexBtn" class="action-btn" title="Copy BibTeX citation for this site"><i class="ph ph-code"></i> BibTeX</button>
-                <a href="mailto:dibaloke.chanda@marquette.edu" class="action-btn"><i class="ph ph-envelope-simple"></i> Contact</a>
+                <button id="contributeBtn" class="action-btn action-btn-primary" title="How to add a paper"><i aria-hidden="true" class="ph ph-git-pull-request"></i> Contribute</button>
+                <a href="https://github.com/dibalokechanda/PFMs" class="action-btn" target="_blank"><i aria-hidden="true" class="ph ph-github-logo"></i> GitHub</a>
+                <button id="bibtexBtn" class="action-btn" title="Copy BibTeX citation for this site"><i aria-hidden="true" class="ph ph-code"></i> BibTeX</button>
+                <a href="mailto:dibaloke.chanda@marquette.edu" class="action-btn"><i aria-hidden="true" class="ph ph-envelope-simple"></i> Contact</a>
             </div>
         </div>
     </header>
@@ -100,7 +100,7 @@
     <main class="container">
         <div class="controls">
             <div class="search-box">
-                <i class="ph ph-magnifying-glass"></i>
+                <i aria-hidden="true" class="ph ph-magnifying-glass"></i>
                 <input type="text" id="searchInput" placeholder="Search models, methods, or ideas..." aria-label="Search models, methods, or ideas">
             </div>
             <div class="filter-box">
@@ -110,18 +110,20 @@
                 </select>
             </div>
             <button id="facetBtn" class="facet-toggle" aria-expanded="false" title="Filter by metadata">
-                <i class="ph ph-sliders-horizontal"></i> Filters<span id="facetCount" class="facet-count" hidden>0</span>
+                <i aria-hidden="true" class="ph ph-sliders-horizontal"></i> Filters<span id="facetCount" class="facet-count" hidden>0</span>
             </button>
             <div class="view-toggle">
-                <button id="gridBtn" class="view-btn" aria-label="Grid View"><i class="ph ph-squares-four"></i></button>
-                <button id="tableBtn" class="view-btn active" aria-label="Table View"><i class="ph ph-list-dashes"></i></button>
-                <button id="timelineBtn" class="view-btn" aria-label="Spiral Timeline View"><i class="ph ph-clock-countdown"></i></button>
-                <button id="swimlaneBtn" class="view-btn" aria-label="Swimlane Timeline View"><i class="ph ph-rows"></i></button>
-                <button id="treeBtn" class="view-btn" aria-label="Tree View"><i class="ph ph-tree-structure"></i></button>
+                <button id="gridBtn" class="view-btn" aria-label="Grid View"><i aria-hidden="true" class="ph ph-squares-four"></i></button>
+                <button id="tableBtn" class="view-btn active" aria-label="Table View"><i aria-hidden="true" class="ph ph-list-dashes"></i></button>
+                <button id="timelineBtn" class="view-btn" aria-label="Spiral Timeline View"><i aria-hidden="true" class="ph ph-clock-countdown"></i></button>
+                <button id="swimlaneBtn" class="view-btn" aria-label="Swimlane Timeline View"><i aria-hidden="true" class="ph ph-rows"></i></button>
+                <button id="treeBtn" class="view-btn" aria-label="Tree View"><i aria-hidden="true" class="ph ph-tree-structure"></i></button>
             </div>
         </div>
 
         <div id="facetPanel" class="facet-panel" hidden></div>
+
+        <p id="catalogSummary" class="catalog-summary" role="status" aria-live="polite">179 entries in 17 categories</p>
 
         <div id="modelsContainer" class="models-container">
             <!-- Categories and Cards rendered via JS -->
@@ -155,18 +157,18 @@
     </div>
 
     <!-- Data and Scripts -->
-    <script src="data.js?v=40"></script>
+    <script src="data.js?v=41"></script>
     <script src="pluto4.js?v=1"></script>
     <script src="pathbot.js?v=1"></script>
     <script src="fairness-covariate-bias.js?v=1"></script>
     <script src="fm-selection-benchmark.js?v=1"></script>
-    <script src="data-curation-chen.js?v=1"></script>
+    <script src="data-curation-chen.js?v=2"></script>
     <script src="survey-alasi.js?v=1"></script>
     <script src="lymphovision.js?v=1"></script>
     <script src="histoencoder.js?v=1"></script>
     <script src="remedis-links.js?v=1"></script>
     <script src="phikon-links.js?v=1"></script>
-    <script src="chronological-order.js?v=1"></script>
-    <script src="script.js?v=13"></script>
+    <script src="chronological-order.js?v=2"></script>
+    <script src="script.js?v=14"></script>
 </body>
 </html>

@@ -1,0 +1,12 @@
+{
+  "name": "pathology-foundation-models-catalog",
+  "private": true,
+  "scripts": {
+    "sync": "node sync.js",
+    "test": "node --test tools/catalog.test.js && node tools/check-catalog.js",
+    "test:browser": "node tools/check-website.js"
+  },
+  "devDependencies": {
+    "playwright": "1.62.1"
+  }
+}

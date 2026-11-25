@@ -219,6 +219,20 @@ select option {
 }
 
 /* Categories & Cards */
+.catalog-summary {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0 0 1rem;
+}
+
+.header-actions { flex-wrap: wrap; }
+
+.subcategory-section { margin-top: 1.5rem; min-width: 0; }
+.subcategory-header { display: flex; align-items: baseline; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 0.8rem; }
+.subcategory-title { font-size: 1.1rem; line-height: 1.4; }
+.subcategory-count { color: var(--text-secondary); font-size: 0.85rem; }
+.sc-subcategory { color: var(--text-secondary); font-size: 0.8rem; margin-bottom: 0.4rem; }
+
 .category-section {
     margin-bottom: 4rem;
     animation: fadeIn 0.6s ease forwards;

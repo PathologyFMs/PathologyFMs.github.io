@@ -23,6 +23,9 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
+      - name: Verify catalog and generated files are in sync
+        run: npm test
+
       - name: Configure organization Pages URLs
         run: |
           python3 <<'PY'

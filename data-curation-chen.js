@@ -25,7 +25,7 @@
     "tag": "data curation",
     "tag_color": "blue",
     "github": "https://github.com/swiss-ai/patho-ssl-data-curation",
-    "hf": "https://huggingface.co/datasets/swiss-ai/patho-ssl-data-curation",
+    "dataset": "https://huggingface.co/datasets/swiss-ai/patho-ssl-data-curation",
     "paper": "https://doi.org/10.1007/978-3-032-04978-0_53",
     "website": "https://papers.miccai.org/miccai-2025/0783-Paper1975.html",
     "bibtex": "@InProceedings{CheBoq_Revisiting_MICCAI2025,\n  author = {Chen, Boqi and Vincent-Cuaz, Cédric and Schoenpflug, Lydia A. and Madeira, Manuel and Fournier, Lisa and Subramanian, Vaishnavi and Andani, Sonali and Ruiperez-Campillo, Samuel and Vogt, Julia E. and Luisier, Raphaëlle and Thanou, Dorina and Koelzer, Viktor H. and Frossard, Pascal and Campanella, Gabriele and Rätsch, Gunnar},\n  title = {Revisiting Automatic Data Curation for Vision Foundation Models in Digital Pathology},\n  booktitle = {Medical Image Computing and Computer Assisted Intervention -- MICCAI 2025},\n  year = {2025},\n  publisher = {Springer Nature Switzerland},\n  volume = {15965},\n  series = {Lecture Notes in Computer Science},\n  pages = {554--564},\n  doi = {10.1007/978-3-032-04978-0_53}\n}",

@@ -772,7 +772,9 @@ const modelData = [
         "audit_benchmark": "Five global case-level tasks and two dense tasks, comparing BM1b, BM1b + Gram and BM1b + iGram against UNI2 and Virchow2",
         "audit_result": "Average global AUC 84.59 for BM1b versus 82.09 for UNI2 and 81.81 for Virchow2, rising to 85.12 with Gram Anchoring (84.69 with iGram); overall dense score 78.08, then 78.54 with Gram and 78.90 with iGram, which also gives the best macro, cell, megakaryocyte-nuclei and instance-segmentation mIoU",
         "audit_scanners": "Leica GT 450 and Pramana SpectralHT",
-        "audit_cohorts": "Mayo Clinic-affiliated sources, without a per-institution breakdown; the authors note that external validation at independent institutions is still needed"
+        "audit_cohorts": "Mayo Clinic-affiliated sources, without a per-institution breakdown; the authors note that external validation at independent institutions is still needed",
+        "paper": "https://medfmb.github.io/",
+        "website": "https://medfmb.github.io/"
       },
       {
         "name": "HERO",
@@ -1482,7 +1484,8 @@ const modelData = [
         "paper_title": "A Multimodal Foundation Model of Spatial Transcriptomics and Histology for Biological Discovery and Clinical Prediction",
         "paper_author": "Xiang",
         "audit_benchmark": "1.2M spatially resolved transcriptomic profiles with matched histology across 18 organs; 23 independent cohorts totalling 7,245 patients; Visium, Xenium, Visium HD and CosMx",
-        "audit_result": "Outperforms existing methods at predicting spatial gene expression from H&E across 11 tumour types, performs consistently across all four platforms, and significantly improves immunotherapy-response prediction and prognostication over established biomarkers"
+        "audit_result": "Outperforms existing methods at predicting spatial gene expression from H&E across 11 tumour types, performs consistently across all four platforms, and significantly improves immunotherapy-response prediction and prognostication over established biomarkers",
+        "subcategory": "Spatial Transcriptomic Foundation Models"
       },
       {
         "name": "HEX",
@@ -1503,7 +1506,8 @@ const modelData = [
         "paper_title": "AI-enabled virtual spatial proteomics from histopathology for interpretable biomarker discovery in lung cancer",
         "paper_author": "Li",
         "audit_benchmark": "819,000 image tiles with matched protein expression from 382 tumours covering 40 biomarkers, then applied to six independent non-small-cell lung cancer cohorts totalling 2,298 patients",
-        "audit_result": "22% improvement in prognostic accuracy and 24-39% improvement in immunotherapy-response prediction over conventional biomarkers under multimodal integration"
+        "audit_result": "22% improvement in prognostic accuracy and 24-39% improvement in immunotherapy-response prediction over conventional biomarkers under multimodal integration",
+        "subcategory": "Spatial Proteomic Foundation Models"
       },
       {
         "name": "Tangle",
@@ -1527,7 +1531,8 @@ const modelData = [
         "paper_author": "Jaume",
         "audit_image_omics": "8,629 paired slide + RNA-seq samples (TG-GATEs liver 6,597; TCGA-BRCA 1,041; TCGA-NSCLC 1,031)",
         "audit_benchmark": "Prototype-based classification and slide retrieval on three independent test sets: 1,265 breast, 1,946 lung and 4,584 liver WSIs",
-        "audit_result": "Substantial improvement over all baselines on prototype classification and retrieval, with significantly stronger few-shot performance than both supervised and SSL baselines"
+        "audit_result": "Substantial improvement over all baselines on prototype classification and retrieval, with significantly stronger few-shot performance than both supervised and SSL baselines",
+        "subcategory": "Histomolecular Foundation Models"
       },
       {
         "name": "Madeleine",
@@ -1550,7 +1555,8 @@ const modelData = [
         "paper_author": "Jaume",
         "audit_image_omics": "Paired multi-stain (breast: H&E + ER/PR/HER2/KI67; kidney: H&E + PAS/Jones/Trichrome)",
         "audit_benchmark": "21 tasks over 7,299 WSIs from multiple medical centres, spanning morphological and molecular classification and prognostic prediction",
-        "audit_result": "Multi-stain alignment (4,211 breast WSIs across five stains; 12,070 kidney-transplant WSIs across four stains) produces slide representations that transfer across all 21 tasks (no per-task figures in the abstract)"
+        "audit_result": "Multi-stain alignment (4,211 breast WSIs across five stains; 12,070 kidney-transplant WSIs across four stains) produces slide representations that transfer across all 21 tasks (no per-task figures in the abstract)",
+        "subcategory": "Multi-Stain Foundation Models"
       },
       {
         "name": "Threads",
@@ -1575,7 +1581,8 @@ const modelData = [
         "paper_author": "Vaidya",
         "audit_image_omics": "47,171 H&E sections paired with genomic + transcriptomic profiles (BWH 20,556; TCGA 10,209; GTEx 9,507; MGH 6,899)",
         "audit_benchmark": "54 oncology tasks: clinical subtyping, grading, mutation prediction, immunohistochemistry status, treatment response and survival",
-        "audit_result": "Outperforms all baselines with notable generalizability and label efficiency, and is described as particularly well suited to predicting rare events"
+        "audit_result": "Outperforms all baselines with notable generalizability and label efficiency, and is described as particularly well suited to predicting rare events",
+        "subcategory": "Histomolecular Foundation Models"
       },
       {
         "name": "mSTAR",
@@ -1598,7 +1605,8 @@ const modelData = [
         "paper_author": "Xu",
         "audit_image_omics": "26,169 aggregate slide-level modality pairs spanning H&E WSIs, reports and RNA-seq; 10,275 patients",
         "audit_benchmark": "An oncological benchmark spanning 97 tasks, from 26,169 slide-level modality pairs across 32 cancer types (>116M patch images)",
-        "audit_result": "Outperforms the previous state of the art, with the largest gains on molecular prediction and multimodal tasks; the paper's conclusion being that multimodal integration helps more than scaling vision-only data"
+        "audit_result": "Outperforms the previous state of the art, with the largest gains on molecular prediction and multimodal tasks; the paper's conclusion being that multimodal integration helps more than scaling vision-only data",
+        "subcategory": "Histomolecular Foundation Models"
       },
       {
         "name": "OmiCLIP",
@@ -1621,7 +1629,8 @@ const modelData = [
         "website": "",
         "audit_image_omics": "2.2M paired tissue images + spatial transcriptomics (Visium), 32 organs",
         "audit_benchmark": "The Loki platform evaluated on 5 simulations plus 19 public and 4 in-house experimental datasets against 22 state-of-the-art models; pretrained on 2.2M paired tissue images and transcriptomes across 32 organs",
-        "audit_result": "Consistent accuracy and robustness across all simulation and experimental settings"
+        "audit_result": "Consistent accuracy and robustness across all simulation and experimental settings",
+        "subcategory": "Spatial Transcriptomic Foundation Models"
       },
       {
         "name": "KRONOS",
@@ -1646,7 +1655,8 @@ const modelData = [
         "paper_author": "Shaban",
         "audit_image_omics": "47M+ patches cover 175 protein markers",
         "audit_benchmark": "11 independent cohorts covering cell phenotyping, region classification, patient stratification, treatment-response prediction and retrieval; trained on 47M+ patches across 175 protein markers, 16 tissue types and 8 fluorescence platforms",
-        "audit_result": "State of the art on cell phenotyping, treatment-response prediction and retrieval, and highly data-efficient; introduces segmentation-free patch-level processing for spatial proteomics"
+        "audit_result": "State of the art on cell phenotyping, treatment-response prediction and retrieval, and highly data-efficient; introduces segmentation-free patch-level processing for spatial proteomics",
+        "subcategory": "Spatial Proteomic Foundation Models"
       },
       {
         "name": "EXAONE Path 2.5",
@@ -1667,7 +1677,8 @@ const modelData = [
         "paper_author": "Yun",
         "audit_image_omics": "Histology aligned with genomic, epigenetic and transcriptomic modalities",
         "audit_benchmark": "Six leading pathology FMs compared on two benchmarks: an internal real-world clinical dataset and Patho-Bench (80 tasks)",
-        "audit_result": "On par with state-of-the-art FMs on Patho-Bench while showing the highest adaptability in the internal clinical setting, at high data and parameter efficiency"
+        "audit_result": "On par with state-of-the-art FMs on Patho-Bench while showing the highest adaptability in the internal clinical setting, at high data and parameter efficiency",
+        "subcategory": "Histomolecular Foundation Models"
       },
       {
         "name": "CARE",
@@ -1692,7 +1703,8 @@ const modelData = [
         "paper_author": "Zhang",
         "audit_image_omics": "13,289 WSI-RNA pairs + 8,225 WSI-protein pairs",
         "audit_benchmark": "33 downstream benchmarks spanning morphological classification, molecular prediction and survival analysis",
-        "audit_result": "Superior average performance across the 33 benchmarks while using one-tenth of the pretraining data typical of mainstream FMs (34,277 WSIs)"
+        "audit_result": "Superior average performance across the 33 benchmarks while using one-tenth of the pretraining data typical of mainstream FMs (34,277 WSIs)",
+        "subcategory": "Histomolecular Foundation Models"
       },
       {
         "name": "KRONOS2",
@@ -1714,7 +1726,8 @@ const modelData = [
         "paper_author": "Shaban",
         "audit_image_omics": "Pretraining marker vocabulary: 268 protein markers (vs 175 in KRONOS)",
         "audit_benchmark": "No separate evaluation paper: released as a marker-aware successor to KRONOS (268 markers, SPM56M patches); the linked arXiv entry is the original KRONOS paper",
-        "audit_result": "Not separately reported; see KRONOS for the published benchmark results"
+        "audit_result": "Not separately reported; see KRONOS for the published benchmark results",
+        "subcategory": "Spatial Proteomic Foundation Models"
       },
       {
         "name": "GigaTIME-Flash",
@@ -1737,7 +1750,8 @@ const modelData = [
         "paper_author": "Usuyama",
         "audit_image_omics": "Spatial-proteomics prediction supervision",
         "audit_benchmark": "Tumour-microenvironment prediction, measured against the original GigaTIME model",
-        "audit_result": "Runs 6x faster and uses 8x less GPU memory than GigaTIME, released open-weight under Apache-2.0 alongside GigaPath-Flash"
+        "audit_result": "Runs 6x faster and uses 8x less GPU memory than GigaTIME, released open-weight under Apache-2.0 alongside GigaPath-Flash",
+        "subcategory": "Spatial Proteomic Foundation Models"
       },
       {
         "name": "H2O",
@@ -1762,7 +1776,8 @@ const modelData = [
         "audit_omics": "Spatial transcriptomics and spatial proteomics",
         "audit_notes": "",
         "paper_title": "H2O: A Foundation Model Bridging Histopathology to Spatial Multi-Omics Profiling",
-        "paper_author": "Gu"
+        "paper_author": "Gu",
+        "subcategory": "Spatial Multi-Omics Foundation Models"
       },
       {
         "name": "spEMO",
@@ -1785,7 +1800,8 @@ const modelData = [
         "audit_omics": "Spatial transcriptomics and spatial proteomics",
         "audit_notes": "",
         "paper_title": "Leveraging multi-modal foundation models for analysing spatial multi-omic and histopathology data",
-        "paper_author": "Liu"
+        "paper_author": "Liu",
+        "subcategory": "Spatial Multi-Omics Foundation Models"
       },
       {
         "name": "DeepSpot-M",
@@ -1810,7 +1826,8 @@ const modelData = [
         "audit_omics": "Spatial transcriptomics (protein-coding transcriptome-wide)",
         "audit_notes": "",
         "paper_title": "DeepSpot-M: a multimodal foundation model for transcriptome-wide virtual spatial transcriptomics from histology",
-        "paper_author": "Nonchev"
+        "paper_author": "Nonchev",
+        "subcategory": "Spatial Transcriptomic Foundation Models"
       },
       {
         "name": "Fuji",
@@ -1835,7 +1852,8 @@ const modelData = [
         "paper_title": "Genome-scale molecular profiling from routine histopathology with a multimodal pathology foundation model",
         "paper_author": "Li",
         "audit_benchmark": "Frozen-embedding decoders compared with CHIEF, GigaPath and CLAM across genomic-instability and molecular tasks in FFPE/fresh-frozen cohorts; patient-level hold-out and cross-validation analyses; external signature associations in HCMI/PLCO; immunotherapy response in 32 patients",
-        "audit_result": "Reported MSI AUC 0.96–0.98 in STAD, COAD and UCEC across FFPE/fresh-frozen cohorts; HRD AUC 0.71–0.89 and CIN AUC 0.70–0.95. Pan-cancer ecDNA AUC 0.89 ± 0.06 on held-out data. Immunotherapy-response AUC 0.70 and PR-AUC 0.79 versus GigaPath 0.64/0.71 and CHIEF 0.63/0.74. External HCMI/PLCO analyses reproduce lineage- and exposure-associated mutational-signature patterns."
+        "audit_result": "Reported MSI AUC 0.96–0.98 in STAD, COAD and UCEC across FFPE/fresh-frozen cohorts; HRD AUC 0.71–0.89 and CIN AUC 0.70–0.95. Pan-cancer ecDNA AUC 0.89 ± 0.06 on held-out data. Immunotherapy-response AUC 0.70 and PR-AUC 0.79 versus GigaPath 0.64/0.71 and CHIEF 0.63/0.74. External HCMI/PLCO analyses reproduce lineage- and exposure-associated mutational-signature patterns.",
+        "subcategory": "Histomolecular Foundation Models"
       },
       {
         "name": "SciCore-Omics",
@@ -1860,8 +1878,16 @@ const modelData = [
         "audit_benchmark": "Held-out-section evaluation for spatial tasks, four closed-set zero-shot H&E classification benchmarks, PathVQA and expert assessment of the breast pilot. Ki-67 IHC and reports are evaluation references rather than model inputs in the pilot.",
         "audit_result": "Fine-tuned heart gene-expression prediction improves PCC by 23.6% and reduces MSE by 15.8% relative to OmiCLIP. Joint image–gene DLPFC embeddings achieve macro-F1 0.850 versus 0.470 for the strongest external embedding baseline. Mean zero-shot accuracy across four benchmarks is 56.46%, versus GPT-5 at 50.30% (+6.16 percentage points).",
         "paper_title": "SciCore-Omics: a tri-modal foundation model unifying histology, spatial transcriptomics and language for spatial biology",
-        "paper_author": "Xiao"
+        "paper_author": "Xiao",
+        "subcategory": "Spatial Multi-Omics Foundation Models"
       }
+    ],
+    "subcategories": [
+      "Histomolecular Foundation Models",
+      "Spatial Transcriptomic Foundation Models",
+      "Spatial Proteomic Foundation Models",
+      "Multi-Stain Foundation Models",
+      "Spatial Multi-Omics Foundation Models"
     ]
   },
   {

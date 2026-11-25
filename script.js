@@ -148,7 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const panel = document.getElementById('facetPanel');
         if (!panel) return;
         const models = allModels();
-        let html = '<div class="facet-head"><span><i class="ph ph-funnel"></i> Filter by metadata</span>' +
+        let html = '<div class="facet-head"><span><i aria-hidden="true" class="ph ph-funnel"></i> Filter by metadata</span>' +
             '<button type="button" id="facetClear" class="facet-clear">Clear all</button></div><div class="facet-groups">';
         FACETS.forEach(f => {
             const counts = {};
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (!vals.length) return;
             if (f.order) vals.sort((a, b) => f.order.indexOf(a) - f.order.indexOf(b));
             else vals.sort((a, b) => counts[b] - counts[a]);
-            html += '<div class="facet-group"><div class="facet-group-label"><i class="ph ' + f.icon + '"></i> ' + f.label + '</div><div class="facet-chips">';
+            html += '<div class="facet-group"><div class="facet-group-label"><i aria-hidden="true" class="ph ' + f.icon + '"></i> ' + f.label + '</div><div class="facet-chips">';
             vals.forEach(v => {
                 html += '<button type="button" class="facet-chip" data-key="' + f.key + '" data-val="' + esc(v) + '">' +
                     esc(v) + ' <span class="facet-chip-n">' + counts[v] + '</span></button>';
@@ -199,6 +199,12 @@ document.addEventListener('DOMContentLoaded', () => {
         option.value = cat.category;
         option.textContent = cat.category;
         categoryFilter.appendChild(option);
+        (cat.subcategories || []).forEach(subcategory => {
+            const child = document.createElement('option');
+            child.value = cat.category + '::' + subcategory;
+            child.textContent = '↳ ' + subcategory;
+            categoryFilter.appendChild(child);
+        });
     });
 
     // Helper to get family tag info based on category
@@ -219,6 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (catLower.includes('survey')) return { text: 'survey', color: 'gray' };
         if (catLower.includes('interpretability')) return { text: 'analysis', color: 'pink' };
         if (catLower.includes('robustness')) return { text: 'robustness', color: 'orange' };
+        if (catLower.includes('curation')) return { text: 'data curation', color: 'blue' };
         return { text: 'control', color: 'gray' };
     }
 
@@ -239,8 +246,8 @@ document.addEventListener('DOMContentLoaded', () => {
         return model.variants.map(v => {
             const url = v.hf || v.paper;
             const note = (v.note || '').replace(/"/g, '&quot;');
-            if (!url) return `<span class="variant-chip variant-chip-static" title="${note}"><i class="ph ph-git-fork"></i> ${v.name}</span>`;
-            return `<a href="${url}" target="_blank" class="variant-chip" title="${note}"><i class="ph ph-git-fork"></i> ${v.name}</a>`;
+            if (!url) return `<span class="variant-chip variant-chip-static" title="${note}"><i aria-hidden="true" class="ph ph-git-fork"></i> ${v.name}</span>`;
+            return `<a href="${url}" target="_blank" class="variant-chip" title="${note}"><i aria-hidden="true" class="ph ph-git-fork"></i> ${v.name}</a>`;
         }).join('');
     }
 
@@ -301,8 +308,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 dataFacetsHtml += `
                     <div class="facet">
                         <button class="facet-btn" type="button" aria-expanded="false">
-                            <span class="facet-label"><i class="ph ${facet.icon}"></i> ${facet.label}</span>
-                            <i class="ph ph-caret-down facet-caret"></i>
+                            <span class="facet-label"><i aria-hidden="true" class="ph ${facet.icon}"></i> ${facet.label}</span>
+                            <i aria-hidden="true" class="ph ph-caret-down facet-caret"></i>
                         </button>
                         <div class="facet-content" hidden>${formatField(model[facet.key])}</div>
                     </div>`;
@@ -311,8 +318,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (model.variants && model.variants.length) {
             const vRows = model.variants.map(v => {
                 let vlinks = '';
-                if (v.hf) vlinks += `<a href="${v.hf}" target="_blank" class="variant-link"><i class="ph ph-cube"></i> Model</a>`;
-                if (v.paper) vlinks += `<a href="${v.paper}" target="_blank" class="variant-link"><i class="ph ph-file-text"></i> Paper</a>`;
+                if (v.hf) vlinks += `<a href="${v.hf}" target="_blank" class="variant-link"><i aria-hidden="true" class="ph ph-cube"></i> Model</a>`;
+                if (v.paper) vlinks += `<a href="${v.paper}" target="_blank" class="variant-link"><i aria-hidden="true" class="ph ph-file-text"></i> Paper</a>`;
                 return `<div class="variant-row">
                             <div class="variant-head"><span class="variant-name">${v.name}</span>${v.year ? `<span class="variant-year">${v.year}</span>` : ''}</div>
                             ${v.note ? `<div class="variant-note">${v.note}</div>` : ''}
@@ -322,8 +329,8 @@ document.addEventListener('DOMContentLoaded', () => {
             facetsHtml += `
                     <div class="facet">
                         <button class="facet-btn" type="button" aria-expanded="false">
-                            <span class="facet-label"><i class="ph ph-git-fork"></i> Versions / variants</span>
-                            <i class="ph ph-caret-down facet-caret"></i>
+                            <span class="facet-label"><i aria-hidden="true" class="ph ph-git-fork"></i> Versions / variants</span>
+                            <i aria-hidden="true" class="ph ph-caret-down facet-caret"></i>
                         </button>
                         <div class="facet-content facet-variants" hidden>${vRows}</div>
                     </div>`;
@@ -332,13 +339,13 @@ document.addEventListener('DOMContentLoaded', () => {
             facetsHtml += `
                     <div class="facet">
                         <button class="facet-btn" type="button" aria-expanded="false">
-                            <span class="facet-label"><i class="ph ph-quotes"></i> Cite (BibTeX)</span>
-                            <i class="ph ph-caret-down facet-caret"></i>
+                            <span class="facet-label"><i aria-hidden="true" class="ph ph-quotes"></i> Cite (BibTeX)</span>
+                            <i aria-hidden="true" class="ph ph-caret-down facet-caret"></i>
                         </button>
                         <div class="facet-content facet-cite" hidden>
                             <div class="cite-toolbar">
                                 <span class="cite-label">BibTeX</span>
-                                <button class="copy-bibtex" type="button"><i class="ph ph-copy"></i> Copy</button>
+                                <button class="copy-bibtex" type="button"><i aria-hidden="true" class="ph ph-copy"></i> Copy</button>
                             </div>
                             <pre class="bibtex-block">${escapeHtml(model.bibtex)}</pre>
                         </div>
@@ -351,6 +358,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 { label: 'Pre-training objective', value: model.audit_objective },
                 { label: 'Tasks', value: model.audit_tasks || unlessFaceted('audit_downstream') },
                 { label: 'Domain / focus', value: model.audit_domain || unlessFaceted('audit_organs') },
+                { label: 'Subsection', value: model.subcategory },
                 { label: 'Benchmark / dataset', value: model.audit_benchmark },
                 { label: 'Headline result', value: model.audit_result },
                 { label: 'Pretraining WSIs', value: model.audit_wsis },
@@ -383,11 +391,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Resource links (Paper / Code / Model / Dataset / Website).
         let linkRow = '';
-        if (model.paper) linkRow += `<a href="${model.paper}" target="_blank" class="link-btn link-paper"><i class="ph ph-file-text"></i> Paper</a>`;
-        if (model.github) linkRow += `<a href="${model.github}" target="_blank" class="link-btn link-github"><i class="ph ph-github-logo"></i> Code</a>`;
-        if (model.hf) linkRow += `<a href="${model.hf}" target="_blank" class="link-btn link-hf"><i class="ph ph-cube"></i> Model</a>`;
-        if (model.dataset) linkRow += `<a href="${model.dataset}" target="_blank" class="link-btn link-dataset"><i class="ph ph-database"></i> Dataset</a>`;
-        if (model.website) linkRow += `<a href="${model.website}" target="_blank" class="link-btn link-website"><i class="ph ph-globe"></i> Website</a>`;
+        if (model.paper) linkRow += `<a href="${model.paper}" target="_blank" class="link-btn link-paper"><i aria-hidden="true" class="ph ph-file-text"></i> Paper</a>`;
+        if (model.github) linkRow += `<a href="${model.github}" target="_blank" class="link-btn link-github"><i aria-hidden="true" class="ph ph-github-logo"></i> Code</a>`;
+        if (model.hf) linkRow += `<a href="${model.hf}" target="_blank" class="link-btn link-hf"><i aria-hidden="true" class="ph ph-cube"></i> Model</a>`;
+        if (model.dataset) linkRow += `<a href="${model.dataset}" target="_blank" class="link-btn link-dataset"><i aria-hidden="true" class="ph ph-database"></i> Dataset</a>`;
+        if (model.website) linkRow += `<a href="${model.website}" target="_blank" class="link-btn link-website"><i aria-hidden="true" class="ph ph-globe"></i> Website</a>`;
         const linksBlock = linkRow ? `<div class="modal-links">${linkRow}</div>` : '';
 
         if (!facetsBlock && !tableBlock && !linksBlock) {
@@ -417,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
             copyBtn.addEventListener('click', () => {
                 navigator.clipboard.writeText(model.bibtex).then(() => {
                     const orig = copyBtn.innerHTML;
-                    copyBtn.innerHTML = '<i class="ph ph-check"></i> Copied!';
+                    copyBtn.innerHTML = '<i aria-hidden="true" class="ph ph-check"></i> Copied!';
                     setTimeout(() => { copyBtn.innerHTML = orig; }, 2000);
                 });
             });
@@ -448,6 +456,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Interpretability and Analysis': '#d946ef',
         'Robustness and Generalization': '#ef4444',
         'Survey and Perspectives': '#94a3b8',
+        'Data Curation & Pretraining Strategies': '#10b981',
     };
     const spiralColor = c => SPIRAL_COLORS[c] || '#9ca3af';
 
@@ -468,7 +477,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!allItems.length) {
             container.innerHTML = `
                 <div class="empty-state">
-                    <i class="ph ph-ghost" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                    <i aria-hidden="true" class="ph ph-ghost" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
                     <h3>No models found</h3><p>Try adjusting your search or filters.</p>
                 </div>`;
             return;
@@ -486,7 +495,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const items = spiralYear === 'all' ? allItems : allItems.filter(it => timelineDate(it.m).slice(0, 4) === spiralYear);
         if (!items.length) {
             container.innerHTML = `<div class="spiral-wrap"><div class="spiral-tabs">${tabs}</div>
-                <div class="empty-state"><i class="ph ph-ghost" style="font-size:2.5rem;opacity:.5"></i><h3>Nothing in ${spiralYear}</h3></div></div>`;
+                <div class="empty-state"><i aria-hidden="true" class="ph ph-ghost" style="font-size:2.5rem;opacity:.5"></i><h3>Nothing in ${spiralYear}</h3></div></div>`;
             wireTabs();
             return;
         }
@@ -543,13 +552,13 @@ document.addEventListener('DOMContentLoaded', () => {
         items.forEach((it, i) => { const col = spiralColor(it.category); dots += `<circle class="spiral-dot" data-idx="${i}" cx="${(P[i][0] + c).toFixed(1)}" cy="${(P[i][1] + c).toFixed(1)}" r="${dotR}" fill="${col}" style="color:${col};animation-delay:${i * 8}ms"/>`; });
 
         // Legend (categories present, in canonical order).
-        const present = Object.keys(SPIRAL_COLORS).filter(cat => items.some(it => it.category === cat));
+        const present = [...new Set([...Object.keys(SPIRAL_COLORS), ...items.map(it => it.category)])].filter(cat => items.some(it => it.category === cat));
         const legend = present.map(cat => `<span class="spiral-leg"><i style="background:${spiralColor(cat)}"></i>${cat}</span>`).join('');
 
         container.innerHTML = `
         <div class="spiral-wrap">
           <div class="spiral-tabs">${tabs}</div>
-          <svg viewBox="0 0 ${size} ${size}" class="spiral-svg" style="--dot-hr:${dotHr}" role="img" aria-label="Spiral timeline of ${items.length} models, one revolution per year">
+          <svg viewBox="0 0 ${size} ${size}" class="spiral-svg" style="--dot-hr:${dotHr}" role="img" aria-label="Spiral timeline of ${items.length} entries, one revolution per year">
             <defs>
               <radialGradient id="spiralGlow" cx="50%" cy="50%" r="50%">
                 <stop offset="0%" stop-color="var(--accent-1)" stop-opacity="0.10"/>
@@ -582,12 +591,13 @@ document.addEventListener('DOMContentLoaded', () => {
             clearTimeout(hideTimer);
             const it = items[i], m = it.m;
             let links = '';
-            if (m.paper) links += `<a href="${m.paper}" target="_blank" class="icon-link paper" title="Paper"><i class="ph ph-file-text"></i></a>`;
-            if (m.github) links += `<a href="${m.github}" target="_blank" class="icon-link github" title="Code"><i class="ph ph-github-logo"></i></a>`;
-            if (m.hf) links += `<a href="${m.hf}" target="_blank" class="icon-link hf" title="Model"><i class="ph ph-cube"></i></a>`;
-            if (m.website) links += `<a href="${m.website}" target="_blank" class="icon-link website" title="Website"><i class="ph ph-globe"></i></a>`;
+            if (m.paper) links += `<a href="${m.paper}" target="_blank" class="icon-link paper" title="Paper"><i aria-hidden="true" class="ph ph-file-text"></i></a>`;
+            if (m.github) links += `<a href="${m.github}" target="_blank" class="icon-link github" title="Code"><i aria-hidden="true" class="ph ph-github-logo"></i></a>`;
+            if (m.hf) links += `<a href="${m.hf}" target="_blank" class="icon-link hf" title="Model"><i aria-hidden="true" class="ph ph-cube"></i></a>`;
+            if (m.website) links += `<a href="${m.website}" target="_blank" class="icon-link website" title="Website"><i aria-hidden="true" class="ph ph-globe"></i></a>`;
             card.innerHTML = `<div class="sc-head"><span class="sc-dot" style="background:${spiralColor(it.category)}"></span><strong>${m.name}</strong></div>
                 <div class="sc-date">${formatDate(m.date) || m.year} · ${it.category}</div>
+                ${m.subcategory ? `<div class="sc-subcategory">${escapeHtml(m.subcategory)}</div>` : ''}
                 <div class="sc-idea">${preferAudit(m.idea, m.audit_notes)}</div>
                 <div class="sc-links">${links}<button class="sc-details" type="button">Details</button></div>`;
             card.hidden = false;
@@ -613,11 +623,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Resource icon-links for a model (used in the compare table).
     function compareLinks(m) {
         let s = '';
-        if (m.paper) s += `<a href="${m.paper}" target="_blank" class="icon-link paper" title="Paper"><i class="ph ph-file-text"></i></a>`;
-        if (m.github) s += `<a href="${m.github}" target="_blank" class="icon-link github" title="Code"><i class="ph ph-github-logo"></i></a>`;
-        if (m.hf) s += `<a href="${m.hf}" target="_blank" class="icon-link hf" title="Model"><i class="ph ph-cube"></i></a>`;
-        if (m.dataset) s += `<a href="${m.dataset}" target="_blank" class="icon-link dataset" title="Dataset"><i class="ph ph-database"></i></a>`;
-        if (m.website) s += `<a href="${m.website}" target="_blank" class="icon-link website" title="Website"><i class="ph ph-globe"></i></a>`;
+        if (m.paper) s += `<a href="${m.paper}" target="_blank" class="icon-link paper" title="Paper"><i aria-hidden="true" class="ph ph-file-text"></i></a>`;
+        if (m.github) s += `<a href="${m.github}" target="_blank" class="icon-link github" title="Code"><i aria-hidden="true" class="ph ph-github-logo"></i></a>`;
+        if (m.hf) s += `<a href="${m.hf}" target="_blank" class="icon-link hf" title="Model"><i aria-hidden="true" class="ph ph-cube"></i></a>`;
+        if (m.dataset) s += `<a href="${m.dataset}" target="_blank" class="icon-link dataset" title="Dataset"><i aria-hidden="true" class="ph ph-database"></i></a>`;
+        if (m.website) s += `<a href="${m.website}" target="_blank" class="icon-link website" title="Website"><i aria-hidden="true" class="ph ph-globe"></i></a>`;
         return s || '<span class="cmp-dash">—</span>';
     }
 
@@ -644,6 +654,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!btn) return;
                 if (btn.dataset.col !== undefined) {
                     overlay.querySelectorAll('[data-col="' + btn.dataset.col + '"]').forEach(el => el.remove());
+                    const count = overlay.querySelectorAll('.cmp-model').length;
+                    overlay.querySelector('#compareTitle').textContent = 'Compare · ' + overlay.dataset.category + ' (' + count + ')';
+                    overlay.querySelector('.cmp-corner').textContent = count + ' entries';
                 } else {
                     const tr = btn.closest('tr');
                     if (tr) tr.remove();
@@ -652,6 +665,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         // Superset of attributes across both engines; only rows with data are shown.
         const rowDefs = [
+            ['Subsection', m => m.subcategory, 'ph-tree-structure'],
             ['Year', m => m.year != null ? String(m.year) : '', 'ph-calendar-blank'],
             ['Backbone / Data', m => m.data, 'ph-database'],
             ['Key idea', m => m.idea, 'ph-lightbulb'],
@@ -677,13 +691,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const head = '<tr><th class="cmp-corner">' + models.length + ' entries</th>' +
             models.map((m, i) => '<th class="cmp-model" data-col="' + i + '"><span class="cmp-mname">' + m.name + (m.year != null ? ' <span class="cmp-year">' + m.year + '</span>' : '') + '</span><button class="cmp-remove" data-col="' + i + '" title="Remove from comparison">&times;</button></th>').join('') + '</tr>';
-        const attrTh = (icon, lbl) => '<th class="cmp-attr"><div class="cmp-attr-in"><span><i class="ph ' + icon + '"></i>' + lbl + '</span><button class="cmp-remove" title="Remove row">&times;</button></div></th>';
+        const attrTh = (icon, lbl) => '<th class="cmp-attr"><div class="cmp-attr-in"><span><i aria-hidden="true" class="ph ' + icon + '"></i>' + lbl + '</span><button class="cmp-remove" title="Remove row">&times;</button></div></th>';
         const body = rowDefs.map(([lbl, get, icon]) =>
             '<tr>' + attrTh(icon, lbl) +
             models.map((m, i) => '<td data-col="' + i + '">' + (isMeaningful(get(m)) ? formatField(get(m)) : '<span class="cmp-dash">—</span>') + '</td>').join('') + '</tr>'
         ).join('') +
             '<tr>' + attrTh('ph-link', 'Resources') + models.map((m, i) => '<td data-col="' + i + '"><div class="cmp-links">' + compareLinks(m) + '</div></td>').join('') + '</tr>';
 
+        overlay.dataset.category = categoryName;
         document.getElementById('compareTitle').textContent = 'Compare · ' + categoryName + ' (' + models.length + ')';
         document.getElementById('compareBody').innerHTML = '<div class="cmp-scroll"><table class="cmp-table"><thead>' + head + '</thead><tbody>' + body + '</tbody></table></div>';
         overlay.classList.add('open');
@@ -695,26 +710,31 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = '';
         const cats = data.filter(c => c.models.length);
         if (!cats.length) {
-            container.innerHTML = `<div class="empty-state"><i class="ph ph-ghost" style="font-size:3rem;opacity:.5"></i><h3>No models found</h3><p>Try adjusting your search or filters.</p></div>`;
+            container.innerHTML = `<div class="empty-state"><i aria-hidden="true" class="ph ph-ghost" style="font-size:3rem;opacity:.5"></i><h3>No models found</h3><p>Try adjusting your search or filters.</p></div>`;
             return;
         }
         if (typeof d3 === 'undefined') {
-            container.innerHTML = `<div class="empty-state"><i class="ph ph-tree-structure" style="font-size:3rem;opacity:.5"></i><h3>Graph library unavailable</h3><p>The force-directed view needs D3 (loaded from a CDN); check your connection.</p></div>`;
+            container.innerHTML = `<div class="empty-state"><i aria-hidden="true" class="ph ph-tree-structure" style="font-size:3rem;opacity:.5"></i><h3>Graph library unavailable</h3><p>Reload the page to try loading the graph again.</p></div>`;
             return;
         }
         const ROOT_LABEL = 'Pathology FMs';
         const color = c => (typeof SPIRAL_COLORS !== 'undefined' && SPIRAL_COLORS[c]) || '#6366f1';
 
         const root = { id: '__root', label: ROOT_LABEL, kind: 'root' };
-        const catData = cats.map(c => ({
-            id: 'c__' + c.category, label: c.category, kind: 'cat', category: c.category, expanded: false,
-            children: c.models.map(m => ({ id: 'm__' + c.category + '__' + m.name, label: m.name, kind: 'model', category: c.category, model: m }))
-        }));
+        const catData = cats.map(c => {
+            const modelNodes = members => members.map(m => ({ id: 'm__' + c.category + '__' + m.name, label: m.name, kind: 'model', category: c.category, model: m }));
+            const children = c.subcategories ? c.subcategories.map(name => ({
+                id: 's__' + c.category + '__' + name, label: name, kind: 'subcat', category: c.category, expanded: false,
+                children: modelNodes(c.models.filter(m => m.subcategory === name)),
+                count: c.models.filter(m => m.subcategory === name).length
+            })).filter(group => group.count) : modelNodes(c.models);
+            return { id: 'c__' + c.category, label: c.category, kind: 'cat', category: c.category, expanded: false, count: c.models.length, children };
+        });
 
         const wrap = document.createElement('div');
         wrap.className = 'tree-wrap';
-        wrap.innerHTML = '<div class="tree-hint"><i class="ph ph-hand-pointing"></i> Click a category to expand · drag nodes · scroll to zoom · click a paper for details</div>' +
-            '<div class="tree-spread" title="Node spacing"><i class="ph ph-arrows-in-line-horizontal"></i><input type="range" id="treeSpread" min="0.5" max="2.5" step="0.05" value="1" aria-label="Node spacing"><i class="ph ph-arrows-out-line-horizontal"></i></div>';
+        wrap.innerHTML = '<div class="tree-hint"><i aria-hidden="true" class="ph ph-hand-pointing"></i> Click a category to expand · drag nodes · scroll to zoom · click a paper for details</div>' +
+            '<div class="tree-spread" title="Node spacing"><i aria-hidden="true" class="ph ph-arrows-in-line-horizontal"></i><input type="range" id="treeSpread" min="0.5" max="2.5" step="0.05" value="1" aria-label="Node spacing"><i aria-hidden="true" class="ph ph-arrows-out-line-horizontal"></i></div>';
         container.appendChild(wrap);
 
         const width = wrap.clientWidth || 900, height = 620;
@@ -723,7 +743,7 @@ document.addEventListener('DOMContentLoaded', () => {
         svg.call(d3.zoom().scaleExtent([0.25, 3]).on('zoom', e => g.attr('transform', e.transform)));
         const linkG = g.append('g'), nodeG = g.append('g');
 
-        const radius = d => d.kind === 'root' ? 15 : d.kind === 'cat' ? 10 : 6;
+        const radius = d => d.kind === 'root' ? 15 : d.kind === 'cat' ? 10 : d.kind === 'subcat' ? 8 : 6;
 
         let spread = 1;
         const linkDist = d => (d.target.kind === 'model' ? 80 : 150) * spread;
@@ -752,10 +772,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         function graph() {
             const N = [root], L = [];
+            function addChildren(node) {
+                if (!node.expanded) return;
+                node.children.forEach(child => { N.push(child); L.push({ source: node.id, target: child.id }); addChildren(child); });
+            }
             catData.forEach(cn => {
                 N.push(cn);
                 L.push({ source: root.id, target: cn.id });
-                if (cn.expanded) cn.children.forEach(mn => { N.push(mn); L.push({ source: cn.id, target: mn.id }); });
+                addChildren(cn);
             });
             return { N, L };
         }
@@ -786,18 +810,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 .call(drag());
             enter.append('circle').attr('fill', 'currentColor');
             enter.append('text').attr('class', 'tree-label').attr('dy', '0.32em')
-                .text(d => d.kind === 'cat' ? d.label + ' (' + d.children.length + ')' : d.label);
-            enter.append('title').text(d => d.label);
+                .text(d => d.kind === 'cat' || d.kind === 'subcat' ? d.label + ' (' + d.count + ')' : d.label);
+            enter.append('title').text(d => d.model?.subcategory ? d.label + ' · ' + d.model.subcategory : d.label);
             enter.on('click', (e, d) => {
                 e.stopPropagation();
-                if (d.kind === 'cat') { d.expanded = !d.expanded; update(); }
+                if (d.kind === 'cat' || d.kind === 'subcat') { d.expanded = !d.expanded; update(); }
                 else if (d.kind === 'model') { openModal(d.model); }
                 else { const any = catData.some(c => c.expanded); catData.forEach(c => c.expanded = !any); update(); }
             });
             nodeSel = enter.merge(nodeSel);
             nodeSel.select('circle').attr('r', radius);
             nodeSel.select('.tree-label').attr('x', d => radius(d) + 5);
-            nodeSel.classed('expanded', d => d.kind === 'cat' && d.expanded);
+            nodeSel.classed('expanded', d => (d.kind === 'cat' || d.kind === 'subcat') && d.expanded);
 
             sim.nodes(N);
             sim.force('link').links(L);
@@ -823,7 +847,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!items.length) {
             container.innerHTML = `
                 <div class="empty-state">
-                    <i class="ph ph-ghost" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                    <i aria-hidden="true" class="ph ph-ghost" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
                     <h3>No models found</h3><p>Try adjusting your search or filters.</p>
                 </div>`;
             return;
@@ -909,6 +933,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const lx = p.dir === 'right' ? p.nodeX + stub : p.nodeX - stub;
                 const idx = flat.length;
                 svg += `<g class="swim-item" data-idx="${idx}">`
+                    + `<title>${escapeHtml(p.it.m.name)}${p.it.m.subcategory ? ' · ' + escapeHtml(p.it.m.subcategory) : ''}</title>`
                     + `<polyline class="swim-leader" points="${p.nodeX},${L.trackY} ${p.nodeX},${cy} ${lx},${cy}" stroke="${cclr}"/>`
                     + `<circle class="swim-dot" cx="${p.nodeX}" cy="${L.trackY}" r="5" fill="${cclr}"/>`
                     + `<text class="swim-label" x="${p.dir === 'right' ? lx + 1 : lx - 1}" y="${textY}" text-anchor="${p.dir === 'right' ? 'start' : 'end'}">${escapeHtml(p.it.m.name)}</text>`
@@ -927,7 +952,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         container.innerHTML = `
           <div class="swim-view">
-            <div class="swim-hint"><i class="ph ph-hand-pointing"></i> Scroll horizontally · each dot is a paper (color = category) · click a dot for details</div>
+            <div class="swim-hint"><i aria-hidden="true" class="ph ph-hand-pointing"></i> Scroll horizontally · each dot is a paper (color = category) · click a dot for details</div>
             <div class="swim-body">
               <div class="swim-lanes"><div class="swim-lane-head" style="height:${axisH}px"></div>${laneLabels}</div>
               <div class="swim-scroll">${svg}</div>
@@ -941,10 +966,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function updateCatalogSummary(data) {
+        const groups = data.map(cat => ({ ...cat, models: currentView === 'timeline' && spiralYear !== 'all'
+            ? cat.models.filter(m => (m.date || String(m.year)).slice(0, 4) === spiralYear) : cat.models }));
+        const entries = groups.reduce((sum, cat) => sum + cat.models.length, 0);
+        const categories = groups.filter(cat => cat.models.length).length;
+        const summary = document.getElementById('catalogSummary');
+        if (summary) summary.textContent = `${entries} ${entries === 1 ? 'entry' : 'entries'} in ${categories} ${categories === 1 ? 'category' : 'categories'}`;
+    }
+
     function render(data) {
         if (treeSim) { treeSim.stop(); treeSim = null; }
         container.innerHTML = '';
-        if (currentView === 'timeline') { renderTimeline(data); return; }
+        if (currentView === 'timeline') { renderTimeline(data); updateCatalogSummary(data); return; }
+        updateCatalogSummary(data);
         if (currentView === 'swimlane') { renderSwimlane(data); return; }
         if (currentView === 'tree') { renderTree(data); return; }
         let hasResults = false;
@@ -966,7 +1001,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const cmpBtn = document.createElement('button');
                 cmpBtn.type = 'button';
                 cmpBtn.className = 'compare-btn';
-                cmpBtn.innerHTML = '<i class="ph ph-columns"></i> Compare';
+                cmpBtn.innerHTML = '<i aria-hidden="true" class="ph ph-columns"></i> Compare';
                 const grpName = categoryGroup.category, grpModels = categoryGroup.models;
                 cmpBtn.addEventListener('click', () => openCompare(grpName, grpModels));
                 header.appendChild(cmpBtn);
@@ -974,6 +1009,17 @@ document.addEventListener('DOMContentLoaded', () => {
             section.appendChild(header);
 
             const family = getFamilyInfo(categoryGroup.category);
+            const groups = categoryGroup.subcategories
+                ? categoryGroup.subcategories.map(name => ({ name, models: categoryGroup.models.filter(m => m.subcategory === name) }))
+                : [{ models: categoryGroup.models }];
+            groups.filter(group => group.models.length).forEach(group => {
+                const groupContainer = group.name ? document.createElement('div') : section;
+                if (group.name) {
+                    groupContainer.className = 'subcategory-section';
+                    groupContainer.dataset.subcategory = group.name;
+                    groupContainer.innerHTML = `<div class="subcategory-header"><h3 class="subcategory-title">${escapeHtml(group.name)}</h3><span class="subcategory-count">${group.models.length} ${group.models.length === 1 ? 'entry' : 'entries'}</span></div>`;
+                    section.appendChild(groupContainer);
+                }
 
             if (currentView === 'table') {
                 // TABLE VIEW
@@ -997,19 +1043,19 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 const tbody = table.querySelector('tbody');
                 
-                categoryGroup.models.forEach(model => {
+                group.models.forEach(model => {
                     const tr = document.createElement('tr');
                     tr.className = 'main-row';
                     
                     let linksHTML = '';
-                    if (model.paper) linksHTML += `<a href="${model.paper}" target="_blank" class="icon-link paper" title="Paper"><i class="ph ph-file-text"></i></a>`;
-                    if (model.github) linksHTML += `<a href="${model.github}" target="_blank" class="icon-link github" title="Code"><i class="ph ph-github-logo"></i></a>`;
-                    if (model.hf) linksHTML += `<a href="${model.hf}" target="_blank" class="icon-link hf" title="Hugging Face Model"><i class="ph ph-cube"></i></a>`;
-                    if (model.dataset) linksHTML += `<a href="${model.dataset}" target="_blank" class="icon-link dataset" title="Dataset"><i class="ph ph-database"></i></a>`;
-                    if (model.website) linksHTML += `<a href="${model.website}" target="_blank" class="icon-link website" title="Website"><i class="ph ph-globe"></i></a>`;
+                    if (model.paper) linksHTML += `<a href="${model.paper}" target="_blank" class="icon-link paper" title="Paper"><i aria-hidden="true" class="ph ph-file-text"></i></a>`;
+                    if (model.github) linksHTML += `<a href="${model.github}" target="_blank" class="icon-link github" title="Code"><i aria-hidden="true" class="ph ph-github-logo"></i></a>`;
+                    if (model.hf) linksHTML += `<a href="${model.hf}" target="_blank" class="icon-link hf" title="Hugging Face Model"><i aria-hidden="true" class="ph ph-cube"></i></a>`;
+                    if (model.dataset) linksHTML += `<a href="${model.dataset}" target="_blank" class="icon-link dataset" title="Dataset"><i aria-hidden="true" class="ph ph-database"></i></a>`;
+                    if (model.website) linksHTML += `<a href="${model.website}" target="_blank" class="icon-link website" title="Website"><i aria-hidden="true" class="ph ph-globe"></i></a>`;
 
                     tr.innerHTML = `
-                        <td class="expand-col"><button class="expand-btn" title="View Detailed Metadata"><i class="ph ph-arrows-out-simple"></i></button></td>
+                        <td class="expand-col"><button class="expand-btn" title="View Detailed Metadata"><i aria-hidden="true" class="ph ph-arrows-out-simple"></i></button></td>
                         <td>
                             <div class="model-info-col">
                                 <div class="model-name">${model.name}</div>
@@ -1026,21 +1072,21 @@ document.addEventListener('DOMContentLoaded', () => {
                     tbody.appendChild(tr);
                 });
                 tableWrapper.appendChild(table);
-                section.appendChild(tableWrapper);
+                groupContainer.appendChild(tableWrapper);
             } else {
                 // GRID VIEW
                 const grid = document.createElement('div');
                 grid.className = 'grid';
                 
-                categoryGroup.models.forEach(model => {
+                group.models.forEach(model => {
                     const card = document.createElement('div');
                     card.className = 'card';
                     let linksHTML = '';
-                    if (model.paper) linksHTML += `<a href="${model.paper}" target="_blank" class="link-btn link-paper"><i class="ph ph-file-text"></i> Paper</a>`;
-                    if (model.github) linksHTML += `<a href="${model.github}" target="_blank" class="link-btn link-github"><i class="ph ph-github-logo"></i> Code</a>`;
-                    if (model.hf) linksHTML += `<a href="${model.hf}" target="_blank" class="link-btn link-hf"><i class="ph ph-cube"></i> Model</a>`;
-                    if (model.dataset) linksHTML += `<a href="${model.dataset}" target="_blank" class="link-btn link-dataset"><i class="ph ph-database"></i> Dataset</a>`;
-                    if (model.website) linksHTML += `<a href="${model.website}" target="_blank" class="link-btn link-website"><i class="ph ph-globe"></i> Website</a>`;
+                    if (model.paper) linksHTML += `<a href="${model.paper}" target="_blank" class="link-btn link-paper"><i aria-hidden="true" class="ph ph-file-text"></i> Paper</a>`;
+                    if (model.github) linksHTML += `<a href="${model.github}" target="_blank" class="link-btn link-github"><i aria-hidden="true" class="ph ph-github-logo"></i> Code</a>`;
+                    if (model.hf) linksHTML += `<a href="${model.hf}" target="_blank" class="link-btn link-hf"><i aria-hidden="true" class="ph ph-cube"></i> Model</a>`;
+                    if (model.dataset) linksHTML += `<a href="${model.dataset}" target="_blank" class="link-btn link-dataset"><i aria-hidden="true" class="ph ph-database"></i> Dataset</a>`;
+                    if (model.website) linksHTML += `<a href="${model.website}" target="_blank" class="link-btn link-website"><i aria-hidden="true" class="ph ph-globe"></i> Website</a>`;
 
                     card.innerHTML = `
                         <div class="card-header">
@@ -1052,7 +1098,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         <div class="model-idea">${preferAudit(model.idea, model.audit_notes)}</div>
                         ${preferAudit(model.data, model.audit_wsis) ? `<div class="model-data">
-                            <i class="ph ph-database"></i>
+                            <i aria-hidden="true" class="ph ph-database"></i>
                             <span>${preferAudit(model.data, model.audit_wsis)}</span>
                         </div>` : ''}
                         <div class="card-links">
@@ -1060,7 +1106,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                         ${variantChips(model) ? `<div class="card-variants">${variantChips(model)}</div>` : ''}
                         <button class="card-expand-btn">
-                            Detailed Metadata <i class="ph ph-arrows-out-simple"></i>
+                            Detailed Metadata <i aria-hidden="true" class="ph ph-arrows-out-simple"></i>
                         </button>
                     `;
 
@@ -1071,8 +1117,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
                     grid.appendChild(card);
                 });
-                section.appendChild(grid);
+                groupContainer.appendChild(grid);
             }
+            });
 
             container.appendChild(section);
         });
@@ -1080,7 +1127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!hasResults) {
             container.innerHTML = `
                 <div class="empty-state">
-                    <i class="ph ph-ghost" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
+                    <i aria-hidden="true" class="ph ph-ghost" style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.5;"></i>
                     <h3>No models found</h3>
                     <p>Try adjusting your search or filters.</p>
                 </div>
@@ -1090,14 +1137,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function handleFilters() {
         const searchTerm = searchInput.value.toLowerCase();
-        const selectedCategory = categoryFilter.value;
+        const [selectedCategory, selectedSubcategory] = categoryFilter.value.split('::');
         const filtered = modelData.map(cat => {
             if (selectedCategory !== 'all' && cat.category !== selectedCategory) {
                 return { ...cat, models: [] };
             }
             const matchedModels = cat.models.filter(m => {
+                if (selectedSubcategory && m.subcategory !== selectedSubcategory) return false;
                 const haystack = [
-                    m.name, m.idea, m.data, m.year, cat.category,
+                    m.name, m.idea, m.data, m.year, cat.category, m.subcategory,
                     m.audit_notes, m.paper_title, m.paper_author, m.tag,
                     ...(m.variants || []).map(v => v.name)
                 ].filter(Boolean).join(' ').toLowerCase();
@@ -1125,7 +1173,7 @@ document.addEventListener('DOMContentLoaded', () => {
         else themeIcon.classList.replace('ph-moon', 'ph-sun');
     });
 
-    // Debounced: every keystroke otherwise re-renders all 145 entries (and, in
+    // Debounced: every keystroke otherwise re-renders the full catalog (and, in
     // tree view, rebuilds the force simulation).
     let searchTimer;
     searchInput.addEventListener('input', () => {
@@ -1141,7 +1189,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const bibtex = `@misc{pfms2026,\n  author = {Chanda, Dibaloke},\n  title = {Pathology Foundation Models (PFMs)},\n  year = {2026},\n  publisher = {GitHub},\n  journal = {GitHub repository},\n  howpublished = {\\url{https://github.com/dibalokechanda/PFMs}}\n}`;
             navigator.clipboard.writeText(bibtex).then(() => {
                 const originalText = bibtexBtn.innerHTML;
-                bibtexBtn.innerHTML = '<i class="ph ph-check"></i> Copied!';
+                bibtexBtn.innerHTML = '<i aria-hidden="true" class="ph ph-check"></i> Copied!';
                 setTimeout(() => { bibtexBtn.innerHTML = originalText; }, 2000);
             });
         });
@@ -1163,7 +1211,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     '  "idea": "One-sentence key idea of the model",',
                     '  "paper": "https://arxiv.org/abs/2601.00000",',
                     '  "github": "https://github.com/...",',
-                    '  "hf": "https://huggingface.co/..."',
+                    '  "hf": "https://huggingface.co/...",',
+                    '  "bibtex": "@misc{yourmodel2026, title={Your model}, author={Authors}, year={2026}}"',
                     '}'
                 ].join('\n');
                 ov = document.createElement('div');
@@ -1171,22 +1220,22 @@ document.addEventListener('DOMContentLoaded', () => {
                 ov.className = 'contrib-overlay';
                 ov.innerHTML =
                     '<div class="contrib-panel">' +
-                        '<div class="contrib-head"><h3><i class="ph ph-git-pull-request"></i> Contribute a paper</h3><button class="close-contrib" aria-label="Close">&times;</button></div>' +
+                        '<div class="contrib-head"><h3><i aria-hidden="true" class="ph ph-git-pull-request"></i> Contribute a paper</h3><button class="close-contrib" aria-label="Close">&times;</button></div>' +
                         '<div class="contrib-body">' +
-                            '<p>The whole catalog is generated from a single file, <code>data.js</code>: each entry is one object inside its category\'s array. Adding a paper is a small edit plus a pull request:</p>' +
+                            '<p>Start with the primary catalog in <code>data.js</code>: each entry is one object inside its category\'s array. Adding a paper is a small edit plus a pull request:</p>' +
                             '<ol class="contrib-steps">' +
                                 '<li><strong>Open <code>data.js</code></strong> and find the category array your paper belongs to.</li>' +
-                                '<li><strong>Add an entry</strong> in the existing format (example below). Only <code>name</code>, <code>year</code>, <code>idea</code> and <code>paper</code> are required; everything else is optional.</li>' +
-                                '<li><strong>(Optional)</strong> run <code>node sync.js</code> to regenerate <code>README.md</code> and <code>references.bib</code>.</li>' +
+                                '<li><strong>Add an entry</strong> in the existing format (example below), including <code>name</code>, <code>year</code>, <code>idea</code>, <code>paper</code> and <code>bibtex</code>. For grouped categories, also set <code>subcategory</code>.</li>' +
+                                '<li><strong>Run <code>npm run sync</code> and <code>npm test</code></strong> to update and verify the catalog, bibliography, counts and social preview.</li>' +
                                 '<li><strong>Open a pull request</strong>. Done: The site rebuilds itself from <code>data.js</code>.</li>' +
                             '</ol>' +
                             '<pre class="contrib-code">' + example.replace(/&/g, '&amp;').replace(/</g, '&lt;') + '</pre>' +
                             '<div class="contrib-actions">' +
-                                '<a href="' + REPO + '/edit/main/data.js" target="_blank" class="action-btn action-btn-primary"><i class="ph ph-pencil-simple"></i> Edit data.js</a>' +
-                                '<a href="' + REPO + '/blob/main/data.js" target="_blank" class="action-btn"><i class="ph ph-file-code"></i> View data.js</a>' +
-                                '<a href="' + REPO + '/pulls" target="_blank" class="action-btn"><i class="ph ph-git-pull-request"></i> Pull requests</a>' +
+                                '<a href="' + REPO + '/edit/main/data.js" target="_blank" class="action-btn action-btn-primary"><i aria-hidden="true" class="ph ph-pencil-simple"></i> Edit data.js</a>' +
+                                '<a href="' + REPO + '/blob/main/data.js" target="_blank" class="action-btn"><i aria-hidden="true" class="ph ph-file-code"></i> View data.js</a>' +
+                                '<a href="' + REPO + '/pulls" target="_blank" class="action-btn"><i aria-hidden="true" class="ph ph-git-pull-request"></i> Pull requests</a>' +
                             '</div>' +
-                            '<p class="contrib-note"><i class="ph ph-info"></i> New to GitHub? The <strong>Edit data.js</strong> button opens GitHub\'s in-browser editor and will offer to fork the repo and open the pull request for you automatically.</p>' +
+                            '<p class="contrib-note"><i aria-hidden="true" class="ph ph-info"></i> New to GitHub? The <strong>Edit data.js</strong> button opens GitHub\'s in-browser editor and will offer to fork the repo and open the pull request for you automatically.</p>' +
                         '</div>' +
                     '</div>';
                 document.body.appendChild(ov);
