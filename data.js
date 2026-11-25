@@ -1906,6 +1906,32 @@ const modelData = [
         ],
         "paper_title": "CorePath: A Breast-Specialized Pathology Foundation Model for Core Needle Biopsy Diagnosis and Risk-Controlled Report Generation",
         "paper_author": "Yin"
+      },
+      {
+        "name": "CRISP",
+        "year": 2026,
+        "date": "2026-09-08",
+        "data": "81,667 frozen-section WSIs; ~50M patches",
+        "idea": "Specializes Virchow2 for intraoperative frozen-section pathology through DINO self-supervision with LoRA, updating ~2M of 633M parameters. Frozen patch features feed task-specific attention-based MIL classifiers, evaluated across retrospective diagnostic tasks and a three-center prospective observational cohort.",
+        "stains": "H&E (frozen sections; FFPE transfer evaluation)",
+        "github": "https://github.com/FT-ZHOU-ZZZ/CRISP",
+        "hf": "https://huggingface.co/FTZhou/CRISP",
+        "dataset": "https://huggingface.co/datasets/FTZhou/CRISP",
+        "paper": "https://doi.org/10.1038/s41591-026-04703-0",
+        "bibtex": "@article{zhao2026crisp,\n  title={A clinically oriented foundation model for intraoperative pathology},\n  author={Zihan Zhao and Fengtao Zhou and Ronggang Li and Bing Chu and Xinke Zhang and Xueyi Zheng and Ke Zheng and Xiaobo Wen and Jiabo Ma and Yihui Wang and Jiewei Chen and Chengyou Zheng and Jiangyu Zhang and Yongqin Wen and Jiajia Meng and Ziqi Zeng and Xiaoqing Li and Jing Li and Dan Xie and Yaping Ye and Yu Wang and Dan Huang and Yan Sun and Hao Chen and Muyan Cai},\n  journal={Nature Medicine},\n  year={2026},\n  doi={10.1038/s41591-026-04703-0},\n  url={https://doi.org/10.1038/s41591-026-04703-0},\n  note={Accepted 8 September 2026; online publication date not specified in the supplied article}\n}",
+        "audit_objective": "DINO teacher–student self-distillation with EMA teacher updates, applied to a Virchow2 backbone through LoRA adapters in attention query/value projections (rank 8, scaling factor 16). Approximately 2M parameters are trainable out of 633M total (~0.3%); other backbone weights remain frozen.",
+        "audit_wsis": "81,667 frozen-section WSIs for domain adaptation from SYCC, ZJH, JMH and TCGA. The full study collection comprises 103,797 frozen WSIs from 51,186 patients, including development and evaluation data; this total is not the pretraining set.",
+        "audit_patches": "Approximately 50M nonoverlapping 512×512-pixel patches at 0.25 µm/pixel, resized to 224×224 for the encoder. CLS and mean patch-token embeddings form 2,560-dimensional patch features. No color normalization was applied.",
+        "audit_organs": "25 major anatomical sites in the assembled corpus; retrospective evaluation spans 14 tumor types and 24 anatomical sites, including unseen sites and rare cancers. Prospective tasks include lung, thyroid, breast, lymph nodes and surgical margins.",
+        "audit_domain": "Parameter-efficient frozen-section domain adaptation of a tile-level vision encoder for intraoperative pathology; downstream slide-level ABMIL heads are trained separately.",
+        "audit_downstream": "Benign–malignant discrimination, early/mid/late intraoperative decisions, lymph-node metastasis and breast margin assessment, pan-cancer and rare-cancer detection, paired frozen/FFPE transfer, artifact robustness and patch-level linear probing.",
+        "audit_cohorts": "Adaptation: SYCC subset, ZJH, JMH and TCGA. Retrospective external cohorts include ZSH, NFH, GZH, HZH and DGH. Prospective observational evaluation: 3,064 patients at SYCC (2,071), FUSCC (516) and TCIH (477); a separate 100-case SYCC experiment evaluates simulated deployment.",
+        "audit_benchmark": "The paper reports 98 diagnostic tasks with comparisons to pathology foundation models including Virchow2, UNI, CONCH and Prov-GigaPath. Downstream comparisons use frozen encoders with the same task-specific ABMIL training protocol; prospective aggregators are transferred from retrospective development without task-specific fine-tuning.",
+        "audit_result": "Across 21 benign–malignant tasks: mean AUROC 0.970, accuracy 0.945 and F1 0.924. Across six prospective tasks: overall AUROC 0.975; external FUSCC/TCIH AUROCs 0.966/0.984. The evaluated CRISP–pathologist triage strategy reduces diagnostic workload by 34.9%. Micrometastasis detection is 7/8 cases (87.5%); this is a small subgroup. The authors also report surgical-decision support in 92.6% of cases and 105 ancillary tests avoided.",
+        "audit_notes": "Nature Medicine article supplied by the user; Zhao, Zhou and Li contributed equally. The timeline uses the stated acceptance date (8 September 2026), because the supplied proof leaves Published online as xx xx xxxx. Earlier preprint: arXiv:2510.04861 (2025), titled A Clinical-grade Universal Foundation Model for Intraoperative Pathology; the journal article is the primary citation. Clinical evaluation is prospective observational, not an interventional trial, and the registry entry (ChiCTR2500106350) was retrospective. Workload/ancillary-test findings describe the evaluated triage strategy and do not establish improved patient outcomes; prospective interventional and broader geographic/population validation remain necessary. The full institutional WSI collection is private and available by request subject to review; the public linear-probing subset contains about 35K annotated patches with 75 corresponding frozen WSIs. Code, weights and this evaluation subset are linked by both the article and the official repository.",
+        "paper_title": "A clinically oriented foundation model for intraoperative pathology",
+        "paper_author": "Zhao",
+        "type": "Frozen-section domain adaptation"
       }
     ]
   },
