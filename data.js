@@ -1814,6 +1814,31 @@ const modelData = [
         "paper_author": "Li",
         "audit_benchmark": "Frozen-embedding decoders compared with CHIEF, GigaPath and CLAM across genomic-instability and molecular tasks in FFPE/fresh-frozen cohorts; patient-level hold-out and cross-validation analyses; external signature associations in HCMI/PLCO; immunotherapy response in 32 patients",
         "audit_result": "Reported MSI AUC 0.96–0.98 in STAD, COAD and UCEC across FFPE/fresh-frozen cohorts; HRD AUC 0.71–0.89 and CIN AUC 0.70–0.95. Pan-cancer ecDNA AUC 0.89 ± 0.06 on held-out data. Immunotherapy-response AUC 0.70 and PR-AUC 0.79 versus GigaPath 0.64/0.71 and CHIEF 0.63/0.74. External HCMI/PLCO analyses reproduce lineage- and exposure-associated mutational-signature patterns."
+      },
+      {
+        "name": "SciCore-Omics",
+        "year": 2026,
+        "date": "2026-06-03",
+        "data": "151,182 image–gene–text spots; ~1.05M images overall",
+        "idea": "Tri-modal generative foundation model connecting histology, spatial transcriptomics and biological language. The approximately 8.5B-parameter model combines MiniCPM-V with a Nicheformer gene encoder and Q-Former; progressive image–text, gene–text and joint alignment supports molecular prediction and biological descriptions.",
+        "stains": "H&E",
+        "github": "https://github.com/OpenBMB/Scicore-Omics",
+        "hf": "https://huggingface.co/openbmb/SciCore-Omics",
+        "website": "https://huggingface.co/spaces/Alkaidxxy/SciCore-Omics",
+        "paper": "https://doi.org/10.64898/2026.05.30.728937",
+        "bibtex": "@article{xiao2026scicoreomics,\n  title={SciCore-Omics: a tri-modal foundation model unifying histology, spatial transcriptomics and language for spatial biology},\n  author={Xinyu Xiao and Yunfei Li and Zheni Zeng and Yukun Yan and Zhiyuan Liu and Zhenghao Liu and Yujia Xiang and Zhenbang Ye and Jianming Ying and Yang Li and Linhai Xie and Fuchu He},\n  journal={bioRxiv},\n  year={2026},\n  doi={10.64898/2026.05.30.728937},\n  url={https://doi.org/10.64898/2026.05.30.728937},\n  note={Version posted 3 June 2026}\n}",
+        "audit_objective": "Three-stage generative alignment: histology–text, gene–text and joint image–gene–text training. Biological descriptions verbalize structured marker-gene, pathway and tissue evidence; visual and molecular inputs share the language decoder’s token space.",
+        "audit_image_text": "The mixed training corpus contains approximately 1.05M images and 39.85M text sentences, including general text and vision–language data retained during joint training.",
+        "audit_image_omics": "151,182 spatially aligned H&E image–gene–text spot triplets for tri-modal joint training.",
+        "audit_omics": "Spatial transcriptomics; 51,602 gene–text pairs for Stage II alignment. Nicheformer embeddings are compressed into 32 gene tokens and combined with 64 visual tokens.",
+        "audit_organs": "Multiple tissues; evaluations include heart, cerebral cortex, breast, colorectal tissue and lymph nodes.",
+        "audit_domain": "Approximately 8.5B-parameter visual–omics–language model for spot-level spatial biology and histopathology reasoning.",
+        "audit_downstream": "Spatial gene-expression prediction, spatial domain recognition, transcriptome-to-language generation, zero-shot tissue classification, pathology VQA and a 10-case breast-cancer H&E reasoning pilot.",
+        "audit_cohorts": "Human Heart Cell Atlas (39 sections); human DLPFC (12 sections); MHIST, BACH, CRC100K/CRC-VAL-HE-7K, PatchCamelyon and PathVQA; internal 10-case breast pilot.",
+        "audit_benchmark": "Held-out-section evaluation for spatial tasks, four closed-set zero-shot H&E classification benchmarks, PathVQA and expert assessment of the breast pilot. Ki-67 IHC and reports are evaluation references rather than model inputs in the pilot.",
+        "audit_result": "Fine-tuned heart gene-expression prediction improves PCC by 23.6% and reduces MSE by 15.8% relative to OmiCLIP. Joint image–gene DLPFC embeddings achieve macro-F1 0.850 versus 0.470 for the strongest external embedding baseline. Mean zero-shot accuracy across four benchmarks is 56.46%, versus GPT-5 at 50.30% (+6.16 percentage points).",
+        "paper_title": "SciCore-Omics: a tri-modal foundation model unifying histology, spatial transcriptomics and language for spatial biology",
+        "paper_author": "Xiao"
       }
     ]
   },
