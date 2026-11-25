@@ -18,7 +18,7 @@
 
   <text x="80" y="478" font-family="'DejaVu Sans', Inter, sans-serif" font-size="30" fill="#4b5563">State-of-the-art models mapping the latent space of pathology.</text>
 
-  <text id="catalogCounts" x="80" y="524" font-family="'DejaVu Sans', Inter, sans-serif" font-size="23" fill="#9ca3af">179 entries · 17 categories · vision · language · multimodal · generative</text>
+  <text id="catalogCounts" x="80" y="524" font-family="'DejaVu Sans', Inter, sans-serif" font-size="23" fill="#9ca3af">180 entries · 17 categories · vision · language · multimodal · generative</text>
 
   <text x="80" y="588" font-family="'DejaVu Sans', Inter, sans-serif" font-size="22" fill="#6b7280">Dibaloke Chanda · Marquette University</text>
   <text x="1120" y="588" font-family="'DejaVu Sans', Inter, sans-serif" font-size="22" fill="#6366f1" font-weight="700" text-anchor="end">dibalokechanda.github.io/PFMs</text>

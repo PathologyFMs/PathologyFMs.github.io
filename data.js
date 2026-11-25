@@ -860,6 +860,28 @@ const modelData = [
         "audit_result": "Sinai SSL rank 8/11 in the supplied Histoboard snapshot; rankings depend on the benchmark version and included models. The official Mount Sinai repository's 26 November 2024 leaderboard reports SP22M overall mean AUC 0.976 on detection tasks and 0.737 on biomarker tasks across 20 Monte Carlo cross-validation splits.",
         "paper_title": "A clinical benchmark of public self-supervised pathology foundation models",
         "paper_author": "Campanella"
+      },
+      {
+        "name": "EXAONEPath 1.0",
+        "year": 2024,
+        "date": "2024-08-22",
+        "data": "34,795 public WSIs; 285M patches",
+        "idea": "Combines Macenko stain normalization with DINO pretraining to reduce WSI-specific feature collapse, where patch features cluster by their slide of origin. An 86M-parameter ViT-B/16 learns tile representations from 285M public H&E patches.",
+        "stains": "H&E",
+        "github": "https://github.com/LG-AI-EXAONE/EXAONEPath",
+        "hf": "https://huggingface.co/LGAI-EXAONE/EXAONEPath",
+        "paper": "https://arxiv.org/abs/2408.00380",
+        "bibtex": "@article{yun2024exaonepath,\n  title={EXAONEPath 1.0 Patch-level Foundation Model for Pathology},\n  author={Juseung Yun and Yi Hu and Jinhyung Kim and Jongseong Jang and Soonyoung Lee},\n  journal={arXiv preprint arXiv:2408.00380},\n  year={2024},\n  eprint={2408.00380},\n  archivePrefix={arXiv},\n  primaryClass={cs.LG},\n  url={https://arxiv.org/abs/2408.00380},\n  note={Version 3, 22 August 2024}\n}",
+        "audit_objective": "DINO self-distillation with an ImageNet-initialized ViT-B/16. Macenko stain normalization is applied to every patch before DINO augmentations, including eight local crops.",
+        "audit_wsis": "34,795 publicly available FFPE H&E whole-slide images.",
+        "audit_patches": "285,153,903 non-overlapping tissue patches. Extraction windows match the field of view of 256×256 pixels at 0.5 µm/pixel; native pixel sizes are retained before DINO cropping.",
+        "audit_domain": "Tile-level FFPE H&E representations using an 86M-parameter ViT-B/16.",
+        "audit_organs": "Downstream evaluation covers breast lymph-node metastases, colorectal polyps, colorectal and gastric cancers, and pan-cancer tumour-infiltrating lymphocytes.",
+        "audit_downstream": "Frozen-feature linear probing for metastatic tissue, colorectal polyp/tissue classification, TIL detection and colorectal/gastric microsatellite-instability prediction.",
+        "audit_benchmark": "Six patch-level datasets: PCAM, MHIST, CRC-100K, TIL Detection, MSI-CRC and MSI-STAD. Macenko normalization is used during both probe training and evaluation; most comparator values are taken from the RudolfV paper.",
+        "audit_result": "Mean linear-probe Top-1 accuracy 86.1%: PCAM 90.1%, MHIST 81.8%, CRC-100K 94.6%, TIL Detection 93.9%, MSI-CRC 75.6% and MSI-STAD 80.4%.",
+        "paper_title": "EXAONEPath 1.0 Patch-level Foundation Model for Pathology",
+        "paper_author": "Yun"
       }
     ]
   },
