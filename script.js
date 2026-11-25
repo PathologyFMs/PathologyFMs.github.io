@@ -205,7 +205,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function getFamilyInfo(category) {
         const catLower = category.toLowerCase();
         if (catLower.includes('tile-level')) return { text: 'vision SSL', color: 'blue' };
-        if (catLower.includes('slide-level')) return { text: 'multimodal', color: 'teal' };
+        if (catLower.includes('slide-level')) return { text: 'slide encoder', color: 'teal' };
+        if (catLower.includes('patient-level')) return { text: 'patient / longitudinal', color: 'pink' };
         if (catLower.includes('vision-language')) return { text: 'vision-language', color: 'purple' };
         if (catLower.includes('generative')) return { text: 'generative', color: 'pink' };
         if (catLower.includes('fusion')) return { text: 'fusion', color: 'teal' };
@@ -428,10 +429,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Render Data
-    // Distinct per-category palette for the spiral timeline (14 categories).
+    // Distinct per-category palette for timelines and tree views.
     const SPIRAL_COLORS = {
         'Tile-Level Vision Foundation Models': '#3b82f6',
-        'Slide-Level & Patient-Level Foundation Models': '#14b8a6',
+        'Slide-Level Foundation Models': '#14b8a6',
+        'Patient-Level & Longitudinal Foundation Models': '#f472b6',
         'Vision-Language Foundation Models': '#a855f7',
         'Multimodal & Molecular Foundation Models': '#22c55e',
         'Task & Domain Adaptation': '#06b6d4',
