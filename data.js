@@ -862,7 +862,7 @@ const modelData = [
     ]
   },
   {
-    "category": "Cell-Level Histopathology Foundation Models",
+    "category": "Cell Level Histopathology Foundation Models",
     "models": [
       {
         "name": "PAST",

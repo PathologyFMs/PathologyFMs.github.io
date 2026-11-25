@@ -6,7 +6,7 @@ const modelData = require('./data.js');
 
 const emojiMap = {
     "Tile-Level Vision Foundation Models": "🔬",
-    "Cell-Level Histopathology Foundation Models": "🧫",
+    "Cell Level Histopathology Foundation Models": "🧫",
     "Slide-Level Foundation Models": "🧬",
     "Patient-Level & Longitudinal Foundation Models": "👤",
     "Vision-Language Foundation Models": "👁️‍🗨️",

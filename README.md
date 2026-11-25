@@ -45,7 +45,7 @@ A comprehensive, curated summary of state-of-the-art foundation models mapping t
 
 ---
 
-## 🧫 Cell-Level Histopathology Foundation Models
+## 🧫 Cell Level Histopathology Foundation Models
 
 | Model | Year | Pretraining Data | Key Idea | Resources |
 |---|---|---|---|---|
