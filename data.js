@@ -2083,6 +2083,58 @@ const modelData = [
         "audit_notes": "Based on arXiv v1 dated 3 September 2026. The encoder has 473.70M parameters; the complete deployed system has 479.40M including its task components. This is compression, not a new from-scratch foundation encoder or a distilled student. Architecture and operating configuration are locked using training/validation data before internal/external testing. Internal partitions are reported at image level. The 32-class internal task and two-class external evaluation are different settings; higher external raw accuracy does not establish universal 32-class transfer, and Hibou-B has higher raw CPTAC accuracy in the paper. Analytical FLOPs exclude end-to-end WSI loading, tissue detection, patch extraction and storage I/O. The reported 31.85 ms image-level latency is hardware/protocol-specific. Reliability metrics do not establish prospective clinical safety. No project repository or checkpoint URL is provided in the supplied PDF.",
         "paper_title": "TAP-Path: Task-Adaptive Structural and Token Pruning for Efficient and Trustworthy Pathology Foundation Models",
         "paper_author": "Hasan"
+      },
+      {
+        "name": "OMNI",
+        "year": 2026,
+        "date": "2026-10-08",
+        "data": "10M public TCGA tiles from ~10K WSIs; 10 frozen teachers",
+        "idea": "Scales multi-teacher distillation by learning one representation token per teacher rather than forcing all teachers into a single shared token. Teacher-specific attention, late mixture-of-experts layers and a per-teacher contrastive objective preserve complementary knowledge in a single student encoder; four released sizes span 7.3M–330M parameters.",
+        "stains": "H&E",
+        "github": "https://github.com/prism-oncology/omni",
+        "hf": "https://huggingface.co/collections/sofieneb/omni-models",
+        "website": "https://sofiene-boutaj.github.io/omni/",
+        "dataset": "https://huggingface.co/collections/sofieneb/pathology-foundation-model-features",
+        "paper": "https://arxiv.org/abs/2610.12574",
+        "bibtex": "@misc{boutaj2026omni,\n  title={Scaling Multi-Teacher Distillation for Digital Pathology},\n  author={Sofiène Boutaj and Pierre Marza and Varun Belagali and Dimitris Samaras and Maria Vakalopoulou and Stergios Christodoulidis},\n  year={2026},\n  eprint={2610.12574},\n  archivePrefix={arXiv},\n  primaryClass={cs.CV},\n  url={https://arxiv.org/abs/2610.12574}\n}",
+        "audit_objective": "Multi-teacher distillation with ten learnable teacher-specific tokens, teacher-specific attention masking, MoE layers in the final transformer blocks (five experts, top-two routing), reconstruction/patch supervision and per-teacher InfoNCE. Teacher tokens are mean-pooled for a single downstream representation; task-specific weighting is also examined with ABMIL.",
+        "audit_wsis": "Approximately 10,000 public TCGA WSIs used for distillation",
+        "audit_patches": "10M public TCGA tiles for student training. The separately linked released datasets contain pre-extracted foundation-model features from TCGA/CPTAC, not a claim that the complete raw distillation tile corpus is provided there.",
+        "audit_organs": "Multi-organ histopathology, including lung, breast, colon, kidney and brain",
+        "audit_downstream": "Tile classification, k-NN/few-shot evaluation, slide-level subtype and molecular-marker prediction, ABMIL aggregation, calibration and adversarial stress testing",
+        "audit_cohorts": "Tile-level: 13 non-TCGA-derived THUNDER datasets/tasks. Slide-level: 25 PathoBench classification tasks from 7 CPTAC cohorts (BRCA, CCRCC, COAD, GBM, LSCC, LUAD, UCEC), plus BRACS ABMIL evaluation.",
+        "audit_domain": "Efficient pathology vision encoders learned from heterogeneous frozen foundation-model teachers",
+        "audit_benchmark": "39 tile/slide tasks overall. Linear probing reports macro-F1 across 13 tile datasets and balanced accuracy across 25 CPTAC tasks; BRACS uses five-fold ABMIL evaluation. Ten teachers include H-optimus-1, Virchow2, UNI2-h, Prov-GigaPath, Kaiko-ViT-B/8, CONCH 1.5, Hibou-L, H0-mini, KEEP and general-purpose DINOv3-ViT-L/16.",
+        "audit_result": "OMNI-L reports tile-level linear-probe macro-F1 87.8% and slide-level balanced accuracy 63.5%, with a mean of those two averages of 75.7%. OMNI-B reports 87.1%/63.2%. Encoder compute ranges from 1.39 GFLOPs (T) to 67.45 GFLOPs (L); the paper reports up to 10× lower GFLOPs than larger teacher models. OMNI-L's reported PGD F1 drop is 16.1 percentage points and ECE is 2.8% under the stated THUNDER protocol.",
+        "audit_notes": "Based on supplied arXiv v1 dated 8 October 2026; the official repository identifies the work as NeurIPS 2026 Main Track. Boutaj and Marza contributed equally. Teachers remain frozen; deployment uses a single student encoder rather than running the teacher ensemble. Models output ten teacher-specific tokens, then aggregate them. Three TCGA-derived THUNDER datasets were excluded to reduce overlap with student training. Teacher/test overlap claims rely on publicly reported teacher training sources and do not independently audit unavailable proprietary corpora. The claimed efficiency factor concerns analytical GFLOPs, not a universal measured latency gain. More extensive task-specific token weighting and teacher-specific dense representations remain future work, and clinical validation is not established by these benchmark results. Numerical results here follow the supplied paper.",
+        "variants": [
+          {
+            "name": "OMNI-T",
+            "year": 2026,
+            "hf": "https://huggingface.co/sofieneb/omni-tiny",
+            "note": "7.3M parameters; 192-D aggregated embedding; reported 1.39 GFLOPs."
+          },
+          {
+            "name": "OMNI-S",
+            "year": 2026,
+            "hf": "https://huggingface.co/sofieneb/omni-small",
+            "note": "28.7M parameters; 384-D aggregated embedding; reported 5.48 GFLOPs."
+          },
+          {
+            "name": "OMNI-B",
+            "year": 2026,
+            "hf": "https://huggingface.co/sofieneb/omni-base",
+            "note": "114M parameters; 768-D aggregated embedding; reported 21.8 GFLOPs."
+          },
+          {
+            "name": "OMNI-L",
+            "year": 2026,
+            "hf": "https://huggingface.co/sofieneb/omni-large",
+            "note": "330M parameters; 1,024-D aggregated embedding; reported 67.45 GFLOPs."
+          }
+        ],
+        "paper_title": "Scaling Multi-Teacher Distillation for Digital Pathology",
+        "paper_author": "Boutaj"
       }
     ]
   },
